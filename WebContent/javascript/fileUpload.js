@@ -40,11 +40,55 @@ function loadUploader() {
 		return false;
 	};
 	holder.ondrop = function(e) {
-		this.className = '';
+		// this.className = '';
+		// e.preventDefault();
+		// readfiles(e.dataTransfer.files);
+
 		e.preventDefault();
-		readfiles(e.dataTransfer.files);
+		e.stopPropagation();
+
+		var files = e.dataTransfer.files;
+		for (var i = 0; i < files.length; i++) {
+			var file = files[i];
+			
+			playAlex(file, e);
+			
+			//var reader = new FileReader();
+			//reader.addEventListener('load', function(e) {
+			//	var data = e.target.result
+		//		context.decodeAudioData(data, function(buffer) {
+		//			playSound(buffer)
+		//		})
+		//	})
+		//	reader.readAsArrayBuffer(file)
+		}
+
 	}
 }
+
+function playAlex(file, e)
+{
+	console.log("Hello");
+	
+	var audio = new Audio();
+	audio.src = 'myfile.mp3';
+	audio.controls = true;
+	audio.autoplay = true;
+	document.body.appendChild(audio);
+	
+}
+
+
+var source;
+
+var playSound = function(buffer) {
+	source = context.createBufferSource();
+	source.buffer = buffer;
+	source.connect(context.destination);
+	source.start(0);
+}
+
+var context = new AudioContext();
 
 function updateConsole(text) {
 	var holder = document.getElementById('fileUploadHolder');
@@ -53,9 +97,8 @@ function updateConsole(text) {
 }
 function clearConsole(text) {
 	var holder = document.getElementById('fileUploadHolder');
-	holder.innerHTML ="";
+	holder.innerHTML = "";
 }
-
 
 function extractTags(file, formData) {
 	var url = file.urn || file.name;
@@ -103,6 +146,11 @@ function extractTags(file, formData) {
 function functionToCallWhenID3TagRead(tags, formData) {
 	if (tags.tXxxLyricsValid && tags.tXxxWavPointsValid) {
 		updateConsole("<p class='good'>* Found valid tags</p>");
+		console.log(formData.get('file').name);
+
+		var audio = document.getElementById('sound');
+		audio.src = formData.get('file').name;
+
 		console.log(tags);
 	} else {
 		updateConsole('<p>* No valid tags found</p>');
