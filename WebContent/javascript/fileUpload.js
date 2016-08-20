@@ -1,0 +1,147 @@
+function loadUploader() {
+	console.log("Loading Uploader");
+
+	var holder = document.getElementById('fileUploadHolder');
+
+	var progress = document.getElementById('uploadprogress'), fileupload = document
+			.getElementById('upload');
+
+	function readfiles(files) {
+		var formData = new FormData();
+		var file;
+		for (var i = 0; i < files.length; i++) {
+			file = files[i]
+			if (i == 0) { // only allow 1 file at a time
+				if (file.type.split("/")[0] === "audio") {
+					if (file.size < (15 * 1024 * 1024)) {
+						formData.append('file', file);
+						extractTags(file, formData);
+					} else {
+						updateConsole("<p class='bad'>* The maximum file size is 15 Mb.  This file is: '+ parseFloat((file.size / 1024 / 1024)).toFixed(2) + ' Mb</p>");
+					}
+				} else {
+					updateConsole("<p class='bad'>* This is not an audio file: <i>"
+							+ file.name + "</i>.  Please try again..</p>");
+				}
+
+			}
+		}
+	}
+	holder.ondragover = function() {
+		this.className = 'hover';
+		return false;
+	};
+	holder.ondragend = function() {
+		this.className = '';
+		return false;
+	};
+	holder.ondragleave = function() {
+		this.className = '';
+		return false;
+	};
+	holder.ondrop = function(e) {
+		this.className = '';
+		e.preventDefault();
+		readfiles(e.dataTransfer.files);
+	}
+}
+
+function updateConsole(text) {
+	var holder = document.getElementById('fileUploadHolder');
+	holder.innerHTML += text;
+	$('#fileUploadHolder').scrollTop($('#fileUploadHolder')[0].scrollHeight);
+}
+
+function extractTags(file, formData) {
+	var url = file.urn || file.name;
+	var tXxxDescription;
+	var tXxxWavPointsDescription = "LYRICRECORDER.COM_WAVPOINTS_0.0.1";
+	var tXxxLyricsDescription = "LYRICRECORDER.COM";
+	var tXxxWavPointsValue;
+	var tXxxLyricsValue;
+	var tXxxWavPointsValid = false;
+	var tXxxLyricsValid = false;
+	
+	ID3.loadTags(url, function() {
+		var tags = ID3.getAllTags(url);
+		
+		if (tags.TXXX) {
+			for (var i = 0; i < tags.TXXX.length; i++) {
+				tXxxDescription = tags.TXXX[i].data.description;
+				if (tXxxDescription == tXxxWavPointsDescription) {
+					tXxxWavPointsValue = tags.TXXX[i].data.text;
+					tXxxWavPointsValid = true;
+				} else if (tXxxDescription == tXxxLyricsDescription) {
+					tXxxLyricsValue = tags.TXXX[i].data.text;
+					tXxxLyricsValid = true;
+				}
+			}
+		}
+		var results = {
+			album : tags.album,
+			artist : tags.artist,
+			title : tags.title,
+			tXxxWavPointsValue : tXxxWavPointsValue,
+			tXxxLyricsValue : tXxxLyricsValue,
+			tXxxWavPointsValid : tXxxWavPointsValid,
+			tXxxLyricsValid : tXxxLyricsValid
+
+		};
+		functionToCallWhenID3TagRead(results, formData)
+	}, {
+		dataReader : ID3.FileAPIReader(file)
+	});
+}
+
+function functionToCallWhenID3TagRead(tags, formData) {
+	if (tags.tXxxLyricsValid && tags.tXxxWavPointsValid) {
+		updateConsole("<p class='good'>* Found valid tags</p>");
+		console.log(tags);
+	} else {
+		updateConsole('<p>* No valid tags found</p>');
+		performUpload(formData);
+	}
+
+}
+
+function performUpload(formData) {
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', './FileUpload');
+	xhr.onload = function(progressEvent) {
+		// progress.value = progress.innerHTML = 100;
+		updateConsole('<p>* Step 3/3 Downloading file and preparing interface</p>');
+		var json = JSON.parse(progressEvent.target.response);
+		console.log(json);
+		console.log(json.uniqueId);
+		addTrack(json.uniqueId, json.title)
+
+		// Only do this when runnign in eclipse!!!!
+		updateConsole('<p>* Waiting for eclipse to refresh ...</p>');
+		setTimeout(function() {
+			loadATrack(json.uniqueId);
+			$('#trackTitle').html(json.title);
+			$('#trackArtist').html(json.artist);
+			$('#trackAlbum').html(json.album);
+			holder.innerHTML += '<p>Processing Complete ...</p>';
+		}, 5000);
+	};
+
+	xhr.onerror = function(event) {
+		updateConsole('<p class=\'bad\'>* An error occurred with the upload. Please try again.</p>');
+	};
+
+	xhr.upload.onprogress = function(event) {
+		if (event.lengthComputable) {
+			var complete = (event.loaded / event.total * 100 | 0);
+			progress.value = progress.innerHTML = complete;
+			console.log(complete);
+			if (complete == 100) {
+				holder.innerHTML += '<p>Step 2/3 - Generating Waveform and coonverting file.  This process usually takes around 10 seconds, but may take longer depending on current server load.</p>';
+			}
+		}
+	}
+
+	formData.append('userId', 'hawkesa');
+	xhr.send(formData);
+
+}

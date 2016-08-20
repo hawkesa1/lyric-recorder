@@ -1,0 +1,37 @@
+body {
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+	background-color:white;
+	
+	font-family: Rosario, sans-serif;
+	text-rendering: optimizeLegibility;
+}
+
+#headerContainer {
+	width: 100%;
+	background-color: black;
+	//border-bottom: 1px solid #33ff33;
+	height: 40px;
+}
+
+#headerTitle {
+
+	font-size: 24px;
+	font-weight: 300;
+	height: 40px;
+	letter-spacing: 0px;
+	line-height: 40px;
+	margin: 0 auto;
+	width: 802px;
+	color:white;
+}
+
+#mainContainer {
+	margin: 0 auto;
+	margin-top:20px;
+	width: 800px;
+	//border: 1px solid #33ff33;
+	height: 800px;
+	background-color:white;
+}

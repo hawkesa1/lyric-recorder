@@ -1,0 +1,46 @@
+#fileUploadHolder {
+	border: 2px dashed #ccc;
+	width: 792px;
+	height: 100px;
+	overflow-y: scroll;
+}
+#fileUploadHolder.hover {
+	border: 2px dashed #0c0;
+	background-color:#ccffcc;
+}
+#fileUploadHolder.error {
+	border: 2px dashed red;
+	background-color:#ffb3b3;
+}
+
+#fileUploadHolder p {
+	margin: 10px;
+	font-size: 12px;
+}
+#fileUploadHolder p.good {
+	color:green;
+}
+#fileUploadHolder p.bad {
+	font-weight:bold;
+	color:red;
+}
+
+progress {
+	margin-top:10px;
+	width: 800px;
+	height: 25px;
+}
+
+progress:after {
+	content: '';
+}
+
+.fail {
+	background: #c00;
+	padding: 2px;
+	color: #fff;
+}
+
+.hidden {
+	display: none !important;
+}
