@@ -3,10 +3,8 @@ function loadUploader() {
 
 	var holder = document.getElementById('fileUploadHolder');
 
-	var progress = document.getElementById('uploadprogress'), fileupload = document
-			.getElementById('upload');
-
 	function readfiles(files) {
+		clearConsole();
 		var formData = new FormData();
 		var file;
 		for (var i = 0; i < files.length; i++) {
@@ -15,6 +13,8 @@ function loadUploader() {
 				if (file.type.split("/")[0] === "audio") {
 					if (file.size < (15 * 1024 * 1024)) {
 						formData.append('file', file);
+						updateConsole('<p>* Reading file: ' + file.name
+								+ '</p>');
 						extractTags(file, formData);
 					} else {
 						updateConsole("<p class='bad'>* The maximum file size is 15 Mb.  This file is: '+ parseFloat((file.size / 1024 / 1024)).toFixed(2) + ' Mb</p>");
@@ -51,6 +51,11 @@ function updateConsole(text) {
 	holder.innerHTML += text;
 	$('#fileUploadHolder').scrollTop($('#fileUploadHolder')[0].scrollHeight);
 }
+function clearConsole(text) {
+	var holder = document.getElementById('fileUploadHolder');
+	holder.innerHTML ="";
+}
+
 
 function extractTags(file, formData) {
 	var url = file.urn || file.name;
@@ -61,10 +66,12 @@ function extractTags(file, formData) {
 	var tXxxLyricsValue;
 	var tXxxWavPointsValid = false;
 	var tXxxLyricsValid = false;
-	
+
+	updateConsole('<p>* Checking for existing tags</p>');
+
 	ID3.loadTags(url, function() {
 		var tags = ID3.getAllTags(url);
-		
+
 		if (tags.TXXX) {
 			for (var i = 0; i < tags.TXXX.length; i++) {
 				tXxxDescription = tags.TXXX[i].data.description;
@@ -105,25 +112,38 @@ function functionToCallWhenID3TagRead(tags, formData) {
 }
 
 function performUpload(formData) {
+	updateConsole('<p id=\'fileUploadProgress\'>* Step 1/3 Uploading file to server 0%</p>');
 	var xhr = new XMLHttpRequest();
 	xhr.open('POST', './FileUpload');
 	xhr.onload = function(progressEvent) {
 		// progress.value = progress.innerHTML = 100;
-		updateConsole('<p>* Step 3/3 Downloading file and preparing interface</p>');
-		var json = JSON.parse(progressEvent.target.response);
-		console.log(json);
-		console.log(json.uniqueId);
-		addTrack(json.uniqueId, json.title)
+		var fileConversionProgress = document
+				.getElementById('fileConversionProgress');
+		fileConversionProgress.innerHTML = "* Step 2/3 Converting file 100%";
+		window.clearInterval(conversionIntervalFunction);
+		conversionProgress = 0;
 
-		// Only do this when runnign in eclipse!!!!
-		updateConsole('<p>* Waiting for eclipse to refresh ...</p>');
-		setTimeout(function() {
-			loadATrack(json.uniqueId);
-			$('#trackTitle').html(json.title);
-			$('#trackArtist').html(json.artist);
-			$('#trackAlbum').html(json.album);
-			holder.innerHTML += '<p>Processing Complete ...</p>';
-		}, 5000);
+		updateConsole('<p>* Step 3/3 Downloading file and preparing interface</p>');
+		if (progressEvent.target.response == "ERROR") {
+			console.log("Some sort of error occurred");
+			updateConsole("<p class='bad'>* An error occurred during the conversion process</p>");
+		} else {
+			var json = JSON.parse(progressEvent.target.response);
+			console.log(json);
+			console.log(json.uniqueId);
+			addTrack(json.uniqueId, json.title)
+
+			// Only do this when runnign in eclipse!!!!
+			updateConsole('<p>* Waiting for eclipse to refresh ...</p>');
+			setTimeout(function() {
+				loadATrack(json.uniqueId);
+				$('#trackTitle').html(json.title);
+				$('#trackArtist').html(json.artist);
+				$('#trackAlbum').html(json.album);
+				holder.innerHTML += '<p>Processing Complete ...</p>';
+			}, 5000);
+		}
+
 	};
 
 	xhr.onerror = function(event) {
@@ -133,15 +153,32 @@ function performUpload(formData) {
 	xhr.upload.onprogress = function(event) {
 		if (event.lengthComputable) {
 			var complete = (event.loaded / event.total * 100 | 0);
-			progress.value = progress.innerHTML = complete;
+			var holder = document.getElementById('fileUploadProgress');
+			holder.innerHTML = "* Step 1/3 Uploading file to server "
+					+ complete + "%";
 			console.log(complete);
+			// window.clearTimeout(timeoutFunction);
+
 			if (complete == 100) {
-				holder.innerHTML += '<p>Step 2/3 - Generating Waveform and coonverting file.  This process usually takes around 10 seconds, but may take longer depending on current server load.</p>';
+				updateConsole('<p id=\'fileConversionProgress\'>* Step 2/3 Converting file 0%</p>');
+				conversionIntervalFunction = setInterval(
+						function() {
+							var fileConversionProgress = document
+									.getElementById('fileConversionProgress');
+							conversionProgress += 1;
+							fileConversionProgress.innerHTML = "* Step 2/3 Converting file "
+									+ conversionProgress + "%";
+							if (conversionProgress >= 100) {
+								window
+										.clearInterval(conversionIntervalFunction);
+							}
+						}, 100);
 			}
 		}
 	}
-
 	formData.append('userId', 'hawkesa');
 	xhr.send(formData);
-
 }
+
+var conversionProgress = 0;
+var conversionIntervalFunction;

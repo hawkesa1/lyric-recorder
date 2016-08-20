@@ -58,11 +58,14 @@ public class FileUpload extends HttpServlet {
 				} else {
 					try {
 						mp3MetaData = processUploadedFile(item, currentTime);
+						if (mp3MetaData != null) {
+							MP3MetaData.writeMP3MetaDataToDisk(mp3MetaData);
+						}
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-					MP3MetaData.writeMP3MetaDataToDisk(mp3MetaData);
+
 					if (userId == null) {
 						// got to fix thsi bit!
 						userId = "hawkesa";
@@ -81,27 +84,33 @@ public class FileUpload extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
-		response.getWriter().write(mp3MetaData.toJSON());
+
+		if (mp3MetaData != null) {
+			response.getWriter().write(mp3MetaData.toJSON());
+		} else {
+			response.getWriter().write("ERROR");
+		}
 	}
 
 	private MP3MetaData processUploadedFile(FileItem item, String currentTime)
 			throws IOException, UnsupportedAudioFileException, InterruptedException {
 		String ext = FilenameUtils.getExtension(item.getName());
 		String filePath1 = Locations.ORIGINAL_UPLOAD + currentTime + "." + ext;
-		
+
 		// Write the uploaded file to disk
 		FileActivities.writeUploadedFileToDisk(item, filePath1);
-		
+
 		// Convert the file
 		AudioConversion audioConversion = new AudioConversion();
 		try {
 			audioConversion.processFile(currentTime, ext, Locations.RESOURCES_FOLDER);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			return null;
 		}
-		
-		//Read the metadata
+
+		// Read the metadata
 		MP3MetaData mp3MetaData = readMP3MetaData(currentTime, ext);
 		return mp3MetaData;
 	}
