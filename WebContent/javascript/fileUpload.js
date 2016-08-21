@@ -1,6 +1,5 @@
 function loadUploader() {
 	console.log("Loading Uploader");
-
 	var holder = document.getElementById('fileUploadHolder');
 
 	function readfiles(files) {
@@ -40,55 +39,25 @@ function loadUploader() {
 		return false;
 	};
 	holder.ondrop = function(e) {
-		// this.className = '';
-		// e.preventDefault();
-		// readfiles(e.dataTransfer.files);
-
+		this.className = '';
 		e.preventDefault();
-		e.stopPropagation();
-
-		var files = e.dataTransfer.files;
-		for (var i = 0; i < files.length; i++) {
-			var file = files[i];
-			
-			playAlex(file, e);
-			
-			//var reader = new FileReader();
-			//reader.addEventListener('load', function(e) {
-			//	var data = e.target.result
-		//		context.decodeAudioData(data, function(buffer) {
-		//			playSound(buffer)
-		//		})
-		//	})
-		//	reader.readAsArrayBuffer(file)
-		}
+		readfiles(e.dataTransfer.files);
 
 	}
 }
 
-function playAlex(file, e)
-{
-	console.log("Hello");
-	
-	var audio = new Audio();
-	audio.src = 'myfile.mp3';
-	audio.controls = true;
-	audio.autoplay = true;
-	document.body.appendChild(audio);
-	
+function audioContextCheck() {
+	if (typeof AudioContext !== "undefined") {
+		return new AudioContext();
+	} else if (typeof webkitAudioContext !== "undefined") {
+		return new webkitAudioContext();
+	} else if (typeof mozAudioContext !== "undefined") {
+		return new mozAudioContext();
+	} else {
+		// oh dear not supported
+	}
 }
-
-
-var source;
-
-var playSound = function(buffer) {
-	source = context.createBufferSource();
-	source.buffer = buffer;
-	source.connect(context.destination);
-	source.start(0);
-}
-
-var context = new AudioContext();
+var context = audioContextCheck();
 
 function updateConsole(text) {
 	var holder = document.getElementById('fileUploadHolder');
@@ -137,21 +106,27 @@ function extractTags(file, formData) {
 			tXxxLyricsValid : tXxxLyricsValid
 
 		};
-		functionToCallWhenID3TagRead(results, formData)
+		functionToCallWhenID3TagRead(results, formData, file)
 	}, {
 		dataReader : ID3.FileAPIReader(file)
 	});
 }
+function fileUploadComplete(tags)
+{
+	loadWavForm(tags);	
+}
 
-function functionToCallWhenID3TagRead(tags, formData) {
+
+function functionToCallWhenID3TagRead(tags, formData, file) {
 	if (tags.tXxxLyricsValid && tags.tXxxWavPointsValid) {
 		updateConsole("<p class='good'>* Found valid tags</p>");
-		console.log(formData.get('file').name);
-
-		var audio = document.getElementById('sound');
-		audio.src = formData.get('file').name;
-
-		console.log(tags);
+		// var file=formData.get('file');
+		updateConsole("<p>* Loading track</p>");
+		var blob = window.URL || window.webkitURL;
+		fileURL = blob.createObjectURL(file);
+		document.getElementById('audio').src = fileURL;
+		updateConsole("<p>* Loaded track</p>");
+		fileUploadComplete(tags);
 	} else {
 		updateConsole('<p>* No valid tags found</p>');
 		performUpload(formData);
