@@ -1,7 +1,6 @@
 function loadUploader() {
 	console.log("Loading Uploader");
 	var holder = document.getElementById('fileUploadHolder');
-
 	function readfiles(files) {
 		clearConsole();
 		var formData = new FormData();
@@ -42,7 +41,6 @@ function loadUploader() {
 		this.className = '';
 		e.preventDefault();
 		readfiles(e.dataTransfer.files);
-
 	}
 }
 
@@ -73,9 +71,11 @@ function extractTags(file, formData) {
 	var url = file.urn || file.name;
 	var tXxxDescription;
 	var tXxxWavPointsDescription = "LYRICRECORDER.COM_WAVPOINTS_0.0.1";
-	var tXxxLyricsDescription = "LYRICRECORDER.COM";
+	var tXxxLyricsDescription = "LYRICRECORDER.COM_LYRICS_0.0.1";
+	var tXxxSongId = "LYRICRECORDER.COM_SONG_ID";
 	var tXxxWavPointsValue;
 	var tXxxLyricsValue;
+	var tXxxSongIdValue;
 	var tXxxWavPointsValid = false;
 	var tXxxLyricsValid = false;
 
@@ -83,7 +83,7 @@ function extractTags(file, formData) {
 
 	ID3.loadTags(url, function() {
 		var tags = ID3.getAllTags(url);
-
+		console.log(tags);
 		if (tags.TXXX) {
 			for (var i = 0; i < tags.TXXX.length; i++) {
 				tXxxDescription = tags.TXXX[i].data.description;
@@ -94,6 +94,9 @@ function extractTags(file, formData) {
 					tXxxLyricsValue = tags.TXXX[i].data.text;
 					tXxxLyricsValid = true;
 				}
+				else if (tXxxDescription == tXxxSongId) {
+					tXxxSongIdValue = tags.TXXX[i].data.text;
+				}
 			}
 		}
 		var results = {
@@ -102,9 +105,9 @@ function extractTags(file, formData) {
 			title : tags.title,
 			tXxxWavPointsValue : tXxxWavPointsValue,
 			tXxxLyricsValue : tXxxLyricsValue,
+			tXxxSongIdValue : tXxxSongIdValue,
 			tXxxWavPointsValid : tXxxWavPointsValid,
 			tXxxLyricsValid : tXxxLyricsValid
-
 		};
 		functionToCallWhenID3TagRead(results, formData, file)
 	}, {
@@ -114,8 +117,21 @@ function extractTags(file, formData) {
 function fileUploadComplete(tags)
 {
 	loadWavForm(tags);	
+	resetStuff();
+	
+	lineArray=JSON.parse(tags.tXxxLyricsValue);
+	$('#lyrics').html(generateLyrics(lineArray));
+	addClickToLyrics();
+	
+	
+	console.log(tags);
+	console.log("CurrentSongIs"+tags.tXxxSongIdValue);
+	currentSongId = tags.tXxxSongIdValue;
+	audio.load();
+	audio.addEventListener('loadedmetadata', function() {
+		trackDuration = document.getElementById('audio').duration * 100;
+	});
 }
-
 
 function functionToCallWhenID3TagRead(tags, formData, file) {
 	if (tags.tXxxLyricsValid && tags.tXxxWavPointsValid) {
@@ -126,12 +142,19 @@ function functionToCallWhenID3TagRead(tags, formData, file) {
 		fileURL = blob.createObjectURL(file);
 		document.getElementById('audio').src = fileURL;
 		updateConsole("<p>* Loaded track</p>");
+		updatePageDetails(tags);
 		fileUploadComplete(tags);
 	} else {
 		updateConsole('<p>* No valid tags found</p>');
 		performUpload(formData);
 	}
+}
 
+function updatePageDetails(json)
+{
+	$('#trackTitle').html(json.title);
+	$('#trackArtist').html(json.artist);
+	$('#trackAlbum').html(json.album);
 }
 
 function performUpload(formData) {
@@ -145,7 +168,6 @@ function performUpload(formData) {
 		fileConversionProgress.innerHTML = "* Step 2/3 Converting file 100%";
 		window.clearInterval(conversionIntervalFunction);
 		conversionProgress = 0;
-
 		updateConsole('<p>* Step 3/3 Downloading file and preparing interface</p>');
 		if (progressEvent.target.response == "ERROR") {
 			console.log("Some sort of error occurred");
@@ -154,17 +176,17 @@ function performUpload(formData) {
 			var json = JSON.parse(progressEvent.target.response);
 			console.log(json);
 			console.log(json.uniqueId);
-			addTrack(json.uniqueId, json.title)
+			
+			
+			currentSongId=json.uniqueId;
 
 			// Only do this when runnign in eclipse!!!!
 			updateConsole('<p>* Waiting for eclipse to refresh ...</p>');
 			setTimeout(function() {
+				updatePageDetails(json);
 				loadATrack(json.uniqueId);
-				$('#trackTitle').html(json.title);
-				$('#trackArtist').html(json.artist);
-				$('#trackAlbum').html(json.album);
-				holder.innerHTML += '<p>Processing Complete ...</p>';
-			}, 5000);
+				updateConsole("<p class='good'>* Processing complete</p>");
+			}, ECLIPSE_FILE_WAIT);
 		}
 
 	};

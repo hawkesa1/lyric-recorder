@@ -2,6 +2,7 @@ function loadWavForm(tags)
 {
 	console.log('loading wav form');
 	generateWaveForm(tags.tXxxWavPointsValue);
+	
 }
 
 function generateWaveForm(text) {

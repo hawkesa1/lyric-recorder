@@ -1,0 +1,22 @@
+Upload a music file
+
+Check if it's a music file
+Check if it's under the maximum size
+Check if it contains lyrics meta
+Check if it contains wavform meta data
+If yes to both open the file in browser
+
+If no upload the file to browser
+Convert to wav
+Use wav to generate wavform coordinates
+Save wavform coordinates to file
+
+Convert to standard mp3
+Save standard mp3
+Save wavform coordinates in mp3
+
+Save file in converted mp3 folder
+
+
+
+

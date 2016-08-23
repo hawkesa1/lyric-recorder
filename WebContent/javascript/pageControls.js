@@ -1,6 +1,6 @@
 $(function() {
 	$("#save").click(function() {
-		saveLyrics(lineArrayToJSON(), "songId1");
+		saveLyrics(lineArrayToJSON(), currentSongId);
 	});
 });
 

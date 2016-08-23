@@ -1,14 +1,3 @@
-function lineArrayToJSON() {
-	return $.toJSON(lineArray);
-}
-
-
-function addTrack(trackId, trackName) {
-	console.log("Add Track: " + trackId + " " + trackName);
-	$('#loadTrack').append(
-			$("<option></option>").attr("value", trackId).text(trackName));
-}
-
 function changeCurrentPlayingWordId() {
 	$('.word').removeClass("wordPlaying");
 	if (currentPlayingWord) {
@@ -348,10 +337,7 @@ function generateLyrics(lines) {
 	return html;
 }
 
-function addTrack(trackId, trackName) {
-	$('#loadTrack').append(
-			$("<option></option>").attr("value", trackId).text(trackName));
-}
+
 
 var lastDrawTime = 0;
 var lastDrawPrintTime = 1;

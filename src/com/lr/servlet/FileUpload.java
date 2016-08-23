@@ -42,7 +42,6 @@ public class FileUpload extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		String currentTime = Long.toString(System.currentTimeMillis());
 		String userId = null;
 		MP3MetaData mp3MetaData = null;

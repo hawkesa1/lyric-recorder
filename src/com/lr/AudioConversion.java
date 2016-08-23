@@ -51,7 +51,7 @@ public class AudioConversion {
 		File queuedOriginalFormat = new File(
 				switchProcessQueue + "\\" + audioFileName + "." + sourceAudioFileExtension);
 		File convertedMp3 = new File(convertedMP3 + "\\" + audioFileName + "." + "MP3");
-		// copy file from the originial upload folder to the queue folder
+		// copy file from the original upload folder to the queue folder
 		FileUtils.copyFile(originalUpload, queuedOriginalFormat);
 
 		// Convert any audio format to a WAV file
@@ -80,7 +80,7 @@ public class AudioConversion {
 
 		try {
 			FileUtils.moveFile(generatedMp3, convertedMp3);
-			writeToMetaData(convertedMp3,"LYRICRECORDER.COM_WAVPOINTS_0.0.1",waveCoordinates);
+			writeToMetaData(convertedMp3,"LYRICRECORDER.COM_WAVPOINTS_0.0.1",waveCoordinates, audioFileName);
 		} catch (FileExistsException e) {
 			deleteFile(generatedMp3);
 		}
@@ -100,7 +100,7 @@ public class AudioConversion {
 		wavCoordinates = RESOURCES_FOLDER + "\\wavForm\\";
 	}
 	
-	private void writeToMetaData(File file, String description, Vector <Coordinate> coordinates) {
+	private void writeToMetaData(File file, String description, Vector <Coordinate> coordinates, String audioFileName) {
 		
 		StringBuilder sb=new StringBuilder();
 		for (Coordinate coordinate : coordinates) {
@@ -111,6 +111,7 @@ public class AudioConversion {
 		TagEditor tagEditor = new TagEditor();
 		try {
 			tagEditor.setCustomTag(file, description, sb.toString());
+			tagEditor.setCustomTag(file, "LYRICRECORDER.COM_SONG_ID", audioFileName);
 		} catch (CannotWriteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

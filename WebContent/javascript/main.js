@@ -3,7 +3,7 @@ var waveForm;
 var canvas1, context1;
 var touchDiv;
 var mp3Location = "./resources/convertedMp3/";
-var downloadableMp3Location = "./resources/convertedMp3/";
+var downloadableMp3Location = "./resources/downloadableMp3/";
 var audioTime;
 var lineArray = new Array();
 var onlyWordsArray = new Array();
@@ -65,6 +65,7 @@ var theFillColour="";
 var theLineColour="";
 var availableTracks = new Array();
 
+var ECLIPSE_FILE_WAIT=5000;
 
 
 $(document).ready(function($) {

@@ -1,0 +1,158 @@
+.wordSelected {
+	
+}
+
+.word {
+	font-family: Rosario, sans-serif;
+	font-size: 16px;
+	height: 16px;
+	letter-spacing: -1px;
+	line-height: 16px;
+	text-rendering: optimizeLegibility;
+	color: #818c8a;
+	font-weight: 50;
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Chrome/Safari/Opera */
+	-khtml-user-select: none; /* Konqueror */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+
+.wordBeingAdded {
+	color: #7FFF00;
+}
+
+.wordHasTime {
+	color: blue;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.wordPlaying {
+	text-decoration: underline;
+	color: #00ff00;
+}
+
+.nextWordToAdd {
+	color: orange;
+}
+
+.disabledButton {
+	opacity: 0.65;
+	cursor: not-allowed;
+}
+
+#lyricText {
+	overflow-y: scroll;
+	width: 100%;
+	height: 150px;
+	resize: none;
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	display:none;
+}
+
+#lyrics {
+	font-family: Arial;
+	font-size: 20px;
+	letter-spacing: -1px;
+	line-height: 30px;
+	text-rendering: optimizeLegibility;
+	background-color: none;
+	overflow-y: scroll;
+	width: 800px;
+	height: 150px;
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+}
+
+#wordInfo {
+	width: 400px;
+	height: 200px;
+	border: 1px solid black;
+	display: none;
+}
+
+#lyricButtonContainer {
+	margin-top: 20px;
+	background-color: #f1f1f1;
+	border: 0px;
+	padding-top: 5px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+	width: 790px;
+	height: 30px;
+}
+
+#lyricsContainer { //
+	
+	border: 0px;
+	margin-top: 0px;
+	
+	width: 800px;
+	overflow: none;
+}
+
+#canvasContainer {
+	width: 800px;
+	height: 335px;
+	border: 0px; //
+	padding-top: 5px; //
+	padding-bottom: 5px; //
+	
+}
+
+#currentWord {
+	display: none;
+	border: 0px solid blue;
+	width: 200px;
+	height: 50px;
+	font-size: 30px;
+	background-color: white;
+	opacity: 0.5;
+	align: center;
+}
+
+#fps {
+	display: none;
+}
+
+.hiddenTab {
+	display: none;
+}
+
+.visibleTab {
+	display: block;
+}
+
+#newTab {
+	
+}
+
+#currentTab {
+	
+}
+
+#loadTab {
+	
+}
+
+#audio {
+	display: none;
+}
+
+.button {
+	background-color: white; /* Green */
+	border: 1px solid #117dbb;
+	color: #117dbb;
+	width: 50px;
+	height: 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 10px;
+}

@@ -16,6 +16,7 @@ public class MP3MetaData {
 	private String artist;
 	private String album;
 	private String uniqueId;
+	private String downloadId;
 	private String unsynchronisedLyrics;
 	private String lyricRecorderSynchronisedLyrics;
 	HashMap<String, String> allTags;
@@ -35,6 +36,15 @@ public class MP3MetaData {
 	
 	
 	
+	
+	public String getDownloadId() {
+		return downloadId;
+	}
+
+	public void setDownloadId(String downloadId) {
+		this.downloadId = downloadId;
+	}
+
 	public String getLyricRecorderSynchronisedLyrics() {
 		return lyricRecorderSynchronisedLyrics;
 	}
