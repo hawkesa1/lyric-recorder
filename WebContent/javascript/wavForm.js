@@ -387,6 +387,8 @@ WaveForm.prototype.draw = function(time, ctx) {
 
 	}
 
+	
+	drawFace(isAWordPlaying);
 	if (!isAWordPlaying) {
 		if (currentPlayingWordId != "") {
 			currentPlayingWordId = "";

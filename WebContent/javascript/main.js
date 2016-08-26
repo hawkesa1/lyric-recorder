@@ -19,7 +19,6 @@ var currentPlayingWordId = "";
 var currentHoveredWordId = "";
 var currentDoubleClickedWordId = "";
 var currentPlayingWord;
-var wordCurrentlyPlaying = true;
 
 var startOfWordMouseDownX = 0;
 var endOfWordMouseDownX = 0;
@@ -73,6 +72,7 @@ $(document).ready(function($) {
 	loadUploader();
 	addCanvasToPage();
 	bindCanvasTouchControls();
+	drawFace(false);
 });
 
 function addCanvasToPage() {
