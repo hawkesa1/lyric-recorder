@@ -2,8 +2,7 @@ body {
 	border: 0px;
 	margin: 0px;
 	padding: 0px;
-	background-color:white;
-	
+	background-color:black;
 	font-family: Rosario, sans-serif;
 	text-rendering: optimizeLegibility;
 }
@@ -33,7 +32,7 @@ body {
 	width: 800px;
 	//border: 1px solid #33ff33;
 	height: 800px;
-	background-color:white;
+	background-color:black;
 }
 
 

@@ -46,38 +46,11 @@
 	</div>
 	<div id="mainContainer">
 		<div>
-
-			<canvas id="myCanvas" width="800px" height="150"></canvas>
-	
-			<div id="fileUploadHolder">
-				<p class="holderMessage">* Drag an audio file here to begin.
-					Maximum file size 15 Mb. Supported formats include: mp3, wav, wma,
-					m4a, mid, flac, mov, amr, aac, au, aif, raw, dvf, vox, cda</p>
-			</div>
-			<div id="trackDetails">
-				<table id="tracks">
-					<tr>
-						<th>Title</th>
-						<th>Artist</th>
-						<th>Album</th>
-						<td class="trackTableRight">&nbsp;</td>
-					</tr>
-					<tr>
-						<td width="20%"><span id="trackTitle">XXX</span></td>
-						<td width="20%"><span id="trackArtist">XXX</span></td>
-						<td width="20%"><span id="trackAlbum">XXX</span></td>
-						<td width="40%" class="trackTableRight">&nbsp;</td>
-					</tr>
-				</table>
-			</div>
-
-
+			
 			<div id="canvasContainer"></div>
 			<audio src="" controls id="audio">
 			</audio>
 		</div>
-
-
 		<div id="lyricButtonContainer">
 
 			<input id="enableLyricTextView" onclick="enableLyricTextView()"
@@ -85,14 +58,10 @@
 				id="enableLyricWordView" onclick="enableLyricWordView()"
 				class="button" value="Word" type="button"></input>
 		</div>
-
-
 		<div id="lyricsContainer">
 			<textarea id="lyricText"></textarea>
 			<div id="lyrics"></div>
 		</div>
-
-
 		<div class="controlButtonsContainer">
 			<div class="buttonType1ContainerLarge">
 				<a href="#" class="buttonType1" id="removePreviousWord">Remove
@@ -123,6 +92,30 @@
 
 		<div id="downloadableLink">&nbsp;</div>
 
+
+		<div id="fileUploadHolder">
+			<p class="holderMessage">* Drag an audio file here to begin.
+				Maximum file size 15 Mb. Supported formats include: mp3, wav, wma,
+				m4a, mid, flac, mov, amr, aac, au, aif, raw, dvf, vox, cda</p>
+		</div>
+		<div id="trackDetails">
+			<table id="tracks">
+				<tr>
+					<th>Title</th>
+					<th>Artist</th>
+					<th>Album</th>
+					<td class="trackTableRight">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="20%"><span id="trackTitle">XXX</span></td>
+					<td width="20%"><span id="trackArtist">XXX</span></td>
+					<td width="20%"><span id="trackAlbum">XXX</span></td>
+					<td width="40%" class="trackTableRight">&nbsp;</td>
+				</tr>
+			</table>
+		</div>
+		
+		<canvas id="myCanvas" width="800px" height="150"></canvas>
 	</div>
 </body>
 </html>

@@ -3,14 +3,14 @@
 }
 
 .word {
-	font-family: Rosario, sans-serif;
-	font-size: 16px;
-	height: 16px;
-	letter-spacing: -1px;
-	line-height: 16px;
-	text-rendering: optimizeLegibility;
-	color: #818c8a;
-	font-weight: 50;
+	
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-size: 22px;
+	font-style: normal;
+	font-variant: normal;
+	color:white;
+	
+	
 	-webkit-touch-callout: none; /* iOS Safari */
 	-webkit-user-select: none; /* Chrome/Safari/Opera */
 	-khtml-user-select: none; /* Konqueror */
@@ -25,9 +25,8 @@
 }
 
 .wordHasTime {
-	color: blue;
+	color: green;
 	cursor: pointer;
-	text-decoration: underline;
 }
 
 .wordPlaying {
@@ -47,7 +46,7 @@
 #lyricText {
 	overflow-y: scroll;
 	width: 100%;
-	height: 150px;
+	height: 100px;
 	resize: none;
 	padding: 0px;
 	margin: 0px;
@@ -56,15 +55,10 @@
 }
 
 #lyrics {
-	font-family: Arial;
-	font-size: 20px;
-	letter-spacing: -1px;
-	line-height: 30px;
-	text-rendering: optimizeLegibility;
 	background-color: none;
 	overflow-y: scroll;
 	width: 800px;
-	height: 150px;
+	height: 100px;
 	padding: 0px;
 	margin: 0px;
 	border: 0px;
@@ -79,7 +73,7 @@
 
 #lyricButtonContainer {
 	margin-top: 20px;
-	background-color: #f1f1f1;
+	background-color: none;
 	border: 0px;
 	padding-top: 5px;
 	padding-bottom: 0px;
@@ -89,12 +83,11 @@
 }
 
 #lyricsContainer { //
-	
 	border: 0px;
 	margin-top: 0px;
-	
 	width: 800px;
 	overflow: none;
+	height:100px;
 }
 
 #canvasContainer {
