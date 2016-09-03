@@ -6,7 +6,7 @@ function changeCurrentPlayingWordId() {
 		var container = $('#lyrics')
 		var scrollTo = $('#' + currentPlayingWordId);
 		container
-		.scrollTop((scrollTo.offset().top - 8)
+		.scrollTop((scrollTo.offset().top - 0)
 				- container.offset().top
 				+ container.scrollTop());
 	} else {
