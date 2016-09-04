@@ -72,7 +72,7 @@ $(document).ready(function($) {
 	loadUploader();
 	addCanvasToPage();
 	bindCanvasTouchControls();
-	drawFace(false);
+	//drawFace(false);
 });
 
 function addCanvasToPage() {

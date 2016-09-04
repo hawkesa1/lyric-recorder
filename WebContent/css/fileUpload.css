@@ -1,7 +1,7 @@
 #fileUploadHolder {
 	border: 2px dashed #ccc;
 	width: 792px;
-	height: 100px;
+	height: 20px;
 	overflow-y: scroll;
 }
 #fileUploadHolder.hover {

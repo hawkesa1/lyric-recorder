@@ -380,7 +380,7 @@ WaveForm.prototype.draw = function(time, ctx) {
 	}
 
 	
-	drawFace(isAWordPlaying);
+	//drawFace(isAWordPlaying);
 	if (!isAWordPlaying) {
 		if (currentPlayingWordId != "") {
 			currentPlayingWordId = "";
