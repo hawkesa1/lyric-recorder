@@ -1,8 +1,33 @@
-function loadWavForm(tags)
-{
+var WAV_FILE_TIME_GAP = 10;
+var DRAW_TIME_BY_PAGE_WIDTH = 0;
+var POINT_SPACING = 2;
+var X_MOVE = 0;
+var arcRadius = 2;
+var SHIFT_TO_FIX_LINE_THICKNESS = 0.5;
+
+var wordSelectedColour = "#ccffcc";
+var wordHoveredColour = "#ccffcc";
+var wordPlayingColour = "#ccffcc";
+var wordStandardColour = '#b3d1ff';
+var wordEdgeColour = "#4dff4d";
+var trackingSquareColour = '#a6a6a6';
+var beforeTimeCoverColour = '#e6f0ff';
+var wavLineColour = '#b3d1ff';
+var dividerLineColour = '#00ff00';
+
+var canvasFontMarker = "10px Calibri";
+var canvasFontMarkerColour = '#a6a6a6';
+
+var canvasFontText = "15px Calibri";
+var canvasFontTextColour = '#a6a6a6';
+
+var wordBoxY = 150.5;
+var wordBoxHeight = 20;
+
+function loadWavForm(tags) {
 	console.log('loading wav form');
 	generateWaveForm(tags.tXxxWavPointsValue);
-	
+
 }
 
 function generateWaveForm(text) {
@@ -21,7 +46,7 @@ function generateWaveForm(text) {
 		yHigh = ((tempLines[i].split(',')[2]));
 		wavePoints[wp++] = new WavePoint(time, yLow, yHigh);
 	}
-	waveForm = new WaveForm(500, 1, X_MOVE, 140, 200, POINT_SPACING,
+	waveForm = new WaveForm(500, 0.25, X_MOVE, 80, 200, POINT_SPACING,
 			wavePoints);
 	animate();
 }
@@ -41,55 +66,6 @@ function WaveForm(drawTime, pointHeight, xShift, yShift, currentLine,
 	this.wavePoint;
 	this.startTime = 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-///////////////////////
-
-
-
-var WAV_FILE_TIME_GAP = 10;
-var DRAW_TIME_BY_PAGE_WIDTH = 0;
-var POINT_SPACING = 2;
-var X_MOVE = 0;
-var arcRadius = 2;
-var SHIFT_TO_FIX_LINE_THICKNESS = 0.5;
-
-
-var wordSelectedColour="#ffff66";
-var wordHoveredColour="#00ff00";
-var wordPlayingColour="#00ff00";
-var wordStandardColour='green';
-var wordEdgeColour="blue";
-var trackingSquareColour='#00ff00'
-var beforeTimeCoverColour='#00ff00';
-var wavLineColour='green';
-var dividerLineColour='#00ff00';
-
-var canvasFontMarker="10px Calibri";
-var canvasFontMarkerColour='#00ff00';
-
-var canvasFontText="20px Calibri";
-var canvasFontTextColour='green';
 
 function calculateDrawTime() {
 	return (windowWidth / POINT_SPACING) - (X_MOVE);
@@ -142,20 +118,16 @@ WaveForm.prototype.draw = function(time, ctx) {
 
 	ctx.moveTo(this.xShift, this.yShift + SHIFT_TO_FIX_LINE_THICKNESS);
 	ctx.beginPath();
-	ctx.strokeStyle=wavLineColour;
+	ctx.strokeStyle = wavLineColour;
 	this.first = true;
-
 	// Draw Upper Line
 	var point = 0;
-
 	// We only draw part of the full audio, so we are only interested in the
 	// time between start time and the upper limit
 	for (var i = this.startTime; i < (this.startTime + (this.drawTime)); i++) {
-
 		// to determine the x location of the point
 		this.pointX = ((i - this.startTime) * this.pointSpacing) + this.xShift;
 		point = 0;
-
 		// to determine the y location of the point
 		if (i < this.wavePoints.length) {
 			point = this.wavePoints[i].yHigh;
@@ -172,15 +144,15 @@ WaveForm.prototype.draw = function(time, ctx) {
 			this.currentYPoint = this.pointY;
 		}
 	}
+	ctx.strokeStyle = wavLineColour;
 	ctx.stroke();
+
 	drawArc(this.pointX, this.pointY, arcRadius);
 	drawArc(this.xShift + this.currentLine, this.currentYPoint, arcRadius);
 
 	// Draw Lower Line
-	
 	ctx.moveTo(this.xShift, this.yShift + SHIFT_TO_FIX_LINE_THICKNESS);
 	ctx.beginPath();
-	
 	this.first = true;
 	for (var i = this.startTime; i < (this.startTime + this.drawTime); i++) {
 		this.pointX = ((i - this.startTime) * this.pointSpacing) + this.xShift;
@@ -200,7 +172,8 @@ WaveForm.prototype.draw = function(time, ctx) {
 			this.currentYPoint = this.pointY;
 		}
 	}
-	
+
+	ctx.strokeStyle = wavLineColour;
 	ctx.stroke();
 	drawArc(this.pointX, this.pointY, arcRadius);
 	drawArc(this.xShift + this.currentLine, this.currentYPoint, arcRadius);
@@ -217,7 +190,6 @@ WaveForm.prototype.draw = function(time, ctx) {
 			// only interested in words that are less than 3 seconds in the
 			// future
 			if (startTime < this.startTime + 300) {
-
 				// the word currently being drawn
 				var endTime = aWord.endTime / 10;
 				if (!endTime && startTime < this.startTime) {
@@ -229,7 +201,6 @@ WaveForm.prototype.draw = function(time, ctx) {
 					var wordX = (((startTime - this.startTime) + 100) * this.pointSpacing)
 							+ this.xShift;
 					var width = ((endTime - startTime)) * this.pointSpacing;
-					
 
 					// Set the word currently being played
 					if (startTime < this.startTime && endTime > this.startTime) {
@@ -241,20 +212,16 @@ WaveForm.prototype.draw = function(time, ctx) {
 						}
 					}
 
-					//
 					// Allow a word to be selected if it is currently paused
 					if (clickedWhilePausedX > 0) {
-						
 						if (clickedWhilePausedX > wordX
 								&& clickedWhilePausedX < wordX + width) {
 							if (clickedWhilePausedX > wordX
 									&& clickedWhilePausedX < wordX + 5) {
-								
 								startOfWordMouseDownX = clickedWhilePausedX;
 								// end
 							} else if (clickedWhilePausedX > (wordX + width - 5)
 									&& clickedWhilePausedX < wordX + width) {
-
 								endOfWordMouseDownX = clickedWhilePausedX;
 							} else {
 								// middle
@@ -269,7 +236,6 @@ WaveForm.prototype.draw = function(time, ctx) {
 					if (hoverWhilePausedX > 0
 							&& (hoverWhilePausedX >= wordX && hoverWhilePausedX <= wordX
 									+ width)) {
-
 						// start
 						if (hoverWhilePausedX > wordX
 								&& hoverWhilePausedX <= wordX + 5) {
@@ -284,12 +250,9 @@ WaveForm.prototype.draw = function(time, ctx) {
 							isAWordHovered = true;
 						}
 						currentHoveredWordId = aWord.id;
+					} else {
+						currentHoveredWordId = ""
 					}
-					else
-					{
-						currentHoveredWordId=""
-					}	
-
 					if (doubleClickedWhilePausedX > 0
 							&& (doubleClickedWhilePausedX > wordX && doubleClickedWhilePausedX < wordX
 									+ width)) {
@@ -299,46 +262,37 @@ WaveForm.prototype.draw = function(time, ctx) {
 					}
 
 					if (aWord.id == currentSelectedWordId) {
-
 						if (aWord.id == currentPlayingWordId) {
 							ctx.fillStyle = wordPlayingColour;
 						} else {
 							ctx.fillStyle = wordSelectedColour;
 						}
-						
 						ctx.save();
-						ctx.fillRect(wordX, 260.5, width, 50);
-						
+						ctx.fillRect(wordX, wordBoxY, width, wordBoxHeight);
 						ctx.restore();
-						
+
 						// Start
 						ctx.beginPath();
-						ctx.moveTo(wordX + 1, 261);
-						ctx.lineTo(wordX + 1, 310);
+						ctx.moveTo(wordX + 1, wordBoxY);
+						ctx.lineTo(wordX + 1, (wordBoxY + wordBoxHeight));
 						ctx.lineWidth = 4;
 						ctx.strokeStyle = wordEdgeColour;
-						ctx.globalAlpha=0.75;
+						ctx.globalAlpha = 0.75;
 						ctx.stroke();
-						
+
 						// and End Lines
 						ctx.beginPath();
-						ctx.moveTo(wordX + width - 2, 261);
-						ctx.lineTo(wordX + width - 2, 310);
+						ctx.moveTo(wordX + width - 2, wordBoxY);
+						ctx.lineTo(wordX + width - 2,
+								(wordBoxY + wordBoxHeight));
 						ctx.lineWidth = 4;
 						ctx.strokeStyle = wordEdgeColour;
-						ctx.globalAlpha=0.75;
-						
+						ctx.globalAlpha = 0.75;
 						ctx.save();
 						ctx.stroke();
 						ctx.restore();
-						
-						ctx.globalAlpha=1;
-						
-
+						ctx.globalAlpha = 1;
 						ctx.lineWidth = 1;
-						
-						
-
 					} else if ((aWord.id == currentHoveredWordId)) {
 						if (aWord.id == currentPlayingWordId) {
 							ctx.fillStyle = wordPlayingColour;
@@ -347,40 +301,35 @@ WaveForm.prototype.draw = function(time, ctx) {
 							ctx.fillStyle = wordHoveredColour;
 							ctx.strokeStyle = wordHoveredColour;
 						}
-					
 						ctx.save();
-						ctx.fillRect(wordX, 260.5, width, 50);
-						
+						ctx.strokeRect(wordX, wordBoxY, width, wordBoxHeight);
+						ctx.fillRect(wordX, wordBoxY, width, wordBoxHeight);
 						ctx.restore();
-						
 					} else {
 						if (aWord.id == currentPlayingWordId) {
-							ctx.fillStyle = wordPlayingColour;
-							ctx.strokeStyle = wordPlayingColour;
+							//ctx.fillStyle = wordPlayingColour;
+							ctx.fillStyle = "black";
 						} else {
-							ctx.fillStyle = wordStandardColour;
+							ctx.fillStyle = canvasFontTextColour;
+						}
+						ctx.save();
+						if (aWord.id == currentPlayingWordId) {
+							ctx.fillStyle = wordPlayingColour;
+						} else {
+							ctx.fillStyle = "white";
 							ctx.strokeStyle = wordStandardColour;
 						}
-						
-						ctx.save();
-						ctx.fillRect(wordX, 260.5, width, 50);
+						ctx.strokeRect(wordX, wordBoxY, width, wordBoxHeight);
+						ctx.fillRect(wordX, wordBoxY, width, wordBoxHeight);
 						ctx.restore();
-						
 					}
-
-				
-					ctx.strokeStyle = canvasFontTextColour;
-					ctx.font=canvasFontText;
-					ctx.fillText(aWord.word, wordX, 328)
+					ctx.font = canvasFontText;
+					ctx.fillText(aWord.word, wordX,
+							(wordBoxY + wordBoxHeight + 15))
 				}
 			}
-
 		}
-
 	}
-
-	
-	//drawFace(isAWordPlaying);
 	if (!isAWordPlaying) {
 		if (currentPlayingWordId != "") {
 			currentPlayingWordId = "";
@@ -409,31 +358,24 @@ WaveForm.prototype.draw = function(time, ctx) {
 		}
 		tenths++;
 		if (i % 10 == 0 && tenths != 0 && tenths != 100) {
-			ctx.font=canvasFontMarker;
+			ctx.font = canvasFontMarker;
 			ctx.fillStyle = canvasFontMarkerColour;
-			ctx.fillText("|", this.pointX - 2, 251);
+			ctx.fillText("|", this.pointX - 2, 131);
 			ctx.fillText("|", this.pointX - 2, 37);
 
 		}
 		if (i % 100 == 0) {
-			ctx.font=canvasFontMarker;
+			ctx.font = canvasFontMarker;
 			ctx.fillStyle = canvasFontMarkerColour;
-			ctx.fillText(secondsToTime((i / 100) - 1), this.pointX - 2, 251);
+			ctx.fillText(secondsToTime((i / 100) - 1), this.pointX - 2, 131);
 			ctx.fillText(secondsToTime((i / 100) - 1), this.pointX - 2, 37);
 			tenths = 0;
 		}
 	}
 
-	// Draw Horizontal Line
-	//ctx.beginPath();
-	//ctx.moveTo(this.xShift, this.yShift + SHIFT_TO_FIX_LINE_THICKNESS);
-	//ctx.lineTo(windowWidth - (X_MOVE), this.yShift
-	//		+ SHIFT_TO_FIX_LINE_THICKNESS);
-	//ctx.stroke();
-
 	// Draw Top Time Line
 	ctx.beginPath();
-	ctx.strokeStyle=dividerLineColour;
+	ctx.strokeStyle = dividerLineColour;
 	ctx.moveTo(this.xShift, this.yShift + 100 + SHIFT_TO_FIX_LINE_THICKNESS);
 	ctx.lineTo(windowWidth - (X_MOVE), this.yShift + 100
 			+ SHIFT_TO_FIX_LINE_THICKNESS);
@@ -441,39 +383,31 @@ WaveForm.prototype.draw = function(time, ctx) {
 
 	// Draw Bottom Time Line
 	ctx.beginPath();
-	ctx.strokeStyle=dividerLineColour;
+	ctx.strokeStyle = dividerLineColour;
 	ctx.moveTo(this.xShift, this.yShift + 115 + SHIFT_TO_FIX_LINE_THICKNESS);
 	ctx.lineTo(windowWidth - (X_MOVE), this.yShift + 115
 			+ SHIFT_TO_FIX_LINE_THICKNESS);
 	ctx.stroke();
 
-	
-	
-	
 	// Draw The Tracking Area
-	//Bottom Line
+	// Bottom Line
 	ctx.beginPath();
-	ctx.strokeStyle=dividerLineColour;
+	ctx.strokeStyle = dividerLineColour;
 	ctx.moveTo(this.xShift, 25 + SHIFT_TO_FIX_LINE_THICKNESS);
 	ctx.lineTo(windowWidth - (X_MOVE), 25 + SHIFT_TO_FIX_LINE_THICKNESS);
 	ctx.stroke();
-	
-	
-	
-	
 
 	
-	ctx.fillStyle = trackingSquareColour;
 	trackingSquareX = ((this.startTime / trackDuration) * (canvas1Width - 226)) + 203;
+	ctx.fillStyle = "white";
+	ctx.strokeStyle=wavLineColour;
 	ctx.rect(trackingSquareX, 2, 20, 20);
-	
-	
+
 	ctx.fill();
 	ctx.stroke();
 	ctx.closePath();
 	ctx.beginPath();
 	ctx.fillStyle = '#00ff00';
-	
 
 	if (trackingClicked > 0) {
 		if (trackingClicked > trackingSquareX
@@ -503,33 +437,15 @@ WaveForm.prototype.draw = function(time, ctx) {
 		}
 	}
 
-	// Draw Bottom Line
-	ctx.beginPath();
-	ctx.strokeStyle=dividerLineColour;
-	ctx.moveTo(this.xShift, this.yShift - 100 + SHIFT_TO_FIX_LINE_THICKNESS);
-	ctx.lineTo(windowWidth - (X_MOVE), this.yShift - 100
-			+ SHIFT_TO_FIX_LINE_THICKNESS);
-	ctx.stroke();
-
-	// Draw Bottom Line
-	ctx.beginPath();
-	ctx.strokeStyle=dividerLineColour;
-	ctx.moveTo(this.xShift, 315 + SHIFT_TO_FIX_LINE_THICKNESS);
-	ctx.lineTo(windowWidth - (X_MOVE), 315 + SHIFT_TO_FIX_LINE_THICKNESS);
-	ctx.stroke();
-	ctx.closePath();
-	ctx.beginPath();
-
-	
 	ctx.fillStyle = beforeTimeCoverColour;
+	ctx.strokeStyle='#a6a6a6';
 	ctx.rect(0, 0, 200, canvas1Height);
-	ctx.globalAlpha=0.2;
+	ctx.globalAlpha = 0.2;
 	ctx.fill();
 	ctx.stroke();
 	ctx.closePath();
 	ctx.beginPath();
-	ctx.globalAlpha=1;
-	
+	ctx.globalAlpha = 1;
 
 	function drawArc(xPosition, yPosition, radius) {
 		ctx.fillStyle = $('#circleColor').val();

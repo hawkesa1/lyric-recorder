@@ -2,14 +2,14 @@ body {
 	border: 0px;
 	margin: 0px;
 	padding: 0px;
-	background-color:black;
+	background-color:none;
 	font-family: Rosario, sans-serif;
 	text-rendering: optimizeLegibility;
 }
 
 #headerContainer {
 	width: 100%;
-	background-color: black;
+	background-color: none;
 	//border-bottom: 1px solid #33ff33;
 	height: 40px;
 }
@@ -32,14 +32,14 @@ body {
 	width: 800px;
 	//border: 1px solid #33ff33;
 	height: 800px;
-	background-color:black;
+	background-color:none;
 }
 
 
 #canvasContainer {
 	width: 800px;
-	height: 335px;
-	border: 1px solid #ccc; 
+	height: 200px;
+	border: 0px; 
 }
 
 table#tracks {

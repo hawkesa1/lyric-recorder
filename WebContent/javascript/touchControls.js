@@ -6,7 +6,7 @@ function bindCanvasTouchControls() {
 		var offset = $(this).offset();
 		var clickX = e.pageX - offset.left;
 		var clickY = e.pageY - offset.top;
-		if (clickY > 256) {
+		if (clickY > wordBoxY) {
 			if (document.getElementById('audio').paused) {
 				clickedWhilePausedX = clickX;
 				updateLog("clickedWhilePausedX="+clickedWhilePausedX);
@@ -31,7 +31,7 @@ function bindCanvasTouchControls() {
 		var offset = $(this).offset();
 		var clickX = e.pageX - offset.left;
 		var clickY = e.pageY - offset.top;
-		if (clickY > 256) {
+		if (clickY > wordBoxY) {
 			if (document.getElementById('audio').paused) {
 				doubleClickedWhilePausedX = clickX;
 			}
@@ -76,7 +76,7 @@ function bindCanvasTouchControls() {
 							audioElm.currentTime = ((clickX - 200) / (canvas1Width - 200))
 									* audioElm.duration;
 							trackingMouseDownX = clickX;
-						} else if (clickY > 256) {
+						} else if (clickY > wordBoxY) {
 							hoverWhilePausedX = clickX;
 							if (startOfWordMouseDownX > 0) {
 								
@@ -181,9 +181,9 @@ function bindCanvasTouchControls() {
 function setCursor(hoverX, hoverY) {
 	if (hoverY > 0 && hoverY < 25) {
 		$("#canvas1").css("cursor", "default");
-	} else if (hoverY > 25 && hoverY < 256) {
+	} else if (hoverY > 25 && hoverY < wordBoxY) {
 		$("#canvas1").css("cursor", "pointer");
-	} else if (hoverY > 256 && hoverY <= 315) {
+	} else if (hoverY > wordBoxY && hoverY <= 315) {
 		if(isAWordHovered)
 		{
 			$("#canvas1").css("cursor", "move");

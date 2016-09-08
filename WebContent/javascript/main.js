@@ -44,7 +44,7 @@ var trackingSquareX = 0;
 var hoverWhilePausedX = 0;
 var doubleClickedWhilePausedX = 0;
 
-var canvas1Height = 335;
+var canvas1Height = 200;
 var canvas1Width = 800;
 
 var trackDuration = 0;
