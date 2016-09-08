@@ -9,7 +9,7 @@ function loadUploader() {
 			file = files[i]
 			if (i == 0) { // only allow 1 file at a time
 				if (file.type.split("/")[0] === "audio") {
-					if (file.size < (15 * 1024 * 1024)) {
+					if (file.size < (20 * 1024 * 1024)) {
 						formData.append('file', file);
 						updateConsole('<p>* Reading file: ' + file.name
 								+ '</p>');
