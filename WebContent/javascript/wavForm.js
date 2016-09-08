@@ -8,18 +8,18 @@ var SHIFT_TO_FIX_LINE_THICKNESS = 0.5;
 var wordSelectedColour = "#ccffcc";
 var wordHoveredColour = "#ccffcc";
 var wordPlayingColour = "#ccffcc";
-var wordStandardColour = '#b3d1ff';
+var wordStandardColour = 'black';
 var wordEdgeColour = "#4dff4d";
 var trackingSquareColour = '#a6a6a6';
 var beforeTimeCoverColour = '#e6f0ff';
-var wavLineColour = '#b3d1ff';
+var wavLineColour = '#a6a6a6';
 var dividerLineColour = '#00ff00';
 
 var canvasFontMarker = "10px Calibri";
-var canvasFontMarkerColour = '#a6a6a6';
+var canvasFontMarkerColour = 'black';
 
 var canvasFontText = "15px Calibri";
-var canvasFontTextColour = '#a6a6a6';
+var canvasFontTextColour = 'black';
 
 var wordBoxY = 150.5;
 var wordBoxHeight = 20;

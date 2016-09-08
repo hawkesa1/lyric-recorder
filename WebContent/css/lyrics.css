@@ -4,10 +4,10 @@
 
 .word {
 	font-family: Calibri;
-	font-size: 20px;
+	font-size: 15px;
 	font-style: normal;
 	font-weight: 140;
-	color: white;
+	color: black;
 	-webkit-touch-callout: none; /* iOS Safari */
 	-webkit-user-select: none; /* Chrome/Safari/Opera */
 	-khtml-user-select: none; /* Konqueror */
@@ -22,7 +22,7 @@
 }
 
 .wordHasTime {
-	color: #a6a6a6;
+	color: black;
 	cursor: pointer;
 }
 
@@ -93,8 +93,9 @@ textarea:focus {
 }
 
 #lyricsContainer { 
-	border: 1px solid #b3d1ff;
-	margin-top: 0px;
+	border: 1px solid #a6a6a6;
+	margin-top: 10px;
+	margin-bottom:10px;
 	width: 800px;
 	overflow: none;
 	height: 110px;
@@ -160,45 +161,3 @@ textarea:focus {
 /*
 http: //mikethedj4.github.io /Webkit-Scrollbar-Generator/
  */ 
-
-::-webkit-scrollbar {
-	width: 10px;
-	height: 10px;
-}
-
-::-webkit-scrollbar-button {
-	width: 0px;
-	height: 0px;
-}
-
-::-webkit-scrollbar-thumb {
-	background: #008000;
-	border: 1px none #ffffff;
-	border-radius: 50px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-	background: #007000;
-}
-
-::-webkit-scrollbar-thumb:active {
-	background: #00ff00;
-}
-
-::-webkit-scrollbar-track {
-	background: #707070;
-	border: 0px solid #ffffff;
-	border-radius: 83px;
-}
-
-::-webkit-scrollbar-track:hover {
-	background: #666666;
-}
-
-::-webkit-scrollbar-track:active {
-	background: #666666;
-}
-
-::-webkit-scrollbar-corner {
-	background: transparent;
-}

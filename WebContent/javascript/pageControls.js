@@ -128,6 +128,19 @@ $(function() {
 	});
 });
 
+$(function() {
+	$("#enableTextView").click(function(e) {
+		e.preventDefault();
+		enableLyricTextView();
+	});
+});
+$(function() {
+	$("#enableWordView").click(function(e) {
+		e.preventDefault();
+		enableLyricWordView();
+	});
+});
+
 function playPause() {
 	var vid = document.getElementById("audio");
 	if (vid.paused) {

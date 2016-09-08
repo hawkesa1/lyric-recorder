@@ -42,35 +42,28 @@
 </head>
 <body>
 	<div id="headerContainer">
-		<div id="headerTitle">lyricRecorder.com</div>
+		
+		<div id="headerTitle"><img id="skull" src="./css/skull.png"></img> <span id="headerText">lyricRecorder.com</span></div>
 	</div>
 	<div id="mainContainer">
-		<div>
+		<div id="trackDetails">
+			<table id="tracks">
+				<tr>
+					<th>Title</th>
+					<th>Artist</th>
+					<th>Album</th>
+					<td class="trackTableRight">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="33%"><span id="trackTitle">XXX</span></td>
+					<td width="33%"><span id="trackArtist">XXX</span></td>
+					<td width="33%"><span id="trackAlbum">XXX</span></td>
+				</tr>
+			</table>
+		</div>
 
-			<div id="canvasContainer"></div>
-			<audio src="" controls id="audio">
-			</audio>
-		</div>
-		<div id="lyricButtonContainer">
-
-			<input id="enableLyricTextView" onclick="enableLyricTextView()"
-				class="button" value="Text" type="button"></input>
-				
-			<input id="enableLyricWordView" onclick="enableLyricWordView()"
-				class="button" value="Word" type="button"></input>
-		</div>
-		<div id="lyricsContainer">
-			<textarea id="lyricText"></textarea>
-			<div id="lyrics"></div>
-		</div>
 		<div class="controlButtonsContainer">
-			<div class="buttonType1ContainerLarge">
-				<a href="#" class="buttonType1" id="removePreviousWord">Remove
-					Word</a>
-			</div>
-			<div class="buttonType1ContainerLarge">
-				<a href="#" class="buttonType1" id="addCurrentWord">Add Word</a>
-			</div>
+
 			<div class="buttonType1ContainerSmall">
 				<a href="#" class="buttonType1" id="skipBack5Button">-5</a>
 			</div>
@@ -86,12 +79,43 @@
 			<div class="buttonType1ContainerSmall">
 				<a href="#" class="buttonType1" id="skipForward5Button">+5</a>
 			</div>
+		</div>
+		<div>
+			<div id="canvasContainer"></div>
+			<audio src="" controls id="audio">
+			</audio>
+		</div>
+	
+		
+		<div class="controlButtonsContainer">
+			<div class="buttonType1ContainerLarge">
+				<a href="#" class="buttonType1" id="enableTextView">Text</a>
+			</div>
+			<div class="buttonType1ContainerLarge">
+				<a href="#" class="buttonType1" id="enableWordView">Word</a>
+			</div>
+		</div>
+		
+		<div id="lyricsContainer">
+			<textarea id="lyricText"></textarea>
+			<div id="lyrics"></div>
+		</div>
+		<div class="controlButtonsContainer">
+			<div class="buttonType1ContainerLarge">
+				<a href="#" class="buttonType1" id="removePreviousWord">Remove
+					Word</a>
+			</div>
+			<div class="buttonType1ContainerLarge">
+				<a href="#" class="buttonType1" id="addCurrentWord">Add Word</a>
+			</div>
+
+
 			<div class="buttonType1ContainerSmall">
 				<a href="#" class="buttonType1" id="save">Save</a>
 			</div>
 		</div>
 
-		<div id="downloadableLink">&nbsp;</div>
+		<div id="downloadableLink"></div>
 
 
 		<div id="fileUploadHolder">
@@ -99,22 +123,7 @@
 				Maximum file size 15 Mb. Supported formats include: mp3, wav, wma,
 				m4a, mid, flac, mov, amr, aac, au, aif, raw, dvf, vox, cda</p>
 		</div>
-		<div id="trackDetails">
-			<table id="tracks">
-				<tr>
-					<th>Title</th>
-					<th>Artist</th>
-					<th>Album</th>
-					<td class="trackTableRight">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="20%"><span id="trackTitle">XXX</span></td>
-					<td width="20%"><span id="trackArtist">XXX</span></td>
-					<td width="20%"><span id="trackAlbum">XXX</span></td>
-					<td width="40%" class="trackTableRight">&nbsp;</td>
-				</tr>
-			</table>
-		</div>
+
 		<!--  
 		<canvas id="myCanvas" width="800px" height="150"></canvas>
 		-->
