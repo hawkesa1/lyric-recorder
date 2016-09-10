@@ -130,6 +130,7 @@ function loadLyricsData(wavFormFile) {
 			lineArray=JSON.parse(text.lyricRecorderSynchronisedLyrics);
 			$('#lyrics').html(generateLyrics(lineArray));
 			addClickToLyrics();
+			
 		}	else if(text.unsynchronisedLyrics !="")
 		{
 			console.log ("loading unsycnhronised lyrics");

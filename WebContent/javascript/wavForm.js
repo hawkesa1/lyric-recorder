@@ -18,7 +18,7 @@ var dividerLineColour = '#00ff00';
 var canvasFontMarker = "10px Calibri";
 var canvasFontMarkerColour = 'black';
 
-var canvasFontText = "15px Calibri";
+var canvasFontText = "12px Calibri";
 var canvasFontTextColour = 'black';
 
 var wordBoxY = 150.5;
@@ -105,8 +105,14 @@ var tenths = 0;
 // Receives the currentTimeof the audio file and the context of the canvas
 
 WaveForm.prototype.draw = function(time, ctx) {
+	
+	var vid = document.getElementById("audio");
+	if (vid.paused) {
+		$('#playPauseButton').text("Play");
+	} else {
+		$('#playPauseButton').text("Pause");
+	}
 	if (time > stopAtTime) {
-		var vid = document.getElementById("audio");
 		// Because it misses and looks messy
 		document.getElementById("audio").currentTime = stopAtTime / 1000;
 		vid.pause();
@@ -268,6 +274,8 @@ WaveForm.prototype.draw = function(time, ctx) {
 							ctx.fillStyle = wordSelectedColour;
 						}
 						ctx.save();
+						ctx.strokeStyle = wordStandardColour;
+						ctx.strokeRect(wordX, wordBoxY, width, wordBoxHeight);
 						ctx.fillRect(wordX, wordBoxY, width, wordBoxHeight);
 						ctx.restore();
 
@@ -296,10 +304,10 @@ WaveForm.prototype.draw = function(time, ctx) {
 					} else if ((aWord.id == currentHoveredWordId)) {
 						if (aWord.id == currentPlayingWordId) {
 							ctx.fillStyle = wordPlayingColour;
-							ctx.strokeStyle = wordPlayingColour;
+							ctx.strokeStyle = wordStandardColour;
 						} else {
 							ctx.fillStyle = wordHoveredColour;
-							ctx.strokeStyle = wordHoveredColour;
+							ctx.strokeStyle = wordStandardColour;
 						}
 						ctx.save();
 						ctx.strokeRect(wordX, wordBoxY, width, wordBoxHeight);
@@ -324,6 +332,7 @@ WaveForm.prototype.draw = function(time, ctx) {
 						ctx.restore();
 					}
 					ctx.font = canvasFontText;
+					ctx.fillStyle = wordStandardColour;
 					ctx.fillText(aWord.word, wordX,
 							(wordBoxY + wordBoxHeight + 15))
 				}
@@ -372,6 +381,10 @@ WaveForm.prototype.draw = function(time, ctx) {
 			tenths = 0;
 		}
 	}
+	
+	//Draw Time
+	//ctx.font = canvasFontMarker;
+	//ctx.fillText(this.startTime, 20, 20);
 
 	// Draw Top Time Line
 	ctx.beginPath();

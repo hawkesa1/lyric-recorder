@@ -123,6 +123,9 @@ function fileUploadComplete(tags)
 	$('#lyrics').html(generateLyrics(lineArray));
 	addClickToLyrics();
 	
+	enableLyricWordView();
+	console.log("current word view: " + currentLyricView);
+	
 	
 	console.log(tags);
 	console.log("CurrentSongIs"+tags.tXxxSongIdValue);

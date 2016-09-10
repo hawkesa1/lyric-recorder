@@ -52,6 +52,16 @@ function addClickToLyrics() {
 			wordClicked(event.target.id);
 		});
 	});
+	$(function() {
+		$(".word").mouseover(function(event) {
+			wordMouseOver(event.target.id);
+		});
+	});
+	$(function() {
+		$(".word").mouseout(function(event) {
+			wordMouseOut(event.target.id);
+		});
+	});
 }
 
 $(function() {
@@ -88,7 +98,6 @@ $(function() {
 	$("#playPauseButton").click(function(e) {
 		e.preventDefault();
 		var vid = document.getElementById("audio");
-		vid.playbackRate = 1;
 		if (vid.paused) {
 			vid.play();
 			$('#playPauseButton').text("Pause");
@@ -103,14 +112,32 @@ $(function() {
 	$("#playSlowButton").click(function(e) {
 		e.preventDefault();
 		var vid = document.getElementById("audio");
-		vid.playbackRate = 0.5;
+		if (vid.playbackRate == 0.5) {
+			$("#playSlowButton").text("Slow");
+			$("#playFastButton").text("Fast");
+			vid.playbackRate = 1;
+		} else {
+			$("#playSlowButton").text("Normal");
+			$("#playFastButton").text("Fast");
+			vid.playbackRate = 0.5;
+		}
+		vid.play();
 	});
 });
 $(function() {
 	$("#playFastButton").click(function(e) {
 		e.preventDefault();
 		var vid = document.getElementById("audio");
-		vid.playbackRate = 2;
+		if (vid.playbackRate == 2) {
+			$("#playFastButton").text("Fast");
+			$("#playSlowButton").text("Slow");
+			vid.playbackRate = 1;
+		} else {
+			$("#playSlowButton").text("Slow");
+			$("#playFastButton").text("Normal");
+			vid.playbackRate = 2;
+		}
+		vid.play();
 	});
 });
 $(function() {
@@ -197,116 +224,105 @@ $(function() {
 var currentlyAddingWord = false;
 
 function formatTime(number) {
-	//return number.toFixed(2); // this seems to break drag and drop!
+	// return number.toFixed(2); // this seems to break drag and drop!
 	return number;
 }
 
 $(function() {
-	$("#addCurrentWord")
-			.mousedown(
-					function() {
-
-						if (($("#audio").prop("currentTime") * 1000) > highestEndTime) {
-							currentlyAddingWord = true;
-							findWordById(nextWordToAddId);
-							var aLineObject = lineArray[currentLineIndex];
-							var aWordObject = aLineObject.words[currentWordIndex];
-							aWordObject.startTime = formatTime($("#audio")
-									.prop("currentTime") * 1000);
-
-							if (currentWordIndex == 0) {
-								aLineObject.startTime = formatTime($("#audio")
-										.prop("currentTime") * 1000);
-							}
-
-							currentSelectedWordId = aWordObject.id;
-							$('#wordInfoId').val(currentSelectedWordId)
-
-							$('#wordInfoWord')
-									.val(
-											aWordObject.word
-													.replace(
-															/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,
-															""));
-							$('#wordInfoStartTime')
-									.val(
-											millisecondsToISOMinutesSecondsMilliseconds(aWordObject.startTime));
-							$('#wordInfoEndTime').val("");
-
-							$('.word').removeClass("wordSelected");
-							$(
-									'#word_' + currentLineIndex + "_"
-											+ currentWordIndex).addClass(
-									"wordSelected");
-
-							$('.word').removeClass("nextWordToAdd");
-							$('.word').removeClass("wordBeingAdded");
-							$('#' + aWordObject.id).addClass("wordBeingAdded");
-
-							console.log("Adding: " + aWordObject.id);
-
-						} else {
-							console.log("You can't add words out of order!!!");
-						}
-
-					});
+	$("#addCurrentWord").mousedown(function() {
+		addCurrentWordStart();
+	});
 });
+
+function addCurrentWordStart() {
+	if (($("#audio").prop("currentTime") * 1000) > highestEndTime) {
+		currentlyAddingWord = true;
+		findWordById(nextWordToAddId);
+		var aLineObject = lineArray[currentLineIndex];
+		var aWordObject = aLineObject.words[currentWordIndex];
+		aWordObject.startTime = formatTime($("#audio").prop("currentTime") * 1000);
+
+		if (currentWordIndex == 0) {
+			aLineObject.startTime = formatTime($("#audio").prop("currentTime") * 1000);
+		}
+
+		currentSelectedWordId = aWordObject.id;
+		$('#wordInfoId').val(currentSelectedWordId)
+
+		$('#wordInfoWord').val(
+				aWordObject.word.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, ""));
+		$('#wordInfoStartTime')
+				.val(
+						millisecondsToISOMinutesSecondsMilliseconds(aWordObject.startTime));
+		$('#wordInfoEndTime').val("");
+
+		$('.word').removeClass("wordSelected");
+		$('#word_' + currentLineIndex + "_" + currentWordIndex).addClass(
+				"wordSelected");
+
+		$('.word').removeClass("nextWordToAdd");
+		$('.word').removeClass("wordBeingAdded");
+		$('#' + aWordObject.id).addClass("wordBeingAdded");
+
+		console.log("Adding: " + aWordObject.id);
+
+	} else {
+		console.log("You can't add words out of order!!!");
+	}
+
+}
+
 $(function() {
-	$("#addCurrentWord")
-			.mouseup(
-					function() {
-						var aLineObject = lineArray[currentLineIndex];
-						var aWordObject = aLineObject.words[currentWordIndex];
-
-						if (currentlyAddingWord) {
-							currentlyAddingWord = false;
-							aWordObject.endTime = formatTime($("#audio").prop(
-									"currentTime") * 1000);
-							$('#wordInfoEndTime')
-									.val(
-											millisecondsToISOMinutesSecondsMilliseconds(aWordObject.endTime));
-
-							$(
-									'#word_' + currentLineIndex + "_"
-											+ currentWordIndex).addClass(
-									"wordHasTime");
-
-							lastAddedWordId = aWordObject.id;
-							highestEndTime = aWordObject.endTime;
-
-							currentWordIndex++;
-							if (currentWordIndex >= aLineObject.words.length) {
-								currentWordIndex = 0;
-								aLineObject.endTime = formatTime($("#audio")
-										.prop("currentTime") * 1000);
-								currentLineIndex++;
-
-								var container = $('#lyrics')
-								var scrollTo = $('#' + currentSelectedWordId);
-								container.scrollTop((scrollTo.offset().top - 8)
-										- container.offset().top
-										+ container.scrollTop());
-							}
-							aLineObject = lineArray[currentLineIndex];
-							aWordObject = aLineObject.words[currentWordIndex];
-							nextWordToAddId = aWordObject.id;
-
-							$('#playLine_' + currentLineIndex).removeClass(
-									'disabledButton');
-							$('#playFromLine_' + currentLineIndex).removeClass(
-									'disabledButton');
-
-							$('.word').removeClass("nextWordToAdd");
-							$(
-									'#word_' + currentLineIndex + "_"
-											+ currentWordIndex).addClass(
-									"nextWordToAdd");
-						} else {
-							console
-									.log("You can't add an end time without a start time");
-						}
-					});
+	$("#addCurrentWord").mouseup(function() {
+		addCurrentWordEnd();
+	});
 });
+
+function addCurrentWordEnd() {
+	var aLineObject = lineArray[currentLineIndex];
+	var aWordObject = aLineObject.words[currentWordIndex];
+
+	if (currentlyAddingWord) {
+		currentlyAddingWord = false;
+		aWordObject.endTime = formatTime($("#audio").prop("currentTime") * 1000);
+		$('#wordInfoEndTime')
+				.val(
+						millisecondsToISOMinutesSecondsMilliseconds(aWordObject.endTime));
+
+		$('#word_' + currentLineIndex + "_" + currentWordIndex).addClass(
+				"wordHasTime");
+
+		lastAddedWordId = aWordObject.id;
+		highestEndTime = aWordObject.endTime;
+
+		currentWordIndex++;
+		if (currentWordIndex >= aLineObject.words.length) {
+			currentWordIndex = 0;
+			aLineObject.endTime = formatTime($("#audio").prop("currentTime") * 1000);
+			currentLineIndex++;
+
+			// var container = $('#lyrics')
+			// var scrollTo = $('#' + currentSelectedWordId);
+			// container.scrollTop((scrollTo.offset().top - 8)
+			// - container.offset().top + container.scrollTop());
+		}
+		if (currentLineIndex < lineArray.length) {
+			aLineObject = lineArray[currentLineIndex];
+			aWordObject = aLineObject.words[currentWordIndex];
+			nextWordToAddId = aWordObject.id;
+			$('#playLine_' + currentLineIndex).removeClass('playLineDisabled');
+			$('.word').removeClass("nextWordToAdd");
+			$('#word_' + currentLineIndex + "_" + currentWordIndex).addClass(
+					"nextWordToAdd");
+		}
+		else
+		{
+			console.log("No More words to add");
+		}	
+	} else {
+		console.log("You can't add an end time without a start time");
+	}
+}
 
 $(function() {
 	$("#removePreviousWord").mouseup(
@@ -378,9 +394,13 @@ function lineArrayToEnhancedLRC() {
 				lrc += " ";
 			}
 			word = words[j];
-			lrc += "<" + millisecondsToISOMinutesSecondsMilliseconds(word.startTime) + ">";
+			lrc += "<"
+					+ millisecondsToISOMinutesSecondsMilliseconds(word.startTime)
+					+ ">";
 			lrc += word.word
-			lrc += "<" + millisecondsToISOMinutesSecondsMilliseconds(word.endTime) + ">";
+			lrc += "<"
+					+ millisecondsToISOMinutesSecondsMilliseconds(word.endTime)
+					+ ">";
 		}
 		lrc += "\n";
 	}
@@ -398,16 +418,15 @@ function enableLyricTextView(textToShow) {
 	$('#lyricText').show();
 	$('#lyrics').hide();
 	$('#lyricScript').hide();
-	//if (confirm('You  will lose any entered timings if you return to text view.  Are you sure?')) {
-	
+	// if (confirm('You will lose any entered timings if you return to text
+	// view. Are you sure?')) {
+
 	var html = "";
-	
-	if(textToShow){
-		html=textToShow;
-	}else
-		{
-	
-		
+
+	if (textToShow) {
+		html = textToShow;
+	} else {
+
 		for (var i = 0; i < lineArray.length; i++) {
 			words = lineArray[i].words;
 			for (var j = 0; j < words.length; j++) {

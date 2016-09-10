@@ -60,20 +60,43 @@ var nextWordToAddId = "";
 var highestEndTime = 0;
 var lastAddedWordId = "";
 
-var theFillColour="";
-var theLineColour="";
+var theFillColour = "";
+var theLineColour = "";
 var availableTracks = new Array();
 
-var ECLIPSE_FILE_WAIT=5000;
-
+var ECLIPSE_FILE_WAIT = 5000;
 
 $(document).ready(function($) {
 	console.log("The Document is Ready!");
 	loadUploader();
 	addCanvasToPage();
 	bindCanvasTouchControls();
-	//drawFace(false);
+	// drawFace(false);
+	bindKeyboadControls();
+	
 });
+
+var spaceIsDown=false;
+
+function bindKeyboadControls() {
+	$(document).keydown(function(e) {
+		if (e.which == 32 && !spaceIsDown && currentLyricView === "WORD_VIEW") {
+			console.log("space down");
+			e.preventDefault();
+			$('#addCurrentWord').mousedown();
+			$('#addCurrentWord').addClass("activeProgramatically"); 
+			spaceIsDown=true;
+		}
+	});
+	$(document).keyup(function(e) {
+		if (e.which == 32 && currentLyricView === "WORD_VIEW") {
+			console.log("space released");
+			$('#addCurrentWord').mouseup();
+			$('#addCurrentWord').removeClass("activeProgramatically"); 
+			spaceIsDown=false;
+		}
+	});
+}
 
 function addCanvasToPage() {
 	canvas1 = document.createElement('canvas');
@@ -99,6 +122,3 @@ function drawCanvas1(time) {
 	$('#canvas1').css("background-color", $('#backgroundColor').val());
 	waveForm.draw(time, context1);
 }
-
-
-

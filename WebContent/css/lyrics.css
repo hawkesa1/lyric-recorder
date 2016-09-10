@@ -7,7 +7,7 @@
 	font-size: 15px;
 	font-style: normal;
 	font-weight: 140;
-	color: black;
+	color: #a6a6a6;
 	-webkit-touch-callout: none; /* iOS Safari */
 	-webkit-user-select: none; /* Chrome/Safari/Opera */
 	-khtml-user-select: none; /* Konqueror */
@@ -21,12 +21,17 @@
 	color: #7FFF00;
 }
 
+span.wordHovered{
+	color: orange;
+}
+
 .wordHasTime {
 	color: black;
 	cursor: pointer;
+	text-decoration: underline;
 }
 
-.wordPlaying {
+span.wordPlaying {
 	text-decoration: underline;
 	color: #00ff00;
 }
@@ -35,27 +40,55 @@
 	color: orange;
 }
 
+
+a.playLine:link {
+    font-family: Calibri;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: 140;
+	color: black;
+	padding-left:10px;
+	padding-right:10px;
+}
+
+a.playLine:visited {
+    color: black;
+}
+a.playLine:hover {
+    color: orange;
+}
+a.playLine:active {
+    color: #00ff00;
+}
+
+a.playLine.playLineDisabled {
+	color:grey;
+	cursor:not-allowed;
+	text-decoration:none;
+    pointer-events: none;
+}
+
+
+
+
 .disabledButton {
-	opacity: 0.65;
+	opacity: 0.65;"C:/Users/Hawkes/Desktop/The Hardest Way To Make An Eas (1).MP3"
 	cursor: not-allowed;
 }
 
 #lyricText {
+	font-family: Calibri;
+	font-size: 15px;
+	font-style: normal;
+	
 	overflow-y: scroll;
 	width: 100%;
-	height: 100px;
+	height: 100%;
 	resize: none;
 	padding: 0px;
 	margin: 0px;
 	border: 0px;
 	display: none;
-	background-color:black;
-	
-	font-family: Calibri;
-	font-size: 22px;
-	font-style: normal;
-	font-variant: normal;
-	color: white;
 }
 
 textarea:focus { 

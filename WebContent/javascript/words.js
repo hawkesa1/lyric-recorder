@@ -5,10 +5,8 @@ function changeCurrentPlayingWordId() {
 		$('#currentWord').html(currentPlayingWord.word);
 		var container = $('#lyrics')
 		var scrollTo = $('#' + currentPlayingWordId);
-		container
-		.scrollTop((scrollTo.offset().top - 0)
-				- container.offset().top
-				+ container.scrollTop());
+		container.scrollTop((scrollTo.offset().top - 0)
+				- container.offset().top + container.scrollTop());
 	} else {
 		$('#currentWord').html("");
 	}
@@ -195,8 +193,6 @@ function changeStart(timeInMs) {
 
 }
 
-
-
 function changeEnd(timeInMs) {
 	var wordId = $('#wordInfoId').val();
 	var lineIndex = wordId.split('_')[1];
@@ -250,14 +246,20 @@ function wordClicked(wordId) {
 
 }
 
-
-function resetStuff()
-{
-	onlyWordsArray = new Array();
-	words = new Array();
-	lineArray=new Array();
+function wordMouseOver(wordId) {
+	if ($('#' + wordId).hasClass("wordHasTime")) {
+		$('#' + wordId).addClass("wordHovered");
+	}
+}
+function wordMouseOut(wordId) {
+	$('#' + wordId).removeClass("wordHovered");
 }
 
+function resetStuff() {
+	onlyWordsArray = new Array();
+	words = new Array();
+	lineArray = new Array();
+}
 
 function generateLyrics(lines) {
 	resetStuff();
@@ -280,23 +282,17 @@ function generateLyrics(lines) {
 
 			if (j === 0) {
 				if (words[j].endTime) {
-					html += "<input id='playLine_"
-							+ i
-							+ "' type=\"button\" class=\"playLineButton\" value=\"L\" onclick='playLine("
-							+ i + ")'> </input>";
-					html += "<input id='playFromLine_"
-							+ i
-							+ "' type=\"button\" class=\"playLineButton\" value=\"F\" onclick='playFromLine("
-							+ i + ")'> </input>";
+
+					html += "<a  class='playLine' id='playLine_" + i
+							+ "'onclick='playLine(" + i
+							+ ")' href='javascript:void(0);'>Play Line</a>";
+
 				} else {
-					html += "<input id='playLine_"
+					html += "<a  class='playLine playLineDisabled' id='playLine_"
 							+ i
-							+ "' type=\"button\" class=\"playLineButton disabledButton\" value=\"L\" onclick='playLine("
-							+ i + ")'> </input>";
-					html += "<input id='playFromLine_"
+							+ "'onclick='playLine("
 							+ i
-							+ "' type=\"button\" class=\"playLineButton disabledButton\" value=\"F\" onclick='playFromLine("
-							+ i + ")'> </input>";
+							+ ")' href='javascript:void(0);'>Play Line</a>";
 				}
 			}
 
@@ -336,8 +332,6 @@ function generateLyrics(lines) {
 	}
 	return html;
 }
-
-
 
 var lastDrawTime = 0;
 var lastDrawPrintTime = 1;
@@ -379,11 +373,9 @@ function SongObject() {
 function CurrentlyDrawnWordObject() {
 
 }
-function TrackObject()
-{
+function TrackObject() {
 
 }
-
 
 /*
  * $(window).on('resize', function() { var win = $(this); canvas1.width =

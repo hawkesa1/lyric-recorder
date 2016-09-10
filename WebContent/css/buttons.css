@@ -1,3 +1,5 @@
+
+
 .controlButtonsContainer {
 	text-align: center;
 	border: 0px;
@@ -64,4 +66,12 @@
 	-moz-box-shadow: 0px 0px 8px 1px #cf8080;
 	-webkit-box-shadow: 0px 0px 8px 1px #cf8080;
 	box-shadow: 0px 0px 8px 1px #cf8080;
+}
+
+.activeProgramatically {
+	position: relative;
+	top: 1px;
+	-moz-box-shadow: 0px 0px 8px 1px #00ff00;
+	-webkit-box-shadow: 0px 0px 8px 1px #00ff00;
+	box-shadow: 0px 0px 8px 1px #00ff00;
 }
