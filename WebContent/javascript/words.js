@@ -46,10 +46,14 @@ function changeCurrentSelectedWord() {
 	} else {
 		currentSelectedWordPreviousWord = onlyWordsArray[currentSelectedWord.wordIndex - 1];
 	}
-	if (currentSelectedWord.wordIndex > onlyWordsArray.length - 1) {
-		var aNewWord = new Word();
-		aNewWord.startTime = 500000;
-		currentSelectedWordNextWord = aNewWord;
+	if (currentSelectedWord.wordIndex >= onlyWordsArray.length -1) {
+		if(!markerWordAtTheEnd)
+		{	
+			markerWordAtTheEnd = new Word();
+		console.log("Created a markerWordAtTheEnd:" + trackDuration*10);
+		markerWordAtTheEnd.startTime = trackDuration*10;
+		}
+		currentSelectedWordNextWord = markerWordAtTheEnd;
 	} else {
 		currentSelectedWordNextWord = onlyWordsArray[currentSelectedWord.wordIndex + 1]
 		if (!currentSelectedWordNextWord.startTime) {
@@ -114,6 +118,7 @@ function lyricsTextToObjects(lyricsText) {
 	var q = 0;
 	for (var i = 0; i < lines1.length; i++) {
 		if (lines1[i].trim() != "") {
+			lines1[i]=lines1[i].trim();
 			lines[q] = lines1[i];
 			q++;
 		}

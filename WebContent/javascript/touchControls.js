@@ -79,7 +79,6 @@ function bindCanvasTouchControls() {
 						} else if (clickY > wordBoxY) {
 							hoverWhilePausedX = clickX;
 							if (startOfWordMouseDownX > 0) {
-								
 								if (currentSelectedWord.startTime
 										+ ((clickX - startOfWordMouseDownX) * 5) < (currentSelectedWord.endTime - 50)) {
 									if (currentSelectedWordPreviousWord != null
@@ -96,9 +95,10 @@ function bindCanvasTouchControls() {
 								}
 								startOfWordMouseDownX = clickX;
 								changeCurrentSelectedWord();
+								
 							} else if (endOfWordMouseDownX > 0) {
 								if (currentSelectedWord.endTime
-										+ ((clickX - endOfWordMouseDownX) * 5) > (currentSelectedWord.startTime + 20)
+										+ ((clickX - endOfWordMouseDownX) * 5) > (currentSelectedWord.startTime + 50)
 										&& currentSelectedWord.endTime
 												+ ((clickX - endOfWordMouseDownX) * 5) < currentSelectedWordNextWord.startTime - 10) {
 									currentSelectedWord.endTime = currentSelectedWord.endTime
@@ -114,8 +114,6 @@ function bindCanvasTouchControls() {
 								endOfWordMouseDownX = clickX;
 								changeCurrentSelectedWord();
 							} else if (middleOfWordMouseDownX > 0) {
-								
-								
 								var temp1=parseFloat(currentSelectedWord.startTime) + ((clickX - middleOfWordMouseDownX) * 5);
 								var temp2=parseFloat(currentSelectedWord.endTime) + ((clickX - middleOfWordMouseDownX) * 5);
 								var temp3=parseFloat(currentSelectedWordNextWord.startTime) - 10;

@@ -235,7 +235,7 @@ $(function() {
 });
 
 function addCurrentWordStart() {
-	if (($("#audio").prop("currentTime") * 1000) > highestEndTime) {
+	if (($("#audio").prop("currentTime") * 1000) > highestEndTime && nextWordToAddId!="") {
 		currentlyAddingWord = true;
 		findWordById(nextWordToAddId);
 		var aLineObject = lineArray[currentLineIndex];
@@ -279,10 +279,14 @@ $(function() {
 });
 
 function addCurrentWordEnd() {
-	var aLineObject = lineArray[currentLineIndex];
-	var aWordObject = aLineObject.words[currentWordIndex];
+	
 
-	if (currentlyAddingWord) {
+	if (currentlyAddingWord && nextWordToAddId!="") {
+		
+		
+		var aLineObject = lineArray[currentLineIndex];
+		var aWordObject = aLineObject.words[currentWordIndex];
+		
 		currentlyAddingWord = false;
 		aWordObject.endTime = formatTime($("#audio").prop("currentTime") * 1000);
 		$('#wordInfoEndTime')
@@ -301,10 +305,14 @@ function addCurrentWordEnd() {
 			aLineObject.endTime = formatTime($("#audio").prop("currentTime") * 1000);
 			currentLineIndex++;
 
-			// var container = $('#lyrics')
-			// var scrollTo = $('#' + currentSelectedWordId);
-			// container.scrollTop((scrollTo.offset().top - 8)
-			// - container.offset().top + container.scrollTop());
+			
+			var container = $('#lyrics')
+			var scrollTo = $('#' + currentSelectedWordId);
+			container.scrollTop((scrollTo.offset().top - 0)
+					- container.offset().top + container.scrollTop());
+			
+			
+			
 		}
 		if (currentLineIndex < lineArray.length) {
 			aLineObject = lineArray[currentLineIndex];
@@ -314,11 +322,10 @@ function addCurrentWordEnd() {
 			$('.word').removeClass("nextWordToAdd");
 			$('#word_' + currentLineIndex + "_" + currentWordIndex).addClass(
 					"nextWordToAdd");
-		}
-		else
-		{
+		} else {
 			console.log("No More words to add");
-		}	
+			nextWordToAddId="";
+		}
 	} else {
 		console.log("You can't add an end time without a start time");
 	}

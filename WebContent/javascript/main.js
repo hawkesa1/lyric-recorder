@@ -47,6 +47,7 @@ var doubleClickedWhilePausedX = 0;
 var canvas1Height = 200;
 var canvas1Width = 800;
 
+
 var trackDuration = 0;
 
 var currentLyricView = "";
@@ -66,6 +67,9 @@ var availableTracks = new Array();
 
 var ECLIPSE_FILE_WAIT = 5000;
 
+var markerWordAtTheEnd; //put a word at the end so you cant drag beyond it
+
+
 $(document).ready(function($) {
 	console.log("The Document is Ready!");
 	loadUploader();
@@ -73,6 +77,8 @@ $(document).ready(function($) {
 	bindCanvasTouchControls();
 	// drawFace(false);
 	bindKeyboadControls();
+	
+	//loadATrack("1473610884245");
 	
 });
 

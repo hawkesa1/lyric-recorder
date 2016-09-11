@@ -60,7 +60,7 @@ public class LyricUploadServlet extends HttpServlet {
 		String fileName = createDownloadableCopy(songId);
 		MP3MetaData mP3MetaData = writeToMetaData(jSONFormattedLyricData, fileName);
 		mP3MetaData.setDownloadId(fileName);
-		// writeToFile(mP3MetaData.toJSON(), songId);
+		writeToFile(mP3MetaData.toJSON(), songId);
 
 		response.setContentType("text/plain");
 		response.setCharacterEncoding("UTF-8");

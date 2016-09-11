@@ -1,30 +1,7 @@
 function loadUploader() {
 	console.log("Loading Uploader");
 	var holder = document.getElementById('fileUploadHolder');
-	function readfiles(files) {
-		clearConsole();
-		var formData = new FormData();
-		var file;
-		for (var i = 0; i < files.length; i++) {
-			file = files[i]
-			if (i == 0) { // only allow 1 file at a time
-				if (file.type.split("/")[0] === "audio") {
-					if (file.size < (20 * 1024 * 1024)) {
-						formData.append('file', file);
-						updateConsole('<p>* Reading file: ' + file.name
-								+ '</p>');
-						extractTags(file, formData);
-					} else {
-						updateConsole("<p class='bad'>* The maximum file size is 15 Mb.  This file is: '+ parseFloat((file.size / 1024 / 1024)).toFixed(2) + ' Mb</p>");
-					}
-				} else {
-					updateConsole("<p class='bad'>* This is not an audio file: <i>"
-							+ file.name + "</i>.  Please try again..</p>");
-				}
-
-			}
-		}
-	}
+	
 	holder.ondragover = function() {
 		this.className = 'hover';
 		return false;
@@ -41,6 +18,31 @@ function loadUploader() {
 		this.className = '';
 		e.preventDefault();
 		readfiles(e.dataTransfer.files);
+	}
+}
+
+function readfiles(files) {
+	clearConsole();
+	var formData = new FormData();
+	var file;
+	for (var i = 0; i < files.length; i++) {
+		file = files[i]
+		if (i == 0) { // only allow 1 file at a time
+			if (file.type.split("/")[0] === "audio") {
+				if (file.size < (20 * 1024 * 1024)) {
+					formData.append('file', file);
+					updateConsole('<p>* Reading file: ' + file.name
+							+ '</p>');
+					extractTags(file, formData);
+				} else {
+					updateConsole("<p class='bad'>* The maximum file size is 15 Mb.  This file is: '+ parseFloat((file.size / 1024 / 1024)).toFixed(2) + ' Mb</p>");
+				}
+			} else {
+				updateConsole("<p class='bad'>* This is not an audio file: <i>"
+						+ file.name + "</i>.  Please try again..</p>");
+			}
+
+		}
 	}
 }
 
@@ -118,15 +120,11 @@ function fileUploadComplete(tags)
 {
 	loadWavForm(tags);	
 	resetStuff();
-	
 	lineArray=JSON.parse(tags.tXxxLyricsValue);
 	$('#lyrics').html(generateLyrics(lineArray));
 	addClickToLyrics();
-	
 	enableLyricWordView();
 	console.log("current word view: " + currentLyricView);
-	
-	
 	console.log(tags);
 	console.log("CurrentSongIs"+tags.tXxxSongIdValue);
 	currentSongId = tags.tXxxSongIdValue;
