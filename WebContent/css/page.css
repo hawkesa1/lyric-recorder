@@ -2,26 +2,26 @@ body {
 	border: 0px;
 	margin: 0px;
 	padding: 0px;
-	background-color:white;
+	background-color:black;
 	
 }
 
 #headerContainer {
 	width: 100%;
-	background-color: black;
+	background-color: none;
 	//border-bottom: 1px solid #33ff33;
 	height: 60px;
 }
 
 #trackDetails
 {
-	height:80px;
+	
 }
 
 #headerTitle {
 font-family: Calibri;
 	
-	font-size: 24px;
+	font-size: 30px;
 	font-weight: 300;
 	height: 60px;
 	letter-spacing: 0px;
@@ -51,7 +51,7 @@ font-family: Calibri;
 	width: 800px;
 	//border: 1px solid #33ff33;
 	height: 800px;
-	background-color:white;
+	background-color:none;
 }
 
 
@@ -60,11 +60,12 @@ font-family: Calibri;
 	height: 200px;
 	border: 0px; 
 	margin-bottom:10px;
+	margin-top:20px;
 }
 
 table#tracks {
 	font-family: Calibri;
-	font-size: 15px;
+	font-size: 30px;
 	font-style: normal;
 	color: #a6a6a6;
 	
@@ -84,7 +85,7 @@ table#tracks td {
 }
 
 table#tracks th {
-	color:black;
+	color:white;
 	vertical-align: top;
 	text-align: left;
 	padding-left: 0px;

@@ -4,10 +4,10 @@
 
 .word {
 	font-family: Calibri;
-	font-size: 15px;
+	font-size: 30px;
 	font-style: normal;
 	font-weight: 140;
-	color: #a6a6a6;
+	color: white;
 	-webkit-touch-callout: none; /* iOS Safari */
 	-webkit-user-select: none; /* Chrome/Safari/Opera */
 	-khtml-user-select: none; /* Konqueror */
@@ -26,7 +26,7 @@ span.wordHovered{
 }
 
 .wordHasTime {
-	color: black;
+	color: white;
 	cursor: pointer;
 	text-decoration: underline;
 }
@@ -43,10 +43,10 @@ span.wordPlaying {
 
 a.playLine:link {
     font-family: Calibri;
-	font-size: 15px;
+	font-size: 30px;
 	font-style: normal;
 	font-weight: 140;
-	color: black;
+	color: white;
 	padding-left:10px;
 	padding-right:10px;
 }
@@ -100,7 +100,7 @@ textarea:focus {
 	background-color: none;
 	overflow-y: scroll;
 	width: 800px;
-	height: 110px;
+	height: 220px;
 	padding: 0px;
 	margin: 0px;
 	border: 0px;
@@ -126,12 +126,12 @@ textarea:focus {
 }
 
 #lyricsContainer { 
-	border: 1px solid #a6a6a6;
+	border: 0px solid #a6a6a6;
 	margin-top: 10px;
 	margin-bottom:10px;
 	width: 800px;
 	overflow: none;
-	height: 110px;
+	height: 220px;
 }
 
 

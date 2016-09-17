@@ -230,9 +230,12 @@ SoundParticles.prototype = {
 	createControl : function(parent, id) {
 		if (!this.ctx) {
 			this.canvas = document.createElement("canvas");
-			this.canvas.width = 800;
-			this.canvas.height = 200;
-			this.canvas.style.position = "relative";
+			this.canvas.width = window.innerWidth;
+			this.canvas.height = window.innerHeight;
+			this.canvas.style.position = "absolute";
+			this.canvas.style.top="0px";
+			this.canvas.style.left = "0px";
+			this.canvas.style.zIndex="-10";
 			this.canvas.style.margin = "0px";
 			this.canvas.style.padding = "0px";
 			this.canvas.style.verticalAlign = "top";
@@ -452,15 +455,15 @@ SoundParticles.prototype = {
 			// spaced
 			program.baseX(-0.9 + (0.12206897 * c));
 			//console.log(-0.9 + (0.09206897 * c));
-			//(program.baseX)
+			(program.baseX)
 
 			for (ic = 0; ic < BG_PARTICLES_BY_COLUMN; ic++, p++) {
 				
 				//The bit that makes them move up
-				//if (bgPos[(p << 1) + 1] > 1.2)
-				//	this.fillBgParticle(p, -1.2);
-				//else
-				//	bgPos[(p << 1) + 1] += bgSpeedY[p] * delta;
+				if (bgPos[(p << 1) + 1] > 1.2)
+					this.fillBgParticle(p, -1.2);
+				else
+					bgPos[(p << 1) + 1] += bgSpeedY[p] * delta;
 				
 				//The bit that makes the circles positions
 				idx = bgColor[p] * 3;
@@ -468,7 +471,7 @@ SoundParticles.prototype = {
 				idx = (p << 1);
 				
 				//X Position
-				//program.pos(bgPos[idx], bgPos[idx + 1]);
+				program.pos(bgPos[idx], bgPos[idx + 1]);
 				
 				program.theta(bgTheta[p]);
 				gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
