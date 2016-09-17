@@ -18,6 +18,10 @@ function loadUploader() {
 		this.className = '';
 		e.preventDefault();
 		readfiles(e.dataTransfer.files);
+		
+		
+		alexStart(e.dataTransfer.files[0]);
+		
 	}
 }
 
