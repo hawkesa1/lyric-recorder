@@ -5,21 +5,21 @@ var X_MOVE = 0;
 var arcRadius = 2;
 var SHIFT_TO_FIX_LINE_THICKNESS = 0.5;
 
-var wordSelectedColour = "#ccffcc";
-var wordHoveredColour = "#ccffcc";
-var wordPlayingColour = "#ccffcc";
-var wordStandardColour = 'black';
-var wordEdgeColour = "#4dff4d";
-var trackingSquareColour = 'black';
+var wordSelectedColour = "red";
+var wordHoveredColour = "orange";
+var wordPlayingColour = "#00ff00";
+var wordStandardColour = 'white';
+var wordEdgeColour = "blue";
+var trackingSquareColour = 'white';
 var beforeTimeCoverColour = '#e6f0ff';
-var wavLineColour = '#a6a6a6';
+var wavLineColour = 'white';
 var dividerLineColour = '#00ff00';
 
 var canvasFontMarker = "10px Calibri";
-var canvasFontMarkerColour = 'black';
+var canvasFontMarkerColour = 'white';
 
-var canvasFontText = "12px Calibri";
-var canvasFontTextColour = 'black';
+var canvasFontText = "20px Calibri";
+var canvasFontTextColour = 'white';
 
 var wordBoxY = 150.5;
 var wordBoxHeight = 20;

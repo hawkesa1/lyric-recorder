@@ -85,7 +85,7 @@
 			</table>
 		</div>
 
-		
+
 		<div>
 			<div id="canvasContainer"></div>
 			<audio src="" controls id="audio">
@@ -94,27 +94,6 @@
 
 
 		<div class="controlButtonsContainer">
-			<div class="buttonType1ContainerLarge">
-				<a href="#" class="buttonType1" id="enableTextView">Text</a>
-			</div>
-			<div class="buttonType1ContainerLarge">
-				<a href="#" class="buttonType1" id="enableWordView">Word</a>
-			</div>
-		</div>
-
-		<div id="lyricsContainer">
-			<textarea id="lyricText"></textarea>
-			<div id="lyrics"></div>
-		</div>
-		<div class="controlButtonsContainer">
-			<div class="buttonType1ContainerLarge">
-				<a href="#" class="buttonType1" id="removePreviousWord">Remove</a>
-			</div>
-			<div class="buttonType1ContainerLarge">
-				<a href="#" class="buttonType1" id="addCurrentWord">Add Word</a>
-			</div>
-
-<div class="controlButtonsContainer">
 
 			<div class="buttonType1ContainerSmall">
 				<a href="#" class="buttonType1" id="skipBack5Button">-5</a>
@@ -132,6 +111,39 @@
 				<a href="#" class="buttonType1" id="skipForward5Button">+5</a>
 			</div>
 		</div>
+
+
+		<div style="position: relative; width: 0; height: 0">
+
+			<div id="editRecordButtons">
+
+				<div class="controlButtonsContainer">
+					<div class="buttonType1ContainerLarge">
+						<a href="#" class="buttonType1" id="enableTextView">Edit</a>
+					</div>
+					<div class="buttonType1ContainerLarge">
+						<a href="#" class="buttonType1" id="enableWordView">Record</a>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+
+		<div id="lyricsContainer">
+			<textarea id="lyricText"></textarea>
+			<div id="lyrics"></div>
+		</div>
+		<div class="controlButtonsContainer">
+			<div class="buttonType1ContainerLarge">
+				<a href="#" class="buttonType1" id="removePreviousWord">Remove</a>
+			</div>
+			<div class="buttonType1ContainerLarge">
+				<a href="#" class="buttonType1" id="addCurrentWord">Add Word</a>
+			</div>
+
+
 
 			<div class="buttonType1ContainerSmall">
 				<a href="#" class="buttonType1" id="save">Save</a>
@@ -154,11 +166,11 @@
 
 
 
-<div id="analyzerPlaceholder"></div>
-	
+	<div id="analyzerPlaceholder"></div>
+
 	<script type="text/javascript">
 		main();
 	</script>
-	
+
 </body>
 </html>

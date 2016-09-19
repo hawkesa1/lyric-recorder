@@ -4,7 +4,7 @@
 
 .word {
 	font-family: Calibri;
-	font-size: 30px;
+	font-size: 20px;
 	font-style: normal;
 	font-weight: 140;
 	color: white;
@@ -43,7 +43,7 @@ span.wordPlaying {
 
 a.playLine:link {
     font-family: Calibri;
-	font-size: 30px;
+	font-size: 20px;
 	font-style: normal;
 	font-weight: 140;
 	color: white;
@@ -96,14 +96,26 @@ textarea:focus {
     border-color: 0px;
 }
 
+#editRecordButtons
+{
+	position:relative;
+	left:278px;
+	top:14px;
+	z-index:200;
+}
+
 #lyrics {
-	background-color: none;
+	
 	overflow-y: scroll;
 	width: 800px;
 	height: 220px;
 	padding: 0px;
 	margin: 0px;
-	border: 0px;
+	border: 1px solid #1a1a1a;
+	
+	
+	background-color:black;
+	opacity:0.8;
 }
 
 #wordInfo {
@@ -141,7 +153,7 @@ textarea:focus {
 	border: 0px solid blue;
 	width: 200px;
 	height: 50px;
-	font-size: 30px;
+	font-size: 20px;
 	background-color: white;
 	opacity: 0.5;
 	align: center;

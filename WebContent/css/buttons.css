@@ -35,17 +35,17 @@
 .buttonType1 {
 	/*http://www.bestcssbuttongenerator.com*/
 	
-	background-color: white;
+	background-color: none;
 	-moz-border-radius: 15px;
 	-webkit-border-radius: 15px;
-	border-radius: 15px;
-	border: 0px solid #e6f0ff;
+	border-radius: 5px;
+	border: 1px solid #1a1a1a;
 	display: inline-block;
 	cursor: pointer;
-	color: black;
+	color: white;
 	font-family: Calibri;
-	font-size: 15px;
-	font-style: normal;
+	font-size: 20px;
+	
 	text-decoration:underline;
 	width: 100%;
 	padding-top: 5px;
