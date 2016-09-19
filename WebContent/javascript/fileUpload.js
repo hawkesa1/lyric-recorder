@@ -1,7 +1,7 @@
 function loadUploader() {
 	console.log("Loading Uploader");
-	var holder = document.getElementById('fileUploadHolder');
-	
+	//var holder = document.getElementById('fileUploadHolder');
+	var holder=document.body;
 	holder.ondragover = function() {
 		this.className = 'hover';
 		return false;

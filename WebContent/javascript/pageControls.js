@@ -450,27 +450,11 @@ function enableLyricTextView(textToShow) {
 	}
 	$('#lyricText').html(html);
 	currentLyricView = "TEXT_VIEW";
+	$("#editButton").addClass("hiddenDiv");
+	$("#recordButton").removeClass("hiddenDiv");
 }
 
-function enableLyricScriptView() {
 
-	if (currentLyricView === "SCRIPT_VIEW") {
-	} else if (currentLyricView === "TEXT_VIEW") {
-		$('#lyricText').hide();
-		$('#lyricScript').hide();
-		$('#lyrics').show();
-		convertLyricTextToWords();
-	} else if (currentLyricView === "WORD_VIEW") {
-
-	}
-
-	$('#lyricScript').show();
-	$('#lyricText').hide();
-	$('#lyrics').hide();
-	var html = lineArrayToJSON();
-	$('#lyricScript').html(html);
-	currentLyricView = "SCRIPT_VIEW";
-}
 
 function enableLyricWordView() {
 	if (currentLyricView === "WORD_VIEW") {
@@ -487,4 +471,6 @@ function enableLyricWordView() {
 		addClickToLyrics();
 	}
 	currentLyricView = "WORD_VIEW";
+	$("#editButton").removeClass("hiddenDiv");
+	$("#recordButton").addClass("hiddenDiv");
 }

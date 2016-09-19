@@ -1,4 +1,7 @@
-
+.hiddenButton
+{
+	visibility:hidden;
+}
 
 .controlButtonsContainer {
 	text-align: center;

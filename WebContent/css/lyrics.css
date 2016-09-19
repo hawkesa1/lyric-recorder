@@ -78,7 +78,7 @@ a.playLine.playLineDisabled {
 
 #lyricText {
 	font-family: Calibri;
-	font-size: 15px;
+	font-size: 20px;
 	font-style: normal;
 	
 	overflow-y: scroll;
@@ -86,9 +86,14 @@ a.playLine.playLineDisabled {
 	height: 100%;
 	resize: none;
 	padding: 0px;
+	
+	
 	margin: 0px;
 	border: 0px;
 	display: none;
+	color:white;
+	background-color:black;
+	opacity:0.8;
 }
 
 textarea:focus { 
@@ -96,11 +101,25 @@ textarea:focus {
     border-color: 0px;
 }
 
-#editRecordButtons
+#editButton
 {
 	position:relative;
-	left:278px;
-	top:14px;
+	left:670px;
+	top:13px;
+	z-index:200;
+}
+
+div.hiddenDiv
+{
+	display:none;
+}
+
+
+#recordButton
+{
+	position:relative;
+	left:670px;
+	top:13px;
 	z-index:200;
 }
 

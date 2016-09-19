@@ -71,6 +71,8 @@ var markerWordAtTheEnd; //put a word at the end so you cant drag beyond it
 
 
 $(document).ready(function($) {
+	
+	
 	console.log("The Document is Ready!");
 	loadUploader();
 	addCanvasToPage();
@@ -78,7 +80,8 @@ $(document).ready(function($) {
 	// drawFace(false);
 	bindKeyboadControls();
 	
-	//loadATrack("1473610884245");
+	//loadATrack("1474274553224");
+
 	
 });
 
