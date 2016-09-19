@@ -78,13 +78,32 @@ $(document).ready(function($) {
 	bindKeyboadControls();
 
 	// loadATrack("1474274553224");
+	 alexStart();
 
 });
 
+var rtime;
+var timeout = false;
+var delta = 500;
 $(window).resize(function() {
-	//cleanUpAnalyzer()
-	
+    rtime = new Date();
+    if (timeout === false) {
+        timeout = true;
+        setTimeout(resizeend, delta);
+    }
 });
+
+function resizeend() {
+    if (new Date() - rtime < delta) {
+        setTimeout(resizeend, delta);
+    } else {
+    	console.log("done resizing")
+        timeout = false;
+        cleanUpAnalyzer()
+    	alexStart();
+    }               
+}
+
 
 var spaceIsDown = false;
 

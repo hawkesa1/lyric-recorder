@@ -1,25 +1,25 @@
 function loadUploader() {
 	console.log("Loading Uploader");
-	//var holder = document.getElementById('fileUploadHolder');
+	var holder1 = document.getElementById('fileUploadHolder');
 	var holder=document.body;
-	holder.ondragover = function() {
+	holder1.ondragover = function(e) {
+		e.preventDefault();
 		this.className = 'hover';
 		return false;
 	};
-	holder.ondragend = function() {
+	holder1.ondragend = function() {
 		this.className = '';
 		return false;
 	};
-	holder.ondragleave = function() {
+	holder1.ondragleave = function() {
 		this.className = '';
 		return false;
 	};
 	holder.ondrop = function(e) {
+		holder1.className='';
 		this.className = '';
 		e.preventDefault();
 		readfiles(e.dataTransfer.files);
-		
-		
 		alexStart(e.dataTransfer.files[0]);
 		
 	}

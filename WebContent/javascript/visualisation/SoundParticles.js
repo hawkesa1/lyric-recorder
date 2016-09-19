@@ -76,8 +76,8 @@ function SoundParticles(audioContext) {
 	this.alive = false;
 	this.lastRequest = null;
 
-	this.BG_COLUMNS = 15;
-	this.BG_PARTICLES_BY_COLUMN = 1;
+	this.BG_COLUMNS = 33;
+	this.BG_PARTICLES_BY_COLUMN = 5;
 	this.BG_COUNT = (this.BG_COLUMNS * this.BG_PARTICLES_BY_COLUMN);
 	this.COLORS = new Float32Array(16 * 3);
 	this.lastTime = 0;

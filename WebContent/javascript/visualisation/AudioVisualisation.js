@@ -49,14 +49,13 @@ fakeAudioContext.prototype = {
 };
 function main() {
 	pendingUrls = [];
-	
 
 	audioContext = (window.AudioContext ? new AudioContext()
 			: (window.webkitAudioContext ? new webkitAudioContext()
 					: new fakeAudioContext()));
 
 	graphicEqualizer = new GraphicalFilterEditorControl(2048, audioContext);
-	//graphicEqualizer.createControl($("equalizerPlaceholder"));
+	// graphicEqualizer.createControl($("equalizerPlaceholder"));
 	analyzerType = null;
 	analyzer = null;
 	splitter = audioContext.createChannelSplitter();
@@ -95,7 +94,7 @@ function enableButtons(enable) {
 	return true;
 }
 function showLoader(show) {
-	//$("imgLoader").className = (show ? "" : "HID");
+	// $("imgLoader").className = (show ? "" : "HID");
 	return true;
 }
 function createObjURL(obj, opts) {
@@ -157,7 +156,9 @@ function updateConnections() {
 						graphicEqualizer.filter);
 				break;
 			}
-			analyzer.createControl(document.getElementById("analyzerPlaceholder"), "visualisationCanvasId");
+			analyzer.createControl(document
+					.getElementById("analyzerPlaceholder"),
+					"visualisationCanvasId");
 		}
 
 		graphicEqualizer.filter.convolver.connect(splitter, 0, 0);
@@ -318,17 +319,20 @@ function loadIntoMemoryAndPlay(offline) {
 function alexStart() {
 	console.log("Starting here");
 	sourceAudio = document.getElementById("audio");
-	source = audioContext.createMediaElementSource(sourceAudio);
-	sourceAudio.load();
+
+	if (!source) {
+		source = audioContext.createMediaElementSource(sourceAudio);
+		sourceAudio.load();
+	}
 	
+
 	graphicEqualizer.changeAudioContext(audioContext);
 	source.connect(graphicEqualizer.filter.convolver, 0, 0);
 	updateConnections();
-	//sourceAudio.play();
+	// sourceAudio.play();
 	$("btnStop").disabled = "";
 	return true;
 }
-
 
 function prepareStreamingAndPlay() {
 	console.log("Starting here");
