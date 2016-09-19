@@ -123,13 +123,23 @@ function loadLyricsData(wavFormFile) {
 		}
 	});
 	function generateLyricData(text) {
+		console.log("Hoopla:" + text.lyricRecorderSynchronisedLyrics)
+		
 		if (text.lyricRecorderSynchronisedLyrics && text.lyricRecorderSynchronisedLyrics !="")
 		{
 			console.log("loading synchronised lyrics");
-			resetStuff();
-			lineArray=JSON.parse(text.lyricRecorderSynchronisedLyrics);
-			$('#lyrics').html(generateLyrics(lineArray));
-			addClickToLyrics();
+			try {
+				resetStuff();
+				lineArray=JSON.parse(text.lyricRecorderSynchronisedLyrics);
+				$('#lyrics').html(generateLyrics(lineArray));
+				addClickToLyrics();
+			} catch (e) {
+				console.log ("Error loading synchronised lyrics");
+				resetStuff();
+				enableLyricTextView("Please enter some lyrics here ...")
+			}
+			
+			
 			
 		}	else if(text.unsynchronisedLyrics !="")
 		{

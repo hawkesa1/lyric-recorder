@@ -191,6 +191,7 @@ function performUpload(formData) {
 				updatePageDetails(json);
 				loadATrack(json.uniqueId);
 				updateConsole("<p class='good'>* Processing complete</p>");
+				
 			}, ECLIPSE_FILE_WAIT);
 		}
 
