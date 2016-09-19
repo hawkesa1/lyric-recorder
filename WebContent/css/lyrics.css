@@ -19,6 +19,7 @@
 
 .wordBeingAdded {
 	color: #7FFF00;
+	text-decoration:underline;
 }
 
 span.wordHovered{
@@ -28,7 +29,7 @@ span.wordHovered{
 .wordHasTime {
 	color: white;
 	cursor: pointer;
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 span.wordPlaying {
@@ -104,8 +105,15 @@ textarea:focus {
 #editButton
 {
 	position:relative;
-	left:670px;
-	top:13px;
+	left:678px;
+	top:18px;
+	z-index:200;
+}
+#recordButton
+{
+	position:relative;
+	left:677px;
+	top:18px;
 	z-index:200;
 }
 
@@ -115,13 +123,7 @@ div.hiddenDiv
 }
 
 
-#recordButton
-{
-	position:relative;
-	left:670px;
-	top:13px;
-	z-index:200;
-}
+
 
 #lyrics {
 	
@@ -163,6 +165,8 @@ div.hiddenDiv
 	width: 800px;
 	overflow: none;
 	height: 220px;
+	padding-top:5px;
+	padding-bottom:10px;
 }
 
 

@@ -47,7 +47,6 @@ var doubleClickedWhilePausedX = 0;
 var canvas1Height = 200;
 var canvas1Width = 800;
 
-
 var trackDuration = 0;
 
 var currentLyricView = "";
@@ -67,25 +66,27 @@ var availableTracks = new Array();
 
 var ECLIPSE_FILE_WAIT = 5000;
 
-var markerWordAtTheEnd; //put a word at the end so you cant drag beyond it
-
+var markerWordAtTheEnd; // put a word at the end so you cant drag beyond it
 
 $(document).ready(function($) {
-	
-	
+
 	console.log("The Document is Ready!");
 	loadUploader();
 	addCanvasToPage();
 	bindCanvasTouchControls();
 	// drawFace(false);
 	bindKeyboadControls();
-	
-	//loadATrack("1474274553224");
 
+	// loadATrack("1474274553224");
+
+});
+
+$(window).resize(function() {
+	//cleanUpAnalyzer()
 	
 });
 
-var spaceIsDown=false;
+var spaceIsDown = false;
 
 function bindKeyboadControls() {
 	$(document).keydown(function(e) {
@@ -93,16 +94,16 @@ function bindKeyboadControls() {
 			console.log("space down");
 			e.preventDefault();
 			$('#addCurrentWord').mousedown();
-			$('#addCurrentWord').addClass("activeProgramatically"); 
-			spaceIsDown=true;
+			$('#addCurrentWord').addClass("activeProgramatically");
+			spaceIsDown = true;
 		}
 	});
 	$(document).keyup(function(e) {
 		if (e.which == 32 && currentLyricView === "WORD_VIEW") {
 			console.log("space released");
 			$('#addCurrentWord').mouseup();
-			$('#addCurrentWord').removeClass("activeProgramatically"); 
-			spaceIsDown=false;
+			$('#addCurrentWord').removeClass("activeProgramatically");
+			spaceIsDown = false;
 		}
 	});
 }

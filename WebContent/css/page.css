@@ -47,23 +47,38 @@ font-family: Calibri;
 
 #mainContainer {
 	margin: 0 auto;
-	margin-top:20px;
+	margin-top:5px;
 	width: 800px;
 	//border: 1px solid #33ff33;
 	height: 800px;
 	background-color:none;
 }
 
-
+#canvasContainerBackground {
+	position:relative;
+	width: 800px;
+	height: 200px;
+	background-color:black;
+	opacity:0.7;
+	top:20px;
+	z-index:2;
+}
 #canvasContainer {
 	width: 800px;
 	height: 200px;
 	border: 1px solid #1a1a1a;
-	margin-bottom:10px;
+	margin-bottom:20px;
 	margin-top:20px;
-	background-color:black;
-	opacity:0.8;
+	background-color:none;
+	z-index:3;
+	
+	position:relative;
 }
+#canvas1
+{
+	z-index:4;
+}
+
 
 table#tracks {
 	font-family: Calibri;

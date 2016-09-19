@@ -5,13 +5,13 @@ var X_MOVE = 0;
 var arcRadius = 2;
 var SHIFT_TO_FIX_LINE_THICKNESS = 0.5;
 
-var wordSelectedColour = "red";
+var wordSelectedColour = "#ccff33";
 var wordHoveredColour = "orange";
 var wordPlayingColour = "#00ff00";
 var wordStandardColour = 'white';
-var wordEdgeColour = "blue";
+var wordEdgeColour = "green";
 var trackingSquareColour = 'white';
-var beforeTimeCoverColour = '#e6f0ff';
+var beforeTimeCoverColour = 'white';
 var wavLineColour = 'white';
 var dividerLineColour = '#00ff00';
 
@@ -285,7 +285,7 @@ WaveForm.prototype.draw = function(time, ctx) {
 						ctx.lineTo(wordX + 1, (wordBoxY + wordBoxHeight));
 						ctx.lineWidth = 4;
 						ctx.strokeStyle = wordEdgeColour;
-						ctx.globalAlpha = 0.75;
+						ctx.globalAlpha = 0.5;
 						ctx.stroke();
 
 						// and End Lines
@@ -295,7 +295,7 @@ WaveForm.prototype.draw = function(time, ctx) {
 								(wordBoxY + wordBoxHeight));
 						ctx.lineWidth = 4;
 						ctx.strokeStyle = wordEdgeColour;
-						ctx.globalAlpha = 0.75;
+						ctx.globalAlpha = 0.5;
 						ctx.save();
 						ctx.stroke();
 						ctx.restore();
@@ -310,13 +310,15 @@ WaveForm.prototype.draw = function(time, ctx) {
 							ctx.strokeStyle = wordStandardColour;
 						}
 						ctx.save();
+						ctx.globalAlpha = 0.5;
 						ctx.strokeRect(wordX, wordBoxY, width, wordBoxHeight);
 						ctx.fillRect(wordX, wordBoxY, width, wordBoxHeight);
+						ctx.globalAlpha = 1;
 						ctx.restore();
 					} else {
 						if (aWord.id == currentPlayingWordId) {
-							//ctx.fillStyle = wordPlayingColour;
-							ctx.fillStyle = "black";
+							ctx.fillStyle = wordPlayingColour;
+							//ctx.fillStyle = "black";
 						} else {
 							ctx.fillStyle = canvasFontTextColour;
 						}
@@ -327,12 +329,15 @@ WaveForm.prototype.draw = function(time, ctx) {
 							ctx.fillStyle = "white";
 							ctx.strokeStyle = wordStandardColour;
 						}
+						
+						ctx.globalAlpha = 0.5;
 						ctx.strokeRect(wordX, wordBoxY, width, wordBoxHeight);
 						ctx.fillRect(wordX, wordBoxY, width, wordBoxHeight);
 						ctx.restore();
+						ctx.globalAlpha = 1;
 					}
 					ctx.font = canvasFontText;
-					ctx.fillStyle = wordStandardColour;
+					//ctx.fillStyle = wordStandardColour;
 					ctx.fillText(aWord.word, wordX,
 							(wordBoxY + wordBoxHeight + 15))
 				}
@@ -453,7 +458,7 @@ WaveForm.prototype.draw = function(time, ctx) {
 	ctx.fillStyle = beforeTimeCoverColour;
 	ctx.strokeStyle='#a6a6a6';
 	ctx.rect(0, 0, 200, canvas1Height);
-	ctx.globalAlpha = 0.2;
+	ctx.globalAlpha = 0.3;
 	ctx.fill();
 	ctx.stroke();
 	ctx.closePath();

@@ -157,7 +157,7 @@ function updateConnections() {
 						graphicEqualizer.filter);
 				break;
 			}
-			analyzer.createControl(document.getElementById("analyzerPlaceholder"));
+			analyzer.createControl(document.getElementById("analyzerPlaceholder"), "visualisationCanvasId");
 		}
 
 		graphicEqualizer.filter.convolver.connect(splitter, 0, 0);
