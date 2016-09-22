@@ -1,15 +1,18 @@
-$(function() {
-	$("#save").click(function() {
-		saveLyrics(lineArrayToJSON(), currentSongId);
-	});
-});
+var updatePageDetails = function(json) {
+	$('#trackTitle').html(json.title);
+	$('#trackArtist').html(json.artist);
+	$('#trackAlbum').html(json.album);
+}
 
-$(function() {
-	$("#loadButton").click(function() {
-		loadTrack();
-		loadCurrentTab();
-	});
-});
+var updateConsole = function(text) {
+	var holder = document.getElementById('fileUploadHolder');
+	holder.innerHTML += text;
+	$('#fileUploadHolder').scrollTop($('#fileUploadHolder')[0].scrollHeight);
+}
+var clearConsole = function(text) {
+	var holder = document.getElementById('fileUploadHolder');
+	holder.innerHTML = "";
+}
 
 function loadCreateTab() {
 	$('#currentTab').removeClass('visibleTab');
@@ -40,12 +43,6 @@ function loadLoadTab() {
 	console.log("Yo")
 }
 
-$(function() {
-	$("#lyricTextButton").click(function() {
-		convertLyricTextToWords();
-	});
-});
-
 function addClickToLyrics() {
 	$(function() {
 		$(".word").click(function(event) {
@@ -64,110 +61,6 @@ function addClickToLyrics() {
 	});
 }
 
-$(function() {
-	$("#wordInfoPlay").click(function() {
-		var wordId = $('#wordInfoId').val();
-		var lineIndex = wordId.split('_')[1];
-		var wordIndex = wordId.split('_')[2];
-		var aLineObject = lineArray[lineIndex];
-		var aWordObject = aLineObject.words[wordIndex];
-		playWord(aWordObject);
-	});
-});
-
-$(function() {
-	$("#wordInfoPlayLine")
-			.click(
-					function() {
-						var wordId = $('#wordInfoId').val();
-						var lineIndex = wordId.split('_')[1];
-						var wordIndex = 0;
-						var aLineObject = lineArray[lineIndex];
-						var aWordObject = aLineObject.words[wordIndex];
-
-						var vid = document.getElementById("audio");
-
-						if (aWordObject.startTime && aWordObject.startTime >= 0) {
-							vid.currentTime = aWordObject.startTime / 1000;
-							vid.play();
-							stopAtTime = aLineObject.words[aLineObject.words.length - 1].endTime;
-						}
-					});
-});
-$(function() {
-	$("#playPauseButton").click(function(e) {
-		e.preventDefault();
-		var vid = document.getElementById("audio");
-		if (vid.paused) {
-			vid.play();
-			$('#playPauseButton').text("Pause");
-		} else {
-			vid.pause();
-			$('#playPauseButton').text("Play");
-		}
-	});
-});
-
-$(function() {
-	$("#playSlowButton").click(function(e) {
-		e.preventDefault();
-		var vid = document.getElementById("audio");
-		if (vid.playbackRate == 0.5) {
-			$("#playSlowButton").text("Slow");
-			$("#playFastButton").text("Fast");
-			vid.playbackRate = 1;
-		} else {
-			$("#playSlowButton").text("Normal");
-			$("#playFastButton").text("Fast");
-			vid.playbackRate = 0.5;
-		}
-		vid.play();
-	});
-});
-$(function() {
-	$("#playFastButton").click(function(e) {
-		e.preventDefault();
-		var vid = document.getElementById("audio");
-		if (vid.playbackRate == 2) {
-			$("#playFastButton").text("Fast");
-			$("#playSlowButton").text("Slow");
-			vid.playbackRate = 1;
-		} else {
-			$("#playSlowButton").text("Slow");
-			$("#playFastButton").text("Normal");
-			vid.playbackRate = 2;
-		}
-		vid.play();
-	});
-});
-$(function() {
-	$("#skipBack5Button").click(function(e) {
-		e.preventDefault();
-		var vid = document.getElementById("audio");
-		vid.currentTime = vid.currentTime - 5;
-	});
-});
-$(function() {
-	$("#skipForward5Button").click(function(e) {
-		e.preventDefault();
-		var vid = document.getElementById("audio");
-		vid.currentTime = vid.currentTime + 5;
-	});
-});
-
-$(function() {
-	$("#enableTextView").click(function(e) {
-		e.preventDefault();
-		enableLyricTextView();
-	});
-});
-$(function() {
-	$("#enableWordView").click(function(e) {
-		e.preventDefault();
-		enableLyricWordView();
-	});
-});
-
 function playPause() {
 	var vid = document.getElementById("audio");
 	if (vid.paused) {
@@ -179,47 +72,6 @@ function playPause() {
 	}
 }
 
-$(function() {
-	$("#wordInfoClearAll")
-			.click(
-					function() {
-						for (var i = 0; i < onlyWordsArray.length; i++) {
-							onlyWordsArray[i].startTime = null;
-							onlyWordsArray[i].endTime = null;
-							currentLineIndex = 0;
-							currentWordIndex = 0;
-
-							$('#wordInfoStartTime')
-									.val(
-											millisecondsToISOMinutesSecondsMilliseconds(onlyWordsArray[i].startTime));
-							$('#wordInfoEndTime')
-									.val(
-											millisecondsToISOMinutesSecondsMilliseconds(onlyWordsArray[i].endTime));
-						}
-
-					});
-});
-
-$(function() {
-	$("#wordInfoClearThisWord")
-			.click(
-					function() {
-						var wordId = $('#wordInfoId').val();
-						var lineIndex = wordId.split('_')[1];
-						var wordIndex = wordId.split('_')[2];
-						var aLineObject = lineArray[currentLineIndex];
-						var aWordObject = aLineObject.words[currentWordIndex];
-						aWordObject.startTime = null;
-						aWordObject.endTime = null;
-						$('#wordInfoStartTime')
-								.val(
-										millisecondsToISOMinutesSecondsMilliseconds(aWordObject.startTime));
-						$('#wordInfoEndTime')
-								.val(
-										millisecondsToISOMinutesSecondsMilliseconds(aWordObject.endTime));
-
-					});
-});
 
 var currentlyAddingWord = false;
 
@@ -272,47 +124,30 @@ function addCurrentWordStart() {
 
 }
 
-$(function() {
-	$("#addCurrentWord").mouseup(function() {
-		addCurrentWordEnd();
-	});
-});
+
 
 function addCurrentWordEnd() {
-	
-
 	if (currentlyAddingWord && nextWordToAddId!="") {
-		
-		
 		var aLineObject = lineArray[currentLineIndex];
 		var aWordObject = aLineObject.words[currentWordIndex];
-		
 		currentlyAddingWord = false;
 		aWordObject.endTime = formatTime($("#audio").prop("currentTime") * 1000);
 		$('#wordInfoEndTime')
 				.val(
 						millisecondsToISOMinutesSecondsMilliseconds(aWordObject.endTime));
-
 		$('#word_' + currentLineIndex + "_" + currentWordIndex).addClass(
 				"wordHasTime");
-
 		lastAddedWordId = aWordObject.id;
 		highestEndTime = aWordObject.endTime;
-
 		currentWordIndex++;
 		if (currentWordIndex >= aLineObject.words.length) {
 			currentWordIndex = 0;
 			aLineObject.endTime = formatTime($("#audio").prop("currentTime") * 1000);
 			currentLineIndex++;
-
-			
 			var container = $('#lyrics')
 			var scrollTo = $('#' + currentSelectedWordId);
 			container.scrollTop((scrollTo.offset().top - 0)
 					- container.offset().top + container.scrollTop());
-			
-			
-			
 		}
 		if (currentLineIndex < lineArray.length) {
 			aLineObject = lineArray[currentLineIndex];
@@ -330,38 +165,6 @@ function addCurrentWordEnd() {
 		console.log("You can't add an end time without a start time");
 	}
 }
-
-$(function() {
-	$("#removePreviousWord").mouseup(
-			function() {
-				var word = findWordById(lastAddedWordId);
-				delete word.startTime;
-				delete word.endTime;
-				$('#lyrics').html(generateLyrics(lineArray));
-				addClickToLyrics();
-
-				var container = $('#lyrics')
-				var scrollTo = $('#' + nextWordToAddId);
-				container.scrollTop((scrollTo.offset().top)
-						- container.offset().top + container.scrollTop());
-
-			});
-});
-
-$(function() {
-	$("#lyricFileFormatsSelect").on('change', function() {
-		var html = "";
-		if (this.value === "JSON") {
-			html = lineArrayToJSON();
-		} else if (this.value === "LRC") {
-			html = lineArrayToLRC();
-		} else if (this.value === "EnhancedLRC") {
-			html = lineArrayToEnhancedLRC();
-		}
-		$('#lyricScript').html(html);
-
-	});
-});
 
 function lineArrayToJSON() {
 	// html = JSON.stringify($.toJSON(lineArray), null, 2);
@@ -453,8 +256,6 @@ function enableLyricTextView(textToShow) {
 	$("#editButton").addClass("hiddenDiv");
 	$("#recordButton").removeClass("hiddenDiv");
 }
-
-
 
 function enableLyricWordView() {
 	if (currentLyricView === "WORD_VIEW") {

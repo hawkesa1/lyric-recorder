@@ -49,7 +49,6 @@ fakeAudioContext.prototype = {
 };
 function main() {
 	pendingUrls = [];
-
 	audioContext = (window.AudioContext ? new AudioContext()
 			: (window.webkitAudioContext ? new webkitAudioContext()
 					: new fakeAudioContext()));
@@ -316,7 +315,7 @@ function loadIntoMemoryAndPlay(offline) {
 	return true;
 }
 
-function alexStart() {
+function startVisualisation() {
 	console.log("Starting here");
 	sourceAudio = document.getElementById("audio");
 

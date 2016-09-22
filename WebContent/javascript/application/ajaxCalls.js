@@ -25,8 +25,6 @@ function loadATrack(selectedValue) {
 
 function saveLyrics(JSONFormattedLyricData, songId) {
 	console.log("Save Lyrics"+ songId + JSONFormattedLyricData);
-	
-	
 	$.ajax({
 		type : 'POST',
 		url : './LyricUploadServlet',
@@ -54,8 +52,6 @@ function saveLyrics(JSONFormattedLyricData, songId) {
 			console.log("downloadableMp3Location: "+  linkAddress);
 			$('#downloadableLink').html("<a href='"+linkAddress+"' download='"+text+".MP3'>"+text+".MP3</a>");
 		}, ECLIPSE_FILE_WAIT);
-		
-		
 	}
 }
 
@@ -104,7 +100,7 @@ function loadWaveForm(wavFormFile) {
 		}
 	});
 	function processResponse(text) {
-		generateWaveForm(text);
+		lyricTracker.generateWaveForm(text);
 	}
 }
 

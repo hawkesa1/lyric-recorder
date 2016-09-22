@@ -342,24 +342,7 @@ var lastDrawTime = 0;
 var lastDrawPrintTime = 1;
 var frame = 0;
 
-function animate() {
-	requestAnimationFrame(animate);
-	audioTime = $("#audio").prop("currentTime") * 1000;
-	frame++;
-	if (audioTime - lastDrawPrintTime > 1000) {
-		lastDrawPrintTime = audioTime;
-		$('#fps').html(frame + " fps");
-		frame = 0;
-	}
-	lastDrawTime = audioTime;
-	draw(audioTime);
-}
 
-function draw(time) {
-	context1.clearRect(0, 0, canvas1.width, canvas1.height);
-	$('#canvas1').css("background-color", $('#backgroundColor').val());
-	waveForm.draw(time, context1);
-}
 
 function loadTrack() {
 	var selectedValue = $('#loadTrack').find(":selected").val();

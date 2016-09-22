@@ -230,8 +230,8 @@ SoundParticles.prototype = {
 	createControl : function(parent, id) {
 		if (!this.ctx) {
 			this.canvas = document.createElement("canvas");
-			this.canvas.width = window.innerWidth;
-			this.canvas.height = window.innerHeight;
+			this.canvas.width = $(document).width();
+			this.canvas.height = $(document).height();
 			this.canvas.style.position = "absolute";
 			this.canvas.style.top="0px";
 			this.canvas.style.left = "0px";

@@ -8,11 +8,10 @@
 <link rel="stylesheet" href="css/buttons.css" media="screen" />
 <link rel="stylesheet" href="css/lyrics.css" media="screen" />
 
-<script src="./javascript/external/jquery-3.1.0.min.js"
+<script src="./javascript/external/jquery/jquery-3.1.0.min.js"
 	type="text/javascript"></script>
-<script src="./javascript/external/jquery-json.js"
+<script src="./javascript/external/jquery/jquery-json.js"
 	type="text/javascript"></script>
-
 
 <script src="./javascript/external/id3/binaryfile.js"
 	type="text/javascript"></script>
@@ -30,42 +29,42 @@
 	type="text/javascript"></script>
 
 
-<script src="./javascript/main.js" type="text/javascript"></script>
-<script src="./javascript/fileUpload.js" type="text/javascript"></script>
-<script src="./javascript/wavForm.js" type="text/javascript"></script>
-<script src="./javascript/touchControls.js" type="text/javascript"></script>
-<script src="./javascript/pageControls.js" type="text/javascript"></script>
-<script src="./javascript/words.js" type="text/javascript"></script>
-<script src="./javascript/ajaxCalls.js" type="text/javascript"></script>
-<script src="./javascript/animatedFace.js" type="text/javascript"></script>
-
-
-
-
-<script type="text/javascript" charset="utf-8"
-	src="./javascript/visualisation/AudioVisualisation.js"></script>
-<script type="text/javascript" charset="utf-8"
-	src="./javascript/visualisation/Common.js"></script>
-<script type="text/javascript" charset="utf-8"
-	src="./javascript/visualisation/FFTNR.js"></script>
-<script type="text/javascript" charset="utf-8"
-	src="./javascript/visualisation/GraphicalFilterEditor.js"></script>
-<script type="text/javascript" charset="utf-8"
-	src="./javascript/visualisation/GraphicalFilterEditorControl.js"></script>
+<script src="./javascript/application/events.js" type="text/javascript"></script>
+<script src="./javascript/application/main.js" type="text/javascript"></script>
+<script src="./javascript/application/FileUploader.js"
+	type="text/javascript"></script>
+	<script src="./javascript/application/LyricTracker.js"
+	type="text/javascript"></script>
+	<script src="./javascript/application/TextTracker.js"
+	type="text/javascript"></script>
+	
+<script src="./javascript/application/pageControls.js"
+	type="text/javascript"></script>
+<script src="./javascript/application/words.js" type="text/javascript"></script>
+<script src="./javascript/application/ajaxCalls.js"
+	type="text/javascript"></script>
 
 <script type="text/javascript" charset="utf-8"
-	src="./javascript/visualisation/Program.js"></script>
+	src="./javascript/external/visualisation/AudioVisualisation.js"></script>
 <script type="text/javascript" charset="utf-8"
-	src="./javascript/visualisation/SoundParticles.js"></script>
+	src="./javascript/external/visualisation/Common.js"></script>
+<script type="text/javascript" charset="utf-8"
+	src="./javascript/external/visualisation/FFTNR.js"></script>
+<script type="text/javascript" charset="utf-8"
+	src="./javascript/external/visualisation/GraphicalFilterEditor.js"></script>
+<script type="text/javascript" charset="utf-8"
+	src="./javascript/external/visualisation/GraphicalFilterEditorControl.js"></script>
 
-
+<script type="text/javascript" charset="utf-8"
+	src="./javascript/external/visualisation/Program.js"></script>
+<script type="text/javascript" charset="utf-8"
+	src="./javascript/external/visualisation/SoundParticles.js"></script>
 
 </head>
 <body>
 	<div id="headerContainer">
-
 		<div id="headerTitle">
-			<img id="skull" src="./css/skull.png"></img> <span id="headerText">lyricRecorder.com</span>
+			<img id="skull" src="./img/skull.png"></img> <span id="headerText">lyricRecorder.com</span>
 		</div>
 	</div>
 	<div id="mainContainer">
@@ -75,7 +74,6 @@
 					<th>Title</th>
 					<th>Artist</th>
 					<th>Album</th>
-					<td class="trackTableRight">&nbsp;</td>
 				</tr>
 				<tr>
 					<td width="33%"><span id="trackTitle">XXX</span></td>
@@ -84,24 +82,15 @@
 				</tr>
 			</table>
 		</div>
-
-
 		<div style="position: relative; width: 0; height: 0">
-			<div id="canvasContainerBackground" >
-			&nbsp;
-			</div>
+			<div id="canvasContainerBackground">&nbsp;</div>
 		</div>
-
-
 		<div>
 			<div id="canvasContainer"></div>
-			<audio src="" controls id="audio">
+			<audio src="" id="audio">
 			</audio>
 		</div>
-
-
 		<div class="controlButtonsContainer">
-
 			<div class="buttonType1ContainerSmall">
 				<a href="#" class="buttonType1" id="skipBack5Button">-5</a>
 			</div>
@@ -118,8 +107,6 @@
 				<a href="#" class="buttonType1" id="skipForward5Button">+5</a>
 			</div>
 		</div>
-
-
 		<div style="position: relative; width: 0; height: 0">
 			<div id="editButton" class="hiddenDiv">
 				<div class="buttonType1ContainerLarge">
@@ -134,8 +121,6 @@
 				</div>
 			</div>
 		</div>
-
-
 		<div id="lyricsContainer">
 			<textarea id="lyricText"></textarea>
 			<div id="lyrics"></div>
@@ -147,35 +132,17 @@
 			<div class="buttonType1ContainerLarge">
 				<a href="#" class="buttonType1" id="addCurrentWord">Add Word</a>
 			</div>
-
-
-
 			<div class="buttonType1ContainerSmall">
 				<a href="#" class="buttonType1" id="save">Save</a>
 			</div>
 		</div>
-
 		<div id="downloadableLink"></div>
-
-
 		<div id="fileUploadHolder">
 			<p class="holderMessage">* Drag an audio file here to begin.
 				Maximum file size 15 Mb. Supported formats include: mp3, wav, wma,
 				m4a, mid, flac, mov, amr, aac, au, aif, raw, dvf, vox, cda</p>
 		</div>
-
-		<!--  
-		<canvas id="myCanvas" width="800px" height="150"></canvas>
-		-->
 	</div>
-
-
-
 	<div id="analyzerPlaceholder"></div>
-
-	<script type="text/javascript">
-		main();
-	</script>
-
 </body>
 </html>
