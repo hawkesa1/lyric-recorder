@@ -159,9 +159,7 @@ function playLine(lineIndex) {
 	var wordIndex = 0;
 	var aLineObject = lineArray[lineIndex];
 	var aWordObject = aLineObject.words[wordIndex];
-
 	var vid = document.getElementById("audio");
-
 	if (aWordObject.startTime && aWordObject.startTime >= 0) {
 		vid.currentTime = aWordObject.startTime / 1000;
 		vid.play();
@@ -173,9 +171,7 @@ function playFromLine(lineIndex) {
 	var wordIndex = 0;
 	var aLineObject = lineArray[lineIndex];
 	var aWordObject = aLineObject.words[wordIndex];
-
 	var vid = document.getElementById("audio");
-
 	if (aWordObject.startTime && aWordObject.startTime >= 0) {
 		vid.currentTime = aWordObject.startTime / 1000;
 		vid.play();
@@ -186,11 +182,9 @@ function changeStart(timeInMs) {
 	var wordId = $('#wordInfoId').val();
 	var lineIndex = wordId.split('_')[1];
 	var wordIndex = wordId.split('_')[2];
-
 	var aLineObject = lineArray[currentLineIndex];
 	var aWordObject = aLineObject.words[currentWordIndex];
 	aWordObject.startTime = aWordObject.startTime + timeInMs;
-
 	$('#wordInfoStartTime').val(
 			millisecondsToISOMinutesSecondsMilliseconds(aWordObject.startTime));
 	$('#wordInfoEndTime').val(
@@ -202,20 +196,14 @@ function changeEnd(timeInMs) {
 	var wordId = $('#wordInfoId').val();
 	var lineIndex = wordId.split('_')[1];
 	var wordIndex = wordId.split('_')[2];
-
 	var aLineObject = lineArray[currentLineIndex];
 	var aWordObject = aLineObject.words[currentWordIndex];
 	aWordObject.endTime = aWordObject.endTime + timeInMs;
-
 	$('#wordInfoStartTime').val(
 			millisecondsToISOMinutesSecondsMilliseconds(aWordObject.startTime));
 	$('#wordInfoEndTime').val(
 			millisecondsToISOMinutesSecondsMilliseconds(aWordObject.endTime));
-
 }
-
-var currentLineIndex = 0;
-var currentWordIndex = 0;
 
 function findWordById(wordId) {
 	var lineIndex = wordId.split('_')[1];
@@ -227,11 +215,9 @@ function findWordById(wordId) {
 }
 
 function wordClicked(wordId) {
-
 	var aWordObject = findWordById(wordId);
 	currentSelectedWordId = aWordObject.id;
 	$('#wordInfoId').val(currentSelectedWordId)
-
 	$('#wordInfoWord').val(
 			aWordObject.word.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, ""));
 	$('#wordInfoStartTime').val(
@@ -240,15 +226,12 @@ function wordClicked(wordId) {
 			millisecondsToISOMinutesSecondsMilliseconds(aWordObject.endTime));
 	$('.word').removeClass("wordSelected");
 	$('#' + wordId).addClass("wordSelected");
-
 	var vid = document.getElementById("audio");
-
 	if (!aWordObject.startTime <= 0) {
 		vid.currentTime = aWordObject.startTime / 1000;
 		vid.play();
 		stopAtTime = aWordObject.endTime;
 	}
-
 }
 
 function wordMouseOver(wordId) {
@@ -274,24 +257,18 @@ function generateLyrics(lines) {
 	var id;
 	var k = 0;
 	var nextWordToAddFound = false;
-
 	nextWordToAddId = "";
 	highestEndTime = 0;
 	lastAddedWordId = "";
-
 	for (var i = 0; i < lines.length; i++) {
 		words = lines[i].words;
 		html += "<div class='line'>";
-
 		for (var j = 0; j < words.length; j++) {
-
 			if (j === 0) {
 				if (words[j].endTime) {
-
 					html += "<a  class='playLine' id='playLine_" + i
 							+ "'onclick='playLine(" + i
 							+ ")' href='javascript:void(0);'>Play Line</a>";
-
 				} else {
 					html += "<a  class='playLine playLineDisabled' id='playLine_"
 							+ i
@@ -300,7 +277,6 @@ function generateLyrics(lines) {
 							+ ")' href='javascript:void(0);'>Play Line</a>";
 				}
 			}
-
 			words[j].wordIndex = k;
 			onlyWordsArray[k] = words[j];
 			k++;
@@ -311,7 +287,6 @@ function generateLyrics(lines) {
 						+ words[j].word + "</span>" + " ";
 				highestEndTime = words[j].endTime;
 				lastAddedWordId = id;
-
 			} else {
 				if (nextWordToAddFound) {
 					html += "<span class='word' id='" + id + "'>"
@@ -322,7 +297,6 @@ function generateLyrics(lines) {
 					html += "<span class='word wordSelected nextWordToAdd' id='"
 							+ id + "'>" + words[j].word + "</span>" + " ";
 					console.log("Next Word to Add:" + words[j].word);
-
 					// this sets the line id!!
 					findWordById(id);
 					nextWordToAddId = id;
@@ -337,12 +311,6 @@ function generateLyrics(lines) {
 	}
 	return html;
 }
-
-var lastDrawTime = 0;
-var lastDrawPrintTime = 1;
-var frame = 0;
-
-
 
 function loadTrack() {
 	var selectedValue = $('#loadTrack').find(":selected").val();
@@ -365,8 +333,3 @@ function TrackObject() {
 
 }
 
-/*
- * $(window).on('resize', function() { var win = $(this); canvas1.width =
- * win.width(); windowWidth = win.width(); waveForm.drawTime =
- * calculateDrawTime(); });
- */

@@ -44,9 +44,6 @@ function saveLyrics(JSONFormattedLyricData, songId) {
 		var text=mp3MetaData.title ? mp3MetaData.title : mp3MetaData.uniqueId;
 		console.log(mp3MetaData);
 		console.log("uniqueid"+  mp3MetaData.downloadId);
-		
-		
-	
 		setTimeout(function() {
 			var linkAddress=downloadableMp3Location + mp3MetaData.downloadId;
 			console.log("downloadableMp3Location: "+  linkAddress);
@@ -55,9 +52,8 @@ function saveLyrics(JSONFormattedLyricData, songId) {
 	}
 }
 
-var anAvailableTrack;
-
 function loadUser(trackToLoadOnCompletion) {
+	var anAvailableTrack;
 	$.ajax({
 		type : 'GET',
 		url : './GetAvailableTracks',
@@ -134,9 +130,6 @@ function loadLyricsData(wavFormFile) {
 				resetStuff();
 				enableLyricTextView("Please enter some lyrics here ...")
 			}
-			
-			
-			
 		}	else if(text.unsynchronisedLyrics !="")
 		{
 			console.log ("loading unsycnhronised lyrics");

@@ -49,9 +49,7 @@ $(function() {
 						var wordIndex = 0;
 						var aLineObject = lineArray[lineIndex];
 						var aWordObject = aLineObject.words[wordIndex];
-
 						var vid = document.getElementById("audio");
-
 						if (aWordObject.startTime && aWordObject.startTime >= 0) {
 							vid.currentTime = aWordObject.startTime / 1000;
 							vid.play();
