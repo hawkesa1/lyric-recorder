@@ -83,8 +83,8 @@ function loadLyricsData(wavFormFile) {
 			console.log("loading synchronised lyrics");
 			try {
 				resetStuff();
-				lineArray = JSON.parse(text.lyricRecorderSynchronisedLyrics);
-				$('#lyrics').html(generateLyrics(lineArray));
+				currentStateStore.lineArray = JSON.parse(text.lyricRecorderSynchronisedLyrics);
+				$('#lyrics').html(generateLyrics(currentStateStore.lineArray));
 				addClickToLyrics();
 			} catch (e) {
 				console.log("Error loading synchronised lyrics");

@@ -199,8 +199,8 @@ var LyricTracker = function(container) {
 		isAWordHovered = false;
 		isAWordEdgeHovered = false;
 
-		for (var i = 0; i < onlyWordsArray.length; i++) {
-			aWord = onlyWordsArray[i];
+		for (var i = 0; i < currentStateStore.onlyWordsArray.length; i++) {
+			aWord = currentStateStore.onlyWordsArray[i];
 			// only interested in words that have a start time set
 			if (aWord.startTime) {
 				var startTime = aWord.startTime / 10;

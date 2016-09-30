@@ -36,7 +36,7 @@ $(function() {
 		var wordId = $('#wordInfoId').val();
 		var lineIndex = wordId.split('_')[1];
 		var wordIndex = wordId.split('_')[2];
-		var aLineObject = lineArray[lineIndex];
+		var aLineObject = currentStateStore.lineArray[lineIndex];
 		var aWordObject = aLineObject.words[wordIndex];
 		playWord(aWordObject);
 	});
@@ -49,7 +49,7 @@ $(function() {
 						var wordId = $('#wordInfoId').val();
 						var lineIndex = wordId.split('_')[1];
 						var wordIndex = 0;
-						var aLineObject = lineArray[lineIndex];
+						var aLineObject = currentStateStore.lineArray[lineIndex];
 						var aWordObject = aLineObject.words[wordIndex];
 						var vid = document.getElementById("audio");
 						if (aWordObject.startTime && aWordObject.startTime >= 0) {
@@ -152,7 +152,7 @@ $(function() {
 				var word = findWordById(currentStateStore.lastAddedWordId);
 				delete word.startTime;
 				delete word.endTime;
-				$('#lyrics').html(generateLyrics(lineArray));
+				$('#lyrics').html(generateLyrics(currentStateStore.lineArray));
 				addClickToLyrics();
 
 				var container = $('#lyrics')

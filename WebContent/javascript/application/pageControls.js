@@ -86,7 +86,7 @@ function addCurrentWordStart() {
 			&& currentStateStore.nextWordToAddId != "") {
 		currentStateStore.currentlyAddingWord = true;
 		findWordById(currentStateStore.nextWordToAddId);
-		var aLineObject = lineArray[currentStateStore.currentLineIndex];
+		var aLineObject = currentStateStore.lineArray[currentStateStore.currentLineIndex];
 		var aWordObject = aLineObject.words[currentStateStore.currentWordIndex];
 		aWordObject.startTime = formatTime($("#audio").prop("currentTime") * 1000);
 
@@ -125,7 +125,7 @@ function addCurrentWordStart() {
 function addCurrentWordEnd() {
 	if (currentStateStore.currentlyAddingWord
 			&& currentStateStore.nextWordToAddId != "") {
-		var aLineObject = lineArray[currentStateStore.currentLineIndex];
+		var aLineObject = currentStateStore.lineArray[currentStateStore.currentLineIndex];
 		var aWordObject = aLineObject.words[currentStateStore.currentWordIndex];
 		currentStateStore.currentlyAddingWord = false;
 		aWordObject.endTime = formatTime($("#audio").prop("currentTime") * 1000);
@@ -148,8 +148,8 @@ function addCurrentWordEnd() {
 			container.scrollTop((scrollTo.offset().top - 0)
 					- container.offset().top + container.scrollTop());
 		}
-		if (currentStateStore.currentLineIndex < lineArray.length) {
-			aLineObject = lineArray[currentStateStore.currentLineIndex];
+		if (currentStateStore.currentLineIndex < currentStateStore.lineArray.length) {
+			aLineObject = currentStateStore.lineArray[currentStateStore.currentLineIndex];
 			aWordObject = aLineObject.words[currentStateStore.currentWordIndex];
 			currentStateStore.nextWordToAddId = aWordObject.id;
 			$('#playLine_' + currentStateStore.currentLineIndex).removeClass(
@@ -169,18 +169,18 @@ function addCurrentWordEnd() {
 }
 
 function lineArrayToJSON() {
-	// html = JSON.stringify($.toJSON(lineArray), null, 2);
-	return $.toJSON(lineArray);
+	// html = JSON.stringify($.toJSON(currentStateStore.lineArray), null, 2);
+	return $.toJSON(currentStateStore.lineArray);
 }
 function lineArrayToLRC() {
 	var lrc = "";
 	var words;
 	var word;
-	for (var i = 0; i < lineArray.length; i++) {
+	for (var i = 0; i < currentStateStore.lineArray.length; i++) {
 		lrc += "["
-				+ millisecondsToISOMinutesSecondsMilliseconds(lineArray[i].startTime)
+				+ millisecondsToISOMinutesSecondsMilliseconds(currentStateStore.lineArray[i].startTime)
 				+ "]";
-		words = lineArray[i].words;
+		words = currentStateStore.lineArray[i].words;
 		for (var j = 0; j < words.length; j++) {
 			if (j != 0) {
 				lrc += " ";
@@ -196,11 +196,11 @@ function lineArrayToEnhancedLRC() {
 	var lrc = "";
 	var words;
 	var word;
-	for (var i = 0; i < lineArray.length; i++) {
+	for (var i = 0; i < currentStateStore.lineArray.length; i++) {
 		lrc += "["
-				+ millisecondsToISOMinutesSecondsMilliseconds(lineArray[i].startTime)
+				+ millisecondsToISOMinutesSecondsMilliseconds(currentStateStore.lineArray[i].startTime)
 				+ "]";
-		words = lineArray[i].words;
+		words = currentStateStore.lineArray[i].words;
 		for (var j = 0; j < words.length; j++) {
 			if (j != 0) {
 				lrc += " ";
@@ -239,8 +239,8 @@ function enableLyricTextView(textToShow) {
 		html = textToShow;
 	} else {
 
-		for (var i = 0; i < lineArray.length; i++) {
-			words = lineArray[i].words;
+		for (var i = 0; i < currentStateStore.lineArray.length; i++) {
+			words = currentStateStore.lineArray[i].words;
 			for (var j = 0; j < words.length; j++) {
 				if (j != 0) {
 					html += " ";
@@ -250,8 +250,8 @@ function enableLyricTextView(textToShow) {
 			html += "\n";
 			$('#lyricText').html(html);
 		}
-		lineArray.length = 0;
-		onlyWordsArray.length = 0;
+		currentStateStore.lineArray.length = 0;
+		currentStateStore.onlyWordsArray.length = 0;
 	}
 	$('#lyricText').html(html);
 	currentStateStore.currentLyricView = "TEXT_VIEW";
