@@ -112,12 +112,6 @@ var LyricTracker = function(container) {
 		this.startTime = 0;
 	}
 
-	function Word(startTime, endTime, text) {
-		this.startTime = startTime;
-		this.endTime = endTime;
-		this.text = text;
-	}
-
 	// Receives the currentTimeof the audio file and the context of the canvas
 
 	WaveForm.prototype.draw = function(time, ctx) {
@@ -127,11 +121,11 @@ var LyricTracker = function(container) {
 		} else {
 			$('#playPauseButton').text("Pause");
 		}
-		if (time > stopAtTime) {
+		if (time > currentStateStore.stopAtTime) {
 			// Because it misses and looks messy
-			document.getElementById("audio").currentTime = stopAtTime / 1000;
+			document.getElementById("audio").currentTime = currentStateStore.stopAtTime / 1000;
 			vid.pause();
-			stopAtTime = 999999;
+			currentStateStore.stopAtTime = 999999;
 		}
 
 		// The wav file has 1 entry per WAV_FILE_TIME_GAP (usually 10ms)
@@ -230,9 +224,9 @@ var LyricTracker = function(container) {
 						if (startTime < this.startTime
 								&& endTime > this.startTime) {
 							isAWordPlaying = true;
-							if (currentPlayingWordId != aWord.id) {
-								currentPlayingWordId = aWord.id;
-								currentPlayingWord = aWord;
+							if (currentStateStore.currentPlayingWordId != aWord.id) {
+								currentStateStore.currentPlayingWordId = aWord.id;
+								currentStateStore.currentPlayingWord = aWord;
 								changeCurrentPlayingWordId();
 							}
 						}
@@ -253,8 +247,8 @@ var LyricTracker = function(container) {
 									middleOfWordMouseDownX = clickedWhilePausedX;
 								}
 								clickedWhilePausedX = 0;
-								currentSelectedWordId = aWord.id;
-								currentSelectedWord = aWord;
+								currentStateStore.currentSelectedWordId = aWord.id;
+								currentStateStore.currentSelectedWord = aWord;
 								changeCurrentSelectedWord();
 							}
 						}
@@ -274,20 +268,20 @@ var LyricTracker = function(container) {
 								// middle
 								isAWordHovered = true;
 							}
-							currentHoveredWordId = aWord.id;
+							currentStateStore.currentHoveredWordId = aWord.id;
 						} else {
-							currentHoveredWordId = ""
+							currentStateStore.currentHoveredWordId = ""
 						}
 						if (doubleClickedWhilePausedX > 0
 								&& (doubleClickedWhilePausedX > wordX && doubleClickedWhilePausedX < wordX
 										+ width)) {
 							doubleClickedWhilePausedX = 0;
-							currentDoubleClickedWordId = aWord.id;
+							currentStateStore.currentDoubleClickedWordId = aWord.id;
 							playWord(aWord);
 						}
 
-						if (aWord.id == currentSelectedWordId) {
-							if (aWord.id == currentPlayingWordId) {
+						if (aWord.id == currentStateStore.currentSelectedWordId) {
+							if (aWord.id == currentStateStore.currentPlayingWordId) {
 								ctx.fillStyle = wordPlayingColour;
 							} else {
 								ctx.fillStyle = wordSelectedColour;
@@ -321,8 +315,8 @@ var LyricTracker = function(container) {
 							ctx.restore();
 							ctx.globalAlpha = 1;
 							ctx.lineWidth = 1;
-						} else if ((aWord.id == currentHoveredWordId)) {
-							if (aWord.id == currentPlayingWordId) {
+						} else if ((aWord.id == currentStateStore.currentHoveredWordId)) {
+							if (aWord.id == currentStateStore.currentPlayingWordId) {
 								ctx.fillStyle = wordPlayingColour;
 								ctx.strokeStyle = wordStandardColour;
 							} else {
@@ -337,14 +331,14 @@ var LyricTracker = function(container) {
 							ctx.globalAlpha = 1;
 							ctx.restore();
 						} else {
-							if (aWord.id == currentPlayingWordId) {
+							if (aWord.id == currentStateStore.currentPlayingWordId) {
 								ctx.fillStyle = wordPlayingColour;
 								// ctx.fillStyle = "black";
 							} else {
 								ctx.fillStyle = canvasFontTextColour;
 							}
 							ctx.save();
-							if (aWord.id == currentPlayingWordId) {
+							if (aWord.id == currentStateStore.currentPlayingWordId) {
 								ctx.fillStyle = wordPlayingColour;
 							} else {
 								ctx.fillStyle = "white";
@@ -367,9 +361,9 @@ var LyricTracker = function(container) {
 			}
 		}
 		if (!isAWordPlaying) {
-			if (currentPlayingWordId != "") {
-				currentPlayingWordId = "";
-				currentPlayingWord = null;
+			if (currentStateStore.currentPlayingWordId != "") {
+				currentStateStore.currentPlayingWordId = "";
+				currentStateStore.currentPlayingWord = null;
 				changeCurrentPlayingWordId();
 			}
 		}
@@ -439,7 +433,7 @@ var LyricTracker = function(container) {
 		ctx.lineTo(X_MOVE, 25 + SHIFT_TO_FIX_LINE_THICKNESS);
 		ctx.stroke();
 
-		trackingSquareX = ((this.startTime / trackDuration) * (ctx.canvas.clientWidth - 226)) + 203;
+		trackingSquareX = ((this.startTime / currentStateStore.trackDuration) * (ctx.canvas.clientWidth - 226)) + 203;
 		ctx.fillStyle = trackingSquareColour;
 		ctx.strokeStyle = wavLineColour;
 
@@ -478,8 +472,8 @@ var LyricTracker = function(container) {
 					middleOfWordMouseDownX = clickedWhilePausedX;
 				}
 				clickedWhilePausedX = 0;
-				currentSelectedWordId = aWord.id;
-				currentSelectedWord = aWord;
+				currentStateStore.currentSelectedWordId = aWord.id;
+				currentStateStore.currentSelectedWord = aWord;
 				changeCurrentSelectedWord();
 			}
 		}
@@ -583,17 +577,17 @@ var LyricTracker = function(container) {
 							} else if (clickY > wordBoxY) {
 								hoverWhilePausedX = clickX;
 								if (startOfWordMouseDownX > 0) {
-									if (currentSelectedWord.startTime
-											+ ((clickX - startOfWordMouseDownX) * 5) < (currentSelectedWord.endTime - 50)) {
-										if (currentSelectedWordPreviousWord != null
-												&& currentSelectedWord.startTime
-														+ ((clickX - startOfWordMouseDownX) * 5) > (currentSelectedWordPreviousWord.endTime + 10)) {
-											currentSelectedWord.startTime = currentSelectedWord.startTime
+									if (currentStateStore.currentSelectedWord.startTime
+											+ ((clickX - startOfWordMouseDownX) * 5) < (currentStateStore.currentSelectedWord.endTime - 50)) {
+										if (currentStateStore.currentSelectedWordPreviousWord != null
+												&& currentStateStore.currentSelectedWord.startTime
+														+ ((clickX - startOfWordMouseDownX) * 5) > (currentStateStore.currentSelectedWordPreviousWord.endTime + 10)) {
+											currentStateStore.currentSelectedWord.startTime = currentStateStore.currentSelectedWord.startTime
 													+ ((clickX - startOfWordMouseDownX) * 5);
-										} else if (currentSelectedWordPreviousWord == null
-												&& currentSelectedWord.startTime
+										} else if (currentStateStore.currentSelectedWordPreviousWord == null
+												&& currentStateStore.currentSelectedWord.startTime
 														+ ((clickX - startOfWordMouseDownX) * 5) > 0) {
-											currentSelectedWord.startTime = currentSelectedWord.startTime
+											currentStateStore.currentSelectedWord.startTime = currentStateStore.currentSelectedWord.startTime
 													+ ((clickX - startOfWordMouseDownX) * 5);
 										}
 									}
@@ -601,51 +595,51 @@ var LyricTracker = function(container) {
 									changeCurrentSelectedWord();
 
 								} else if (endOfWordMouseDownX > 0) {
-									if (currentSelectedWord.endTime
-											+ ((clickX - endOfWordMouseDownX) * 5) > (currentSelectedWord.startTime + 50)
-											&& currentSelectedWord.endTime
-													+ ((clickX - endOfWordMouseDownX) * 5) < currentSelectedWordNextWord.startTime - 10) {
-										currentSelectedWord.endTime = currentSelectedWord.endTime
+									if (currentStateStore.currentSelectedWord.endTime
+											+ ((clickX - endOfWordMouseDownX) * 5) > (currentStateStore.currentSelectedWord.startTime + 50)
+											&& currentStateStore.currentSelectedWord.endTime
+													+ ((clickX - endOfWordMouseDownX) * 5) < currentStateStore.currentSelectedWordNextWord.startTime - 10) {
+										currentStateStore.currentSelectedWord.endTime = currentStateStore.currentSelectedWord.endTime
 												+ ((clickX - endOfWordMouseDownX) * 5);
 									}
 
-									if (currentSelectedWord.id == lastAddedWordId) {
-										highestEndTime = currentSelectedWord.endTime;
+									if (currentStateStore.currentSelectedWord.id == currentStateStore.lastAddedWordId) {
+										currentStateStore.highestEndTime = currentStateStore.currentSelectedWord.endTime;
 									}
 
 									endOfWordMouseDownX = clickX;
 									changeCurrentSelectedWord();
 								} else if (middleOfWordMouseDownX > 0) {
-									var temp1 = parseFloat(currentSelectedWord.startTime)
+									var temp1 = parseFloat(currentStateStore.currentSelectedWord.startTime)
 											+ ((clickX - middleOfWordMouseDownX) * 5);
-									var temp2 = parseFloat(currentSelectedWord.endTime)
+									var temp2 = parseFloat(currentStateStore.currentSelectedWord.endTime)
 											+ ((clickX - middleOfWordMouseDownX) * 5);
-									var temp3 = parseFloat(currentSelectedWordNextWord.startTime) - 10;
+									var temp3 = parseFloat(currentStateStore.currentSelectedWordNextWord.startTime) - 10;
 									+((clickX - middleOfWordMouseDownX) * 5);
 
-									if (currentSelectedWordPreviousWord != null
-											&& currentSelectedWord.startTime
-													+ ((clickX - middleOfWordMouseDownX) * 5) > (currentSelectedWordPreviousWord.endTime + 10)
-											&& currentSelectedWord.endTime
-													+ ((clickX - middleOfWordMouseDownX) * 5) < currentSelectedWordNextWord.startTime - 10) {
+									if (currentStateStore.currentSelectedWordPreviousWord != null
+											&& currentStateStore.currentSelectedWord.startTime
+													+ ((clickX - middleOfWordMouseDownX) * 5) > (currentStateStore.currentSelectedWordPreviousWord.endTime + 10)
+											&& currentStateStore.currentSelectedWord.endTime
+													+ ((clickX - middleOfWordMouseDownX) * 5) < currentStateStore.currentSelectedWordNextWord.startTime - 10) {
 
-										currentSelectedWord.endTime = currentSelectedWord.endTime
+										currentStateStore.currentSelectedWord.endTime = currentStateStore.currentSelectedWord.endTime
 												+ ((clickX - middleOfWordMouseDownX) * 5);
-										currentSelectedWord.startTime = currentSelectedWord.startTime
+										currentStateStore.currentSelectedWord.startTime = currentStateStore.currentSelectedWord.startTime
 												+ ((clickX - middleOfWordMouseDownX) * 5);
 
-									} else if (currentSelectedWordPreviousWord == null
+									} else if (currentStateStore.currentSelectedWordPreviousWord == null
 											&& temp1 > 0 && temp2 < temp3) {
 
-										currentSelectedWord.endTime = currentSelectedWord.endTime
+										currentStateStore.currentSelectedWord.endTime = currentStateStore.currentSelectedWord.endTime
 												+ ((clickX - middleOfWordMouseDownX) * 5);
-										currentSelectedWord.startTime = currentSelectedWord.startTime
+										currentStateStore.currentSelectedWord.startTime = currentStateStore.currentSelectedWord.startTime
 												+ ((clickX - middleOfWordMouseDownX) * 5);
 
 									}
 
-									if (currentSelectedWord.id == lastAddedWordId) {
-										highestEndTime = currentSelectedWord.endTime;
+									if (currentStateStore.currentSelectedWord.id == currentStateStore.lastAddedWordId) {
+										currentStateStore.highestEndTime = currentStateStore.currentSelectedWord.endTime;
 									}
 
 									middleOfWordMouseDownX = clickX;
@@ -653,13 +647,13 @@ var LyricTracker = function(container) {
 								}
 							} else {
 								hoverWhilePausedX = 0;
-								currentHoveredWordId = "";
+								currentStateStore.currentHoveredWordId = "";
 							}
 						});
 
 		$("#canvas1").bind("mouseout", function(e) {
 			hoverWhilePausedX = 0;
-			currentHoveredWordId = "";
+			currentStateStore.currentHoveredWordId = "";
 			startOfWordMouseDownX = 0;
 			trackingClicked = 0;
 			trackingMouseDownX = 0;

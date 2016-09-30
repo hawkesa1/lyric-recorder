@@ -1,30 +1,21 @@
-
 function loadATrack(selectedValue) {
 	var audio = document.getElementById('audio');
 	audio.src = mp3Location + selectedValue + ".MP3";
 	loadWaveForm(selectedValue);
 	loadLyricsData(selectedValue);
-	currentSongId = selectedValue;
+	currentStateStore.currentSongId = selectedValue;
 	audio.load();
 	audio.addEventListener('loadedmetadata', function() {
-		trackDuration = document.getElementById('audio').duration * 100;
+		currentStateStore.trackDuration = document.getElementById('audio').duration * 100;
 	});
-	for (var i = 0; i < availableTracks.length; i++) {
-		if (availableTracks[i].uniqueId == selectedValue) {
-			$('#trackTitle').html(availableTracks[i].title);
-			$('#trackArtist').html(availableTracks[i].artist);
-			$('#trackAlbum').html(availableTracks[i].album);
-		}
-	}
-	$("#loadTrack").val(selectedValue);
+
 	$('#lyricText').hide();
-	$('#lyricScript').hide();
 	$('#lyrics').show();
-	currentLyricView = "WORD_VIEW";
+	currentStateStore.currentLyricView = "WORD_VIEW";
 }
 
 function saveLyrics(JSONFormattedLyricData, songId) {
-	console.log("Save Lyrics"+ songId + JSONFormattedLyricData);
+	console.log("Save Lyrics" + songId + JSONFormattedLyricData);
 	$.ajax({
 		type : 'POST',
 		url : './LyricUploadServlet',
@@ -40,51 +31,21 @@ function saveLyrics(JSONFormattedLyricData, songId) {
 		}
 	});
 	function successfullySavedLyrics(mp3MetaData1) {
-		var mp3MetaData=JSON.parse(mp3MetaData1);
-		var text=mp3MetaData.title ? mp3MetaData.title : mp3MetaData.uniqueId;
+		var mp3MetaData = JSON.parse(mp3MetaData1);
+		var text = mp3MetaData.title ? mp3MetaData.title : mp3MetaData.uniqueId;
 		console.log(mp3MetaData);
-		console.log("uniqueid"+  mp3MetaData.downloadId);
+		console.log("uniqueid" + mp3MetaData.downloadId);
 		setTimeout(function() {
-			var linkAddress=downloadableMp3Location + mp3MetaData.downloadId;
-			console.log("downloadableMp3Location: "+  linkAddress);
-			$('#downloadableLink').html("<a href='"+linkAddress+"' download='"+text+".MP3'>"+text+".MP3</a>");
-		}, ECLIPSE_FILE_WAIT);
+			var linkAddress = downloadableMp3Location + mp3MetaData.downloadId;
+			console.log("downloadableMp3Location: " + linkAddress);
+			$('#downloadableLink').html(
+					"<a href='" + linkAddress + "' download='" + text
+							+ ".MP3'>" + text + ".MP3</a>");
+		}, currentStateStore.ECLIPSE_FILE_WAIT);
 	}
 }
 
-function loadUser(trackToLoadOnCompletion) {
-	var anAvailableTrack;
-	$.ajax({
-		type : 'GET',
-		url : './GetAvailableTracks',
-		data : {
-			"userId" : "hawkesa",
-		},
-		success : function(text) {
-			availableTracks = new Array();
-			for (var i = 0; i < text.mp3MetaDatas.length; i++) {
-				anAvailableTrack = new TrackObject();
-				anAvailableTrack.title = text.mp3MetaDatas[i].title;
-				anAvailableTrack.album = text.mp3MetaDatas[i].album;
-				anAvailableTrack.artist = text.mp3MetaDatas[i].artist;
-				anAvailableTrack.uniqueId = text.mp3MetaDatas[i].uniqueId;
-				availableTracks[i] = anAvailableTrack;
-				addTrack(text.mp3MetaDatas[i].uniqueId,
-						text.mp3MetaDatas[i].title)
-			}
-			if (trackToLoadOnCompletion === 'first') {
-				loadATrack(text.mp3MetaDatas[0].uniqueId);
-			} else if (trackToLoadOnCompletion === 'last') {
-				loadATrack(text.mp3MetaDatas[text.mp3MetaDatas.length-1].uniqueId);
-			} else {
-				// do nothing
-			}
-		},
-		error : function(xhr) {
-			alert("An error occured: " + xhr.status + " " + xhr.statusText);
-		}
-	});
-}
+
 
 function loadWaveForm(wavFormFile) {
 	$.ajax({
@@ -116,31 +77,28 @@ function loadLyricsData(wavFormFile) {
 	});
 	function generateLyricData(text) {
 		console.log("Hoopla:" + text.lyricRecorderSynchronisedLyrics)
-		
-		if (text.lyricRecorderSynchronisedLyrics && text.lyricRecorderSynchronisedLyrics !="")
-		{
+
+		if (text.lyricRecorderSynchronisedLyrics
+				&& text.lyricRecorderSynchronisedLyrics != "") {
 			console.log("loading synchronised lyrics");
 			try {
 				resetStuff();
-				lineArray=JSON.parse(text.lyricRecorderSynchronisedLyrics);
+				lineArray = JSON.parse(text.lyricRecorderSynchronisedLyrics);
 				$('#lyrics').html(generateLyrics(lineArray));
 				addClickToLyrics();
 			} catch (e) {
-				console.log ("Error loading synchronised lyrics");
+				console.log("Error loading synchronised lyrics");
 				resetStuff();
 				enableLyricTextView("Please enter some lyrics here ...")
 			}
-		}	else if(text.unsynchronisedLyrics !="")
-		{
-			console.log ("loading unsycnhronised lyrics");
+		} else if (text.unsynchronisedLyrics != "") {
+			console.log("loading unsycnhronised lyrics");
 			resetStuff();
 			enableLyricTextView(text.unsynchronisedLyrics);
-		}
-		else
-		{
-			console.log ("No lyrics found");
+		} else {
+			console.log("No lyrics found");
 			resetStuff();
 			enableLyricTextView("Please enter some lyrics here ...")
-		}	
+		}
 	}
 }

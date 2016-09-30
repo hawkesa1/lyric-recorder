@@ -1,5 +1,6 @@
 var fileUploader;
 var lyricTracker;
+var currentStateStore;
 
 $(document).ready(
 		function($) {
@@ -9,13 +10,14 @@ $(document).ready(
 			lyricTracker = new LyricTracker($('#canvasContainer'));
 
 			// loadATrack("1474274553224");
-
+			currentStateStore=new CurrentStateStore();
+			
 			main();
 			startVisualisation();
 		});
 $(function() {
 	$("#save").click(function() {
-		saveLyrics(lineArrayToJSON(), currentSongId);
+		saveLyrics(lineArrayToJSON(), currentStateStore.currentSongId);
 	});
 });
 $(function() {
@@ -53,7 +55,7 @@ $(function() {
 						if (aWordObject.startTime && aWordObject.startTime >= 0) {
 							vid.currentTime = aWordObject.startTime / 1000;
 							vid.play();
-							stopAtTime = aLineObject.words[aLineObject.words.length - 1].endTime;
+							currentStateStore.stopAtTime = aLineObject.words[aLineObject.words.length - 1].endTime;
 						}
 					});
 });
@@ -132,21 +134,29 @@ $(function() {
 });
 $(function() {
 	$("#addCurrentWord").mouseup(function() {
-		addCurrentWordEnd();
+		if (!document.getElementById('audio').paused) {
+			addCurrentWordEnd();
+		}
 	});
 });
-
+$(function() {
+	$("#addCurrentWord").mousedown(function() {
+		if (!document.getElementById('audio').paused) {
+			addCurrentWordStart();
+		}
+	});
+});
 $(function() {
 	$("#removePreviousWord").mouseup(
 			function() {
-				var word = findWordById(lastAddedWordId);
+				var word = findWordById(currentStateStore.lastAddedWordId);
 				delete word.startTime;
 				delete word.endTime;
 				$('#lyrics').html(generateLyrics(lineArray));
 				addClickToLyrics();
 
 				var container = $('#lyrics')
-				var scrollTo = $('#' + nextWordToAddId);
+				var scrollTo = $('#' + currentStateStore.nextWordToAddId);
 				container.scrollTop((scrollTo.offset().top)
 						- container.offset().top + container.scrollTop());
 			});
@@ -178,7 +188,7 @@ $(document).keydown(function(e) {
 	if (e.keyCode == 32 && e.target == document.body) {
 		e.preventDefault();
 	}
-	if (e.which == 32 && !spaceIsDown && currentLyricView === "WORD_VIEW") {
+	if (e.which == 32 && !spaceIsDown && currentStateStore.currentLyricView === "WORD_VIEW") {
 		e.preventDefault();
 		$('#addCurrentWord').mousedown();
 		$('#addCurrentWord').addClass("activeProgramatically");
@@ -189,7 +199,7 @@ $(document).keyup(function(e) {
 	if (e.keyCode == 32 && e.target == document.body) {
 		e.preventDefault();
 	}
-	if (e.which == 32 && currentLyricView === "WORD_VIEW") {
+	if (e.which == 32 && currentStateStore.currentLyricView === "WORD_VIEW") {
 		e.preventDefault();
 		$('#addCurrentWord').mouseup();
 	}

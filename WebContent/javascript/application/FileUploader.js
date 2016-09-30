@@ -113,13 +113,13 @@ FileUploader.prototype.readFiles = function(files) {
 				$('#lyrics').html(generateLyrics(lineArray));
 				addClickToLyrics();
 				enableLyricWordView();
-				currentSongId = tags.tXxxSongIdValue;
+				currentStateStore.currentSongId = tags.tXxxSongIdValue;
 				audio.load();
 				audio
 						.addEventListener(
 								'loadedmetadata',
 								function() {
-									trackDuration = document
+									currentStateStore.trackDuration = document
 											.getElementById('audio').duration * 100;
 								});
 			}
@@ -143,7 +143,7 @@ FileUploader.prototype.readFiles = function(files) {
 						updateConsole("<p class='bad'>* An error occurred during the conversion process</p>");
 					} else {
 						var json = JSON.parse(progressEvent.target.response);
-						currentSongId = json.uniqueId;
+						currentStateStore.currentSongId = json.uniqueId;
 						// Only do this when runnign in eclipse!!!!
 						updateConsole('<p>* Waiting for eclipse to refresh ...</p>');
 						setTimeout(
@@ -152,7 +152,7 @@ FileUploader.prototype.readFiles = function(files) {
 									loadATrack(json.uniqueId);
 									updateConsole("<p class='good'>* Processing complete</p>");
 
-								}, ECLIPSE_FILE_WAIT);
+								}, currentStateStore.ECLIPSE_FILE_WAIT);
 					}
 				};
 

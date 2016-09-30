@@ -72,7 +72,6 @@ function playPause() {
 	}
 }
 
-
 var currentlyAddingWord = false;
 
 function formatTime(number) {
@@ -80,26 +79,23 @@ function formatTime(number) {
 	return number;
 }
 
-$(function() {
-	$("#addCurrentWord").mousedown(function() {
-		addCurrentWordStart();
-	});
-});
+
 
 function addCurrentWordStart() {
-	if (($("#audio").prop("currentTime") * 1000) > highestEndTime && nextWordToAddId!="") {
-		currentlyAddingWord = true;
-		findWordById(nextWordToAddId);
-		var aLineObject = lineArray[currentLineIndex];
-		var aWordObject = aLineObject.words[currentWordIndex];
+	if (($("#audio").prop("currentTime") * 1000) > currentStateStore.highestEndTime
+			&& currentStateStore.nextWordToAddId != "") {
+		currentStateStore.currentlyAddingWord = true;
+		findWordById(currentStateStore.nextWordToAddId);
+		var aLineObject = lineArray[currentStateStore.currentLineIndex];
+		var aWordObject = aLineObject.words[currentStateStore.currentWordIndex];
 		aWordObject.startTime = formatTime($("#audio").prop("currentTime") * 1000);
 
-		if (currentWordIndex == 0) {
+		if (currentStateStore.currentWordIndex == 0) {
 			aLineObject.startTime = formatTime($("#audio").prop("currentTime") * 1000);
 		}
 
-		currentSelectedWordId = aWordObject.id;
-		$('#wordInfoId').val(currentSelectedWordId)
+		currentStateStore.currentSelectedWordId = aWordObject.id;
+		$('#wordInfoId').val(currentStateStore.currentSelectedWordId)
 
 		$('#wordInfoWord').val(
 				aWordObject.word.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, ""));
@@ -109,7 +105,9 @@ function addCurrentWordStart() {
 		$('#wordInfoEndTime').val("");
 
 		$('.word').removeClass("wordSelected");
-		$('#word_' + currentLineIndex + "_" + currentWordIndex).addClass(
+		$(
+				'#word_' + currentStateStore.currentLineIndex + "_"
+						+ currentStateStore.currentWordIndex).addClass(
 				"wordSelected");
 
 		$('.word').removeClass("nextWordToAdd");
@@ -124,42 +122,46 @@ function addCurrentWordStart() {
 
 }
 
-
-
 function addCurrentWordEnd() {
-	if (currentlyAddingWord && nextWordToAddId!="") {
-		var aLineObject = lineArray[currentLineIndex];
-		var aWordObject = aLineObject.words[currentWordIndex];
-		currentlyAddingWord = false;
+	if (currentStateStore.currentlyAddingWord
+			&& currentStateStore.nextWordToAddId != "") {
+		var aLineObject = lineArray[currentStateStore.currentLineIndex];
+		var aWordObject = aLineObject.words[currentStateStore.currentWordIndex];
+		currentStateStore.currentlyAddingWord = false;
 		aWordObject.endTime = formatTime($("#audio").prop("currentTime") * 1000);
 		$('#wordInfoEndTime')
 				.val(
 						millisecondsToISOMinutesSecondsMilliseconds(aWordObject.endTime));
-		$('#word_' + currentLineIndex + "_" + currentWordIndex).addClass(
+		$(
+				'#word_' + currentStateStore.currentLineIndex + "_"
+						+ currentStateStore.currentWordIndex).addClass(
 				"wordHasTime");
-		lastAddedWordId = aWordObject.id;
-		highestEndTime = aWordObject.endTime;
-		currentWordIndex++;
-		if (currentWordIndex >= aLineObject.words.length) {
-			currentWordIndex = 0;
+		currentStateStore.lastAddedWordId = aWordObject.id;
+		currentStateStore.highestEndTime = aWordObject.endTime;
+		currentStateStore.currentWordIndex++;
+		if (currentStateStore.currentWordIndex >= aLineObject.words.length) {
+			currentStateStore.currentWordIndex = 0;
 			aLineObject.endTime = formatTime($("#audio").prop("currentTime") * 1000);
-			currentLineIndex++;
+			currentStateStore.currentLineIndex++;
 			var container = $('#lyrics')
-			var scrollTo = $('#' + currentSelectedWordId);
+			var scrollTo = $('#' + currentStateStore.currentSelectedWordId);
 			container.scrollTop((scrollTo.offset().top - 0)
 					- container.offset().top + container.scrollTop());
 		}
-		if (currentLineIndex < lineArray.length) {
-			aLineObject = lineArray[currentLineIndex];
-			aWordObject = aLineObject.words[currentWordIndex];
-			nextWordToAddId = aWordObject.id;
-			$('#playLine_' + currentLineIndex).removeClass('playLineDisabled');
+		if (currentStateStore.currentLineIndex < lineArray.length) {
+			aLineObject = lineArray[currentStateStore.currentLineIndex];
+			aWordObject = aLineObject.words[currentStateStore.currentWordIndex];
+			currentStateStore.nextWordToAddId = aWordObject.id;
+			$('#playLine_' + currentStateStore.currentLineIndex).removeClass(
+					'playLineDisabled');
 			$('.word').removeClass("nextWordToAdd");
-			$('#word_' + currentLineIndex + "_" + currentWordIndex).addClass(
+			$(
+					'#word_' + currentStateStore.currentLineIndex + "_"
+							+ currentStateStore.currentWordIndex).addClass(
 					"nextWordToAdd");
 		} else {
 			console.log("No More words to add");
-			nextWordToAddId="";
+			currentStateStore.nextWordToAddId = "";
 		}
 	} else {
 		console.log("You can't add an end time without a start time");
@@ -219,10 +221,10 @@ function lineArrayToEnhancedLRC() {
 
 function enableLyricTextView(textToShow) {
 
-	if (currentLyricView === "TEXT_VIEW") {
-	} else if (currentLyricView === "SCRIPT_VIEW") {
+	if (currentStateStore.currentLyricView === "TEXT_VIEW") {
+	} else if (currentStateStore.currentLyricView === "SCRIPT_VIEW") {
 		generateLyrics($.parseJSON($('#lyricScript').val()));
-	} else if (currentLyricView === "WORD_VIEW") {
+	} else if (currentStateStore.currentLyricView === "WORD_VIEW") {
 
 	}
 	$('#lyricText').show();
@@ -252,26 +254,26 @@ function enableLyricTextView(textToShow) {
 		onlyWordsArray.length = 0;
 	}
 	$('#lyricText').html(html);
-	currentLyricView = "TEXT_VIEW";
+	currentStateStore.currentLyricView = "TEXT_VIEW";
 	$("#editButton").addClass("hiddenDiv");
 	$("#recordButton").removeClass("hiddenDiv");
 }
 
 function enableLyricWordView() {
-	if (currentLyricView === "WORD_VIEW") {
-	} else if (currentLyricView === "TEXT_VIEW") {
+	if (currentStateStore.currentLyricView === "WORD_VIEW") {
+	} else if (currentStateStore.currentLyricView === "TEXT_VIEW") {
 		$('#lyricText').hide();
 		$('#lyricScript').hide();
 		$('#lyrics').show();
 		convertLyricTextToWords();
-	} else if (currentLyricView === "SCRIPT_VIEW") {
+	} else if (currentStateStore.currentLyricView === "SCRIPT_VIEW") {
 		$('#lyrics').html(generateLyrics($.parseJSON($('#lyricScript').val())));
 		$('#lyricText').hide();
 		$('#lyricScript').hide();
 		$('#lyrics').show();
 		addClickToLyrics();
 	}
-	currentLyricView = "WORD_VIEW";
+	currentStateStore.currentLyricView = "WORD_VIEW";
 	$("#editButton").removeClass("hiddenDiv");
 	$("#recordButton").addClass("hiddenDiv");
 }

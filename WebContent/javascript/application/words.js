@@ -1,10 +1,10 @@
 function changeCurrentPlayingWordId() {
 	$('.word').removeClass("wordPlaying");
-	if (currentPlayingWord) {
-		$('#' + currentPlayingWordId).addClass("wordPlaying");
-		$('#currentWord').html(currentPlayingWord.word);
+	if (currentStateStore.currentPlayingWord) {
+		$('#' + currentStateStore.currentPlayingWordId).addClass("wordPlaying");
+		$('#currentWord').html(currentStateStore.currentPlayingWord.word);
 		var container = $('#lyrics')
-		var scrollTo = $('#' + currentPlayingWordId);
+		var scrollTo = $('#' + currentStateStore.currentPlayingWordId);
 		container.scrollTop((scrollTo.offset().top - 0)
 				- container.offset().top + container.scrollTop());
 	} else {
@@ -13,59 +13,59 @@ function changeCurrentPlayingWordId() {
 }
 
 function changeCurrentSelectedWord() {
-	var lineIndex = currentSelectedWordId.split('_')[1];
-	var wordIndex = currentSelectedWordId.split('_')[2];
+	var lineIndex = currentStateStore.currentSelectedWordId.split('_')[1];
+	var wordIndex = currentStateStore.currentSelectedWordId.split('_')[2];
 	var aLineObject = lineArray[lineIndex];
 	var aWordObject = aLineObject.words[wordIndex];
+
 	var currentSelectedWordPreviousWordLineIndex = 0;
 	var currentSelectedWordPreviousWordWordIndex = 0;
 
 	// get the previous word
 	if (wordIndex == 0 && lineIndex == 0) {
 		// current word is first word
-		currentSelectedWordPreviousWord = null;
+		currentStateStore.currentSelectedWordPreviousWord = null;
 	} else {
 		if (wordIndex > 0) {
 			// current word is not the first word in a line
 			currentSelectedWordPreviousWordLineIndex = lineIndex;
 			currentSelectedWordPreviousWordWordIndex = wordIndex - 1;
-			currentSelectedWordPreviousWord = lineArray[currentSelectedWordPreviousWordLineIndex].words[currentSelectedWordPreviousWordWordIndex];
+			currentStateStore.currentSelectedWordPreviousWord = lineArray[currentSelectedWordPreviousWordLineIndex].words[currentStateStore.currentSelectedWordPreviousWordWordIndex];
 		} else {
 			// current word is the first word on the line
 			currentSelectedWordPreviousWordLineIndex = lineIndex - 1;
 			currentSelectedWordPreviousWordWordIndex = lineArray[currentSelectedWordPreviousWordLineIndex].words.length - 1;
-			currentSelectedWordPreviousWord = lineArray[currentSelectedWordPreviousWordLineIndex].words[currentSelectedWordPreviousWordWordIndex];
+			currentStateStore.currentSelectedWordPreviousWord = lineArray[currentSelectedWordPreviousWordLineIndex].words[currentStateStore.currentSelectedWordPreviousWordWordIndex];
 		}
 	}
 
 	// get the next word
 	// TO_DO
 
-	if (currentSelectedWord.wordIndex === 0) {
-		currentSelectedWordPreviousWord = null;
+	// if it's the first word
+	if (currentStateStore.currentSelectedWord.wordIndex === 0) {
+		currentStateStore.currentSelectedWordPreviousWord = null;
 	} else {
-		currentSelectedWordPreviousWord = onlyWordsArray[currentSelectedWord.wordIndex - 1];
+		currentStateStore.currentSelectedWordPreviousWord = onlyWordsArray[currentStateStore.currentSelectedWord.wordIndex - 1];
 	}
-	if (currentSelectedWord.wordIndex >= onlyWordsArray.length -1) {
-		if(!markerWordAtTheEnd)
-		{	
-			markerWordAtTheEnd = new Word();
-		console.log("Created a markerWordAtTheEnd:" + trackDuration*10);
-		markerWordAtTheEnd.startTime = trackDuration*10;
+	if (currentStateStore.currentSelectedWord.wordIndex >= onlyWordsArray.length - 1) {
+		if (!currentStateStore.markerWordAtTheEnd) {
+			currentStateStore.markerWordAtTheEnd=new Word();
+			console.log("Created a markerWordAtTheEnd:" + currentStateStore.trackDuration * 10);
+			currentStateStore.markerWordAtTheEnd.startTime = currentStateStore.trackDuration * 10;
 		}
-		currentSelectedWordNextWord = markerWordAtTheEnd;
+		currentStateStore.currentSelectedWordNextWord = currentStateStore.markerWordAtTheEnd;
 	} else {
-		currentSelectedWordNextWord = onlyWordsArray[currentSelectedWord.wordIndex + 1]
-		if (!currentSelectedWordNextWord.startTime) {
+		currentStateStore.currentSelectedWordNextWord = onlyWordsArray[currentStateStore.currentSelectedWord.wordIndex + 1]
+		if (!currentStateStore.currentSelectedWordNextWord.startTime) {
 			var aNewWord = new Word();
 			aNewWord.startTime = 500000;
-			currentSelectedWordNextWord = aNewWord;
+			currentStateStore.currentSelectedWordNextWord = aNewWord;
 		}
 	}
-
 	// get the next word
 
-	$('#wordInfoId').val(currentSelectedWordId);
+	$('#wordInfoId').val(currentStateStore.currentSelectedWordId);
 	$('#wordInfoWord').val(
 			aWordObject.word.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, ""));
 	$('#wordInfoStartTime').val(
@@ -91,12 +91,12 @@ function convertLyricTextToWords() {
 	lineArray = lyricsTextToObjects(text)
 	$('#lyrics').html(generateLyrics(lineArray));
 	addClickToLyrics();
-	currentLineIndex = 0;
-	currentWordIndex = 0;
-	var aLineObject = lineArray[currentLineIndex];
-	var aWordObject = aLineObject.words[currentWordIndex];
-	currentSelectedWordId = aWordObject.id;
-	$('#wordInfoId').val(currentSelectedWordId);
+	currentStateStore.currentLineIndex = 0;
+	currentStateStore.currentWordIndex = 0;
+	var aLineObject = lineArray[currentStateStore.currentLineIndex];
+	var aWordObject = aLineObject.words[currentStateStore.currentWordIndex];
+	currentStateStore.currentSelectedWordId = aWordObject.id;
+	$('#wordInfoId').val(currentStateStore.currentSelectedWordId);
 
 	$('#wordInfoWord').val(
 			aWordObject.word.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, ""));
@@ -105,7 +105,9 @@ function convertLyricTextToWords() {
 	$('#wordInfoEndTime').val(
 			millisecondsToISOMinutesSecondsMilliseconds(aWordObject.endTime));
 	$('.word').removeClass("wordSelected");
-	$('#word_' + currentLineIndex + "_" + currentWordIndex).addClass(
+	$(
+			'#word_' + currentStateStore.currentLineIndex + "_"
+					+ currentStateStore.currentWordIndex).addClass(
 			"wordSelected");
 }
 
@@ -118,7 +120,7 @@ function lyricsTextToObjects(lyricsText) {
 	var q = 0;
 	for (var i = 0; i < lines1.length; i++) {
 		if (lines1[i].trim() != "") {
-			lines1[i]=lines1[i].trim();
+			lines1[i] = lines1[i].trim();
 			lines[q] = lines1[i];
 			q++;
 		}
@@ -151,7 +153,7 @@ function playWord(aWordObject) {
 	if (aWordObject.startTime && aWordObject.startTime >= 0) {
 		vid.currentTime = aWordObject.startTime / 1000;
 		vid.play();
-		stopAtTime = aWordObject.endTime;
+		currentStateStore.stopAtTime = aWordObject.endTime;
 	}
 }
 
@@ -163,7 +165,7 @@ function playLine(lineIndex) {
 	if (aWordObject.startTime && aWordObject.startTime >= 0) {
 		vid.currentTime = aWordObject.startTime / 1000;
 		vid.play();
-		stopAtTime = aLineObject.words[aLineObject.words.length - 1].endTime;
+		currentStateStore.stopAtTime = aLineObject.words[aLineObject.words.length - 1].endTime;
 	}
 }
 
@@ -208,16 +210,16 @@ function changeEnd(timeInMs) {
 function findWordById(wordId) {
 	var lineIndex = wordId.split('_')[1];
 	var wordIndex = wordId.split('_')[2];
-	currentLineIndex = lineIndex;
-	currentWordIndex = wordIndex;
+	currentStateStore.currentLineIndex = lineIndex;
+	currentStateStore.currentWordIndex = wordIndex;
 	var aLineObject = lineArray[lineIndex];
 	return aLineObject.words[wordIndex];
 }
 
 function wordClicked(wordId) {
 	var aWordObject = findWordById(wordId);
-	currentSelectedWordId = aWordObject.id;
-	$('#wordInfoId').val(currentSelectedWordId)
+	currentStateStore.currentSelectedWordId = aWordObject.id;
+	$('#wordInfoId').val(currentStateStore.currentSelectedWordId)
 	$('#wordInfoWord').val(
 			aWordObject.word.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, ""));
 	$('#wordInfoStartTime').val(
@@ -230,7 +232,7 @@ function wordClicked(wordId) {
 	if (!aWordObject.startTime <= 0) {
 		vid.currentTime = aWordObject.startTime / 1000;
 		vid.play();
-		stopAtTime = aWordObject.endTime;
+		currentStateStore.stopAtTime = aWordObject.endTime;
 	}
 }
 
@@ -257,9 +259,9 @@ function generateLyrics(lines) {
 	var id;
 	var k = 0;
 	var nextWordToAddFound = false;
-	nextWordToAddId = "";
-	highestEndTime = 0;
-	lastAddedWordId = "";
+	currentStateStore.nextWordToAddId = "";
+	currentStateStore.highestEndTime = 0;
+	currentStateStore.lastAddedWordId = "";
 	for (var i = 0; i < lines.length; i++) {
 		words = lines[i].words;
 		html += "<div class='line'>";
@@ -285,8 +287,8 @@ function generateLyrics(lines) {
 			if (words[j].startTime && words[j].endTime) {
 				html += "<span class='word wordHasTime' id='" + id + "'>"
 						+ words[j].word + "</span>" + " ";
-				highestEndTime = words[j].endTime;
-				lastAddedWordId = id;
+				currentStateStore.highestEndTime = words[j].endTime;
+				currentStateStore.lastAddedWordId = id;
 			} else {
 				if (nextWordToAddFound) {
 					html += "<span class='word' id='" + id + "'>"
@@ -299,10 +301,10 @@ function generateLyrics(lines) {
 					console.log("Next Word to Add:" + words[j].word);
 					// this sets the line id!!
 					findWordById(id);
-					nextWordToAddId = id;
+					currentStateStore.nextWordToAddId = id;
 					// nextWordToAdd=words[j].word;
 					// console.log(nextWordToAdd);
-					currentSelectedWordId = words[j].id;
+					currentStateStore.currentSelectedWordId = words[j].id;
 				}
 
 			}
@@ -312,11 +314,16 @@ function generateLyrics(lines) {
 	return html;
 }
 
+
+function Word(startTime, endTime, text) {
+	this.startTime = startTime;
+	this.endTime = endTime;
+	this.text = text;
+}
 function loadTrack() {
 	var selectedValue = $('#loadTrack').find(":selected").val();
 	loadATrack(selectedValue);
 }
-
 function WordObject() {
 
 }
@@ -332,4 +339,3 @@ function CurrentlyDrawnWordObject() {
 function TrackObject() {
 
 }
-
