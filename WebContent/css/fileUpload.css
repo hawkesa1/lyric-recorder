@@ -4,13 +4,13 @@
 	background-color:none;
 	border: 1px dashed #ccc;
 	width: 800px;
-	height: 60px;
+	height: 70px;
 	overflow-y: scroll;
 	opacity:0.8;
 	color:white;
 	margin-top:20px;
-	padding-top:10px;
-	padding-bottom:40px;
+	padding-top:0px;
+	padding-bottom:0px;
 	
 }
 #fileUploadHolder.hover {
@@ -22,6 +22,10 @@
 }
 
 #fileUploadHolder p {
+	position:relative;
+	top:-10px;
+	padding-top:0px;
+	padiing-bottom:0px;
 	font-size: 20px;
 	background-color:none;
 }

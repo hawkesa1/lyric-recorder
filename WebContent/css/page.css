@@ -10,7 +10,7 @@ body {
 	width: 100%;
 	background-color: none;
 	//border-bottom: 1px solid #33ff33;
-	height: 60px;
+	height: 40px;
 }
 
 #trackDetails
@@ -23,12 +23,15 @@ font-family: Calibri;
 	
 	font-size: 20px;
 	font-weight: 300;
-	height: 60px;
+	height: 40px;
 	letter-spacing: 0px;
 	line-height: 40px;
 	margin: 0 auto;
 	width: 802px;
 	color:white;
+	
+	border-bottom:1px solid #1a1a1a;
+
 }
 
 #skull
@@ -41,8 +44,9 @@ font-family: Calibri;
 #headerText
 {
 	position:relative;
-	left:40px;
-	top:10px;
+	left:0px;
+	top:0px;
+	font-weight:bold;
 }
 
 #mainContainer {
@@ -60,15 +64,15 @@ font-family: Calibri;
 	height: 200px;
 	background-color:black;
 	opacity:0.7;
-	top:20px;
+	top:6px;
 	z-index:2;
 }
 #canvasContainer {
 	width: 800px;
 	height: 200px;
 	border: 1px solid #1a1a1a;
-	margin-bottom:20px;
-	margin-top:20px;
+	margin-bottom:15px;
+	margin-top:5px;
 	background-color:none;
 	z-index:3;
 	
