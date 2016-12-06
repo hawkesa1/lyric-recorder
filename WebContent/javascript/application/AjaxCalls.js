@@ -1,12 +1,33 @@
+
+
+function loadTutorial()
+{
+	var audio = document.getElementById('audio');
+	audio.src = "./resources/tutorial/TUTORIAL.MP3";
+	loadWaveForm('./resources/tutorial/',"TUTORIAL");
+	loadLyricsData('./resources/tutorial/',"TUTORIAL");
+	currentStateStore.currentSongId = "TUTORIAL";
+	audio.load();
+	audio.addEventListener('loadedmetadata', function() {
+	currentStateStore.trackDuration = document.getElementById('audio').duration * 100;
+	});
+
+	$('#lyricText').hide();
+	$('#lyrics').show();
+	currentStateStore.currentLyricView = "WORD_VIEW";
+
+}
+
+
 function loadATrack(selectedValue) {
 	var audio = document.getElementById('audio');
 	audio.src = mp3Location + selectedValue + ".MP3";
-	loadWaveForm(selectedValue);
-	loadLyricsData(selectedValue);
+	loadWaveForm('./resources/wavForm/',selectedValue);
+	loadLyricsData('./resources/mp3MetaData/',selectedValue);
 	currentStateStore.currentSongId = selectedValue;
 	audio.load();
 	audio.addEventListener('loadedmetadata', function() {
-		currentStateStore.trackDuration = document.getElementById('audio').duration * 100;
+	currentStateStore.trackDuration = document.getElementById('audio').duration * 100;
 	});
 
 	$('#lyricText').hide();
@@ -47,10 +68,11 @@ function saveLyrics(JSONFormattedLyricData, songId) {
 
 
 
-function loadWaveForm(wavFormFile) {
+
+function loadWaveForm(location, wavFormFile) {
 	$.ajax({
 		type : 'GET',
-		url : './resources/wavForm/' + wavFormFile + '.TXT',
+		url : location + wavFormFile + '.TXT',
 		data : null,
 		success : function(text) {
 			processResponse(text);
@@ -61,10 +83,10 @@ function loadWaveForm(wavFormFile) {
 	}
 }
 
-function loadLyricsData(wavFormFile) {
+function loadLyricsData(location,wavFormFile) {
 	$.ajax({
 		type : 'GET',
-		url : './resources/mp3MetaData/' + wavFormFile + '.json',
+		url : location + wavFormFile + '.json',
 		data : null,
 		cache : false,
 		success : function(text) {
@@ -77,12 +99,13 @@ function loadLyricsData(wavFormFile) {
 	});
 	function generateLyricData(text) {
 		console.log("Hoopla:" + text.lyricRecorderSynchronisedLyrics)
-
 		if (text.lyricRecorderSynchronisedLyrics
 				&& text.lyricRecorderSynchronisedLyrics != "") {
 			console.log("loading synchronised lyrics");
 			try {
 				resetStuff();
+				updatePageDetails(text);
+				
 				currentStateStore.lineArray = JSON.parse(text.lyricRecorderSynchronisedLyrics);
 				$('#lyrics').html(generateLyrics(currentStateStore.lineArray));
 				addClickToLyrics();

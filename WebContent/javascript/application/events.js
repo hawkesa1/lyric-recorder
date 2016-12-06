@@ -8,9 +8,10 @@ $(document).ready(
 			fileUploader = new FileUploader(document
 					.getElementById('fileUploadHolder'));
 			lyricTracker = new LyricTracker($('#canvasContainer'));
-
-			// loadATrack("1474274553224");
+			
 			currentStateStore=new CurrentStateStore();
+			loadTutorial();
+			
 			
 			main();
 			startVisualisation();

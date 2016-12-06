@@ -48,13 +48,13 @@
 	color: white;
 	font-family: Calibri;
 	font-size: 20px;
-	
+	font-weight:bold;
 	text-decoration:underline;
 	width: 100%;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	
-	text-shadow: -9px 2px 19px #ffffff;
+	//text-shadow: -9px 2px 19px #ffffff;
 }
 
 .buttonType1:hover {

@@ -58,14 +58,17 @@ public class LyricUploadServlet extends HttpServlet {
 		String songId = request.getParameter("songId");
 
 		String fileName = createDownloadableCopy(songId);
+		
 		MP3MetaData mP3MetaData = writeToMetaData(jSONFormattedLyricData, fileName);
 		mP3MetaData.setDownloadId(fileName);
+		
+		
 		writeToFile(mP3MetaData.toJSON(), songId);
 
 		response.setContentType("text/plain");
 		response.setCharacterEncoding("UTF-8");
 		
-		System.out.println("Meta data" + mP3MetaData.toJSON());
+		//System.out.println("Meta data" + mP3MetaData.toJSON());
 		
 		response.getWriter().write(mP3MetaData.toJSON());
 	}
@@ -118,6 +121,7 @@ public class LyricUploadServlet extends HttpServlet {
 		MP3MetaData mP3MetaData = null;
 		try {
 			mP3MetaData = convert(tagEditor.readAllTags(new File(filePath1)), songId);
+			mP3MetaData.setLyricRecorderSynchronisedLyrics(jSONFormattedLyricData);
 		} catch (CannotReadException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -144,7 +148,7 @@ public class LyricUploadServlet extends HttpServlet {
 		mp3MetaData.setArtist(allTags.get("ARTIST"));
 		mp3MetaData.setTitle(allTags.get("TITLE"));
 		mp3MetaData.setUnsynchronisedLyrics(allTags.get("LYRICS"));
-		mp3MetaData.setLyricRecorderSynchronisedLyrics(allTags.get("LYRICRECORDER.COM"));
+		mp3MetaData.setLyricRecorderSynchronisedLyrics(allTags.get("LYRICRECORDER.COM_LYRICS_0.0.1"));
 		mp3MetaData.setAllTags(allTags);
 		mp3MetaData.setUniqueId(currentTime);
 		return mp3MetaData;
