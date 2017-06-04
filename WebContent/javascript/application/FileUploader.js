@@ -110,6 +110,7 @@ FileUploader.prototype.readFiles = function(files) {
 				lyricTracker.loadWavForm(tags);
 				resetStuff();
 				currentStateStore.lineArray = JSON.parse(tags.tXxxLyricsValue);
+				console.log(tags.tXxxLyricsValue);
 				$('#lyrics').html(generateLyrics(currentStateStore.lineArray));
 				addClickToLyrics();
 				enableLyricWordView();

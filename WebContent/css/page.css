@@ -34,6 +34,36 @@ font-family: Calibri;
 
 }
 
+#headerPlay {
+font-family: Calibri;
+	
+	font-size: 20px;
+	text-decoration:underline;
+	height: 40px;
+	letter-spacing: 0px;
+	line-height: 40px;
+	margin: 0 auto;
+	width: 802px;
+	color:white;
+position:relative;
+left:460px;
+}
+
+#headerRecord {
+font-family: Calibri;
+	
+	font-size: 20px;
+	text-decoration:underline;
+	height: 40px;
+	letter-spacing: 0px;
+	line-height: 40px;
+	margin: 0 auto;
+	width: 802px;
+	color:white;
+position:relative;
+left:450px;
+}
+
 #skull
 {
 	width:33px;

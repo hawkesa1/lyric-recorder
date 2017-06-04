@@ -90,6 +90,7 @@ function loadLyricsData(location,wavFormFile) {
 		data : null,
 		cache : false,
 		success : function(text) {
+			
 			generateLyricData(text);
 		},
 		error : function(xhr) {
