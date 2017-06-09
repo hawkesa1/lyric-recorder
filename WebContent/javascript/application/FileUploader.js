@@ -40,7 +40,26 @@ FileUploader.prototype.readFiles = function(files) {
 				} else {
 					updateConsole("<p class='bad'>* The maximum file size is 15 Mb.  This file is: '+ parseFloat((file.size / 1024 / 1024)).toFixed(2) + ' Mb</p>");
 				}
-			} else {
+			} else if (file.name.split(".")[1].toUpperCase() == "JSON") {
+				console.log("Reading JSON file .. ");
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					var trackMetaData = reader.result;
+					console.log("Yo");
+					console.log(trackMetaData);
+					var uniqueId=$.parseJSON(trackMetaData).uniqueId;
+					loadATrack2(uniqueId);
+					loadMetaData(JSON.parse(trackMetaData));
+					//resetStuff();
+					//currentStateStore.lineArray = $.parseJSON(trackMetaData.lyricRecorderSynchronisedLyrics);;
+					//$('#lyrics').html(generateLyrics(currentStateStore.lineArray));
+					//addClickToLyrics();
+					//enableLyricWordView();
+					
+				}
+				reader.readAsText(file, "utf-8");
+			}
+			else {
 				updateConsole("<p class='bad'>* This is not an audio file: <i>"
 						+ file.name + "</i>.  Please try again..</p>");
 			}
@@ -116,13 +135,10 @@ FileUploader.prototype.readFiles = function(files) {
 				enableLyricWordView();
 				currentStateStore.currentSongId = tags.tXxxSongIdValue;
 				audio.load();
-				audio
-						.addEventListener(
-								'loadedmetadata',
-								function() {
-									currentStateStore.trackDuration = document
-											.getElementById('audio').duration * 100;
-								});
+				audio.addEventListener('loadedmetadata', function() {
+					currentStateStore.trackDuration = document
+							.getElementById('audio').duration * 100;
+				});
 			}
 
 			function performUpload(formData) {
@@ -165,7 +181,8 @@ FileUploader.prototype.readFiles = function(files) {
 				xhr.upload.onprogress = function(event) {
 					if (event.lengthComputable) {
 						var complete = (event.loaded / event.total * 100 | 0);
-						var holder = document.getElementById('fileUploadProgress');
+						var holder = document
+								.getElementById('fileUploadProgress');
 						holder.innerHTML = "* Step 1/3 Uploading file to server "
 								+ complete + "%";
 						if (complete == 100) {
@@ -191,4 +208,3 @@ FileUploader.prototype.readFiles = function(files) {
 		}
 	}
 }
-

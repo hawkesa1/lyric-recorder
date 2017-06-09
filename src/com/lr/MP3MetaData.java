@@ -19,6 +19,9 @@ public class MP3MetaData {
 	private String downloadId;
 	private String unsynchronisedLyrics;
 	private String lyricRecorderSynchronisedLyrics;
+	private String md5Hash;
+	private String originalFileName;
+	
 	HashMap<String, String> allTags;
 
 	public MP3MetaData() {
@@ -33,10 +36,22 @@ public class MP3MetaData {
 		this.uniqueId = uniqueId;
 	}
 	
-	
-	
-	
-	
+	public String getOriginalFileName() {
+		return originalFileName;
+	}
+
+	public void setOriginalFileName(String originalFileName) {
+		this.originalFileName = originalFileName;
+	}
+
+	public String getMd5Hash() {
+		return md5Hash;
+	}
+
+	public void setMd5Hash(String md5Hash) {
+		this.md5Hash = md5Hash;
+	}
+
 	public String getDownloadId() {
 		return downloadId;
 	}

@@ -18,7 +18,7 @@ $(document).ready(
 		});
 $(function() {
 	$("#save").click(function() {
-		saveLyrics(lineArrayToJSON(), currentStateStore.currentSongId);
+		saveLyricsToBrowser(currentStateStore.trackMetaData, currentStateStore.currentSongId);
 	});
 });
 $(function() {

@@ -26,6 +26,7 @@ function CurrentStateStore()
 	this.nextWordToAddId = "";
 	this.highestEndTime = 0;
 	this.lastAddedWordId = "";
+	this.lyricMetaData = "";
 }
 
 

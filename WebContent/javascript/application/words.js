@@ -246,6 +246,7 @@ function wordMouseOut(wordId) {
 }
 
 function resetStuff() {
+	//currentStateStore=new CurrentStateStore();
 	currentStateStore.onlyWordsArray = new Array();
 	words = new Array();
 	currentStateStore.lineArray = new Array();
@@ -262,9 +263,15 @@ function generateLyrics(lines) {
 	currentStateStore.nextWordToAddId = "";
 	currentStateStore.highestEndTime = 0;
 	currentStateStore.lastAddedWordId = "";
+	
+	console.log(lines);
+	console.log(lines.length);
 	for (var i = 0; i < lines.length; i++) {
 		words = lines[i].words;
 		html += "<div class='line'>";
+		
+		console.log("Words:"+words);
+		
 		for (var j = 0; j < words.length; j++) {
 			if (j === 0) {
 				if (words[j].endTime) {

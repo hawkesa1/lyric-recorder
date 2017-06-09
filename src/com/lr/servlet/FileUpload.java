@@ -23,8 +23,10 @@ import org.jaudiotagger.audio.exceptions.InvalidAudioFrameException;
 import org.jaudiotagger.audio.exceptions.ReadOnlyFileException;
 
 import com.lr.AudioConversion;
+import com.lr.ConvertedTracks;
 import com.lr.FileActivities;
 import com.lr.Locations;
+import com.lr.MD5Stuff;
 import com.lr.MP3MetaData;
 import com.lr.TagEditor;
 
@@ -57,9 +59,7 @@ public class FileUpload extends HttpServlet {
 				} else {
 					try {
 						mp3MetaData = processUploadedFile(item, currentTime);
-						if (mp3MetaData != null) {
-							MP3MetaData.writeMP3MetaDataToDisk(mp3MetaData);
-						}
+
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -83,7 +83,6 @@ public class FileUpload extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
-
 		if (mp3MetaData != null) {
 			response.getWriter().write(mp3MetaData.toJSON());
 		} else {
@@ -91,26 +90,56 @@ public class FileUpload extends HttpServlet {
 		}
 	}
 
-	private MP3MetaData processUploadedFile(FileItem item, String currentTime)
+	private MP3MetaData processUploadedFile(FileItem item, String uniqueId)
 			throws IOException, UnsupportedAudioFileException, InterruptedException {
 		String ext = FilenameUtils.getExtension(item.getName());
-		String filePath1 = Locations.ORIGINAL_UPLOAD + currentTime + "." + ext;
-
+		String filePath1 = Locations.ORIGINAL_UPLOAD + uniqueId + "." + ext;
+		String originalFileName=item.getName();
+		
 		// Write the uploaded file to disk
 		FileActivities.writeUploadedFileToDisk(item, filePath1);
 
-		// Convert the file
-		AudioConversion audioConversion = new AudioConversion();
+		// Check the hash of the file
+		MD5Stuff md5Stuff = new MD5Stuff();
+		String md5Hash = null;
 		try {
-			audioConversion.processFile(currentTime, ext, Locations.RESOURCES_FOLDER);
-		} catch (Exception e) {
+			md5Hash = md5Stuff.getMD5Checksum(filePath1);
+		} catch (Exception e1) {
 			// TODO Auto-generated catch block
-			//e.printStackTrace();
-			return null;
+			e1.printStackTrace();
 		}
 
-		// Read the metadata
-		MP3MetaData mp3MetaData = readMP3MetaData(currentTime, ext);
+		
+		
+		
+		MP3MetaData mp3MetaData;
+		// Check if the file has been converted already
+		if (ConvertedTracks.searchTrack(md5Hash) != null) {
+			System.out.println("Already Converted" + ConvertedTracks.searchTrack(md5Hash));
+			mp3MetaData = readMP3MetaData(ConvertedTracks.searchTrack(md5Hash), ext);
+			FileActivities.deleteFile(Locations.ORIGINAL_UPLOAD + uniqueId + "." + ext);
+		} else {
+			FileActivities.renameFile(Locations.ORIGINAL_UPLOAD + uniqueId + "." + ext,
+					Locations.ORIGINAL_UPLOAD + md5Hash + "." + ext);
+			uniqueId=md5Hash;
+			// Convert the file
+			AudioConversion audioConversion = new AudioConversion();
+			try {
+				audioConversion.processFile(uniqueId, ext, Locations.RESOURCES_FOLDER);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				// e.printStackTrace();
+				return null;
+			}
+
+			// Read the metadata
+			mp3MetaData = readMP3MetaData(uniqueId, ext);
+			mp3MetaData.setMd5Hash(md5Hash);
+			mp3MetaData.setOriginalFileName(originalFileName);
+			MP3MetaData.writeMP3MetaDataToDisk(mp3MetaData);
+			ConvertedTracks.addTrack(md5Hash, uniqueId);
+		}
+
 		return mp3MetaData;
 	}
 

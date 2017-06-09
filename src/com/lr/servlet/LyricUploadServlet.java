@@ -56,18 +56,12 @@ public class LyricUploadServlet extends HttpServlet {
 		String currentTime = Long.toString(System.currentTimeMillis());
 		String jSONFormattedLyricData = request.getParameter("JSONFormattedLyricData");
 		String songId = request.getParameter("songId");
-
 		String fileName = createDownloadableCopy(songId);
-		
 		MP3MetaData mP3MetaData = writeToMetaData(jSONFormattedLyricData, fileName);
 		mP3MetaData.setDownloadId(fileName);
-		
-		
 		writeToFile(mP3MetaData.toJSON(), songId);
-
 		response.setContentType("text/plain");
 		response.setCharacterEncoding("UTF-8");
-		
 		//System.out.println("Meta data" + mP3MetaData.toJSON());
 		
 		response.getWriter().write(mP3MetaData.toJSON());
