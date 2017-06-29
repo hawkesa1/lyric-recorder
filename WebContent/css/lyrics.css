@@ -82,7 +82,7 @@ a.playLine.playLineDisabled {
 	font-size: 20px;
 	font-style: normal;
 	
-	overflow-y: scroll;
+	overflow-y: auto;
 	width: 100%;
 	height: 100%;
 	resize: none;
@@ -102,20 +102,44 @@ textarea:focus {
     border-color: 0px;
 }
 
+#uploadButton
+{
+	position:relative;
+	left:0px;
+	top:-10px;
+	z-index:200;
+}
 #editButton
 {
 	position:relative;
-	left:678px;
-	top:18px;
+	left:130px;
+	top:-10px;
 	z-index:200;
 }
 #recordButton
 {
 	position:relative;
-	left:677px;
-	top:18px;
+	left:260px;
+	top:-10px;
 	z-index:200;
 }
+#videoButton
+{
+	position:relative;
+	left:390px;
+	top:-10px;
+	z-index:200;
+}
+
+.buttonSelected
+{
+	color:white;
+}
+.buttonUnselected
+{
+	color:	#403d43;
+}
+
 
 div.hiddenDiv
 {
@@ -126,17 +150,63 @@ div.hiddenDiv
 
 
 #lyrics {
-	
-	overflow-y: scroll;
+	overflow-y: auto;
 	width: 800px;
 	height: 220px;
 	padding: 0px;
 	margin: 0px;
 	border: 1px solid #1a1a1a;
-	
-	
 	background-color:black;
 	opacity:0.8;
+}
+#video {
+	overflow-y: auto;
+	width: 800px;
+	height: 600px;
+	padding: 0px;
+	margin: 0px;
+	border: 1px solid #1a1a1a;
+	background-color:black;
+	opacity:0.8;
+}
+
+#videoControls {
+	
+	font-family: Calibri;
+	font-size: 20px;
+	font-weight:bold;
+	text-decoration:underline;
+	
+	overflow-y: auto;
+	width: 400px;
+	height: 600px;
+	padding: 0px;
+	margin: 0px;
+	position: relative;
+	left:820px;
+	top:-603px;
+	border: 1px solid #1a1a1a;
+	background-color:black;
+	opacity:1;
+	color:white;
+}
+
+#videoControlsLabel
+{
+	position:relative;
+	top:-20px;
+}
+
+#upload {
+	overflow: none;
+	width: 800px;
+	height: 220px;
+	padding: 0px;
+	margin: 0px;
+	border: 1px solid #1a1a1a;
+	background-color:black;
+	opacity:0.8;
+		color:white;
 }
 
 #wordInfo {
@@ -167,6 +237,8 @@ div.hiddenDiv
 	height: 220px;
 	padding-top:5px;
 	padding-bottom:10px;
+	position:relative;
+	top:10px;
 }
 
 

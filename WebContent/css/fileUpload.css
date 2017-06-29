@@ -1,22 +1,25 @@
 #fileUploadHolder {
 	font-family: Calibri;
 	font-size: 20px;
-	background-color:none;
 	border: 1px solid #1a1a1a;
+	overflow: none;
 	width: 800px;
-	height: 70px;
-	overflow-y: scroll;
-	opacity:1;
+	height: 220px;
+	padding: 0px;
+	margin: 0px;
+	border: 1px solid #1a1a1a;
+	background-color:black;
+	opacity:0.8;
 	color:white;
-	margin-top:20px;
-	padding-top:0px;
-	padding-bottom:0px;
+	display:none;
+	padding-top:40px;
 	
 	
 }
 #fileUploadHolder.hover {
-	border: 1px dashed #0c0;
-	background-color:#9933ff;
+	
+	background-color:#405b3c;
+	opacity:0.5;
 }
 #fileUploadHolder.error {
 	border: 1px dashed red;

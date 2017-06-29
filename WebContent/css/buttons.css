@@ -8,6 +8,12 @@
 	border: 0px;
 	width: 800px;
 	background-color: none;
+	
+	border: 0px solid #1a1a1a;
+	padding-top:10px;
+	padding-bottom:10px;
+	position:relative;
+	top:-10px;
 }
 
 .buttonType1ContainerMedium {
@@ -15,13 +21,20 @@
 	text-align: center;
 	border: 0px;
 	width: 50px;
-	margin-right: 5px;
+	margin-right: 7px;
 }
 
 .buttonType1ContainerLarge {
 	display: inline-block;
 	text-align: center;
 	width: 100px;
+	border: 0px;
+	margin-right: 5px;
+}
+.buttonType1ContainerLarge1 {
+	display: inline-block;
+	text-align: center;
+	width: 120px;
 	border: 0px;
 	margin-right: 5px;
 }

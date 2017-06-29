@@ -162,12 +162,12 @@ FileUploader.prototype.readFiles = function(files) {
 						var json = JSON.parse(progressEvent.target.response);
 						currentStateStore.currentSongId = json.uniqueId;
 						// Only do this when runnign in eclipse!!!!
-						updateConsole('<p>* Waiting for eclipse to refresh ...</p>');
+						updateConsole('<p>* Processing  ...</p>');
 						setTimeout(
 								function() {
 									updatePageDetails(json);
 									loadATrack(json.uniqueId);
-									updateConsole("<p class='good'>* Processing complete</p>");
+									updateConsole("<p class='good'>* Processing complete.  Drag another audio file here to start again on a new track.</p>");
 
 								}, currentStateStore.ECLIPSE_FILE_WAIT);
 					}

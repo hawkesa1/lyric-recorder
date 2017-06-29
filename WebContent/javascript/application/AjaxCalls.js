@@ -11,8 +11,7 @@ function loadTutorial() {
 						.getElementById('audio').duration * 100;
 			});
 
-	$('#lyricText').hide();
-	$('#lyrics').show();
+	enableView("enableUploadView", "fileUploadHolder");
 	currentStateStore.currentLyricView = "WORD_VIEW";
 
 }
@@ -149,17 +148,23 @@ function loadLyricsData(location, wavFormFile) {
 			} catch (e) {
 				console.log("Error loading synchronised lyrics");
 				resetStuff();
-				enableLyricTextView("Please enter some lyrics here ...")
+				convertTextToLyrics("Please enter some lyrics here ...");
+				$('#fileUploadHolder').addClass('viewContainer');
+				enableView("enableTextView", "lyricText");
 			}
 		} else if (trackMetaData.unsynchronisedLyrics != "") {
 			console.log("loading unsycnhronised lyrics");
 			resetStuff();
-			enableLyricTextView(trackMetaData.unsynchronisedLyrics);
+			convertTextToLyrics("Please enter some lyrics here ...");
+			$('#fileUploadHolder').addClass('viewContainer');
+			enableView("enableTextView", "lyricText");
 		} else {
 			console.log("No lyrics found");
 			currentStateStore.trackMetaData = trackMetaData;
 			resetStuff();
-			enableLyricTextView("Please enter some lyrics here ...")
+			convertTextToLyrics("Please enter some lyrics here ...");
+			$('#fileUploadHolder').addClass('viewContainer');
+			enableView("enableTextView", "lyricText");
 		}
 	}
 }
@@ -173,4 +178,5 @@ function loadMetaData(trackMetaData)
 	currentStateStore.lineArray =trackMetaData.lyricRecorderSynchronisedLyrics;
 	$('#lyrics').html(generateLyrics(currentStateStore.lineArray));
 	addClickToLyrics();
+	enableLyricWordView();
 }

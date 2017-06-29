@@ -6,7 +6,7 @@ var updatePageDetails = function(json) {
 
 var updateConsole = function(text) {
 	var holder = document.getElementById('fileUploadHolder');
-	holder.innerHTML += text;
+	holder.innerHTML = text;
 	$('#fileUploadHolder').scrollTop($('#fileUploadHolder')[0].scrollHeight);
 }
 var clearConsole = function(text) {
@@ -78,8 +78,6 @@ function formatTime(number) {
 	// return number.toFixed(2); // this seems to break drag and drop!
 	return number;
 }
-
-
 
 function addCurrentWordStart() {
 	if (($("#audio").prop("currentTime") * 1000) > currentStateStore.highestEndTime
@@ -219,22 +217,44 @@ function lineArrayToEnhancedLRC() {
 	return lrc;
 }
 
-function enableLyricTextView(textToShow) {
+function enableView(tabItemId, viewId) {
+	enableViewTabs(tabItemId);
 
-	if (currentStateStore.currentLyricView === "TEXT_VIEW") {
-	} else if (currentStateStore.currentLyricView === "SCRIPT_VIEW") {
-		generateLyrics($.parseJSON($('#lyricScript').val()));
-	} else if (currentStateStore.currentLyricView === "WORD_VIEW") {
+	$('.viewContainer').each(function(index) {
+		$(this).hide();
+	});
+	$('#' + viewId).show();
+	$('#wordButtonContainer').hide();
+	$('#videoControls').hide();
 
+	if (tabItemId == "enableUploadView") {
+		currentStateStore.currentLyricView = "UPLOAD_VIEW";
+	} else if (tabItemId == "enableTextView") {
+		currentStateStore.currentLyricView = "TEXT_VIEW";
+
+	} else if (tabItemId == "enableWordView") {
+		if (currentStateStore.currentLyricView === "TEXT_VIEW") {
+			convertLyricTextToWords();
+		}
+		$('#wordButtonContainer').show();
+		currentStateStore.currentLyricView = "WORD_VIEW";
+	} else if (tabItemId == "enableVideoView") {
+		currentStateStore.currentLyricView = "VIDEO_VIEW";
+		$('#videoControls').show();
 	}
-	$('#lyricText').show();
-	$('#lyrics').hide();
-	$('#lyricScript').hide();
-	// if (confirm('You will lose any entered timings if you return to text
-	// view. Are you sure?')) {
+}
 
+function enableViewTabs(itemId) {
+	console.log(itemId);
+	$('.viewTabs').each(function(index) {
+		$(this).addClass('buttonUnselected');
+	});
+	$('#' + itemId).removeClass('buttonUnselected');
+}
+
+function convertTextToLyrics(textToShow) {
+	$('#lyricText').val(textToShow)
 	var html = "";
-
 	if (textToShow) {
 		html = textToShow;
 	} else {
@@ -255,25 +275,4 @@ function enableLyricTextView(textToShow) {
 	}
 	$('#lyricText').html(html);
 	currentStateStore.currentLyricView = "TEXT_VIEW";
-	$("#editButton").addClass("hiddenDiv");
-	$("#recordButton").removeClass("hiddenDiv");
-}
-
-function enableLyricWordView() {
-	if (currentStateStore.currentLyricView === "WORD_VIEW") {
-	} else if (currentStateStore.currentLyricView === "TEXT_VIEW") {
-		$('#lyricText').hide();
-		$('#lyricScript').hide();
-		$('#lyrics').show();
-		convertLyricTextToWords();
-	} else if (currentStateStore.currentLyricView === "SCRIPT_VIEW") {
-		$('#lyrics').html(generateLyrics($.parseJSON($('#lyricScript').val())));
-		$('#lyricText').hide();
-		$('#lyricScript').hide();
-		$('#lyrics').show();
-		addClickToLyrics();
-	}
-	currentStateStore.currentLyricView = "WORD_VIEW";
-	$("#editButton").removeClass("hiddenDiv");
-	$("#recordButton").addClass("hiddenDiv");
 }

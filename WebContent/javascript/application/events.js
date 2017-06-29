@@ -8,9 +8,10 @@ $(document).ready(
 			fileUploader = new FileUploader(document
 					.getElementById('fileUploadHolder'));
 			lyricTracker = new LyricTracker($('#canvasContainer'));
-			
 			currentStateStore=new CurrentStateStore();
-			loadTutorial();
+			
+			enableView("enableUploadView", "fileUploadHolder");
+			//loadTutorial();
 			
 			
 			main();
@@ -121,18 +122,34 @@ $(function() {
 	});
 });
 
+
+$(function() {
+	$("#enableUploadView").click(function(e) {
+		e.preventDefault();
+		enableView("enableUploadView", "fileUploadHolder");
+	});
+});
+
 $(function() {
 	$("#enableTextView").click(function(e) {
 		e.preventDefault();
-		enableLyricTextView();
+		enableView("enableTextView", "lyricText");
 	});
 });
 $(function() {
 	$("#enableWordView").click(function(e) {
 		e.preventDefault();
-		enableLyricWordView();
+		enableView("enableWordView", "lyrics");
 	});
 });
+$(function() {
+	$("#enableVideoView").click(function(e) {
+		e.preventDefault();
+		enableView("enableVideoView", "video");
+	});
+});
+
+
 $(function() {
 	$("#addCurrentWord").mouseup(function() {
 		if (!document.getElementById('audio').paused) {

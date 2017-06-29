@@ -35,9 +35,9 @@
 <script src="./javascript/application/main.js" type="text/javascript"></script>
 <script src="./javascript/application/FileUploader.js"
 	type="text/javascript"></script>
-	<script src="./javascript/application/LyricTracker.js"
+<script src="./javascript/application/LyricTracker.js"
 	type="text/javascript"></script>
-	<script src="./javascript/application/TextTracker.js"
+<script src="./javascript/application/TextTracker.js"
 	type="text/javascript"></script>
 <script src="./javascript/application/pageControls.js"
 	type="text/javascript"></script>
@@ -65,10 +65,8 @@
 <body>
 	<div id="headerContainer">
 		<div id="headerTitle">
-			 <span id="headerText">LyricRecorder.com</span>
-			<a href="" id="headerRecord">Record Lyrics</a>
-			<a href="" id="headerPlay">Play Lyrics</a>
-			
+			<span id="headerText">LyricRecorder.com</span>
+
 		</div>
 	</div>
 	<div id="mainContainer">
@@ -80,9 +78,9 @@
 					<th>Album</th>
 				</tr>
 				<tr>
-					<td width="33%"><span id="trackTitle">XXX</span></td>
-					<td width="33%"><span id="trackArtist">XXX</span></td>
-					<td width="33%"><span id="trackAlbum">XXX</span></td>
+					<td width="33%" height="15px;"><span id="trackTitle">&nbsp;</span></td>
+					<td width="33%" height="15px;"><span id="trackArtist">&nbsp;</span></td>
+					<td width="33%" height="15px;"><span id="trackAlbum">&nbsp;</span></td>
 				</tr>
 			</table>
 		</div>
@@ -111,25 +109,51 @@
 				<a href="#" class="buttonType1" id="skipForward5Button">+5</a>
 			</div>
 		</div>
+
 		<div style="position: relative; width: 0; height: 0">
-			<div id="editButton" class="hiddenDiv">
-				<div class="buttonType1ContainerLarge">
-					<a href="#" class="buttonType1" id="enableTextView">Edit</a>
+			<div id="uploadButton">
+				<div class="buttonType1ContainerLarge1">
+					<a href="#" class="buttonType1 viewTabs" id="enableUploadView">1.
+						Upload</a>
 				</div>
 			</div>
 		</div>
 		<div style="position: relative; width: 0; height: 0">
-			<div id="recordButton" class="hiddenDiv">
-				<div class="buttonType1ContainerLarge">
-					<a href="#" class="buttonType1" id="enableWordView">Record</a>
+			<div id="editButton">
+				<div class="buttonType1ContainerLarge1">
+					<a href="#" class="buttonType1 viewTabs buttonUnselected"
+						id="enableTextView">2. Enter Lyrics</a>
+				</div>
+			</div>
+		</div>
+		<div style="position: relative; width: 0; height: 0">
+			<div id="recordButton">
+				<div class="buttonType1ContainerLarge1">
+					<a href="#" class="buttonType1 viewTabs buttonUnselected"
+						id="enableWordView">3. Sync Lyrics</a>
+				</div>
+			</div>
+		</div>
+		<div style="position: relative; width: 0; height: 0">
+			<div id="videoButton">
+				<div class="buttonType1ContainerLarge1">
+					<a href="#" class="buttonType1 viewTabs buttonUnselected"
+						id="enableVideoView">4. Video</a>
 				</div>
 			</div>
 		</div>
 		<div id="lyricsContainer">
-			<textarea id="lyricText"></textarea>
-			<div id="lyrics"></div>
+			<textarea class="viewContainer" id="lyricText" style="display:none"></textarea>
+			<div class="viewContainer" id="lyrics" style="display:none"></div>
+			<div class="viewContainer" id="video" style="display:none">VIDEO!!!</div>
+			<div class="viewContainer" id="videoControls" style="display:none">Video Controls</div>
+			<div class="viewContainer" id="fileUploadHolder" >
+					<p class="holderMessage">Drag an audio file here to begin.
+						Maximum file size 15 Mb. Supported formats include: mp3, wav, wma,
+						m4a, mid, flac, mov, amr, aac, au, aif, raw, dvf, vox, cda</p>
+			</div>
 		</div>
-		<div class="controlButtonsContainer">
+		<div id="wordButtonContainer" class="controlButtonsContainer" style="display:none">
 			<div class="buttonType1ContainerLarge">
 				<a href="#" class="buttonType1" id="removePreviousWord">Remove</a>
 			</div>
@@ -141,11 +165,7 @@
 			</div>
 		</div>
 		<div id="downloadableLink"></div>
-		<div id="fileUploadHolder">
-			<p class="holderMessage">Drag an audio file here to begin.
-				Maximum file size 15 Mb. Supported formats include: mp3, wav, wma,
-				m4a, mid, flac, mov, amr, aac, au, aif, raw, dvf, vox, cda</p>
-		</div>
+
 	</div>
 	<div id="analyzerPlaceholder"></div>
 </body>

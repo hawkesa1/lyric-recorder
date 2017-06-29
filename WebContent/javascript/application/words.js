@@ -87,6 +87,11 @@ function millisecondsToISOMinutesSecondsMilliseconds(milliseconds) {
 
 function convertLyricTextToWords() {
 	var text = $('#lyricText').val();
+	
+	if(!text || text=="")
+	{
+		return;
+	}	
 	currentStateStore.lineArray = new Array();
 	currentStateStore.lineArray = lyricsTextToObjects(text)
 	$('#lyrics').html(generateLyrics(currentStateStore.lineArray));
@@ -112,6 +117,13 @@ function convertLyricTextToWords() {
 }
 
 function lyricsTextToObjects(lyricsText) {
+	
+	
+	if(!lyricsText)
+	{
+		lyricsText="";
+	}	
+	
 	lyricsText = lyricsText.replace(/\\r\\n/g, '\n');
 	lyricsText = lyricsText.replace(/ +(?= )/g, ''); // remove double spaces
 
@@ -247,6 +259,7 @@ function wordMouseOut(wordId) {
 
 function resetStuff() {
 	//currentStateStore=new CurrentStateStore();
+	
 	currentStateStore.onlyWordsArray = new Array();
 	words = new Array();
 	currentStateStore.lineArray = new Array();
