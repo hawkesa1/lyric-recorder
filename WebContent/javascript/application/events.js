@@ -1,6 +1,8 @@
 var fileUploader;
 var lyricTracker;
 var currentStateStore;
+var videoCanvas;
+var videoContext;
 
 $(document).ready(
 		function($) {
@@ -8,19 +10,26 @@ $(document).ready(
 			fileUploader = new FileUploader(document
 					.getElementById('fileUploadHolder'));
 			lyricTracker = new LyricTracker($('#canvasContainer'));
-			currentStateStore=new CurrentStateStore();
-			
+			currentStateStore = new CurrentStateStore();
+
 			enableView("enableUploadView", "fileUploadHolder");
-			//loadTutorial();
-			
-			
+			loadTutorial();
+
+		
 			main();
 			startVisualisation();
+			
+			
+			videoCanvas = document.getElementById('videoCanvas');
+			videoContext = videoCanvas.getContext('2d');
+			initialiseParameters();
 		});
 $(function() {
-	$("#save").click(function() {
-		saveLyricsToBrowser(currentStateStore.trackMetaData, currentStateStore.currentSongId);
-	});
+	$("#save").click(
+			function() {
+				saveLyricsToBrowser(currentStateStore.trackMetaData,
+						currentStateStore.currentSongId);
+			});
 });
 $(function() {
 	$("#loadButton").click(function() {
@@ -122,7 +131,6 @@ $(function() {
 	});
 });
 
-
 $(function() {
 	$("#enableUploadView").click(function(e) {
 		e.preventDefault();
@@ -148,7 +156,6 @@ $(function() {
 		enableView("enableVideoView", "video");
 	});
 });
-
 
 $(function() {
 	$("#addCurrentWord").mouseup(function() {
@@ -202,17 +209,19 @@ function resizeend() {
 	}
 }
 var spaceIsDown = false;
-$(document).keydown(function(e) {
-	if (e.keyCode == 32 && e.target == document.body) {
-		e.preventDefault();
-	}
-	if (e.which == 32 && !spaceIsDown && currentStateStore.currentLyricView === "WORD_VIEW") {
-		e.preventDefault();
-		$('#addCurrentWord').mousedown();
-		$('#addCurrentWord').addClass("activeProgramatically");
-		spaceIsDown = true;
-	}
-});
+$(document).keydown(
+		function(e) {
+			if (e.keyCode == 32 && e.target == document.body) {
+				e.preventDefault();
+			}
+			if (e.which == 32 && !spaceIsDown
+					&& currentStateStore.currentLyricView === "WORD_VIEW") {
+				e.preventDefault();
+				$('#addCurrentWord').mousedown();
+				$('#addCurrentWord').addClass("activeProgramatically");
+				spaceIsDown = true;
+			}
+		});
 $(document).keyup(function(e) {
 	if (e.keyCode == 32 && e.target == document.body) {
 		e.preventDefault();

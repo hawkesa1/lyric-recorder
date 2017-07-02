@@ -322,12 +322,14 @@ function startVisualisation() {
 	if (!source) {
 		source = audioContext.createMediaElementSource(sourceAudio);
 		sourceAudio.load();
+		
 	}
-	
 
 	graphicEqualizer.changeAudioContext(audioContext);
 	source.connect(graphicEqualizer.filter.convolver, 0, 0);
 	updateConnections();
+
+	
 	// sourceAudio.play();
 	$("btnStop").disabled = "";
 	return true;

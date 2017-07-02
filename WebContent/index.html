@@ -7,6 +7,8 @@
 <link rel="stylesheet" href="css/fileUpload.css" media="screen" />
 <link rel="stylesheet" href="css/buttons.css" media="screen" />
 <link rel="stylesheet" href="css/lyrics.css" media="screen" />
+<link rel="stylesheet" href="css/video/video.css" media="screen" />
+
 
 <script src="./javascript/external/jquery/jquery-3.1.0.min.js"
 	type="text/javascript"></script>
@@ -43,6 +45,15 @@
 	type="text/javascript"></script>
 <script src="./javascript/application/words.js" type="text/javascript"></script>
 <script src="./javascript/application/AjaxCalls.js"
+	type="text/javascript"></script>
+
+<script src="./javascript/application/video/video.js"
+	type="text/javascript"></script>
+<script src="./javascript/application/video/animation2.js"
+	type="text/javascript"></script>
+<script src="./javascript/application/video/parameters.js"
+	type="text/javascript"></script>
+<script src="./javascript/application/video/testInitiation.js"
 	type="text/javascript"></script>
 
 <script type="text/javascript" charset="utf-8"
@@ -142,18 +153,28 @@
 				</div>
 			</div>
 		</div>
+
+
+
 		<div id="lyricsContainer">
-			<textarea class="viewContainer" id="lyricText" style="display:none"></textarea>
-			<div class="viewContainer" id="lyrics" style="display:none"></div>
-			<div class="viewContainer" id="video" style="display:none">VIDEO!!!</div>
-			<div class="viewContainer" id="videoControls" style="display:none">Video Controls</div>
-			<div class="viewContainer" id="fileUploadHolder" >
-					<p class="holderMessage">Drag an audio file here to begin.
-						Maximum file size 15 Mb. Supported formats include: mp3, wav, wma,
-						m4a, mid, flac, mov, amr, aac, au, aif, raw, dvf, vox, cda</p>
+			<textarea class="viewContainer" id="lyricText" style="display: none"></textarea>
+			<div class="viewContainer" id="lyrics" style="display: none"></div>
+			<div class="viewContainer" id="video" style="display: none">
+
+				<div id="backgroundImageContainerContainer">
+					<div id="backgroundImageContainer"></div>
+				</div>
+				<canvas id="videoCanvas" width="800" height="600"></canvas>
+			</div>
+			<div class="viewContainer" id="videoControls" style="display: none"></div>
+			<div class="viewContainer" id="fileUploadHolder">
+				<p class="holderMessage">Drag an audio file here to begin.
+					Maximum file size 15 Mb. Supported formats include: mp3, wav, wma,
+					m4a, mid, flac, mov, amr, aac, au, aif, raw, dvf, vox, cda</p>
 			</div>
 		</div>
-		<div id="wordButtonContainer" class="controlButtonsContainer" style="display:none">
+		<div id="wordButtonContainer" class="controlButtonsContainer"
+			style="display: none">
 			<div class="buttonType1ContainerLarge">
 				<a href="#" class="buttonType1" id="removePreviousWord">Remove</a>
 			</div>

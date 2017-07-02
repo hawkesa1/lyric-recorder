@@ -38,4 +38,6 @@ function animate() {
 function draw() {
 	lyricTracker.canvas.context.clearRect(0, 0, lyricTracker.canvas.width, lyricTracker.canvas.height);
 	waveForm.draw($("#audio").prop("currentTime") * 1000, lyricTracker.canvas.context);
+	
+	drawIt1(videoContext, $("#audio").prop("currentTime") * 1000, currentStateStore.lineArray)
 }

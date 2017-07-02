@@ -16,7 +16,6 @@ function loadTutorial() {
 
 }
 
-
 function loadATrack2(selectedValue) {
 	console.log("SelectedValue:" + selectedValue);
 	var audio = document.getElementById('audio');
@@ -33,7 +32,6 @@ function loadATrack2(selectedValue) {
 	$('#lyrics').show();
 	currentStateStore.currentLyricView = "WORD_VIEW";
 }
-
 
 function loadATrack(selectedValue) {
 	console.log("SelectedValue:" + selectedValue);
@@ -62,12 +60,13 @@ function fileSaver(fileName, textContent) {
 }
 
 function saveLyricsToBrowser(trackMetaData, songId) {
-	
-	trackMetaData.lyricRecorderSynchronisedLyrics=currentStateStore.lineArray;
-	
+
+	trackMetaData.lyricRecorderSynchronisedLyrics = currentStateStore.lineArray;
+	trackMetaData.videoSnapshot = getParameterSnapshotObject();
+
 	console.log("Save Lyrics1" + songId + trackMetaData);
 	console.log(trackMetaData);
-	var trackMetaDataAsString=JSON.stringify(trackMetaData, null, 2);
+	var trackMetaDataAsString = JSON.stringify(trackMetaData, null, 2);
 	fileSaver(songId, trackMetaDataAsString);
 }
 
@@ -135,14 +134,15 @@ function loadLyricsData(location, wavFormFile) {
 		if (trackMetaData.lyricRecorderSynchronisedLyrics
 				&& trackMetaData.lyricRecorderSynchronisedLyrics != "") {
 			console.log("loading synchronised lyrics");
-			
-			//loadMetaData(trackMetaData);
-			
+
+			// loadMetaData(trackMetaData);
+
 			try {
 				resetStuff();
 				updatePageDetails(trackMetaData);
 				currentStateStore.trackMetaData = trackMetaData;
-				currentStateStore.lineArray =JSON.parse(trackMetaData.lyricRecorderSynchronisedLyrics);
+				currentStateStore.lineArray = JSON
+						.parse(trackMetaData.lyricRecorderSynchronisedLyrics);
 				$('#lyrics').html(generateLyrics(currentStateStore.lineArray));
 				addClickToLyrics();
 			} catch (e) {
@@ -169,14 +169,17 @@ function loadLyricsData(location, wavFormFile) {
 	}
 }
 
-
-function loadMetaData(trackMetaData)
-{
+function loadMetaData(trackMetaData) {
 	resetStuff();
 	updatePageDetails(trackMetaData);
 	currentStateStore.trackMetaData = trackMetaData;
-	currentStateStore.lineArray =trackMetaData.lyricRecorderSynchronisedLyrics;
+	currentStateStore.lineArray = trackMetaData.lyricRecorderSynchronisedLyrics;
+
+	if (trackMetaData.videoSnapshot.snapshots[0]) {
+		loadParameterSnapshot(trackMetaData.videoSnapshot.snapshots[0]);
+	}
+
 	$('#lyrics').html(generateLyrics(currentStateStore.lineArray));
 	addClickToLyrics();
-	enableLyricWordView();
+	enableView("enableWordView", "lyrics");
 }

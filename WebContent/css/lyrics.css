@@ -166,16 +166,14 @@ div.hiddenDiv
 	padding: 0px;
 	margin: 0px;
 	border: 1px solid #1a1a1a;
-	background-color:black;
-	opacity:0.8;
+	background-color:none;
+	opacity:1;
 }
 
 #videoControls {
 	
 	font-family: Calibri;
-	font-size: 20px;
-	font-weight:bold;
-	text-decoration:underline;
+	font-size:14px;
 	
 	overflow-y: auto;
 	width: 400px;
@@ -189,6 +187,12 @@ div.hiddenDiv
 	background-color:black;
 	opacity:1;
 	color:white;
+}
+.parameterGroupLabel
+{
+	font-size: 20px;
+	font-weight:bold;
+	text-decoration:underline;
 }
 
 #videoControlsLabel

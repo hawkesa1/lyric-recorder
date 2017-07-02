@@ -240,6 +240,8 @@ function enableView(tabItemId, viewId) {
 		currentStateStore.currentLyricView = "WORD_VIEW";
 	} else if (tabItemId == "enableVideoView") {
 		currentStateStore.currentLyricView = "VIDEO_VIEW";
+		
+		drawVideoPanels('video', 'videoControls');
 		$('#videoControls').show();
 	}
 }
