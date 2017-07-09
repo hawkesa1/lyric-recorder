@@ -1,4 +1,5 @@
 function drawIt1(ctx3, currentAudioTime, lines) {
+
 	setBackgroundImageRotation(parameterValues.backgroundImageRotation);
 	setBackgroundImageRepeat(parameterValues.backgroundRepeat);
 	setBackgroundContainerSize(parameterValues.backgroundContainerWidth,
@@ -44,7 +45,6 @@ function drawIt1(ctx3, currentAudioTime, lines) {
 
 		if (aLine.startTime < currentAudioTime
 				&& aLine.endTime > currentAudioTime) {
-
 			for (var j = 0; j < aLine.words.length; j++) {
 				aWord = aLine.words[j];
 				ctx3.font = parameterValues.fontSize + "px "
@@ -60,61 +60,76 @@ function drawIt1(ctx3, currentAudioTime, lines) {
 				} else {
 					currentLineWidth += (parameterValues.characterSpacing - 0);
 				}
-
-
-				wordWidth = ctx3.measureText(aWord.word).width;
 				if (aWord.startTime < currentAudioTime
 						&& aWord.endTime > currentAudioTime) {
-
-					ctx3.save();
-
-					if (parameterValues.selectedShadowShow) {
-						ctx3.shadowColor = parameterValues.selectedShadowColour;
-						ctx3.shadowOffsetX = parameterValues.selectedShadowOffsetX;
-						ctx3.shadowOffsetY = parameterValues.selectedShadowOffsetY;
-						ctx3.shadowBlur = parameterValues.selectedShadowBlur;
-					}
-					ctx3.font = parameterValues.fontSize + "px "
-							+ parameterValues.fontFamily;
-					ctx3.textBaseline = 'alphabetic';
-
-					ctx3.globalAlpha = parameterValues.selectedOpacity;
-					ctx3.fillStyle = parameterValues.selectedFontColour;
-					selectedFontSize = parseInt(parameterValues.fontSize) + 0;
-					ctx3.font = selectedFontSize + "px "
-							+ parameterValues.fontFamily;
-					wordSpace = ctx3.measureText(aWord.word).width - wordWidth;
-					ctx3.fillText(aWord.word, xPosition, yPosition - 5);
-					ctx3.restore();
-
-					xPosition = xPosition
-							+ ctx3.measureText(aWord.word).width
-							+ ((parameterValues.characterSpacing - 0) - wordSpace);
+					xPosition = drawSelectedText(aWord, currentAudioTime, ctx3, xPosition, yPosition);
 				} else {
-					ctx3.save();
-					if (parameterValues.unselectedShadowShow) {
-						ctx3.shadowColor = parameterValues.unselectedShadowColour;
-						ctx3.shadowOffsetX = parameterValues.unselectedShadowOffsetX;
-						ctx3.shadowOffsetY = parameterValues.unselectedShadowOffsetY;
-						ctx3.shadowBlur = parameterValues.unselectedShadowBlur;
-					}
-					ctx3.font = parameterValues.fontSize + "px "
-							+ parameterValues.fontFamily;
-					ctx3.textBaseline = 'alphabetic';
-					ctx3.globalAlpha = parameterValues.unselectedOpacity;
-					ctx3.fillStyle = parameterValues.unselectedFontColour;
-					ctx3.fillText(aWord.word, xPosition, yPosition);
-					ctx3.restore();
-					xPosition = xPosition + ctx3.measureText(aWord.word).width
-							+ (parameterValues.characterSpacing - 0);
+
+					xPosition = drawUnselectedText(aWord, currentAudioTime, ctx3, xPosition, yPosition);
 				}
-
-				ctx3.restore();
-
 			}
 		}
 	}
 	return ctx3;
+}
+
+function drawUnselectedText(aWord, currentAudioTime, ctx3, xPosition, yPosition) {
+	ctx3.save();
+	if (parameterValues.unselectedShadowShow) {
+		ctx3.shadowColor = parameterValues.unselectedShadowColour;
+		ctx3.shadowOffsetX = parameterValues.unselectedShadowOffsetX;
+		ctx3.shadowOffsetY = parameterValues.unselectedShadowOffsetY;
+		ctx3.shadowBlur = parameterValues.unselectedShadowBlur;
+	}
+	ctx3.font = parameterValues.fontSize + "px " + parameterValues.fontFamily;
+	ctx3.textBaseline = 'alphabetic';
+	ctx3.globalAlpha = parameterValues.unselectedOpacity;
+	ctx3.fillStyle = parameterValues.unselectedFontColour;
+	ctx3.fillText(aWord.word, xPosition, yPosition);
+	ctx3.restore();
+	xPosition = xPosition + ctx3.measureText(aWord.word).width
+			+ (parameterValues.characterSpacing - 0);
+	ctx3.restore();
+	return xPosition;
+}
+var easingFunction="easeOutBounce";
+
+function drawSelectedText(aWord, currentAudioTime, ctx3, xPosition, yPosition) {
+	ctx3.save();
+	var wordWidth = ctx3.measureText(aWord.word).width;
+	if (parameterValues.selectedShadowShow) {
+		ctx3.shadowColor = parameterValues.selectedShadowColour;
+		ctx3.shadowOffsetX = parameterValues.selectedShadowOffsetX;
+		ctx3.shadowOffsetY = parameterValues.selectedShadowOffsetY;
+		ctx3.shadowBlur = parameterValues.selectedShadowBlur;
+	}
+	ctx3.font = parameterValues.fontSize + "px " + parameterValues.fontFamily;
+	ctx3.textBaseline = 'alphabetic';
+	ctx3.globalAlpha = parameterValues.selectedOpacity;
+	ctx3.fillStyle = parameterValues.selectedFontColour;
+	selectedFontSize = parseInt(parameterValues.fontSize) + 0;
+	var easingAmount = 0;
+	//var easingDuration=(aWord.endTime - aWord.startTime);
+	
+	easingAmount = $.easing[parameterValues.selectedEasingFunction](0,
+			(currentAudioTime - aWord.startTime), 0, parameterValues.fontSizeIncrease,
+			parameterValues.selectedEasingDuration);
+	
+	
+	easingAmount=easingAmount||0;
+	console.log(easingAmount);
+	
+	selectedFontSize = selectedFontSize + easingAmount;
+	console.log("selectedFontSize=" + selectedFontSize);
+	ctx3.font = selectedFontSize + "px " + parameterValues.fontFamily;
+	wordSpace = ctx3.measureText(aWord.word).width - wordWidth;
+	ctx3.fillText(aWord.word, (xPosition- (easingAmount)), (yPosition + (easingAmount/2)));
+
+	xPosition = xPosition + ctx3.measureText(aWord.word).width
+			+ ((parameterValues.characterSpacing - 0) - wordSpace);
+
+	ctx3.restore();
+	return xPosition;
 }
 
 function setBackgroundImageSize(width, height) {

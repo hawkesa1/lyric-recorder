@@ -140,6 +140,54 @@ var parameterInitialiser = {
 				"Script MT" : "Script MT"
 			},
 		}, {
+			"label" : "Easing Function",
+			"name" : "selectedEasingFunction",
+			"type" : "select",
+			"defaultValue" :"easeOutExpo",
+			"options" : {
+				"easeOutQuad" : "easeOutQuad",
+				"easeInQuad" : "easeInQuad",
+				"easeOutQuad" : "easeOutQuad",
+				"easeInOutQuad" : "easeInOutQuad",
+				"easeInCubic" : "easeInCubic",
+				"easeOutCubic" : "easeOutCubic",
+				"easeInOutCubic" : "easeInOutCubic",
+				"easeInQuart" : "easeInQuart",
+				"easeOutQuart" : "easeOutQuart",
+				"easeInOutQuart" : "easeInOutQuart",
+				"easeInQuint" : "easeInQuint",
+				"easeOutQuint" : "easeOutQuint",
+				"easeInOutQuint" : "easeInOutQuint",
+				"easeInSine" : "easeInSine",
+				"easeOutSine" : "easeOutSine",
+				"easeInOutSine" : "easeInOutSine",
+				"easeInExpo" : "easeInExpo",
+				"easeOutExpo" : "easeOutExpo",
+				"easeInOutExpo" : "easeInOutExpo",
+				"easeInCirc" : "easeInCirc",
+				"easeOutCirc" : "easeOutCirc",
+				"easeInOutCirc" : "easeInOutCirc",
+				"easeInElastic" : "easeInElastic",
+				"easeOutElastic" : "easeOutElastic",
+				"easeInOutElastic" : "easeInOutElastic",
+				"easeInBack" : "easeInBack",
+				"easeOutBack" : "easeOutBack",
+				"easeInOutBack" : "easeInOutBack",
+				"easeInBounce" : "easeInBounce",
+				"easeOutBounce" : "easeOutBounce",
+				"easeInOutBounce" : "easeInOutBounce"
+			},
+			"action" : "input"
+		}, {
+			"label" : "Easing Duration (ms)",
+			"name" : "selectedEasingDuration",
+			"type" : "range",
+			"min" : 0,
+			"max" : 2000,
+			"step" : 1,
+			"defaultValue" : 500,
+			"action" : "input"
+		}, {
 			"label" : "Opacity",
 			"name" : "selectedOpacity",
 			"type" : "range",
@@ -180,6 +228,16 @@ var parameterInitialiser = {
 			"max" : 400,
 			"step" : 1,
 			"defaultValue" : 40,
+			"action" : "input"
+		},
+		 {
+			"label" : "Font Size Increase",
+			"name" : "fontSizeIncrease",
+			"type" : "range",
+			"min" : 0,
+			"max" : 50,
+			"step" : 1,
+			"defaultValue" : 10,
 			"action" : "input"
 		}, {
 			"label" : "Shadow",
