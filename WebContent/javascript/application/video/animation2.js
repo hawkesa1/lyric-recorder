@@ -1,3 +1,4 @@
+
 function drawIt1(ctx3, currentAudioTime, lines) {
 
 	setBackgroundImageRotation(parameterValues.backgroundImageRotation);
@@ -62,10 +63,11 @@ function drawIt1(ctx3, currentAudioTime, lines) {
 				}
 				if (aWord.startTime < currentAudioTime
 						&& aWord.endTime > currentAudioTime) {
-					xPosition = drawSelectedText(aWord, currentAudioTime, ctx3, xPosition, yPosition);
+					xPosition = drawSelectedText(aWord, currentAudioTime, ctx3,
+							xPosition, yPosition);
 				} else {
-
-					xPosition = drawUnselectedText(aWord, currentAudioTime, ctx3, xPosition, yPosition);
+					xPosition = drawUnselectedText(aWord, currentAudioTime,
+							ctx3, xPosition, yPosition);
 				}
 			}
 		}
@@ -92,7 +94,7 @@ function drawUnselectedText(aWord, currentAudioTime, ctx3, xPosition, yPosition)
 	ctx3.restore();
 	return xPosition;
 }
-var easingFunction="easeOutBounce";
+var easingFunction = "easeOutBounce";
 
 function drawSelectedText(aWord, currentAudioTime, ctx3, xPosition, yPosition) {
 	ctx3.save();
@@ -109,21 +111,31 @@ function drawSelectedText(aWord, currentAudioTime, ctx3, xPosition, yPosition) {
 	ctx3.fillStyle = parameterValues.selectedFontColour;
 	selectedFontSize = parseInt(parameterValues.fontSize) + 0;
 	var easingAmount = 0;
-	//var easingDuration=(aWord.endTime - aWord.startTime);
-	
-	easingAmount = $.easing[parameterValues.selectedEasingFunction](0,
-			(currentAudioTime - aWord.startTime), 0, parameterValues.fontSizeIncrease,
-			parameterValues.selectedEasingDuration);
-	
-	
-	easingAmount=easingAmount||0;
+	// var easingDuration=(aWord.endTime - aWord.startTime);
+	var endTimeA = (aWord.startTime - 0)
+			+ (parameterValues.selectedEasingDuration - 0);
+	console.log(currentAudioTime + " " + endTimeA);
+
+	if (currentAudioTime < endTimeA) {
+		easingAmount = $.easing[parameterValues.selectedEasingFunction](0,
+				(currentAudioTime - aWord.startTime), 0,
+				parameterValues.fontSizeIncrease,
+				parameterValues.selectedEasingDuration);
+	} else {
+		console.log("BOOM");
+		easingAmount = parameterValues.fontSizeIncrease-0;
+	}
+
+	easingAmount = easingAmount || 0;
+
 	console.log(easingAmount);
-	
+
 	selectedFontSize = selectedFontSize + easingAmount;
 	console.log("selectedFontSize=" + selectedFontSize);
 	ctx3.font = selectedFontSize + "px " + parameterValues.fontFamily;
 	wordSpace = ctx3.measureText(aWord.word).width - wordWidth;
-	ctx3.fillText(aWord.word, (xPosition- (easingAmount)), (yPosition + (easingAmount/2)));
+	ctx3.fillText(aWord.word, (xPosition - (easingAmount)),
+			(yPosition + (easingAmount / 2)));
 
 	xPosition = xPosition + ctx3.measureText(aWord.word).width
 			+ ((parameterValues.characterSpacing - 0) - wordSpace);

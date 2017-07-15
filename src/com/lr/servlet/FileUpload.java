@@ -22,7 +22,7 @@ import org.jaudiotagger.audio.exceptions.CannotReadException;
 import org.jaudiotagger.audio.exceptions.InvalidAudioFrameException;
 import org.jaudiotagger.audio.exceptions.ReadOnlyFileException;
 
-import com.lr.AudioConversion;
+import com.lr.AudioConversion2;
 import com.lr.ConvertedTracks;
 import com.lr.FileActivities;
 import com.lr.Locations;
@@ -94,8 +94,8 @@ public class FileUpload extends HttpServlet {
 			throws IOException, UnsupportedAudioFileException, InterruptedException {
 		String ext = FilenameUtils.getExtension(item.getName());
 		String filePath1 = Locations.ORIGINAL_UPLOAD + uniqueId + "." + ext;
-		String originalFileName=item.getName();
-		
+		String originalFileName = item.getName();
+
 		// Write the uploaded file to disk
 		FileActivities.writeUploadedFileToDisk(item, filePath1);
 
@@ -109,9 +109,6 @@ public class FileUpload extends HttpServlet {
 			e1.printStackTrace();
 		}
 
-		
-		
-		
 		MP3MetaData mp3MetaData;
 		// Check if the file has been converted already
 		if (ConvertedTracks.searchTrack(md5Hash) != null) {
@@ -121,11 +118,11 @@ public class FileUpload extends HttpServlet {
 		} else {
 			FileActivities.renameFile(Locations.ORIGINAL_UPLOAD + uniqueId + "." + ext,
 					Locations.ORIGINAL_UPLOAD + md5Hash + "." + ext);
-			uniqueId=md5Hash;
+			uniqueId = md5Hash;
 			// Convert the file
-			AudioConversion audioConversion = new AudioConversion();
+			AudioConversion2 audioConversion2 = new AudioConversion2();
 			try {
-				audioConversion.processFile(uniqueId, ext, Locations.RESOURCES_FOLDER);
+				audioConversion2.processFile(uniqueId, ext, Locations.RESOURCES_FOLDER);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				// e.printStackTrace();
