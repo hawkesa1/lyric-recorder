@@ -5,22 +5,22 @@ var FileUploader = function(container) {
 FileUploader.prototype.bindEvents = function(container, theFileUploader) {
 	container.ondragover = function(e) {
 		e.preventDefault();
-		this.className = 'hover';
+		$(this).addClass('hover');
 		return false;
 	};
 	container.ondragend = function(e) {
 		e.preventDefault();
-		this.className = '';
+		$(this).removeClass('hover');
 		return false;
 	};
 	container.ondragleave = function(e) {
 		e.preventDefault();
-		this.className = '';
+		$(this).removeClass('hover');
 		return false;
 	};
 	container.ondrop = function(e) {
 		e.preventDefault();
-		container.className = '';
+		$(this).removeClass('hover');
 		theFileUploader.readFiles(e.dataTransfer.files);
 	}
 }

@@ -277,13 +277,13 @@ function generateLyrics(lines) {
 	currentStateStore.highestEndTime = 0;
 	currentStateStore.lastAddedWordId = "";
 	
-	console.log(lines);
-	console.log(lines.length);
+	//console.log(lines);
+	//console.log(lines.length);
 	for (var i = 0; i < lines.length; i++) {
 		words = lines[i].words;
 		html += "<div class='line'>";
 		
-		console.log("Words:"+words);
+	//	console.log("Words:"+words);
 		
 		for (var j = 0; j < words.length; j++) {
 			if (j === 0) {

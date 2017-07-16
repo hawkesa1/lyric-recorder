@@ -1,4 +1,3 @@
-
 function drawIt1(ctx3, currentAudioTime, lines) {
 
 	setBackgroundImageRotation(parameterValues.backgroundImageRotation);
@@ -14,6 +13,8 @@ function drawIt1(ctx3, currentAudioTime, lines) {
 			parameterValues.backgroundContainerPositionX)
 
 	ctx3.clearRect(0, 0, ctx3.canvas.clientWidth, ctx3.canvas.clientHeight);
+	word1Context.clearRect(0, 0, word1Context.canvas.clientWidth,
+			word1Context.canvas.clientHeight);
 
 	ctx3.save();
 	ctx3.globalAlpha = parameterValues.backgroundOpacity;
@@ -30,49 +31,124 @@ function drawIt1(ctx3, currentAudioTime, lines) {
 	ctx3.restore();
 
 	var aLine;
-	var aWord;
-	var xPosition = parameterValues.textX - 0 + 10;
-	var yPosition = parameterValues.textY - 0;
+	
 
-	var wordWidth = 0;
-	var wordSpace = 0;
-	var wordWidth1 = 0;
-
-	var currentLineWidth = 0;
+	
 
 	for (var i = 0; i < lines.length; i++) {
 
 		aLine = lines[i];
 
+		// If this is the current line
 		if (aLine.startTime < currentAudioTime
 				&& aLine.endTime > currentAudioTime) {
-			for (var j = 0; j < aLine.words.length; j++) {
-				aWord = aLine.words[j];
-				ctx3.font = parameterValues.fontSize + "px "
-						+ parameterValues.fontFamily;
-
-				currentLineWidth += ctx3.measureText(aWord.word).width;
-
-				if (currentLineWidth >= (parameterValues.textWidth)) {
-					currentLineWidth = ctx3.measureText(aWord.word).width
-							+ (parameterValues.characterSpacing - 0);
-					xPosition = (parameterValues.textX - 0 + 10);
-					yPosition = yPosition + (parameterValues.lineHeight - 0);
-				} else {
-					currentLineWidth += (parameterValues.characterSpacing - 0);
-				}
-				if (aWord.startTime < currentAudioTime
-						&& aWord.endTime > currentAudioTime) {
-					xPosition = drawSelectedText(aWord, currentAudioTime, ctx3,
-							xPosition, yPosition);
-				} else {
-					xPosition = drawUnselectedText(aWord, currentAudioTime,
-							ctx3, xPosition, yPosition);
-				}
-			}
+			
+			drawLine(ctx3, currentAudioTime, aLine, parameterValues.textY - 0);
+			drawLine(ctx3, currentAudioTime, lines[i+1], parameterValues.textY - 0+(parameterValues.lineHeight-0));
+			drawLine(ctx3, currentAudioTime, lines[i+1], parameterValues.textY - 0+((parameterValues.lineHeight-0)*2));
 		}
 	}
 	return ctx3;
+}
+
+
+function drawLine(ctx3, currentAudioTime, aLine, thisLineYPosition)
+{
+	var currentLineWidth = 0;
+	var aWord;
+	var xPosition = parameterValues.textX - 0 + 10;
+
+	var wordWidth = 0;
+	var wordSpace = 0;
+	var wordWidth1 = 0;
+	
+	// for each word
+	for (var j = 0; j < aLine.words.length; j++) {
+		aWord = aLine.words[j];
+		ctx3.font = parameterValues.fontSize + "px "
+				+ parameterValues.fontFamily;
+		//add this word to the current line and measure the width
+		currentLineWidth += ctx3.measureText(aWord.word).width;
+		
+		//if the line width is wider than desired, start a new line
+		if (currentLineWidth >= (parameterValues.textWidth)) {
+			currentLineWidth = ctx3.measureText(aWord.word).width
+					+ (parameterValues.characterSpacing - 0);
+			xPosition = (parameterValues.textX - 0 + 10);
+			thisLineYPosition = thisLineYPosition + (parameterValues.lineHeight - 0);
+		} else {
+			currentLineWidth += (parameterValues.characterSpacing - 0);
+		}
+		
+		// if this is the current word
+		if (aWord.startTime < currentAudioTime
+				&& aWord.endTime > currentAudioTime) {
+			xPosition = drawSelectedText(aWord, currentAudioTime, ctx3,
+					xPosition, thisLineYPosition);
+		} else {
+			xPosition = drawUnselectedText(aWord, currentAudioTime,
+					ctx3, xPosition, thisLineYPosition);
+		}
+	}
+}
+
+
+
+// numberOfLinesToDisplay
+// graduatedWordColour
+// graduatedWordOpacity
+// graduatedWordEasingFunction
+// graduatedWordThreshold
+// graduatedWordType
+
+function drawCoveredWord(aWord, xPosition, yPosition, selectedFontSize,
+		theWordWidth, currentAudioTime) {
+
+	word1Context.save();
+
+	var percentComplete = (currentAudioTime - aWord.startTime)
+			/ (aWord.endTime - aWord.startTime);
+	console.log(percentComplete);
+	word1Context.strokeStyle = 'rgba(0,0,0,0)';
+	word1Context.beginPath();
+
+	if (parameterValues.graduatedWordType == 'horizontal') {
+
+		word1Context
+				.rect(
+						xPosition,
+						((yPosition - selectedFontSize + 20) + (selectedFontSize - (selectedFontSize)
+								* percentComplete)), (theWordWidth),
+						(selectedFontSize) * percentComplete);
+	} else if (parameterValues.graduatedWordType == 'vertical') {
+		word1Context.rect((xPosition - 10), (yPosition - selectedFontSize),
+				((theWordWidth * percentComplete) + 10),
+				(selectedFontSize + 20));
+	}
+	word1Context.stroke();
+	word1Context.clip();
+	word1Context.closePath();
+	// Draw red rectangle after clip()
+	if (parameterValues.selectedShadowShow) {
+		word1Context.shadowColor = parameterValues.selectedShadowColour;
+		word1Context.shadowOffsetX = parameterValues.selectedShadowOffsetX;
+		word1Context.shadowOffsetY = parameterValues.selectedShadowOffsetY;
+		word1Context.shadowBlur = parameterValues.selectedShadowBlur;
+	}
+
+	word1Context.textBaseline = 'alphabetic';
+
+	// word1Context.fillStyle = parameterValues.selectedFontColour;
+	word1Context.fillStyle = parameterValues.graduatedWordColour;
+	word1Context.globalAlpha = parameterValues.graduatedWordOpacity;
+
+	// word1Context.fillStyle="red";
+	// word1Context.fillRect(0,0,150,100);
+	// word1Context.globalAlpha=0.9;
+	word1Context.font = selectedFontSize + "px " + parameterValues.fontFamily;
+	word1Context.fillText(aWord.word, xPosition, yPosition);
+
+	word1Context.restore();
 }
 
 function drawUnselectedText(aWord, currentAudioTime, ctx3, xPosition, yPosition) {
@@ -97,6 +173,8 @@ function drawUnselectedText(aWord, currentAudioTime, ctx3, xPosition, yPosition)
 var easingFunction = "easeOutBounce";
 
 function drawSelectedText(aWord, currentAudioTime, ctx3, xPosition, yPosition) {
+	console.log("Draw Selected Word3");
+	
 	ctx3.save();
 	var wordWidth = ctx3.measureText(aWord.word).width;
 	if (parameterValues.selectedShadowShow) {
@@ -109,12 +187,11 @@ function drawSelectedText(aWord, currentAudioTime, ctx3, xPosition, yPosition) {
 	ctx3.textBaseline = 'alphabetic';
 	ctx3.globalAlpha = parameterValues.selectedOpacity;
 	ctx3.fillStyle = parameterValues.selectedFontColour;
+
 	selectedFontSize = parseInt(parameterValues.fontSize) + 0;
 	var easingAmount = 0;
-	// var easingDuration=(aWord.endTime - aWord.startTime);
 	var endTimeA = (aWord.startTime - 0)
 			+ (parameterValues.selectedEasingDuration - 0);
-	console.log(currentAudioTime + " " + endTimeA);
 
 	if (currentAudioTime < endTimeA) {
 		easingAmount = $.easing[parameterValues.selectedEasingFunction](0,
@@ -122,21 +199,23 @@ function drawSelectedText(aWord, currentAudioTime, ctx3, xPosition, yPosition) {
 				parameterValues.fontSizeIncrease,
 				parameterValues.selectedEasingDuration);
 	} else {
-		console.log("BOOM");
-		easingAmount = parameterValues.fontSizeIncrease-0;
+		easingAmount = parameterValues.fontSizeIncrease - 0;
 	}
-
 	easingAmount = easingAmount || 0;
-
-	console.log(easingAmount);
-
+	
 	selectedFontSize = selectedFontSize + easingAmount;
-	console.log("selectedFontSize=" + selectedFontSize);
 	ctx3.font = selectedFontSize + "px " + parameterValues.fontFamily;
 	wordSpace = ctx3.measureText(aWord.word).width - wordWidth;
 	ctx3.fillText(aWord.word, (xPosition - (easingAmount)),
 			(yPosition + (easingAmount / 2)));
 
+	if (parameterValues.graduatedWordType != "off") {
+		if ((aWord.endTime - aWord.startTime) > parameterValues.graduatedWordThreshold) {
+			drawCoveredWord(aWord, (xPosition - (easingAmount)),
+					(yPosition + (easingAmount / 2)), selectedFontSize, ctx3
+							.measureText(aWord.word).width, currentAudioTime);
+		}
+	}
 	xPosition = xPosition + ctx3.measureText(aWord.word).width
 			+ ((parameterValues.characterSpacing - 0) - wordSpace);
 
@@ -176,6 +255,5 @@ function setBackgroundImageRotation(rotiationInDegrees) {
 		'-ms-transform-origin' : '400px 300px',
 		'-webkit-transform-origin' : '400px 300px',
 		'transform-origin' : '400px 300px'
-
 	});
 }

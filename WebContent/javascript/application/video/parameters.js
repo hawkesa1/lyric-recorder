@@ -1,19 +1,111 @@
 var BACKGROUND_IMAGE_LOCATION = "/images/";
+var BACKROUND_IMAGE_STORE;
 var parameterValues = {};
 var parameterSnapshots = {
 	"snapshots" : []
 };
 
+// numberOfLinesToDisplay
+// graduatedWordColour
+// graduatedWordOpacity
+// graduatedWordEasingFunction
+// graduatedWordThreshold
+// graduatedWordType
+
 var parameterInitialiser = {
-	"groups" : [ {
+	"groups" : [
+
+	{
+		"label" : "Graduated Select",
+		"id" : "graduatedSelect",
+		"parameters" : [ {
+			"label" : "Graduated Word Type",
+			"name" : "graduatedWordType",
+			"type" : "select",
+			"options" : {
+				"off" : "off",
+				"horizontal" : "horizontal",
+				"vertical" : "vertical"
+			},
+			"action" : "input"
+		}, {
+			"label" : "Graduated Word Threshold",
+			"name" : "graduatedWordThreshold",
+			"type" : "range",
+			"min" : 0,
+			"max" : 2000,
+			"step" : 1,
+			"defaultValue" : 200,
+			"action" : "input"
+
+		}, {
+			"label" : "Easing Function",
+			"name" : "graduatedWordEasingFunction",
+			"type" : "select",
+			"defaultValue" : "easeOutExpo",
+			"options" : {
+				"easeOutQuad" : "easeOutQuad",
+				"easeInQuad" : "easeInQuad",
+				"easeOutQuad" : "easeOutQuad",
+				"easeInOutQuad" : "easeInOutQuad",
+				"easeInCubic" : "easeInCubic",
+				"easeOutCubic" : "easeOutCubic",
+				"easeInOutCubic" : "easeInOutCubic",
+				"easeInQuart" : "easeInQuart",
+				"easeOutQuart" : "easeOutQuart",
+				"easeInOutQuart" : "easeInOutQuart",
+				"easeInQuint" : "easeInQuint",
+				"easeOutQuint" : "easeOutQuint",
+				"easeInOutQuint" : "easeInOutQuint",
+				"easeInSine" : "easeInSine",
+				"easeOutSine" : "easeOutSine",
+				"easeInOutSine" : "easeInOutSine",
+				"easeInExpo" : "easeInExpo",
+				"easeOutExpo" : "easeOutExpo",
+				"easeInOutExpo" : "easeInOutExpo",
+				"easeInCirc" : "easeInCirc",
+				"easeOutCirc" : "easeOutCirc",
+				"easeInOutCirc" : "easeInOutCirc",
+				"easeInElastic" : "easeInElastic",
+				"easeOutElastic" : "easeOutElastic",
+				"easeInOutElastic" : "easeInOutElastic",
+				"easeInBack" : "easeInBack",
+				"easeOutBack" : "easeOutBack",
+				"easeInOutBack" : "easeInOutBack",
+				"easeInBounce" : "easeInBounce",
+				"easeOutBounce" : "easeOutBounce",
+				"easeInOutBounce" : "easeInOutBounce"
+			},
+			"action" : "input"
+		}, {
+			"label" : "Opacity",
+			"name" : "graduatedWordOpacity",
+			"type" : "range",
+			"min" : 0,
+			"max" : 1,
+			"step" : 0.1,
+			"defaultValue" : 0.9,
+			"action" : "input"
+		}, {
+			"label" : "Font Colour",
+			"name" : "graduatedWordColour",
+			"type" : "color",
+			"defaultValue" : "#000000",
+			"action" : "input"
+		}
+
+		]
+	},
+
+	{
 		"label" : "Background",
 		"id" : "background",
 		"parameters" : [ {
 			"label" : "Background Image",
 			"name" : "backgroundImage",
 			"type" : "file",
-			"defaultValue" : "1498684235550.jpg",
-			"action" : "change"
+			"defaultValue" : "",
+			"action" : "input"
 		}, {
 			"label" : "Repeat",
 			"name" : "backgroundRepeat",
@@ -143,7 +235,7 @@ var parameterInitialiser = {
 			"label" : "Easing Function",
 			"name" : "selectedEasingFunction",
 			"type" : "select",
-			"defaultValue" :"easeOutExpo",
+			"defaultValue" : "easeOutExpo",
 			"options" : {
 				"easeOutQuad" : "easeOutQuad",
 				"easeInQuad" : "easeInQuad",
@@ -229,8 +321,7 @@ var parameterInitialiser = {
 			"step" : 1,
 			"defaultValue" : 40,
 			"action" : "input"
-		},
-		 {
+		}, {
 			"label" : "Font Size Increase",
 			"name" : "fontSizeIncrease",
 			"type" : "range",
@@ -436,7 +527,6 @@ var parameterInitialiser = {
 
 function initialiseParameters() {
 	var groups = parameterInitialiser.groups;
-
 	var html = "";
 
 	// Create the html objects
@@ -535,7 +625,17 @@ function createEventListener(parameterName, action, type) {
 							currentStateStore.lineArray);
 				})
 	} else if (type == "file") {
-		// handled separately
+		$('#' + parameterName).on(action, function(event) {
+			// Prevent default as you can't update a file tag programatically
+			event.preventDefault();
+			console.log("Changed to:" + this.value);
+			if (this.value) {
+				parameterValues[parameterName] = this.value;
+			} else {
+				parameterValues[parameterName] = BACKROUND_IMAGE_STORE
+			}
+			console.log("Changed to:" + parameterValues[parameterName]);
+		})
 	} else if (type == "select") {
 		$('#' + parameterName).on(
 				action,
@@ -614,7 +714,11 @@ function loadParameterSnapshot(parameterSnapshot) {
 		if (key == "backgroundImage") {
 			console.log("About to set background image to:"
 					+ parameterSnapshot.parameterValues[key]);
+			BACKROUND_IMAGE_STORE = parameterSnapshot.parameterValues[key];
 			setBackgroundImage(parameterSnapshot.parameterValues[key], 800, 600);
+
+			// $('#' + key).val(parameterSnapshot.parameterValues[key]);
+			$('#' + key).trigger('input');
 
 		} else {
 			$('#' + key).val(parameterSnapshot.parameterValues[key]);
@@ -630,12 +734,10 @@ function setBackgroundImage1(imageUrl) {
 
 }
 function setBackgroundImage(imageUrl) {
-
 	imageURL = "./images/" + imageUrl;
 	console.log("Setting backfround to: " + imageURL);
 	$("#backgroundImageContainer").css("background-image",
 			"url('" + imageURL + "')");
-
 }
 
 function getParameterSnapshotObject() {

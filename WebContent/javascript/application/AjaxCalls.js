@@ -28,9 +28,8 @@ function loadATrack2(selectedValue) {
 				currentStateStore.trackDuration = document
 						.getElementById('audio').duration * 100;
 			});
-	$('#lyricText').hide();
-	$('#lyrics').show();
-	currentStateStore.currentLyricView = "WORD_VIEW";
+	console.log("Heeeyaz");
+	enableView("enableWordView", "lyrics");
 }
 
 function loadATrack(selectedValue) {
@@ -149,21 +148,21 @@ function loadLyricsData(location, wavFormFile) {
 				console.log("Error loading synchronised lyrics");
 				resetStuff();
 				convertTextToLyrics("Please enter some lyrics here ...");
-				$('#fileUploadHolder').addClass('viewContainer');
+				//$('#fileUploadHolder').addClass('viewContainer');
 				enableView("enableTextView", "lyricText");
 			}
 		} else if (trackMetaData.unsynchronisedLyrics != "") {
 			console.log("loading unsycnhronised lyrics");
 			resetStuff();
 			convertTextToLyrics("Please enter some lyrics here ...");
-			$('#fileUploadHolder').addClass('viewContainer');
+			//$('#fileUploadHolder').addClass('viewContainer');
 			enableView("enableTextView", "lyricText");
 		} else {
 			console.log("No lyrics found");
 			currentStateStore.trackMetaData = trackMetaData;
 			resetStuff();
 			convertTextToLyrics("Please enter some lyrics here ...");
-			$('#fileUploadHolder').addClass('viewContainer');
+			//$('#fileUploadHolder').addClass('viewContainer');
 			enableView("enableTextView", "lyricText");
 		}
 	}
