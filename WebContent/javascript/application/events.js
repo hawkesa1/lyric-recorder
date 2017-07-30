@@ -14,36 +14,41 @@ $(document).ready(
 			console.log("The Document is Ready!");
 			fileUploader = new FileUploader(document
 					.getElementById('fileUploadHolder'));
+			
 			lyricTracker = new LyricTracker($('#canvasContainer'));
+			
 			currentStateStore = new CurrentStateStore();
-
+			
 			enableView("enableUploadView", "fileUploadHolder");
-			loadTutorial();
-
-		
+			
+			//loadTutorial();
 			main();
 			startVisualisation();
-			
-			
 			videoCanvas = document.getElementById('videoCanvas');
 			videoContext = videoCanvas.getContext('2d');
-			
 			word1Canvas = document.getElementById('word1Canvas');
 			word1Context = word1Canvas.getContext('2d');
-			
-			word2Canvas = document.getElementById('word1Canvas');
+			word2Canvas = document.getElementById('word2Canvas');
 			word2Context = word2Canvas.getContext('2d');
-			
-			
 			initialiseParameters();
 		});
 $(function() {
 	$("#save").click(
 			function() {
+				console.log(currentStateStore)
 				saveLyricsToBrowser(currentStateStore.trackMetaData,
 						currentStateStore.currentSongId);
 			});
 });
+
+$(function() {
+	$("#generateVideo").click(
+			function() {
+				generateVideo(currentStateStore.trackMetaData,
+						currentStateStore.currentSongId);
+			});
+});
+
 $(function() {
 	$("#loadButton").click(function() {
 		loadTrack();
@@ -127,6 +132,20 @@ $(function() {
 			vid.playbackRate = 2;
 		}
 		vid.play();
+	});
+});
+
+$(function() {
+	$("#mute").click(function(e) {
+		e.preventDefault();
+		var vid = document.getElementById("audio");
+		if (vid.muted) {
+			$("#mute").text("Mute")
+			vid.muted = false;
+		} else {
+			$("#mute").text("Unmute")
+			vid.muted = true;
+		}
 	});
 });
 $(function() {
@@ -215,7 +234,6 @@ function resizeend() {
 	if (new Date() - rtime < delta) {
 		setTimeout(resizeend, delta);
 	} else {
-		console.log("done resizing")
 		timeout = false;
 		cleanUpAnalyzer()
 		startVisualisation();

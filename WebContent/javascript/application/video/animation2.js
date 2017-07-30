@@ -1,59 +1,57 @@
-function drawIt1(ctx3, currentAudioTime, lines) {
-
-	setBackgroundImageRotation(parameterValues.backgroundImageRotation);
-	setBackgroundImageRepeat(parameterValues.backgroundRepeat);
-	setBackgroundContainerSize(parameterValues.backgroundContainerWidth,
-			parameterValues.backgroundContainerHeight);
-	setBackgroundImageSize(parameterValues.backgroundImageHeight,
-			parameterValues.backgroundImageWidth);
-	setBackgroundImagePosition(parameterValues.backgroundImagePositionX,
-			parameterValues.backgroundImagePositionY);
-	setBackgroundContainerPosition(
-			parameterValues.backgroundContainerPositionY,
-			parameterValues.backgroundContainerPositionX)
-
-	ctx3.clearRect(0, 0, ctx3.canvas.clientWidth, ctx3.canvas.clientHeight);
-	word1Context.clearRect(0, 0, word1Context.canvas.clientWidth,
-			word1Context.canvas.clientHeight);
-
+function drawIt1(ctx3, currentAudioTime) {
+	clearContexts(ctx3);
 	ctx3.save();
-	ctx3.globalAlpha = parameterValues.backgroundOpacity;
-	ctx3.fillStyle = parameterValues.backgroundColour;
-
-	if (parameterValues.backgroundShadowShow) {
-		ctx3.shadowColor = parameterValues.backgroundShadowColour;
-		ctx3.shadowOffsetX = parameterValues.backgroundShadowOffsetX;
-		ctx3.shadowOffsetY = parameterValues.backgroundShadowOffsetY;
-		ctx3.shadowBlur = parameterValues.backgroundShadowBlur;
-	}
-	ctx3.fillRect(parameterValues.textX, parameterValues.textY - 40,
-			parameterValues.textWidth, parameterValues.textHeight);
+	setBackgroundSettings(ctx3);
 	ctx3.restore();
-
-	var aLine;
-	
-
-	
-
-	for (var i = 0; i < lines.length; i++) {
-
-		aLine = lines[i];
-
-		// If this is the current line
-		if (aLine.startTime < currentAudioTime
-				&& aLine.endTime > currentAudioTime) {
-			
-			drawLine(ctx3, currentAudioTime, aLine, parameterValues.textY - 0);
-			drawLine(ctx3, currentAudioTime, lines[i+1], parameterValues.textY - 0+(parameterValues.lineHeight-0));
-			drawLine(ctx3, currentAudioTime, lines[i+1], parameterValues.textY - 0+((parameterValues.lineHeight-0)*2));
-		}
-	}
+	drawPages(ctx3, currentAudioTime);
 	return ctx3;
 }
 
+function clearContexts(ctx3) {
+	ctx3.clearRect(0, 0, ctx3.canvas.clientWidth, ctx3.canvas.clientHeight);
+	word1Context.clearRect(0, 0, word1Context.canvas.clientWidth,
+			word1Context.canvas.clientHeight);
+	word2Context.clearRect(0, 0, word1Context.canvas.clientWidth,
+			word1Context.canvas.clientHeight);
+}
 
-function drawLine(ctx3, currentAudioTime, aLine, thisLineYPosition)
+function drawPages(ctx3, currentAudioTime) {
+	var aPage;
+	outer_loop:
+	for (var i = 0; i < currentStateStore.book.pages.length; i++) {
+		//console.log("Drawing linezzzz:" + i);
+		aPage = currentStateStore.book.pages[i];
+		if (aPage.startTime < currentAudioTime
+				&& aPage.endTime > currentAudioTime) {
+			drawPage(ctx3, currentAudioTime, aPage);
+			break outer_loop;
+		} else if (aPage.startTime>currentAudioTime)
+		{
+			break outer_loop;
+		}
+	}
+}
+
+function drawPage(ctx3, currentAudioTime, aPage) {
+	var aLineYPosition = parameterValues.textY - 0;
+	for (var i = 0; i < aPage.lines.length; i++) {
+
+		if (i != 0) {
+			aLineYPosition += (parameterValues.newLineSpacing - 0);
+		}
+		aLineYPosition = drawALine(ctx3, currentAudioTime, aPage.lines[i],
+				aLineYPosition);
+	}
+}
+function drawALine(ctx3, currentAudioTime, lineNumber, aLineYPosition)
+
 {
+	var aLine = currentStateStore.lineArray[lineNumber];
+	aLineYPosition = drawLine(ctx3, currentAudioTime, aLine, aLineYPosition);
+	return aLineYPosition;
+}
+
+function drawLine(ctx3, currentAudioTime, aLine, thisLineYPosition) {
 	var currentLineWidth = 0;
 	var aWord;
 	var xPosition = parameterValues.textX - 0 + 10;
@@ -61,110 +59,157 @@ function drawLine(ctx3, currentAudioTime, aLine, thisLineYPosition)
 	var wordWidth = 0;
 	var wordSpace = 0;
 	var wordWidth1 = 0;
-	
+
 	// for each word
 	for (var j = 0; j < aLine.words.length; j++) {
 		aWord = aLine.words[j];
 		ctx3.font = parameterValues.fontSize + "px "
 				+ parameterValues.fontFamily;
-		//add this word to the current line and measure the width
+		// add this word to the current line and measure the width
 		currentLineWidth += ctx3.measureText(aWord.word).width;
-		
-		//if the line width is wider than desired, start a new line
+
+		// if the line width is wider than desired, start a new line
 		if (currentLineWidth >= (parameterValues.textWidth)) {
 			currentLineWidth = ctx3.measureText(aWord.word).width
 					+ (parameterValues.characterSpacing - 0);
 			xPosition = (parameterValues.textX - 0 + 10);
-			thisLineYPosition = thisLineYPosition + (parameterValues.lineHeight - 0);
+			thisLineYPosition = thisLineYPosition
+					+ (parameterValues.lineHeight - 0);
 		} else {
 			currentLineWidth += (parameterValues.characterSpacing - 0);
 		}
-		
+
 		// if this is the current word
 		if (aWord.startTime < currentAudioTime
 				&& aWord.endTime > currentAudioTime) {
 			xPosition = drawSelectedText(aWord, currentAudioTime, ctx3,
 					xPosition, thisLineYPosition);
 		} else {
-			xPosition = drawUnselectedText(aWord, currentAudioTime,
-					ctx3, xPosition, thisLineYPosition);
+			xPosition = drawUnselectedText(aWord, currentAudioTime, ctx3,
+					xPosition, thisLineYPosition);
 		}
 	}
+	return thisLineYPosition;
 }
-
-
-
-// numberOfLinesToDisplay
-// graduatedWordColour
-// graduatedWordOpacity
-// graduatedWordEasingFunction
-// graduatedWordThreshold
-// graduatedWordType
 
 function drawCoveredWord(aWord, xPosition, yPosition, selectedFontSize,
 		theWordWidth, currentAudioTime) {
 
-	word1Context.save();
+	if (parameterValues.graduatedWordType == 'off') {
+		if (parameterValues.graduatedShadowShow) {
+			word1Context.shadowColor = parameterValues.selectedShadowColour;
+			word1Context.shadowOffsetX = parameterValues.selectedShadowOffsetX;
+			word1Context.shadowOffsetY = parameterValues.selectedShadowOffsetY;
+			word1Context.shadowBlur = parameterValues.selectedShadowBlur;
+		}
+		word1Context.textBaseline = 'alphabetic';
+		word1Context.fillStyle = parameterValues.selectedFontColour;
+		word1Context.globalAlpha = parameterValues.selectedWordOpacity;
+		word1Context.font = selectedFontSize + "px "
+				+ parameterValues.fontFamily;
+		word1Context.fillText(aWord.word, xPosition, yPosition);
+		word1Context.restore();
+	} else {
+		var percentComplete = (currentAudioTime - aWord.startTime)
+				/ (aWord.endTime - aWord.startTime);
 
-	var percentComplete = (currentAudioTime - aWord.startTime)
-			/ (aWord.endTime - aWord.startTime);
-	console.log(percentComplete);
-	word1Context.strokeStyle = 'rgba(0,0,0,0)';
-	word1Context.beginPath();
+		word1Context.save();
+		word1Context.strokeStyle = 'rgba(30,144,255,0)';
+		word1Context.beginPath();
 
-	if (parameterValues.graduatedWordType == 'horizontal') {
+		word2Context.save();
+		word2Context.strokeStyle = 'rgba(255,69,0,0)';
+		word2Context.beginPath();
 
-		word1Context
-				.rect(
-						xPosition,
-						((yPosition - selectedFontSize + 20) + (selectedFontSize - (selectedFontSize)
-								* percentComplete)), (theWordWidth),
-						(selectedFontSize) * percentComplete);
-	} else if (parameterValues.graduatedWordType == 'vertical') {
-		word1Context.rect((xPosition - 10), (yPosition - selectedFontSize),
-				((theWordWidth * percentComplete) + 10),
-				(selectedFontSize + 20));
+		if (parameterValues.graduatedWordType == 'horizontal') {
+			var graduatedYPosition = ((yPosition - selectedFontSize + 20) + (selectedFontSize - (selectedFontSize)
+					* percentComplete));
+			word1Context.rect(xPosition, graduatedYPosition, theWordWidth,
+					selectedFontSize * percentComplete);
+		} else if (parameterValues.graduatedWordType == 'vertical') {
+			var bx = (xPosition - 10);
+			var by = (yPosition - selectedFontSize);
+			var bw = ((theWordWidth * percentComplete) + 10);
+			var bh = (selectedFontSize + 20);
+
+			word1Context.rect(bx, by, bw, bh);
+
+			word2Context.rect((bx + bw) - 1, by, (theWordWidth - bw) + 20, bh);
+
+			word1Context.stroke();
+			word1Context.clip();
+			word1Context.closePath();
+
+			word2Context.stroke();
+			word2Context.clip();
+			word2Context.closePath();
+
+			if (parameterValues.graduatedShadowShow) {
+				word1Context.shadowColor = parameterValues.graduatedShadowColour;
+				word1Context.shadowOffsetX = parameterValues.graduatedShadowOffsetX;
+				word1Context.shadowOffsetY = parameterValues.graduatedShadowOffsetY;
+				word1Context.shadowBlur = parameterValues.graduatedShadowBlur;
+			}
+			word1Context.textBaseline = 'alphabetic';
+			word1Context.fillStyle = parameterValues.graduatedWordColour;
+			word1Context.globalAlpha = parameterValues.graduatedWordOpacity;
+			word1Context.font = selectedFontSize + "px "
+					+ parameterValues.fontFamily;
+			word1Context.fillText(aWord.word, xPosition, yPosition);
+			word1Context.restore();
+
+			if (parameterValues.unselectedShadowShowFuture) {
+				word2Context.shadowColor = parameterValues.unselectedShadowColourFuture;
+				word2Context.shadowOffsetX = parameterValues.unselectedShadowOffsetXFuture;
+				word2Context.shadowOffsetY = parameterValues.unselectedShadowOffsetYFuture;
+				word2Context.shadowBlur = parameterValues.unselectedShadowBlurFuture;
+			}
+			word2Context.textBaseline = 'alphabetic';
+			word2Context.globalAlpha = parameterValues.unselectedOpacityFuture;
+			word2Context.fillStyle = parameterValues.unselectedFontColourFuture;
+			word2Context.font = selectedFontSize + "px "
+					+ parameterValues.fontFamily;
+			word2Context.fillText(aWord.word, xPosition, yPosition);
+			word2Context.restore();
+
+		}
 	}
-	word1Context.stroke();
-	word1Context.clip();
-	word1Context.closePath();
-	// Draw red rectangle after clip()
-	if (parameterValues.selectedShadowShow) {
-		word1Context.shadowColor = parameterValues.selectedShadowColour;
-		word1Context.shadowOffsetX = parameterValues.selectedShadowOffsetX;
-		word1Context.shadowOffsetY = parameterValues.selectedShadowOffsetY;
-		word1Context.shadowBlur = parameterValues.selectedShadowBlur;
-	}
 
-	word1Context.textBaseline = 'alphabetic';
-
-	// word1Context.fillStyle = parameterValues.selectedFontColour;
-	word1Context.fillStyle = parameterValues.graduatedWordColour;
-	word1Context.globalAlpha = parameterValues.graduatedWordOpacity;
-
-	// word1Context.fillStyle="red";
-	// word1Context.fillRect(0,0,150,100);
-	// word1Context.globalAlpha=0.9;
-	word1Context.font = selectedFontSize + "px " + parameterValues.fontFamily;
-	word1Context.fillText(aWord.word, xPosition, yPosition);
-
-	word1Context.restore();
 }
 
 function drawUnselectedText(aWord, currentAudioTime, ctx3, xPosition, yPosition) {
 	ctx3.save();
-	if (parameterValues.unselectedShadowShow) {
-		ctx3.shadowColor = parameterValues.unselectedShadowColour;
-		ctx3.shadowOffsetX = parameterValues.unselectedShadowOffsetX;
-		ctx3.shadowOffsetY = parameterValues.unselectedShadowOffsetY;
-		ctx3.shadowBlur = parameterValues.unselectedShadowBlur;
+
+	if (aWord.startTime < currentAudioTime) {
+		if (parameterValues.unselectedShadowShowPast) {
+			ctx3.shadowColor = parameterValues.unselectedShadowColourPast;
+			ctx3.shadowOffsetX = parameterValues.unselectedShadowOffsetXPast;
+			ctx3.shadowOffsetY = parameterValues.unselectedShadowOffsetYPast;
+			ctx3.shadowBlur = parameterValues.unselectedShadowBlurPast;
+		}
+		ctx3.font = parameterValues.fontSize + "px "
+				+ parameterValues.fontFamily;
+		ctx3.textBaseline = 'alphabetic';
+		ctx3.globalAlpha = parameterValues.unselectedOpacityPast;
+		ctx3.fillStyle = parameterValues.unselectedFontColourPast;
+		ctx3.fillText(aWord.word, xPosition, yPosition);
+		ctx3.restore();
+	} else {
+		if (parameterValues.unselectedShadowShowFuture) {
+			ctx3.shadowColor = parameterValues.unselectedShadowColourFuture;
+			ctx3.shadowOffsetX = parameterValues.unselectedShadowOffsetXFuture;
+			ctx3.shadowOffsetY = parameterValues.unselectedShadowOffsetYFuture;
+			ctx3.shadowBlur = parameterValues.unselectedShadowBlurFuture;
+		}
+		ctx3.font = parameterValues.fontSize + "px "
+				+ parameterValues.fontFamily;
+		ctx3.textBaseline = 'alphabetic';
+		ctx3.globalAlpha = parameterValues.unselectedOpacityFuture;
+		ctx3.fillStyle = parameterValues.unselectedFontColourFuture;
+		ctx3.fillText(aWord.word, xPosition, yPosition);
+		ctx3.restore();
 	}
-	ctx3.font = parameterValues.fontSize + "px " + parameterValues.fontFamily;
-	ctx3.textBaseline = 'alphabetic';
-	ctx3.globalAlpha = parameterValues.unselectedOpacity;
-	ctx3.fillStyle = parameterValues.unselectedFontColour;
-	ctx3.fillText(aWord.word, xPosition, yPosition);
-	ctx3.restore();
+
 	xPosition = xPosition + ctx3.measureText(aWord.word).width
 			+ (parameterValues.characterSpacing - 0);
 	ctx3.restore();
@@ -173,8 +218,6 @@ function drawUnselectedText(aWord, currentAudioTime, ctx3, xPosition, yPosition)
 var easingFunction = "easeOutBounce";
 
 function drawSelectedText(aWord, currentAudioTime, ctx3, xPosition, yPosition) {
-	console.log("Draw Selected Word3");
-	
 	ctx3.save();
 	var wordWidth = ctx3.measureText(aWord.word).width;
 	if (parameterValues.selectedShadowShow) {
@@ -202,25 +245,50 @@ function drawSelectedText(aWord, currentAudioTime, ctx3, xPosition, yPosition) {
 		easingAmount = parameterValues.fontSizeIncrease - 0;
 	}
 	easingAmount = easingAmount || 0;
-	
+
 	selectedFontSize = selectedFontSize + easingAmount;
 	ctx3.font = selectedFontSize + "px " + parameterValues.fontFamily;
 	wordSpace = ctx3.measureText(aWord.word).width - wordWidth;
-	ctx3.fillText(aWord.word, (xPosition - (easingAmount)),
-			(yPosition + (easingAmount / 2)));
 
-	if (parameterValues.graduatedWordType != "off") {
-		if ((aWord.endTime - aWord.startTime) > parameterValues.graduatedWordThreshold) {
-			drawCoveredWord(aWord, (xPosition - (easingAmount)),
-					(yPosition + (easingAmount / 2)), selectedFontSize, ctx3
-							.measureText(aWord.word).width, currentAudioTime);
-		}
-	}
+	drawCoveredWord(aWord, (xPosition - (easingAmount / 4)),
+			(yPosition + (easingAmount / 4)), selectedFontSize, ctx3
+					.measureText(aWord.word).width, currentAudioTime);
+
 	xPosition = xPosition + ctx3.measureText(aWord.word).width
 			+ ((parameterValues.characterSpacing - 0) - wordSpace);
 
 	ctx3.restore();
 	return xPosition;
+}
+
+var temporaryBackgroundValues = {}
+
+function setBackgroundSettings(ctx3) {
+	if (temporaryBackgroundValues.backgroundImageRotation != parameterValues.backgroundImageRotation) {
+		setBackgroundImageRotation(parameterValues.backgroundImageRotation);
+	}
+	setBackgroundImageRepeat(parameterValues.backgroundRepeat);
+	setBackgroundContainerSize(parameterValues.backgroundContainerWidth,
+			parameterValues.backgroundContainerHeight);
+	setBackgroundImageSize(parameterValues.backgroundImageHeight,
+			parameterValues.backgroundImageWidth);
+	setBackgroundImagePosition(parameterValues.backgroundImagePositionX,
+			parameterValues.backgroundImagePositionY);
+	setBackgroundContainerPosition(
+			parameterValues.backgroundContainerPositionY,
+			parameterValues.backgroundContainerPositionX)
+
+	ctx3.globalAlpha = parameterValues.backgroundOpacity;
+	ctx3.fillStyle = parameterValues.backgroundColour;
+
+	if (parameterValues.backgroundShadowShow) {
+		ctx3.shadowColor = parameterValues.backgroundShadowColour;
+		ctx3.shadowOffsetX = parameterValues.backgroundShadowOffsetX;
+		ctx3.shadowOffsetY = parameterValues.backgroundShadowOffsetY;
+		ctx3.shadowBlur = parameterValues.backgroundShadowBlur;
+	}
+	ctx3.fillRect(parameterValues.textX, parameterValues.textY - 40,
+			parameterValues.textWidth, parameterValues.textHeight);
 }
 
 function setBackgroundImageSize(width, height) {

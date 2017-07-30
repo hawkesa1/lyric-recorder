@@ -1,0 +1,1985 @@
+{
+  "title": "My Same",
+  "artist": "Adele",
+  "album": "19",
+  "uniqueId": "48b80f97b7b9f15b1e4fb8dcef802d49",
+  "unsynchronisedLyrics": "",
+  "lyricRecorderSynchronisedLyrics": [
+    {
+      "words": [
+        {
+          "word": "I",
+          "wordIndex": 0,
+          "id": "word_0_0",
+          "startTime": 320.275,
+          "endTime": 937.133
+        },
+        {
+          "word": "I,",
+          "wordIndex": 1,
+          "id": "word_0_1",
+          "startTime": 1032.0130000000001,
+          "endTime": 1768.274
+        },
+        {
+          "word": "I",
+          "wordIndex": 2,
+          "id": "word_0_2",
+          "startTime": 2366.602,
+          "endTime": 2763.1749999999997
+        },
+        {
+          "word": "I",
+          "wordIndex": 3,
+          "id": "word_0_3",
+          "startTime": 2830.623,
+          "endTime": 3552.653
+        }
+      ],
+      "startTime": 320.275,
+      "endTime": 3552.653
+    },
+    {
+      "words": [
+        {
+          "word": "I",
+          "wordIndex": 4,
+          "id": "word_1_0",
+          "startTime": 3975.0420000000004,
+          "endTime": 4893.605
+        },
+        {
+          "word": "I,",
+          "wordIndex": 5,
+          "id": "word_1_1",
+          "startTime": 4956.126,
+          "endTime": 5665.856
+        },
+        {
+          "word": "I",
+          "wordIndex": 6,
+          "id": "word_1_2",
+          "startTime": 6150.275,
+          "endTime": 6548.027
+        },
+        {
+          "word": "I",
+          "wordIndex": 7,
+          "id": "word_1_3",
+          "startTime": 6641.394,
+          "endTime": 7266.934
+        }
+      ],
+      "startTime": 3975.0420000000004,
+      "endTime": 7266.934
+    },
+    {
+      "words": [
+        {
+          "word": "I",
+          "wordIndex": 8,
+          "id": "word_2_0",
+          "startTime": 7781.894,
+          "endTime": 8727.035
+        },
+        {
+          "word": "I,",
+          "wordIndex": 9,
+          "id": "word_2_1",
+          "startTime": 8775.366999999998,
+          "endTime": 9442.991
+        },
+        {
+          "word": "I",
+          "wordIndex": 10,
+          "id": "word_2_2",
+          "startTime": 9993.385999999999,
+          "endTime": 10363.134
+        },
+        {
+          "word": "I",
+          "wordIndex": 11,
+          "id": "word_2_3",
+          "startTime": 10436.449,
+          "endTime": 11231.287
+        }
+      ],
+      "startTime": 7781.894,
+      "endTime": 11231.287
+    },
+    {
+      "words": [
+        {
+          "word": "I",
+          "wordIndex": 12,
+          "id": "word_3_0",
+          "startTime": 11594.508,
+          "endTime": 12585.924
+        },
+        {
+          "word": "I,",
+          "wordIndex": 13,
+          "id": "word_3_1",
+          "startTime": 12641.427,
+          "endTime": 13302.832
+        },
+        {
+          "word": "I",
+          "wordIndex": 14,
+          "id": "word_3_2",
+          "startTime": 13811.992,
+          "endTime": 14218.251
+        },
+        {
+          "word": "I",
+          "wordIndex": 15,
+          "id": "word_3_3",
+          "startTime": 14272.083,
+          "endTime": 15171.444
+        }
+      ],
+      "startTime": 11594.508,
+      "endTime": 15171.444
+    },
+    {
+      "words": [
+        {
+          "word": "You",
+          "wordIndex": 16,
+          "id": "word_4_0",
+          "startTime": 15484.994,
+          "endTime": 15831.637
+        },
+        {
+          "word": "said",
+          "wordIndex": 17,
+          "id": "word_4_1",
+          "startTime": 15931.575,
+          "endTime": 16197.643
+        },
+        {
+          "word": "I\u0027m",
+          "wordIndex": 18,
+          "id": "word_4_2",
+          "startTime": 16256.537999999999,
+          "endTime": 16364.4
+        },
+        {
+          "word": "stubborn",
+          "wordIndex": 19,
+          "id": "word_4_3",
+          "startTime": 16415.355000000003,
+          "endTime": 16859.452
+        },
+        {
+          "word": "and",
+          "wordIndex": 20,
+          "id": "word_4_4",
+          "startTime": 16925.41,
+          "endTime": 17127.155
+        },
+        {
+          "word": "I",
+          "wordIndex": 21,
+          "id": "word_4_5",
+          "startTime": 17184.775999999998,
+          "endTime": 17305.668
+        },
+        {
+          "word": "never",
+          "wordIndex": 22,
+          "id": "word_4_6",
+          "startTime": 17362.721,
+          "endTime": 17801.470999999998
+        },
+        {
+          "word": "give",
+          "wordIndex": 23,
+          "id": "word_4_7",
+          "startTime": 17874.664,
+          "endTime": 18027.23
+        },
+        {
+          "word": "in",
+          "wordIndex": 24,
+          "id": "word_4_8",
+          "startTime": 18088.894,
+          "endTime": 18593.034
+        }
+      ],
+      "startTime": 15484.994,
+      "endTime": 18593.034
+    },
+    {
+      "words": [
+        {
+          "word": "I",
+          "wordIndex": 25,
+          "id": "word_5_0",
+          "startTime": 19275.568,
+          "endTime": 19668.863999999998
+        },
+        {
+          "word": "think",
+          "wordIndex": 26,
+          "id": "word_5_1",
+          "startTime": 19715.332,
+          "endTime": 19984.982
+        },
+        {
+          "word": "you\u0027re",
+          "wordIndex": 27,
+          "id": "word_5_2",
+          "startTime": 20035.136000000002,
+          "endTime": 20169.154
+        },
+        {
+          "word": "stubborn",
+          "wordIndex": 28,
+          "id": "word_5_3",
+          "startTime": 20212.971,
+          "endTime": 20604.587
+        },
+        {
+          "word": "\u0027cept",
+          "wordIndex": 29,
+          "id": "word_5_4",
+          "startTime": 20671.78,
+          "endTime": 20941.693
+        },
+        {
+          "word": "you\u0027re",
+          "wordIndex": 30,
+          "id": "word_5_5",
+          "startTime": 20992.56,
+          "endTime": 21126.546000000002
+        },
+        {
+          "word": "always",
+          "wordIndex": 31,
+          "id": "word_5_6",
+          "startTime": 21184.497,
+          "endTime": 21631.072
+        },
+        {
+          "word": "softening",
+          "wordIndex": 32,
+          "id": "word_5_7",
+          "startTime": 21686.189,
+          "endTime": 22899.557
+        }
+      ],
+      "startTime": 19275.568,
+      "endTime": 22899.557
+    },
+    {
+      "words": [
+        {
+          "word": "You",
+          "wordIndex": 33,
+          "id": "word_6_0",
+          "startTime": 23187.508,
+          "endTime": 23409.082000000002
+        },
+        {
+          "word": "say",
+          "wordIndex": 34,
+          "id": "word_6_1",
+          "startTime": 23508.162,
+          "endTime": 23784.777
+        },
+        {
+          "word": "I\u0027m",
+          "wordIndex": 35,
+          "id": "word_6_2",
+          "startTime": 23860.202999999998,
+          "endTime": 23961.202
+        },
+        {
+          "word": "selfish,",
+          "wordIndex": 36,
+          "id": "word_6_3",
+          "startTime": 24019.922000000002,
+          "endTime": 24454.401
+        },
+        {
+          "word": "I",
+          "wordIndex": 37,
+          "id": "word_6_4",
+          "startTime": 24517.736,
+          "endTime": 24793.107
+        },
+        {
+          "word": "agree",
+          "wordIndex": 38,
+          "id": "word_6_5",
+          "startTime": 24842.735,
+          "endTime": 25256.019
+        },
+        {
+          "word": "with",
+          "wordIndex": 39,
+          "id": "word_6_6",
+          "startTime": 25307.53,
+          "endTime": 25402.629999999997
+        },
+        {
+          "word": "you",
+          "wordIndex": 40,
+          "id": "word_6_7",
+          "startTime": 25467.689,
+          "endTime": 25703.41
+        },
+        {
+          "word": "on",
+          "wordIndex": 41,
+          "id": "word_6_8",
+          "startTime": 25757.995000000003,
+          "endTime": 26175.740999999998
+        },
+        {
+          "word": "that",
+          "wordIndex": 42,
+          "id": "word_6_9",
+          "startTime": 26248.042,
+          "endTime": 27062.857
+        }
+      ],
+      "startTime": 23187.508,
+      "endTime": 27062.857
+    },
+    {
+      "words": [
+        {
+          "word": "I",
+          "wordIndex": 43,
+          "id": "word_7_0",
+          "startTime": 27131.805,
+          "endTime": 27280.784
+        },
+        {
+          "word": "think",
+          "wordIndex": 44,
+          "id": "word_7_1",
+          "startTime": 27334.232,
+          "endTime": 27571.48
+        },
+        {
+          "word": "you\u0027re",
+          "wordIndex": 45,
+          "id": "word_7_2",
+          "startTime": 27629.401,
+          "endTime": 27740.545000000002
+        },
+        {
+          "word": "giving",
+          "wordIndex": 46,
+          "id": "word_7_3",
+          "startTime": 27794.443,
+          "endTime": 28268.014
+        },
+        {
+          "word": "out",
+          "wordIndex": 47,
+          "id": "word_7_4",
+          "startTime": 28332.999,
+          "endTime": 28570.71
+        },
+        {
+          "word": "in",
+          "wordIndex": 48,
+          "id": "word_7_5",
+          "startTime": 28616.184,
+          "endTime": 28741.468999999997
+        },
+        {
+          "word": "way",
+          "wordIndex": 49,
+          "id": "word_7_6",
+          "startTime": 28796.84,
+          "endTime": 29009.518
+        },
+        {
+          "word": "too",
+          "wordIndex": 50,
+          "id": "word_7_7",
+          "startTime": 29066.23,
+          "endTime": 29195.924000000003
+        },
+        {
+          "word": "much",
+          "wordIndex": 51,
+          "id": "word_7_8",
+          "startTime": 29262.746,
+          "endTime": 29481.783
+        },
+        {
+          "word": "in",
+          "wordIndex": 52,
+          "id": "word_7_9",
+          "startTime": 29551.161,
+          "endTime": 29767.413
+        },
+        {
+          "word": "fact",
+          "wordIndex": 53,
+          "id": "word_7_10",
+          "startTime": 29847.460000000003,
+          "endTime": 30623.324
+        }
+      ],
+      "startTime": 27131.805,
+      "endTime": 30623.324
+    },
+    {
+      "words": [
+        {
+          "word": "I",
+          "wordIndex": 54,
+          "id": "word_8_0",
+          "startTime": 30743.001,
+          "endTime": 31052.453
+        },
+        {
+          "word": "say",
+          "wordIndex": 55,
+          "id": "word_8_1",
+          "startTime": 31127.284,
+          "endTime": 31403.113999999998
+        },
+        {
+          "word": "we\u0027ve",
+          "wordIndex": 56,
+          "id": "word_8_2",
+          "startTime": 31473.421,
+          "endTime": 31606.451
+        },
+        {
+          "word": "only",
+          "wordIndex": 57,
+          "id": "word_8_3",
+          "startTime": 31664.86,
+          "endTime": 32075.609
+        },
+        {
+          "word": "known",
+          "wordIndex": 58,
+          "id": "word_8_4",
+          "startTime": 32146.664999999997,
+          "endTime": 32362.811999999998
+        },
+        {
+          "word": "each",
+          "wordIndex": 59,
+          "id": "word_8_5",
+          "startTime": 32417.749,
+          "endTime": 32567.494000000002
+        },
+        {
+          "word": "other",
+          "wordIndex": 60,
+          "id": "word_8_6",
+          "startTime": 32618.231,
+          "endTime": 33246.803
+        },
+        {
+          "word": "a",
+          "wordIndex": 61,
+          "id": "word_8_7",
+          "startTime": 33303.22,
+          "endTime": 33485.193
+        },
+        {
+          "word": "year",
+          "wordIndex": 62,
+          "id": "word_8_8",
+          "startTime": 33536.293999999994,
+          "endTime": 34443.494
+        }
+      ],
+      "startTime": 30743.001,
+      "endTime": 34443.494
+    },
+    {
+      "words": [
+        {
+          "word": "You",
+          "wordIndex": 63,
+          "id": "word_9_0",
+          "startTime": 34793.503000000004,
+          "endTime": 34981.53400000001
+        },
+        {
+          "word": "say",
+          "wordIndex": 64,
+          "id": "word_9_1",
+          "startTime": 35036.125,
+          "endTime": 35344.147
+        },
+        {
+          "word": "I\u0027ve",
+          "wordIndex": 65,
+          "id": "word_9_2",
+          "startTime": 35395.511,
+          "endTime": 36027.504
+        },
+        {
+          "word": "known",
+          "wordIndex": 66,
+          "id": "word_9_3",
+          "startTime": 36078.005,
+          "endTime": 36201.791999999994
+        },
+        {
+          "word": "you",
+          "wordIndex": 67,
+          "id": "word_9_4",
+          "startTime": 36248.303,
+          "endTime": 36405.169
+        },
+        {
+          "word": "longer",
+          "wordIndex": 68,
+          "id": "word_9_5",
+          "startTime": 36465.359,
+          "endTime": 36894.423
+        },
+        {
+          "word": "my",
+          "wordIndex": 69,
+          "id": "word_9_6",
+          "startTime": 36956.482,
+          "endTime": 37247.346
+        },
+        {
+          "word": "dear",
+          "wordIndex": 70,
+          "id": "word_9_7",
+          "startTime": 37315.516,
+          "endTime": 37885.373999999996
+        }
+      ],
+      "startTime": 34793.503000000004,
+      "endTime": 37885.373999999996
+    },
+    {
+      "words": [
+        {
+          "word": "You",
+          "wordIndex": 71,
+          "id": "word_10_0"
+        },
+        {
+          "word": "like",
+          "wordIndex": 72,
+          "id": "word_10_1"
+        },
+        {
+          "word": "to",
+          "wordIndex": 73,
+          "id": "word_10_2"
+        },
+        {
+          "word": "be",
+          "wordIndex": 74,
+          "id": "word_10_3"
+        },
+        {
+          "word": "so",
+          "wordIndex": 75,
+          "id": "word_10_4"
+        },
+        {
+          "word": "close,",
+          "wordIndex": 76,
+          "id": "word_10_5"
+        },
+        {
+          "word": "I",
+          "wordIndex": 77,
+          "id": "word_10_6"
+        },
+        {
+          "word": "like",
+          "wordIndex": 78,
+          "id": "word_10_7"
+        },
+        {
+          "word": "to",
+          "wordIndex": 79,
+          "id": "word_10_8"
+        },
+        {
+          "word": "be",
+          "wordIndex": 80,
+          "id": "word_10_9"
+        },
+        {
+          "word": "alone",
+          "wordIndex": 81,
+          "id": "word_10_10"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "I",
+          "wordIndex": 82,
+          "id": "word_11_0"
+        },
+        {
+          "word": "like",
+          "wordIndex": 83,
+          "id": "word_11_1"
+        },
+        {
+          "word": "to",
+          "wordIndex": 84,
+          "id": "word_11_2"
+        },
+        {
+          "word": "sit",
+          "wordIndex": 85,
+          "id": "word_11_3"
+        },
+        {
+          "word": "on",
+          "wordIndex": 86,
+          "id": "word_11_4"
+        },
+        {
+          "word": "chairs",
+          "wordIndex": 87,
+          "id": "word_11_5"
+        },
+        {
+          "word": "and",
+          "wordIndex": 88,
+          "id": "word_11_6"
+        },
+        {
+          "word": "you",
+          "wordIndex": 89,
+          "id": "word_11_7"
+        },
+        {
+          "word": "prefer",
+          "wordIndex": 90,
+          "id": "word_11_8"
+        },
+        {
+          "word": "the",
+          "wordIndex": 91,
+          "id": "word_11_9"
+        },
+        {
+          "word": "floor",
+          "wordIndex": 92,
+          "id": "word_11_10"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "Walking",
+          "wordIndex": 93,
+          "id": "word_12_0"
+        },
+        {
+          "word": "with",
+          "wordIndex": 94,
+          "id": "word_12_1"
+        },
+        {
+          "word": "each",
+          "wordIndex": 95,
+          "id": "word_12_2"
+        },
+        {
+          "word": "other,",
+          "wordIndex": 96,
+          "id": "word_12_3"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "Think",
+          "wordIndex": 97,
+          "id": "word_13_0"
+        },
+        {
+          "word": "we\u0027ll",
+          "wordIndex": 98,
+          "id": "word_13_1"
+        },
+        {
+          "word": "never",
+          "wordIndex": 99,
+          "id": "word_13_2"
+        },
+        {
+          "word": "match",
+          "wordIndex": 100,
+          "id": "word_13_3"
+        },
+        {
+          "word": "at",
+          "wordIndex": 101,
+          "id": "word_13_4"
+        },
+        {
+          "word": "all,",
+          "wordIndex": 102,
+          "id": "word_13_5"
+        },
+        {
+          "word": "but",
+          "wordIndex": 103,
+          "id": "word_13_6"
+        },
+        {
+          "word": "we",
+          "wordIndex": 104,
+          "id": "word_13_7"
+        },
+        {
+          "word": "do",
+          "wordIndex": 105,
+          "id": "word_13_8"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "But",
+          "wordIndex": 106,
+          "id": "word_14_0"
+        },
+        {
+          "word": "we",
+          "wordIndex": 107,
+          "id": "word_14_1"
+        },
+        {
+          "word": "do,",
+          "wordIndex": 108,
+          "id": "word_14_2"
+        },
+        {
+          "word": "but",
+          "wordIndex": 109,
+          "id": "word_14_3"
+        },
+        {
+          "word": "we",
+          "wordIndex": 110,
+          "id": "word_14_4"
+        },
+        {
+          "word": "do,",
+          "wordIndex": 111,
+          "id": "word_14_5"
+        },
+        {
+          "word": "but",
+          "wordIndex": 112,
+          "id": "word_14_6"
+        },
+        {
+          "word": "we",
+          "wordIndex": 113,
+          "id": "word_14_7"
+        },
+        {
+          "word": "do",
+          "wordIndex": 114,
+          "id": "word_14_8"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "I",
+          "wordIndex": 115,
+          "id": "word_15_0"
+        },
+        {
+          "word": "thought",
+          "wordIndex": 116,
+          "id": "word_15_1"
+        },
+        {
+          "word": "I",
+          "wordIndex": 117,
+          "id": "word_15_2"
+        },
+        {
+          "word": "knew",
+          "wordIndex": 118,
+          "id": "word_15_3"
+        },
+        {
+          "word": "myself,",
+          "wordIndex": 119,
+          "id": "word_15_4"
+        },
+        {
+          "word": "somehow",
+          "wordIndex": 120,
+          "id": "word_15_5"
+        },
+        {
+          "word": "you",
+          "wordIndex": 121,
+          "id": "word_15_6"
+        },
+        {
+          "word": "know",
+          "wordIndex": 122,
+          "id": "word_15_7"
+        },
+        {
+          "word": "me",
+          "wordIndex": 123,
+          "id": "word_15_8"
+        },
+        {
+          "word": "more",
+          "wordIndex": 124,
+          "id": "word_15_9"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "I\u0027ve",
+          "wordIndex": 125,
+          "id": "word_16_0"
+        },
+        {
+          "word": "never",
+          "wordIndex": 126,
+          "id": "word_16_1"
+        },
+        {
+          "word": "known",
+          "wordIndex": 127,
+          "id": "word_16_2"
+        },
+        {
+          "word": "this,",
+          "wordIndex": 128,
+          "id": "word_16_3"
+        },
+        {
+          "word": "never",
+          "wordIndex": 129,
+          "id": "word_16_4"
+        },
+        {
+          "word": "before",
+          "wordIndex": 130,
+          "id": "word_16_5"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "You\u0027re",
+          "wordIndex": 131,
+          "id": "word_17_0"
+        },
+        {
+          "word": "the",
+          "wordIndex": 132,
+          "id": "word_17_1"
+        },
+        {
+          "word": "first",
+          "wordIndex": 133,
+          "id": "word_17_2"
+        },
+        {
+          "word": "to",
+          "wordIndex": 134,
+          "id": "word_17_3"
+        },
+        {
+          "word": "make",
+          "wordIndex": 135,
+          "id": "word_17_4"
+        },
+        {
+          "word": "up",
+          "wordIndex": 136,
+          "id": "word_17_5"
+        },
+        {
+          "word": "whenever",
+          "wordIndex": 137,
+          "id": "word_17_6"
+        },
+        {
+          "word": "we",
+          "wordIndex": 138,
+          "id": "word_17_7"
+        },
+        {
+          "word": "argue",
+          "wordIndex": 139,
+          "id": "word_17_8"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "I",
+          "wordIndex": 140,
+          "id": "word_18_0"
+        },
+        {
+          "word": "don\u0027t",
+          "wordIndex": 141,
+          "id": "word_18_1"
+        },
+        {
+          "word": "know",
+          "wordIndex": 142,
+          "id": "word_18_2"
+        },
+        {
+          "word": "who",
+          "wordIndex": 143,
+          "id": "word_18_3"
+        },
+        {
+          "word": "I\u0027d",
+          "wordIndex": 144,
+          "id": "word_18_4"
+        },
+        {
+          "word": "be",
+          "wordIndex": 145,
+          "id": "word_18_5"
+        },
+        {
+          "word": "if",
+          "wordIndex": 146,
+          "id": "word_18_6"
+        },
+        {
+          "word": "I",
+          "wordIndex": 147,
+          "id": "word_18_7"
+        },
+        {
+          "word": "didn\u0027t",
+          "wordIndex": 148,
+          "id": "word_18_8"
+        },
+        {
+          "word": "know",
+          "wordIndex": 149,
+          "id": "word_18_9"
+        },
+        {
+          "word": "you",
+          "wordIndex": 150,
+          "id": "word_18_10"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "You\u0027re",
+          "wordIndex": 151,
+          "id": "word_19_0"
+        },
+        {
+          "word": "so",
+          "wordIndex": 152,
+          "id": "word_19_1"
+        },
+        {
+          "word": "provocative,",
+          "wordIndex": 153,
+          "id": "word_19_2"
+        },
+        {
+          "word": "I\u0027m",
+          "wordIndex": 154,
+          "id": "word_19_3"
+        },
+        {
+          "word": "so",
+          "wordIndex": 155,
+          "id": "word_19_4"
+        },
+        {
+          "word": "conservative",
+          "wordIndex": 156,
+          "id": "word_19_5"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "You\u0027re",
+          "wordIndex": 157,
+          "id": "word_20_0"
+        },
+        {
+          "word": "so",
+          "wordIndex": 158,
+          "id": "word_20_1"
+        },
+        {
+          "word": "adventurous,",
+          "wordIndex": 159,
+          "id": "word_20_2"
+        },
+        {
+          "word": "I\u0027m",
+          "wordIndex": 160,
+          "id": "word_20_3"
+        },
+        {
+          "word": "so",
+          "wordIndex": 161,
+          "id": "word_20_4"
+        },
+        {
+          "word": "very",
+          "wordIndex": 162,
+          "id": "word_20_5"
+        },
+        {
+          "word": "cautious,",
+          "wordIndex": 163,
+          "id": "word_20_6"
+        },
+        {
+          "word": "combining",
+          "wordIndex": 164,
+          "id": "word_20_7"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "You",
+          "wordIndex": 165,
+          "id": "word_21_0"
+        },
+        {
+          "word": "think",
+          "wordIndex": 166,
+          "id": "word_21_1"
+        },
+        {
+          "word": "we",
+          "wordIndex": 167,
+          "id": "word_21_2"
+        },
+        {
+          "word": "would",
+          "wordIndex": 168,
+          "id": "word_21_3"
+        },
+        {
+          "word": "and",
+          "wordIndex": 169,
+          "id": "word_21_4"
+        },
+        {
+          "word": "we",
+          "wordIndex": 170,
+          "id": "word_21_5"
+        },
+        {
+          "word": "do,",
+          "wordIndex": 171,
+          "id": "word_21_6"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "But",
+          "wordIndex": 172,
+          "id": "word_22_0"
+        },
+        {
+          "word": "we",
+          "wordIndex": 173,
+          "id": "word_22_1"
+        },
+        {
+          "word": "do,",
+          "wordIndex": 174,
+          "id": "word_22_2"
+        },
+        {
+          "word": "but",
+          "wordIndex": 175,
+          "id": "word_22_3"
+        },
+        {
+          "word": "we",
+          "wordIndex": 176,
+          "id": "word_22_4"
+        },
+        {
+          "word": "do,",
+          "wordIndex": 177,
+          "id": "word_22_5"
+        },
+        {
+          "word": "but",
+          "wordIndex": 178,
+          "id": "word_22_6"
+        },
+        {
+          "word": "we",
+          "wordIndex": 179,
+          "id": "word_22_7"
+        },
+        {
+          "word": "do",
+          "wordIndex": 180,
+          "id": "word_22_8"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "Favoritism",
+          "wordIndex": 181,
+          "id": "word_23_0"
+        },
+        {
+          "word": "ain\u0027t",
+          "wordIndex": 182,
+          "id": "word_23_1"
+        },
+        {
+          "word": "my",
+          "wordIndex": 183,
+          "id": "word_23_2"
+        },
+        {
+          "word": "thing",
+          "wordIndex": 184,
+          "id": "word_23_3"
+        },
+        {
+          "word": "but,",
+          "wordIndex": 185,
+          "id": "word_23_4"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "In",
+          "wordIndex": 186,
+          "id": "word_24_0"
+        },
+        {
+          "word": "this",
+          "wordIndex": 187,
+          "id": "word_24_1"
+        },
+        {
+          "word": "situation",
+          "wordIndex": 188,
+          "id": "word_24_2"
+        },
+        {
+          "word": "I\u0027ll",
+          "wordIndex": 189,
+          "id": "word_24_3"
+        },
+        {
+          "word": "be",
+          "wordIndex": 190,
+          "id": "word_24_4"
+        },
+        {
+          "word": "glad",
+          "wordIndex": 191,
+          "id": "word_24_5"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "Favoritism",
+          "wordIndex": 192,
+          "id": "word_25_0"
+        },
+        {
+          "word": "ain\u0027t",
+          "wordIndex": 193,
+          "id": "word_25_1"
+        },
+        {
+          "word": "my",
+          "wordIndex": 194,
+          "id": "word_25_2"
+        },
+        {
+          "word": "thing",
+          "wordIndex": 195,
+          "id": "word_25_3"
+        },
+        {
+          "word": "but,",
+          "wordIndex": 196,
+          "id": "word_25_4"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "In",
+          "wordIndex": 197,
+          "id": "word_26_0"
+        },
+        {
+          "word": "this",
+          "wordIndex": 198,
+          "id": "word_26_1"
+        },
+        {
+          "word": "situation",
+          "wordIndex": 199,
+          "id": "word_26_2"
+        },
+        {
+          "word": "I\u0027ll",
+          "wordIndex": 200,
+          "id": "word_26_3"
+        },
+        {
+          "word": "be",
+          "wordIndex": 201,
+          "id": "word_26_4"
+        },
+        {
+          "word": "glad",
+          "wordIndex": 202,
+          "id": "word_26_5"
+        },
+        {
+          "word": "to",
+          "wordIndex": 203,
+          "id": "word_26_6"
+        },
+        {
+          "word": "make",
+          "wordIndex": 204,
+          "id": "word_26_7"
+        },
+        {
+          "word": "an",
+          "wordIndex": 205,
+          "id": "word_26_8"
+        },
+        {
+          "word": "exception",
+          "wordIndex": 206,
+          "id": "word_26_9"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "You",
+          "wordIndex": 207,
+          "id": "word_27_0"
+        },
+        {
+          "word": "said",
+          "wordIndex": 208,
+          "id": "word_27_1"
+        },
+        {
+          "word": "I\u0027m",
+          "wordIndex": 209,
+          "id": "word_27_2"
+        },
+        {
+          "word": "stubborn",
+          "wordIndex": 210,
+          "id": "word_27_3"
+        },
+        {
+          "word": "and",
+          "wordIndex": 211,
+          "id": "word_27_4"
+        },
+        {
+          "word": "I",
+          "wordIndex": 212,
+          "id": "word_27_5"
+        },
+        {
+          "word": "never",
+          "wordIndex": 213,
+          "id": "word_27_6"
+        },
+        {
+          "word": "give",
+          "wordIndex": 214,
+          "id": "word_27_7"
+        },
+        {
+          "word": "in",
+          "wordIndex": 215,
+          "id": "word_27_8"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "I",
+          "wordIndex": 216,
+          "id": "word_28_0"
+        },
+        {
+          "word": "think",
+          "wordIndex": 217,
+          "id": "word_28_1"
+        },
+        {
+          "word": "you\u0027re",
+          "wordIndex": 218,
+          "id": "word_28_2"
+        },
+        {
+          "word": "stubborn",
+          "wordIndex": 219,
+          "id": "word_28_3"
+        },
+        {
+          "word": "\u0027cept",
+          "wordIndex": 220,
+          "id": "word_28_4"
+        },
+        {
+          "word": "you\u0027re",
+          "wordIndex": 221,
+          "id": "word_28_5"
+        },
+        {
+          "word": "always",
+          "wordIndex": 222,
+          "id": "word_28_6"
+        },
+        {
+          "word": "softening",
+          "wordIndex": 223,
+          "id": "word_28_7"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "You",
+          "wordIndex": 224,
+          "id": "word_29_0"
+        },
+        {
+          "word": "say",
+          "wordIndex": 225,
+          "id": "word_29_1"
+        },
+        {
+          "word": "I\u0027m",
+          "wordIndex": 226,
+          "id": "word_29_2"
+        },
+        {
+          "word": "selfish,",
+          "wordIndex": 227,
+          "id": "word_29_3"
+        },
+        {
+          "word": "I",
+          "wordIndex": 228,
+          "id": "word_29_4"
+        },
+        {
+          "word": "agree",
+          "wordIndex": 229,
+          "id": "word_29_5"
+        },
+        {
+          "word": "with",
+          "wordIndex": 230,
+          "id": "word_29_6"
+        },
+        {
+          "word": "you",
+          "wordIndex": 231,
+          "id": "word_29_7"
+        },
+        {
+          "word": "on",
+          "wordIndex": 232,
+          "id": "word_29_8"
+        },
+        {
+          "word": "that",
+          "wordIndex": 233,
+          "id": "word_29_9"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "I",
+          "wordIndex": 234,
+          "id": "word_30_0"
+        },
+        {
+          "word": "think",
+          "wordIndex": 235,
+          "id": "word_30_1"
+        },
+        {
+          "word": "you\u0027re",
+          "wordIndex": 236,
+          "id": "word_30_2"
+        },
+        {
+          "word": "giving",
+          "wordIndex": 237,
+          "id": "word_30_3"
+        },
+        {
+          "word": "out",
+          "wordIndex": 238,
+          "id": "word_30_4"
+        },
+        {
+          "word": "in",
+          "wordIndex": 239,
+          "id": "word_30_5"
+        },
+        {
+          "word": "way",
+          "wordIndex": 240,
+          "id": "word_30_6"
+        },
+        {
+          "word": "too",
+          "wordIndex": 241,
+          "id": "word_30_7"
+        },
+        {
+          "word": "much",
+          "wordIndex": 242,
+          "id": "word_30_8"
+        },
+        {
+          "word": "in",
+          "wordIndex": 243,
+          "id": "word_30_9"
+        },
+        {
+          "word": "fact",
+          "wordIndex": 244,
+          "id": "word_30_10"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "I",
+          "wordIndex": 245,
+          "id": "word_31_0"
+        },
+        {
+          "word": "say",
+          "wordIndex": 246,
+          "id": "word_31_1"
+        },
+        {
+          "word": "we\u0027ve",
+          "wordIndex": 247,
+          "id": "word_31_2"
+        },
+        {
+          "word": "only",
+          "wordIndex": 248,
+          "id": "word_31_3"
+        },
+        {
+          "word": "known",
+          "wordIndex": 249,
+          "id": "word_31_4"
+        },
+        {
+          "word": "each",
+          "wordIndex": 250,
+          "id": "word_31_5"
+        },
+        {
+          "word": "other",
+          "wordIndex": 251,
+          "id": "word_31_6"
+        },
+        {
+          "word": "one",
+          "wordIndex": 252,
+          "id": "word_31_7"
+        },
+        {
+          "word": "year",
+          "wordIndex": 253,
+          "id": "word_31_8"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "You",
+          "wordIndex": 254,
+          "id": "word_32_0"
+        },
+        {
+          "word": "say",
+          "wordIndex": 255,
+          "id": "word_32_1"
+        },
+        {
+          "word": "I\u0027ve",
+          "wordIndex": 256,
+          "id": "word_32_2"
+        },
+        {
+          "word": "known",
+          "wordIndex": 257,
+          "id": "word_32_3"
+        },
+        {
+          "word": "you",
+          "wordIndex": 258,
+          "id": "word_32_4"
+        },
+        {
+          "word": "longer",
+          "wordIndex": 259,
+          "id": "word_32_5"
+        },
+        {
+          "word": "my",
+          "wordIndex": 260,
+          "id": "word_32_6"
+        },
+        {
+          "word": "dear",
+          "wordIndex": 261,
+          "id": "word_32_7"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "You",
+          "wordIndex": 262,
+          "id": "word_33_0"
+        },
+        {
+          "word": "like",
+          "wordIndex": 263,
+          "id": "word_33_1"
+        },
+        {
+          "word": "to",
+          "wordIndex": 264,
+          "id": "word_33_2"
+        },
+        {
+          "word": "be",
+          "wordIndex": 265,
+          "id": "word_33_3"
+        },
+        {
+          "word": "so",
+          "wordIndex": 266,
+          "id": "word_33_4"
+        },
+        {
+          "word": "close,",
+          "wordIndex": 267,
+          "id": "word_33_5"
+        },
+        {
+          "word": "I",
+          "wordIndex": 268,
+          "id": "word_33_6"
+        },
+        {
+          "word": "like",
+          "wordIndex": 269,
+          "id": "word_33_7"
+        },
+        {
+          "word": "to",
+          "wordIndex": 270,
+          "id": "word_33_8"
+        },
+        {
+          "word": "be",
+          "wordIndex": 271,
+          "id": "word_33_9"
+        },
+        {
+          "word": "alone",
+          "wordIndex": 272,
+          "id": "word_33_10"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "I",
+          "wordIndex": 273,
+          "id": "word_34_0"
+        },
+        {
+          "word": "like",
+          "wordIndex": 274,
+          "id": "word_34_1"
+        },
+        {
+          "word": "to",
+          "wordIndex": 275,
+          "id": "word_34_2"
+        },
+        {
+          "word": "sit",
+          "wordIndex": 276,
+          "id": "word_34_3"
+        },
+        {
+          "word": "on",
+          "wordIndex": 277,
+          "id": "word_34_4"
+        },
+        {
+          "word": "chairs",
+          "wordIndex": 278,
+          "id": "word_34_5"
+        },
+        {
+          "word": "and",
+          "wordIndex": 279,
+          "id": "word_34_6"
+        },
+        {
+          "word": "you",
+          "wordIndex": 280,
+          "id": "word_34_7"
+        },
+        {
+          "word": "prefer",
+          "wordIndex": 281,
+          "id": "word_34_8"
+        },
+        {
+          "word": "the",
+          "wordIndex": 282,
+          "id": "word_34_9"
+        },
+        {
+          "word": "floor",
+          "wordIndex": 283,
+          "id": "word_34_10"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "Walking",
+          "wordIndex": 284,
+          "id": "word_35_0"
+        },
+        {
+          "word": "with",
+          "wordIndex": 285,
+          "id": "word_35_1"
+        },
+        {
+          "word": "each",
+          "wordIndex": 286,
+          "id": "word_35_2"
+        },
+        {
+          "word": "other,",
+          "wordIndex": 287,
+          "id": "word_35_3"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "Think",
+          "wordIndex": 288,
+          "id": "word_36_0"
+        },
+        {
+          "word": "we\u0027ll",
+          "wordIndex": 289,
+          "id": "word_36_1"
+        },
+        {
+          "word": "never",
+          "wordIndex": 290,
+          "id": "word_36_2"
+        },
+        {
+          "word": "match",
+          "wordIndex": 291,
+          "id": "word_36_3"
+        },
+        {
+          "word": "at",
+          "wordIndex": 292,
+          "id": "word_36_4"
+        },
+        {
+          "word": "all,",
+          "wordIndex": 293,
+          "id": "word_36_5"
+        },
+        {
+          "word": "but",
+          "wordIndex": 294,
+          "id": "word_36_6"
+        },
+        {
+          "word": "we",
+          "wordIndex": 295,
+          "id": "word_36_7"
+        },
+        {
+          "word": "do",
+          "wordIndex": 296,
+          "id": "word_36_8"
+        }
+      ]
+    }
+  ],
+  "allTags": {
+    "ACOUSTIC": "",
+    "TRACK": "10",
+    "ARTISTS": "",
+    "ORIGINAL_YEAR": "",
+    "TRACK_TOTAL": "",
+    "RECORD_LABEL": "",
+    "MUSICBRAINZ_RELEASEID": "",
+    "GENRE": "Pop",
+    "MOOD_VALENCE": "",
+    "FBPM": "",
+    "MUSICBRAINZ_ARTISTID": "",
+    "ACOUSTID_FINGERPRINT": "",
+    "ALBUM_ARTIST_SORT": "",
+    "TIMBRE": "",
+    "URL_DISCOGS_RELEASE_SITE": "",
+    "MEDIA": "",
+    "BARCODE": "",
+    "MUSICBRAINZ_RELEASE_TYPE": "",
+    "AMAZON_ID": "",
+    "MUSICBRAINZ_RELEASE_TRACK_ID": "",
+    "CONDUCTOR": "",
+    "MUSICBRAINZ_TRACK_ID": "",
+    "URL_LYRICS_SITE": "",
+    "ALBUM_SORT": "",
+    "URL_WIKIPEDIA_RELEASE_SITE": "",
+    "ARTIST": "Adele",
+    "ORCHESTRA": "",
+    "ISRC": "",
+    "ARTIST_SORT": "",
+    "COMMENT": "",
+    "WORK": "",
+    "MUSICBRAINZ_RELEASE_GROUP_ID": "",
+    "PERFORMER": "",
+    "ORIGINAL_ALBUM": "",
+    "RATING": "",
+    "MOOD_AROUSAL": "",
+    "MUSICBRAINZ_DISC_ID": "",
+    "SCRIPT": "",
+    "MUSICBRAINZ_ORIGINAL_RELEASE_ID": "",
+    "TONALITY": "",
+    "PRODUCER": "",
+    "GROUPING": "",
+    "IS_COMPILATION": "",
+    "KEY": "",
+    "MUSICIP_ID": "",
+    "MOOD_DANCEABILITY": "",
+    "URL_OFFICIAL_RELEASE_SITE": "",
+    "MUSICBRAINZ_WORK_ID": "",
+    "LYRICIST": "",
+    "URL_WIKIPEDIA_ARTIST_SITE": "",
+    "LANGUAGE": "",
+    "CATALOG_NO": "",
+    "COUNTRY": "",
+    "LYRICRECORDER.COM": "",
+    "ORIGINAL_ARTIST": "",
+    "TEMPO": "",
+    "MOOD_RELAXED": "",
+    "MUSICBRAINZ_RELEASE_STATUS": "",
+    "DISC_SUBTITLE": "",
+    "DJMIXER": "",
+    "DISC_NO": "",
+    "YEAR": "2008",
+    "PART": "",
+    "MUSICBRAINZ_RELEASE_COUNTRY": "",
+    "COMPOSER": "",
+    "MOOD_HAPPY": "",
+    "MUSICBRAINZ_RELEASEARTISTID": "",
+    "TITLE_SORT": "",
+    "URL_DISCOGS_ARTIST_SITE": "",
+    "MIXER": "",
+    "COMPOSER_SORT": "",
+    "QUALITY": "",
+    "ENGINEER": "",
+    "ALBUM": "19",
+    "LYRICS": "",
+    "MOOD_PARTY": "",
+    "ALBUM_ARTIST": "",
+    "ACOUSTID_ID": "",
+    "ARRANGER": "",
+    "BPM": "",
+    "MOOD_AGGRESSIVE": "",
+    "ELECTRONIC": "",
+    "COVER_ART": "",
+    "SUBTITLE": "",
+    "TAGS": "",
+    "DISC_TOTAL": "",
+    "MOOD_SAD": "",
+    "MOOD": "",
+    "ENCODER": "",
+    "REMIXER": "",
+    "ORIGINAL_LYRICIST": "",
+    "OCCASION": "",
+    "CUSTOM1": "",
+    "CUSTOM2": "",
+    "CUSTOM3": "",
+    "CUSTOM4": "",
+    "CUSTOM5": "",
+    "INSTRUMENTAL": "",
+    "URL_OFFICIAL_ARTIST_SITE": "",
+    "TITLE": "My Same"
+  },
+  "videoSnapshot": {
+    "snapshots": [
+      {
+        "id": 0,
+        "parameterValues": {
+          "linesPerPage": 4,
+          "newLineSpacing": "60",
+          "graduatedWordType": "vertical",
+          "graduatedWordThreshold": "0",
+          "graduatedWordEasingFunction": "easeOutExpo",
+          "graduatedWordOpacity": "1",
+          "graduatedWordColour": "#ffffff",
+          "graduatedShadowShow": "checked",
+          "graduatedShadowColour": "#292929",
+          "graduatedShadowOffsetX": "5",
+          "graduatedShadowOffsetY": "5",
+          "graduatedShadowBlur": "10",
+          "backgroundImage": "1500724664040.jpg",
+          "backgroundRepeat": "no-repeat",
+          "backgroundImageWidth": "833",
+          "backgroundImageHeight": "624",
+          "backgroundImagePositionX": "0",
+          "backgroundImagePositionY": "0",
+          "backgroundContainerWidth": "849",
+          "backgroundContainerHeight": "709",
+          "backgroundContainerPositionX": "-21",
+          "backgroundContainerPositionY": "-21",
+          "backgroundImageRotation": "0",
+          "fontFamily": "Ravie Regular",
+          "selectedEasingFunction": "easeOutExpo",
+          "selectedEasingDuration": "198",
+          "selectedOpacity": "1",
+          "selectedFontColour": "#400040",
+          "lineHeight": "30",
+          "characterSpacing": "22",
+          "fontSize": "30",
+          "fontSizeIncrease": "0",
+          "selectedShadowShow": "checked",
+          "selectedShadowColour": "#000000",
+          "selectedShadowOffsetX": "5",
+          "selectedShadowOffsetY": "5",
+          "selectedShadowBlur": "10",
+          "unselectedFontColourPast": "#ffffff",
+          "unselectedShadowShowPast": "checked",
+          "unselectedShadowColourPast": "#000000",
+          "unselectedShadowOffsetXPast": "5",
+          "unselectedShadowOffsetYPast": "5",
+          "unselectedShadowBlurPast": "7",
+          "unselectedOpacityPast": "0.9",
+          "unselectedFontColourFuture": "#0d0100",
+          "unselectedShadowShowFuture": "checked",
+          "unselectedShadowColourFuture": "#000000",
+          "unselectedShadowOffsetXFuture": "5",
+          "unselectedShadowOffsetYFuture": "5",
+          "unselectedShadowBlurFuture": "13",
+          "unselectedOpacityFuture": "1",
+          "backgroundColour": "#ffffff",
+          "textX": "19",
+          "textY": "50",
+          "textWidth": "440",
+          "textHeight": "422",
+          "backgroundShadowShow": "checked",
+          "backgroundShadowColour": "#f8f8ff",
+          "backgroundShadowOffsetX": "5",
+          "backgroundOffsetY": "5",
+          "backgroundShadowBlur": "7",
+          "backgroundOpacity": "0",
+          "videoFPS": 25,
+          "videoWidth": 800,
+          "videoHeight": 600,
+          "videoFirstFrame": 0,
+          "videoLastFrame": 100,
+          "numberOfFutureLines": "0",
+          "numberOfPastLines": "0"
+        }
+      }
+    ]
+  },
+  "pages": []
+}

@@ -21,7 +21,6 @@ function loadCreateTab() {
 	$('#loadTab').addClass('hiddenTab');
 	$('#newTab').removeClass('hiddenTab');
 	$('#newTab').addClass('visibleTab');
-	console.log("Yo")
 }
 function loadCurrentTab() {
 	$('#newTab').removeClass('visibleTab');
@@ -30,7 +29,6 @@ function loadCurrentTab() {
 	$('#loadTab').addClass('hiddenTab');
 	$('#currentTab').removeClass('hiddenTab');
 	$('#currentTab').addClass('visibleTab');
-	console.log("Yo")
 }
 function loadLoadTab() {
 	$('#currentTab').removeClass('visibleTab');
@@ -40,7 +38,6 @@ function loadLoadTab() {
 
 	$('#loadTab').removeClass('hiddenTab');
 	$('#loadTab').addClass('visibleTab');
-	console.log("Yo")
 }
 
 function addClickToLyrics() {
@@ -111,9 +108,6 @@ function addCurrentWordStart() {
 		$('.word').removeClass("nextWordToAdd");
 		$('.word').removeClass("wordBeingAdded");
 		$('#' + aWordObject.id).addClass("wordBeingAdded");
-
-		console.log("Adding: " + aWordObject.id);
-
 	} else {
 		console.log("You can't add words out of order!!!");
 	}
@@ -241,13 +235,12 @@ function enableView(tabItemId, viewId) {
 	} else if (tabItemId == "enableVideoView") {
 		currentStateStore.currentLyricView = "VIDEO_VIEW";
 		
-		drawVideoPanels('video', 'videoControls');
+		//drawVideoPanels('video', 'videoControls');
 		$('#videoControls').show();
 	}
 }
 
 function enableViewTabs(itemId) {
-	console.log(itemId);
 	$('.viewTabs').each(function(index) {
 		$(this).addClass('buttonUnselected');
 	});

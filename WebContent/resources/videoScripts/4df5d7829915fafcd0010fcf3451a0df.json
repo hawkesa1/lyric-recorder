@@ -1,0 +1,444 @@
+{
+  "title": "I\u0027m Thru",
+  "artist": "Alesha Dixon",
+  "album": "The Alesha Show",
+  "uniqueId": "4df5d7829915fafcd0010fcf3451a0df",
+  "unsynchronisedLyrics": "",
+  "lyricRecorderSynchronisedLyrics": [
+    {
+      "words": [
+        {
+          "word": "Please",
+          "wordIndex": 0,
+          "id": "word_0_0"
+        },
+        {
+          "word": "enter",
+          "wordIndex": 1,
+          "id": "word_0_1"
+        },
+        {
+          "word": "some",
+          "wordIndex": 2,
+          "id": "word_0_2"
+        },
+        {
+          "word": "lyrics",
+          "wordIndex": 3,
+          "id": "word_0_3"
+        },
+        {
+          "word": "here",
+          "wordIndex": 4,
+          "id": "word_0_4"
+        },
+        {
+          "word": "...",
+          "wordIndex": 5,
+          "id": "word_0_5"
+        }
+      ]
+    }
+  ],
+  "md5Hash": "4df5d7829915fafcd0010fcf3451a0df",
+  "originalFileName": "13 - I\u0027m Thru.mp3",
+  "allTags": {
+    "ACOUSTIC": "",
+    "TRACK": "13",
+    "ARTISTS": "",
+    "ORIGINAL_YEAR": "",
+    "TRACK_TOTAL": "",
+    "RECORD_LABEL": "",
+    "MUSICBRAINZ_RELEASEID": "",
+    "GENRE": "R\u0026B and Soul",
+    "MOOD_VALENCE": "",
+    "FBPM": "",
+    "MUSICBRAINZ_ARTISTID": "",
+    "ACOUSTID_FINGERPRINT": "",
+    "ALBUM_ARTIST_SORT": "",
+    "TIMBRE": "",
+    "URL_DISCOGS_RELEASE_SITE": "",
+    "MEDIA": "",
+    "BARCODE": "",
+    "MUSICBRAINZ_RELEASE_TYPE": "",
+    "AMAZON_ID": "",
+    "MUSICBRAINZ_RELEASE_TRACK_ID": "",
+    "CONDUCTOR": "",
+    "MUSICBRAINZ_TRACK_ID": "",
+    "URL_LYRICS_SITE": "",
+    "ALBUM_SORT": "",
+    "URL_WIKIPEDIA_RELEASE_SITE": "",
+    "ARTIST": "Alesha Dixon",
+    "ORCHESTRA": "",
+    "ISRC": "",
+    "ARTIST_SORT": "",
+    "COMMENT": "www.legalsounds.com",
+    "WORK": "",
+    "MUSICBRAINZ_RELEASE_GROUP_ID": "",
+    "PERFORMER": "",
+    "ORIGINAL_ALBUM": "",
+    "RATING": "",
+    "MOOD_AROUSAL": "",
+    "MUSICBRAINZ_DISC_ID": "",
+    "SCRIPT": "",
+    "MUSICBRAINZ_ORIGINAL_RELEASE_ID": "",
+    "TONALITY": "",
+    "PRODUCER": "",
+    "GROUPING": "",
+    "IS_COMPILATION": "",
+    "KEY": "",
+    "MUSICIP_ID": "",
+    "MOOD_DANCEABILITY": "",
+    "URL_OFFICIAL_RELEASE_SITE": "",
+    "MUSICBRAINZ_WORK_ID": "",
+    "LYRICIST": "",
+    "URL_WIKIPEDIA_ARTIST_SITE": "",
+    "LANGUAGE": "",
+    "CATALOG_NO": "",
+    "COUNTRY": "",
+    "LYRICRECORDER.COM": "",
+    "ORIGINAL_ARTIST": "",
+    "TEMPO": "",
+    "MOOD_RELAXED": "",
+    "MUSICBRAINZ_RELEASE_STATUS": "",
+    "DISC_SUBTITLE": "",
+    "DJMIXER": "",
+    "DISC_NO": "",
+    "YEAR": "2008",
+    "PART": "",
+    "MUSICBRAINZ_RELEASE_COUNTRY": "",
+    "COMPOSER": "",
+    "MOOD_HAPPY": "",
+    "MUSICBRAINZ_RELEASEARTISTID": "",
+    "TITLE_SORT": "",
+    "URL_DISCOGS_ARTIST_SITE": "",
+    "MIXER": "",
+    "COMPOSER_SORT": "",
+    "QUALITY": "",
+    "ENGINEER": "",
+    "ALBUM": "The Alesha Show",
+    "LYRICS": "",
+    "MOOD_PARTY": "",
+    "ALBUM_ARTIST": "",
+    "ACOUSTID_ID": "",
+    "ARRANGER": "",
+    "BPM": "",
+    "MOOD_AGGRESSIVE": "",
+    "ELECTRONIC": "",
+    "COVER_ART": "",
+    "SUBTITLE": "",
+    "TAGS": "",
+    "DISC_TOTAL": "",
+    "MOOD_SAD": "",
+    "MOOD": "",
+    "ENCODER": "",
+    "REMIXER": "",
+    "ORIGINAL_LYRICIST": "",
+    "OCCASION": "",
+    "CUSTOM1": "",
+    "CUSTOM2": "",
+    "CUSTOM3": "",
+    "CUSTOM4": "",
+    "CUSTOM5": "",
+    "INSTRUMENTAL": "",
+    "URL_OFFICIAL_ARTIST_SITE": "",
+    "TITLE": "I\u0027m Thru"
+  },
+  "videoSnapshot": {
+    "snapshots": [
+      {
+        "id": 0,
+        "parameterValues": {
+          "numberOfFutureLines": "0",
+          "numberOfPastLines": "0",
+          "newLineSpacing": "60",
+          "graduatedWordType": "vertical",
+          "graduatedWordThreshold": "0",
+          "graduatedWordEasingFunction": "easeOutExpo",
+          "graduatedWordOpacity": "1",
+          "graduatedWordColour": "#ffffff",
+          "graduatedShadowShow": "checked",
+          "graduatedShadowColour": "#292929",
+          "graduatedShadowOffsetX": "5",
+          "graduatedShadowOffsetY": "5",
+          "graduatedShadowBlur": "10",
+          "backgroundImage": "1500724664040.jpg",
+          "backgroundRepeat": "no-repeat",
+          "backgroundImageWidth": "833",
+          "backgroundImageHeight": "624",
+          "backgroundImagePositionX": "0",
+          "backgroundImagePositionY": "0",
+          "backgroundContainerWidth": "849",
+          "backgroundContainerHeight": "709",
+          "backgroundContainerPositionX": "-21",
+          "backgroundContainerPositionY": "-21",
+          "backgroundImageRotation": "0",
+          "fontFamily": "Ravie Regular",
+          "selectedEasingFunction": "easeOutExpo",
+          "selectedEasingDuration": "198",
+          "selectedOpacity": "1",
+          "selectedFontColour": "#400040",
+          "lineHeight": "30",
+          "characterSpacing": "22",
+          "fontSize": "30",
+          "fontSizeIncrease": "0",
+          "selectedShadowShow": "checked",
+          "selectedShadowColour": "#000000",
+          "selectedShadowOffsetX": "5",
+          "selectedShadowOffsetY": "5",
+          "selectedShadowBlur": "10",
+          "unselectedFontColourPast": "#ffffff",
+          "unselectedShadowShowPast": "checked",
+          "unselectedShadowColourPast": "#000000",
+          "unselectedShadowOffsetXPast": "5",
+          "unselectedShadowOffsetYPast": "5",
+          "unselectedShadowBlurPast": "7",
+          "unselectedOpacityPast": "0.9",
+          "unselectedFontColourFuture": "#0d0100",
+          "unselectedShadowShowFuture": "checked",
+          "unselectedShadowColourFuture": "#000000",
+          "unselectedShadowOffsetXFuture": "5",
+          "unselectedShadowOffsetYFuture": "5",
+          "unselectedShadowBlurFuture": "13",
+          "unselectedOpacityFuture": "1",
+          "backgroundColour": "#ffffff",
+          "textX": "19",
+          "textY": "50",
+          "textWidth": "440",
+          "textHeight": "422",
+          "backgroundShadowShow": "checked",
+          "backgroundShadowColour": "#f8f8ff",
+          "backgroundShadowOffsetX": "5",
+          "backgroundOffsetY": "5",
+          "backgroundShadowBlur": "7",
+          "backgroundOpacity": "0",
+          "videoFPS": 25,
+          "videoWidth": 800,
+          "videoHeight": 600,
+          "videoFirstFrame": 0,
+          "videoLastFrame": 100
+        }
+      }
+    ]
+  },
+  "pages": [
+    {
+      "startTime": 32504.384000000002,
+      "lines": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "endTime": 41573.388999999996
+    },
+    {
+      "startTime": 43266.525,
+      "lines": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "endTime": 51401.079000000005
+    },
+    {
+      "startTime": 51895.747,
+      "lines": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "endTime": 61443.320999999996
+    },
+    {
+      "startTime": 61518.976,
+      "lines": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "endTime": 72612.948
+    },
+    {
+      "startTime": 72669.006,
+      "lines": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "endTime": 83078.603
+    },
+    {
+      "startTime": 83169.761,
+      "lines": [
+        20,
+        21,
+        22,
+        23
+      ],
+      "endTime": 95363.87700000001
+    },
+    {
+      "startTime": 95439.458,
+      "lines": [
+        24,
+        25,
+        26,
+        27
+      ],
+      "endTime": 106150.735
+    },
+    {
+      "startTime": 106222.686,
+      "lines": [
+        28,
+        29,
+        30,
+        31
+      ],
+      "endTime": 117380.98999999999
+    },
+    {
+      "startTime": 117438.516,
+      "lines": [
+        32,
+        33,
+        34,
+        35
+      ],
+      "endTime": 128914.684
+    },
+    {
+      "startTime": 129001.553,
+      "lines": [
+        36,
+        37,
+        38,
+        39
+      ],
+      "endTime": 141492.709
+    },
+    {
+      "startTime": 141582.01299999998,
+      "lines": [
+        40,
+        41,
+        42,
+        43
+      ],
+      "endTime": 153896.922
+    },
+    {
+      "startTime": 153968.152,
+      "lines": [
+        44,
+        45,
+        46,
+        47
+      ],
+      "endTime": 167730.055
+    },
+    {
+      "startTime": 167782.864,
+      "lines": [
+        48,
+        49,
+        50,
+        51
+      ],
+      "endTime": 178903.097
+    },
+    {
+      "startTime": 178967.491,
+      "lines": [
+        52,
+        53,
+        54,
+        55
+      ],
+      "endTime": 190146.53999999998
+    },
+    {
+      "startTime": 190219.362,
+      "lines": [
+        56,
+        57,
+        58,
+        59
+      ],
+      "endTime": 201728.518
+    },
+    {
+      "startTime": 201849.791,
+      "lines": [
+        60,
+        61,
+        62,
+        63
+      ],
+      "endTime": 212979.94199999998
+    },
+    {
+      "startTime": 213064.44999999998,
+      "lines": [
+        64,
+        65,
+        66,
+        67
+      ],
+      "endTime": 225827.384
+    },
+    {
+      "startTime": 225890.23599999998,
+      "lines": [
+        68,
+        69,
+        70,
+        71
+      ],
+      "endTime": 237730.39
+    },
+    {
+      "startTime": 237790.463,
+      "lines": [
+        72,
+        73,
+        74,
+        75
+      ],
+      "endTime": 250137.766
+    },
+    {
+      "startTime": 250147.99,
+      "lines": [
+        76,
+        77,
+        78,
+        79
+      ],
+      "endTime": 262941.207
+    },
+    {
+      "startTime": 263004.878,
+      "lines": [
+        80,
+        81,
+        82,
+        83
+      ],
+      "endTime": 274115.295
+    },
+    {
+      "startTime": 274182.061,
+      "lines": [
+        84,
+        85
+      ],
+      "endTime": 281375.365
+    }
+  ]
+}

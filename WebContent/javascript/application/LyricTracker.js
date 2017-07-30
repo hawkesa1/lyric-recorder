@@ -584,11 +584,22 @@ var LyricTracker = function(container) {
 														+ ((clickX - startOfWordMouseDownX) * 5) > (currentStateStore.currentSelectedWordPreviousWord.endTime + 10)) {
 											currentStateStore.currentSelectedWord.startTime = currentStateStore.currentSelectedWord.startTime
 													+ ((clickX - startOfWordMouseDownX) * 5);
+										
+											//word_0_0
+											//if this is the first word in the line
+											//Set the line startTime to this word's start time
+											if(parseInt(currentStateStore.currentSelectedWord.id.split('_')[2])===0)
+											{
+												currentStateStore.lineArray[parseInt(currentStateStore.currentSelectedWord.id.split('_')[1])].startTime=currentStateStore.currentSelectedWord.startTime;
+											}	
 										} else if (currentStateStore.currentSelectedWordPreviousWord == null
 												&& currentStateStore.currentSelectedWord.startTime
 														+ ((clickX - startOfWordMouseDownX) * 5) > 0) {
 											currentStateStore.currentSelectedWord.startTime = currentStateStore.currentSelectedWord.startTime
 													+ ((clickX - startOfWordMouseDownX) * 5);
+											console.log(currentStateStore.currentSelectedWord);
+											//Set the line startTime to this word's start time
+											currentStateStore.lineArray[parseInt(currentStateStore.currentSelectedWord.id.split('_')[1])].startTime=currentStateStore.currentSelectedWord.startTime;
 										}
 									}
 									startOfWordMouseDownX = clickX;

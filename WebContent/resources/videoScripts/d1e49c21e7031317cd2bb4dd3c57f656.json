@@ -1,0 +1,1574 @@
+{
+  "title": "Jolene",
+  "artist": "Dolly Parton",
+  "album": "Gold (Greatest Hits) [UK]",
+  "uniqueId": "d1e49c21e7031317cd2bb4dd3c57f656",
+  "unsynchronisedLyrics": "",
+  "lyricRecorderSynchronisedLyrics": [
+    {
+      "words": [
+        {
+          "word": "Jolene,",
+          "wordIndex": 0,
+          "id": "word_0_0",
+          "startTime": 9729.307,
+          "endTime": 10271.107
+        },
+        {
+          "word": "Jolene,",
+          "wordIndex": 1,
+          "id": "word_0_1",
+          "startTime": 10606.338,
+          "endTime": 11277.52
+        },
+        {
+          "word": "Jolene,",
+          "wordIndex": 2,
+          "id": "word_0_2",
+          "startTime": 11595.905999999999,
+          "endTime": 12246.213
+        },
+        {
+          "word": "Jolene",
+          "wordIndex": 3,
+          "id": "word_0_3",
+          "startTime": 12387.846,
+          "endTime": 13812.001
+        }
+      ],
+      "startTime": 9729.307,
+      "endTime": 13812.001
+    },
+    {
+      "words": [
+        {
+          "word": "I\u0027m",
+          "wordIndex": 4,
+          "id": "word_1_0",
+          "startTime": 15005.944,
+          "endTime": 15190.417
+        },
+        {
+          "word": "begging",
+          "wordIndex": 5,
+          "id": "word_1_1",
+          "startTime": 15306.794,
+          "endTime": 15557.37
+        },
+        {
+          "word": "of",
+          "wordIndex": 6,
+          "id": "word_1_2",
+          "startTime": 15670.901,
+          "endTime": 15872.59
+        },
+        {
+          "word": "you",
+          "wordIndex": 7,
+          "id": "word_1_3",
+          "startTime": 15986.939,
+          "endTime": 16154.309000000001
+        },
+        {
+          "word": "please",
+          "wordIndex": 8,
+          "id": "word_1_4",
+          "startTime": 16275.471,
+          "endTime": 16494.134
+        },
+        {
+          "word": "don\u0027t",
+          "wordIndex": 9,
+          "id": "word_1_5",
+          "startTime": 16611.29,
+          "endTime": 16756.518
+        },
+        {
+          "word": "take",
+          "wordIndex": 10,
+          "id": "word_1_6",
+          "startTime": 16868.15,
+          "endTime": 17028.938000000002
+        },
+        {
+          "word": "my",
+          "wordIndex": 11,
+          "id": "word_1_7",
+          "startTime": 17151.987999999998,
+          "endTime": 17457.321
+        },
+        {
+          "word": "man",
+          "wordIndex": 12,
+          "id": "word_1_8",
+          "startTime": 17592.203,
+          "endTime": 18125.566
+        }
+      ],
+      "startTime": 15005.944,
+      "endTime": 18125.566
+    },
+    {
+      "words": [
+        {
+          "word": "Jolene,",
+          "wordIndex": 13,
+          "id": "word_2_0"
+        },
+        {
+          "word": "Jolene,",
+          "wordIndex": 14,
+          "id": "word_2_1"
+        },
+        {
+          "word": "Jolene,",
+          "wordIndex": 15,
+          "id": "word_2_2"
+        },
+        {
+          "word": "Jolene",
+          "wordIndex": 16,
+          "id": "word_2_3"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "Please",
+          "wordIndex": 17,
+          "id": "word_3_0"
+        },
+        {
+          "word": "don\u0027t",
+          "wordIndex": 18,
+          "id": "word_3_1"
+        },
+        {
+          "word": "take",
+          "wordIndex": 19,
+          "id": "word_3_2"
+        },
+        {
+          "word": "him",
+          "wordIndex": 20,
+          "id": "word_3_3"
+        },
+        {
+          "word": "just",
+          "wordIndex": 21,
+          "id": "word_3_4"
+        },
+        {
+          "word": "because",
+          "wordIndex": 22,
+          "id": "word_3_5"
+        },
+        {
+          "word": "you",
+          "wordIndex": 23,
+          "id": "word_3_6"
+        },
+        {
+          "word": "can",
+          "wordIndex": 24,
+          "id": "word_3_7"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "Your",
+          "wordIndex": 25,
+          "id": "word_4_0"
+        },
+        {
+          "word": "beauty",
+          "wordIndex": 26,
+          "id": "word_4_1"
+        },
+        {
+          "word": "is",
+          "wordIndex": 27,
+          "id": "word_4_2"
+        },
+        {
+          "word": "beyond",
+          "wordIndex": 28,
+          "id": "word_4_3"
+        },
+        {
+          "word": "compare",
+          "wordIndex": 29,
+          "id": "word_4_4"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "With",
+          "wordIndex": 30,
+          "id": "word_5_0"
+        },
+        {
+          "word": "flaming",
+          "wordIndex": 31,
+          "id": "word_5_1"
+        },
+        {
+          "word": "locks",
+          "wordIndex": 32,
+          "id": "word_5_2"
+        },
+        {
+          "word": "of",
+          "wordIndex": 33,
+          "id": "word_5_3"
+        },
+        {
+          "word": "auburn",
+          "wordIndex": 34,
+          "id": "word_5_4"
+        },
+        {
+          "word": "hair",
+          "wordIndex": 35,
+          "id": "word_5_5"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "With",
+          "wordIndex": 36,
+          "id": "word_6_0"
+        },
+        {
+          "word": "ivory",
+          "wordIndex": 37,
+          "id": "word_6_1"
+        },
+        {
+          "word": "skin",
+          "wordIndex": 38,
+          "id": "word_6_2"
+        },
+        {
+          "word": "and",
+          "wordIndex": 39,
+          "id": "word_6_3"
+        },
+        {
+          "word": "eyes",
+          "wordIndex": 40,
+          "id": "word_6_4"
+        },
+        {
+          "word": "of",
+          "wordIndex": 41,
+          "id": "word_6_5"
+        },
+        {
+          "word": "emerald",
+          "wordIndex": 42,
+          "id": "word_6_6"
+        },
+        {
+          "word": "green",
+          "wordIndex": 43,
+          "id": "word_6_7"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "Your",
+          "wordIndex": 44,
+          "id": "word_7_0"
+        },
+        {
+          "word": "smile",
+          "wordIndex": 45,
+          "id": "word_7_1"
+        },
+        {
+          "word": "is",
+          "wordIndex": 46,
+          "id": "word_7_2"
+        },
+        {
+          "word": "like",
+          "wordIndex": 47,
+          "id": "word_7_3"
+        },
+        {
+          "word": "a",
+          "wordIndex": 48,
+          "id": "word_7_4"
+        },
+        {
+          "word": "breath",
+          "wordIndex": 49,
+          "id": "word_7_5"
+        },
+        {
+          "word": "of",
+          "wordIndex": 50,
+          "id": "word_7_6"
+        },
+        {
+          "word": "spring",
+          "wordIndex": 51,
+          "id": "word_7_7"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "Your",
+          "wordIndex": 52,
+          "id": "word_8_0"
+        },
+        {
+          "word": "voice",
+          "wordIndex": 53,
+          "id": "word_8_1"
+        },
+        {
+          "word": "is",
+          "wordIndex": 54,
+          "id": "word_8_2"
+        },
+        {
+          "word": "soft",
+          "wordIndex": 55,
+          "id": "word_8_3"
+        },
+        {
+          "word": "like",
+          "wordIndex": 56,
+          "id": "word_8_4"
+        },
+        {
+          "word": "summer",
+          "wordIndex": 57,
+          "id": "word_8_5"
+        },
+        {
+          "word": "rain",
+          "wordIndex": 58,
+          "id": "word_8_6"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "And",
+          "wordIndex": 59,
+          "id": "word_9_0"
+        },
+        {
+          "word": "I",
+          "wordIndex": 60,
+          "id": "word_9_1"
+        },
+        {
+          "word": "cannot",
+          "wordIndex": 61,
+          "id": "word_9_2"
+        },
+        {
+          "word": "compete",
+          "wordIndex": 62,
+          "id": "word_9_3"
+        },
+        {
+          "word": "with",
+          "wordIndex": 63,
+          "id": "word_9_4"
+        },
+        {
+          "word": "you,",
+          "wordIndex": 64,
+          "id": "word_9_5"
+        },
+        {
+          "word": "Jolene",
+          "wordIndex": 65,
+          "id": "word_9_6"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "He",
+          "wordIndex": 66,
+          "id": "word_10_0"
+        },
+        {
+          "word": "talks",
+          "wordIndex": 67,
+          "id": "word_10_1"
+        },
+        {
+          "word": "about",
+          "wordIndex": 68,
+          "id": "word_10_2"
+        },
+        {
+          "word": "you",
+          "wordIndex": 69,
+          "id": "word_10_3"
+        },
+        {
+          "word": "in",
+          "wordIndex": 70,
+          "id": "word_10_4"
+        },
+        {
+          "word": "his",
+          "wordIndex": 71,
+          "id": "word_10_5"
+        },
+        {
+          "word": "sleep",
+          "wordIndex": 72,
+          "id": "word_10_6"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "There\u0027s",
+          "wordIndex": 73,
+          "id": "word_11_0"
+        },
+        {
+          "word": "nothing",
+          "wordIndex": 74,
+          "id": "word_11_1"
+        },
+        {
+          "word": "I",
+          "wordIndex": 75,
+          "id": "word_11_2"
+        },
+        {
+          "word": "can",
+          "wordIndex": 76,
+          "id": "word_11_3"
+        },
+        {
+          "word": "do",
+          "wordIndex": 77,
+          "id": "word_11_4"
+        },
+        {
+          "word": "to",
+          "wordIndex": 78,
+          "id": "word_11_5"
+        },
+        {
+          "word": "keep",
+          "wordIndex": 79,
+          "id": "word_11_6"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "From",
+          "wordIndex": 80,
+          "id": "word_12_0"
+        },
+        {
+          "word": "crying",
+          "wordIndex": 81,
+          "id": "word_12_1"
+        },
+        {
+          "word": "when",
+          "wordIndex": 82,
+          "id": "word_12_2"
+        },
+        {
+          "word": "he",
+          "wordIndex": 83,
+          "id": "word_12_3"
+        },
+        {
+          "word": "calls",
+          "wordIndex": 84,
+          "id": "word_12_4"
+        },
+        {
+          "word": "your",
+          "wordIndex": 85,
+          "id": "word_12_5"
+        },
+        {
+          "word": "name,",
+          "wordIndex": 86,
+          "id": "word_12_6"
+        },
+        {
+          "word": "Jolene",
+          "wordIndex": 87,
+          "id": "word_12_7"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "And",
+          "wordIndex": 88,
+          "id": "word_13_0"
+        },
+        {
+          "word": "I",
+          "wordIndex": 89,
+          "id": "word_13_1"
+        },
+        {
+          "word": "can",
+          "wordIndex": 90,
+          "id": "word_13_2"
+        },
+        {
+          "word": "easily",
+          "wordIndex": 91,
+          "id": "word_13_3"
+        },
+        {
+          "word": "understand",
+          "wordIndex": 92,
+          "id": "word_13_4"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "How",
+          "wordIndex": 93,
+          "id": "word_14_0"
+        },
+        {
+          "word": "you",
+          "wordIndex": 94,
+          "id": "word_14_1"
+        },
+        {
+          "word": "could",
+          "wordIndex": 95,
+          "id": "word_14_2"
+        },
+        {
+          "word": "easily",
+          "wordIndex": 96,
+          "id": "word_14_3"
+        },
+        {
+          "word": "take",
+          "wordIndex": 97,
+          "id": "word_14_4"
+        },
+        {
+          "word": "my",
+          "wordIndex": 98,
+          "id": "word_14_5"
+        },
+        {
+          "word": "man",
+          "wordIndex": 99,
+          "id": "word_14_6"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "But",
+          "wordIndex": 100,
+          "id": "word_15_0"
+        },
+        {
+          "word": "you",
+          "wordIndex": 101,
+          "id": "word_15_1"
+        },
+        {
+          "word": "don\u0027t",
+          "wordIndex": 102,
+          "id": "word_15_2"
+        },
+        {
+          "word": "know",
+          "wordIndex": 103,
+          "id": "word_15_3"
+        },
+        {
+          "word": "what",
+          "wordIndex": 104,
+          "id": "word_15_4"
+        },
+        {
+          "word": "he",
+          "wordIndex": 105,
+          "id": "word_15_5"
+        },
+        {
+          "word": "means",
+          "wordIndex": 106,
+          "id": "word_15_6"
+        },
+        {
+          "word": "to",
+          "wordIndex": 107,
+          "id": "word_15_7"
+        },
+        {
+          "word": "me,",
+          "wordIndex": 108,
+          "id": "word_15_8"
+        },
+        {
+          "word": "Jolene",
+          "wordIndex": 109,
+          "id": "word_15_9"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "Jolene,",
+          "wordIndex": 110,
+          "id": "word_16_0"
+        },
+        {
+          "word": "Jolene,",
+          "wordIndex": 111,
+          "id": "word_16_1"
+        },
+        {
+          "word": "Jolene,",
+          "wordIndex": 112,
+          "id": "word_16_2"
+        },
+        {
+          "word": "Jolene",
+          "wordIndex": 113,
+          "id": "word_16_3"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "I\u0027m",
+          "wordIndex": 114,
+          "id": "word_17_0"
+        },
+        {
+          "word": "begging",
+          "wordIndex": 115,
+          "id": "word_17_1"
+        },
+        {
+          "word": "of",
+          "wordIndex": 116,
+          "id": "word_17_2"
+        },
+        {
+          "word": "you",
+          "wordIndex": 117,
+          "id": "word_17_3"
+        },
+        {
+          "word": "please",
+          "wordIndex": 118,
+          "id": "word_17_4"
+        },
+        {
+          "word": "don\u0027t",
+          "wordIndex": 119,
+          "id": "word_17_5"
+        },
+        {
+          "word": "take",
+          "wordIndex": 120,
+          "id": "word_17_6"
+        },
+        {
+          "word": "my",
+          "wordIndex": 121,
+          "id": "word_17_7"
+        },
+        {
+          "word": "man",
+          "wordIndex": 122,
+          "id": "word_17_8"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "Jolene,",
+          "wordIndex": 123,
+          "id": "word_18_0"
+        },
+        {
+          "word": "Jolene,",
+          "wordIndex": 124,
+          "id": "word_18_1"
+        },
+        {
+          "word": "Jolene,",
+          "wordIndex": 125,
+          "id": "word_18_2"
+        },
+        {
+          "word": "Jolene",
+          "wordIndex": 126,
+          "id": "word_18_3"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "Please",
+          "wordIndex": 127,
+          "id": "word_19_0"
+        },
+        {
+          "word": "don\u0027t",
+          "wordIndex": 128,
+          "id": "word_19_1"
+        },
+        {
+          "word": "take",
+          "wordIndex": 129,
+          "id": "word_19_2"
+        },
+        {
+          "word": "him",
+          "wordIndex": 130,
+          "id": "word_19_3"
+        },
+        {
+          "word": "just",
+          "wordIndex": 131,
+          "id": "word_19_4"
+        },
+        {
+          "word": "because",
+          "wordIndex": 132,
+          "id": "word_19_5"
+        },
+        {
+          "word": "you",
+          "wordIndex": 133,
+          "id": "word_19_6"
+        },
+        {
+          "word": "can",
+          "wordIndex": 134,
+          "id": "word_19_7"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "You",
+          "wordIndex": 135,
+          "id": "word_20_0"
+        },
+        {
+          "word": "could",
+          "wordIndex": 136,
+          "id": "word_20_1"
+        },
+        {
+          "word": "have",
+          "wordIndex": 137,
+          "id": "word_20_2"
+        },
+        {
+          "word": "your",
+          "wordIndex": 138,
+          "id": "word_20_3"
+        },
+        {
+          "word": "choice",
+          "wordIndex": 139,
+          "id": "word_20_4"
+        },
+        {
+          "word": "of",
+          "wordIndex": 140,
+          "id": "word_20_5"
+        },
+        {
+          "word": "men",
+          "wordIndex": 141,
+          "id": "word_20_6"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "But",
+          "wordIndex": 142,
+          "id": "word_21_0"
+        },
+        {
+          "word": "I",
+          "wordIndex": 143,
+          "id": "word_21_1"
+        },
+        {
+          "word": "could",
+          "wordIndex": 144,
+          "id": "word_21_2"
+        },
+        {
+          "word": "never",
+          "wordIndex": 145,
+          "id": "word_21_3"
+        },
+        {
+          "word": "love",
+          "wordIndex": 146,
+          "id": "word_21_4"
+        },
+        {
+          "word": "again",
+          "wordIndex": 147,
+          "id": "word_21_5"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "He\u0027s",
+          "wordIndex": 148,
+          "id": "word_22_0"
+        },
+        {
+          "word": "the",
+          "wordIndex": 149,
+          "id": "word_22_1"
+        },
+        {
+          "word": "only",
+          "wordIndex": 150,
+          "id": "word_22_2"
+        },
+        {
+          "word": "one",
+          "wordIndex": 151,
+          "id": "word_22_3"
+        },
+        {
+          "word": "for",
+          "wordIndex": 152,
+          "id": "word_22_4"
+        },
+        {
+          "word": "me,",
+          "wordIndex": 153,
+          "id": "word_22_5"
+        },
+        {
+          "word": "Jolene",
+          "wordIndex": 154,
+          "id": "word_22_6"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "I",
+          "wordIndex": 155,
+          "id": "word_23_0"
+        },
+        {
+          "word": "had",
+          "wordIndex": 156,
+          "id": "word_23_1"
+        },
+        {
+          "word": "to",
+          "wordIndex": 157,
+          "id": "word_23_2"
+        },
+        {
+          "word": "have",
+          "wordIndex": 158,
+          "id": "word_23_3"
+        },
+        {
+          "word": "this",
+          "wordIndex": 159,
+          "id": "word_23_4"
+        },
+        {
+          "word": "talk",
+          "wordIndex": 160,
+          "id": "word_23_5"
+        },
+        {
+          "word": "with",
+          "wordIndex": 161,
+          "id": "word_23_6"
+        },
+        {
+          "word": "you",
+          "wordIndex": 162,
+          "id": "word_23_7"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "My",
+          "wordIndex": 163,
+          "id": "word_24_0"
+        },
+        {
+          "word": "happiness",
+          "wordIndex": 164,
+          "id": "word_24_1"
+        },
+        {
+          "word": "depends",
+          "wordIndex": 165,
+          "id": "word_24_2"
+        },
+        {
+          "word": "on",
+          "wordIndex": 166,
+          "id": "word_24_3"
+        },
+        {
+          "word": "you",
+          "wordIndex": 167,
+          "id": "word_24_4"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "And",
+          "wordIndex": 168,
+          "id": "word_25_0"
+        },
+        {
+          "word": "whatever",
+          "wordIndex": 169,
+          "id": "word_25_1"
+        },
+        {
+          "word": "you",
+          "wordIndex": 170,
+          "id": "word_25_2"
+        },
+        {
+          "word": "decide",
+          "wordIndex": 171,
+          "id": "word_25_3"
+        },
+        {
+          "word": "to",
+          "wordIndex": 172,
+          "id": "word_25_4"
+        },
+        {
+          "word": "do,",
+          "wordIndex": 173,
+          "id": "word_25_5"
+        },
+        {
+          "word": "Jolene",
+          "wordIndex": 174,
+          "id": "word_25_6"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "Jolene,",
+          "wordIndex": 175,
+          "id": "word_26_0"
+        },
+        {
+          "word": "Jolene,",
+          "wordIndex": 176,
+          "id": "word_26_1"
+        },
+        {
+          "word": "Jolene,",
+          "wordIndex": 177,
+          "id": "word_26_2"
+        },
+        {
+          "word": "Jolene",
+          "wordIndex": 178,
+          "id": "word_26_3"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "I\u0027m",
+          "wordIndex": 179,
+          "id": "word_27_0"
+        },
+        {
+          "word": "begging",
+          "wordIndex": 180,
+          "id": "word_27_1"
+        },
+        {
+          "word": "of",
+          "wordIndex": 181,
+          "id": "word_27_2"
+        },
+        {
+          "word": "you",
+          "wordIndex": 182,
+          "id": "word_27_3"
+        },
+        {
+          "word": "please",
+          "wordIndex": 183,
+          "id": "word_27_4"
+        },
+        {
+          "word": "don\u0027t",
+          "wordIndex": 184,
+          "id": "word_27_5"
+        },
+        {
+          "word": "take",
+          "wordIndex": 185,
+          "id": "word_27_6"
+        },
+        {
+          "word": "my",
+          "wordIndex": 186,
+          "id": "word_27_7"
+        },
+        {
+          "word": "man",
+          "wordIndex": 187,
+          "id": "word_27_8"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "Jolene,",
+          "wordIndex": 188,
+          "id": "word_28_0"
+        },
+        {
+          "word": "Jolene,",
+          "wordIndex": 189,
+          "id": "word_28_1"
+        },
+        {
+          "word": "Jolene,",
+          "wordIndex": 190,
+          "id": "word_28_2"
+        },
+        {
+          "word": "Jolene",
+          "wordIndex": 191,
+          "id": "word_28_3"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "Please",
+          "wordIndex": 192,
+          "id": "word_29_0"
+        },
+        {
+          "word": "don\u0027t",
+          "wordIndex": 193,
+          "id": "word_29_1"
+        },
+        {
+          "word": "take",
+          "wordIndex": 194,
+          "id": "word_29_2"
+        },
+        {
+          "word": "him",
+          "wordIndex": 195,
+          "id": "word_29_3"
+        },
+        {
+          "word": "even",
+          "wordIndex": 196,
+          "id": "word_29_4"
+        },
+        {
+          "word": "though",
+          "wordIndex": 197,
+          "id": "word_29_5"
+        },
+        {
+          "word": "you",
+          "wordIndex": 198,
+          "id": "word_29_6"
+        },
+        {
+          "word": "can",
+          "wordIndex": 199,
+          "id": "word_29_7"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "Jolene,",
+          "wordIndex": 200,
+          "id": "word_30_0"
+        },
+        {
+          "word": "Jolene",
+          "wordIndex": 201,
+          "id": "word_30_1"
+        }
+      ]
+    }
+  ],
+  "md5Hash": "d1e49c21e7031317cd2bb4dd3c57f656",
+  "originalFileName": "01 Jolene.mp3",
+  "allTags": {
+    "ACOUSTIC": "",
+    "TRACK": "1",
+    "ARTISTS": "",
+    "ORIGINAL_YEAR": "",
+    "TRACK_TOTAL": "",
+    "RECORD_LABEL": "RCA",
+    "MUSICBRAINZ_RELEASEID": "",
+    "GENRE": "Country",
+    "MOOD_VALENCE": "",
+    "FBPM": "",
+    "MUSICBRAINZ_ARTISTID": "",
+    "ACOUSTID_FINGERPRINT": "",
+    "ALBUM_ARTIST_SORT": "",
+    "TIMBRE": "",
+    "URL_DISCOGS_RELEASE_SITE": "",
+    "MEDIA": "",
+    "BARCODE": "",
+    "MUSICBRAINZ_RELEASE_TYPE": "",
+    "AMAZON_ID": "",
+    "MUSICBRAINZ_RELEASE_TRACK_ID": "",
+    "CONDUCTOR": "",
+    "MUSICBRAINZ_TRACK_ID": "",
+    "URL_LYRICS_SITE": "",
+    "ALBUM_SORT": "",
+    "URL_WIKIPEDIA_RELEASE_SITE": "",
+    "ARTIST": "Dolly Parton",
+    "ORCHESTRA": "",
+    "ISRC": "",
+    "ARTIST_SORT": "",
+    "COMMENT": "",
+    "WORK": "",
+    "MUSICBRAINZ_RELEASE_GROUP_ID": "",
+    "PERFORMER": "",
+    "ORIGINAL_ALBUM": "",
+    "RATING": "",
+    "MOOD_AROUSAL": "",
+    "MUSICBRAINZ_DISC_ID": "",
+    "SCRIPT": "",
+    "MUSICBRAINZ_ORIGINAL_RELEASE_ID": "",
+    "TONALITY": "",
+    "PRODUCER": "",
+    "GROUPING": "",
+    "IS_COMPILATION": "",
+    "KEY": "",
+    "MUSICIP_ID": "",
+    "MOOD_DANCEABILITY": "",
+    "URL_OFFICIAL_RELEASE_SITE": "",
+    "MUSICBRAINZ_WORK_ID": "",
+    "LYRICIST": "",
+    "URL_WIKIPEDIA_ARTIST_SITE": "",
+    "LANGUAGE": "",
+    "CATALOG_NO": "",
+    "COUNTRY": "",
+    "LYRICRECORDER.COM": "",
+    "ORIGINAL_ARTIST": "",
+    "TEMPO": "",
+    "MOOD_RELAXED": "",
+    "MUSICBRAINZ_RELEASE_STATUS": "",
+    "DISC_SUBTITLE": "",
+    "DJMIXER": "",
+    "DISC_NO": "",
+    "YEAR": "2002",
+    "PART": "",
+    "MUSICBRAINZ_RELEASE_COUNTRY": "",
+    "COMPOSER": "",
+    "MOOD_HAPPY": "",
+    "MUSICBRAINZ_RELEASEARTISTID": "",
+    "TITLE_SORT": "",
+    "URL_DISCOGS_ARTIST_SITE": "",
+    "MIXER": "",
+    "COMPOSER_SORT": "",
+    "QUALITY": "",
+    "ENGINEER": "",
+    "ALBUM": "Gold (Greatest Hits) [UK]",
+    "LYRICS": "",
+    "MOOD_PARTY": "",
+    "ALBUM_ARTIST": "Dolly Parton",
+    "ACOUSTID_ID": "",
+    "ARRANGER": "",
+    "BPM": "",
+    "MOOD_AGGRESSIVE": "",
+    "ELECTRONIC": "",
+    "COVER_ART": "",
+    "SUBTITLE": "",
+    "TAGS": "",
+    "DISC_TOTAL": "",
+    "MOOD_SAD": "",
+    "MOOD": "",
+    "ENCODER": "",
+    "REMIXER": "",
+    "ORIGINAL_LYRICIST": "",
+    "OCCASION": "",
+    "CUSTOM1": "",
+    "CUSTOM2": "",
+    "CUSTOM3": "",
+    "CUSTOM4": "",
+    "CUSTOM5": "",
+    "INSTRUMENTAL": "",
+    "URL_OFFICIAL_ARTIST_SITE": "",
+    "TITLE": "Jolene"
+  },
+  "videoSnapshot": {
+    "snapshots": [
+      {
+        "id": 0,
+        "parameterValues": {
+          "numberOfFutureLines": "0",
+          "numberOfPastLines": "0",
+          "newLineSpacing": "60",
+          "graduatedWordType": "vertical",
+          "graduatedWordThreshold": "0",
+          "graduatedWordEasingFunction": "easeOutExpo",
+          "graduatedWordOpacity": "1",
+          "graduatedWordColour": "#ffffff",
+          "graduatedShadowShow": "checked",
+          "graduatedShadowColour": "#292929",
+          "graduatedShadowOffsetX": "5",
+          "graduatedShadowOffsetY": "5",
+          "graduatedShadowBlur": "10",
+          "backgroundImage": "1500724664040.jpg",
+          "backgroundRepeat": "no-repeat",
+          "backgroundImageWidth": "833",
+          "backgroundImageHeight": "624",
+          "backgroundImagePositionX": "0",
+          "backgroundImagePositionY": "0",
+          "backgroundContainerWidth": "849",
+          "backgroundContainerHeight": "709",
+          "backgroundContainerPositionX": "-21",
+          "backgroundContainerPositionY": "-21",
+          "backgroundImageRotation": "0",
+          "fontFamily": "Ravie Regular",
+          "selectedEasingFunction": "easeOutExpo",
+          "selectedEasingDuration": "198",
+          "selectedOpacity": "1",
+          "selectedFontColour": "#400040",
+          "lineHeight": "30",
+          "characterSpacing": "22",
+          "fontSize": "30",
+          "fontSizeIncrease": "0",
+          "selectedShadowShow": "checked",
+          "selectedShadowColour": "#000000",
+          "selectedShadowOffsetX": "5",
+          "selectedShadowOffsetY": "5",
+          "selectedShadowBlur": "10",
+          "unselectedFontColourPast": "#ffffff",
+          "unselectedShadowShowPast": "checked",
+          "unselectedShadowColourPast": "#000000",
+          "unselectedShadowOffsetXPast": "5",
+          "unselectedShadowOffsetYPast": "5",
+          "unselectedShadowBlurPast": "7",
+          "unselectedOpacityPast": "0.9",
+          "unselectedFontColourFuture": "#0d0100",
+          "unselectedShadowShowFuture": "checked",
+          "unselectedShadowColourFuture": "#000000",
+          "unselectedShadowOffsetXFuture": "5",
+          "unselectedShadowOffsetYFuture": "5",
+          "unselectedShadowBlurFuture": "13",
+          "unselectedOpacityFuture": "1",
+          "backgroundColour": "#ffffff",
+          "textX": "19",
+          "textY": "50",
+          "textWidth": "440",
+          "textHeight": "422",
+          "backgroundShadowShow": "checked",
+          "backgroundShadowColour": "#f8f8ff",
+          "backgroundShadowOffsetX": "5",
+          "backgroundOffsetY": "5",
+          "backgroundShadowBlur": "7",
+          "backgroundOpacity": "0",
+          "videoFPS": "25",
+          "videoWidth": "800",
+          "videoHeight": "600",
+          "videoFirstFrame": "0",
+          "videoLastFrame": "100"
+        }
+      }
+    ]
+  },
+  "pages": [
+    {
+      "startTime": 32504.384000000002,
+      "lines": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "endTime": 41573.388999999996
+    },
+    {
+      "startTime": 43266.525,
+      "lines": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "endTime": 51401.079000000005
+    },
+    {
+      "startTime": 51895.747,
+      "lines": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "endTime": 61443.320999999996
+    },
+    {
+      "startTime": 61518.976,
+      "lines": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "endTime": 72612.948
+    },
+    {
+      "startTime": 72669.006,
+      "lines": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "endTime": 83078.603
+    },
+    {
+      "startTime": 83169.761,
+      "lines": [
+        20,
+        21,
+        22,
+        23
+      ],
+      "endTime": 95363.87700000001
+    },
+    {
+      "startTime": 95439.458,
+      "lines": [
+        24,
+        25,
+        26,
+        27
+      ],
+      "endTime": 106150.735
+    },
+    {
+      "startTime": 106222.686,
+      "lines": [
+        28,
+        29,
+        30,
+        31
+      ],
+      "endTime": 117380.98999999999
+    },
+    {
+      "startTime": 117438.516,
+      "lines": [
+        32,
+        33,
+        34,
+        35
+      ],
+      "endTime": 128914.684
+    },
+    {
+      "startTime": 129001.553,
+      "lines": [
+        36,
+        37,
+        38,
+        39
+      ],
+      "endTime": 141492.709
+    },
+    {
+      "startTime": 141582.01299999998,
+      "lines": [
+        40,
+        41,
+        42,
+        43
+      ],
+      "endTime": 153896.922
+    },
+    {
+      "startTime": 153968.152,
+      "lines": [
+        44,
+        45,
+        46,
+        47
+      ],
+      "endTime": 167730.055
+    },
+    {
+      "startTime": 167782.864,
+      "lines": [
+        48,
+        49,
+        50,
+        51
+      ],
+      "endTime": 178903.097
+    },
+    {
+      "startTime": 178967.491,
+      "lines": [
+        52,
+        53,
+        54,
+        55
+      ],
+      "endTime": 190146.53999999998
+    },
+    {
+      "startTime": 190219.362,
+      "lines": [
+        56,
+        57,
+        58,
+        59
+      ],
+      "endTime": 201728.518
+    },
+    {
+      "startTime": 201849.791,
+      "lines": [
+        60,
+        61,
+        62,
+        63
+      ],
+      "endTime": 212979.94199999998
+    },
+    {
+      "startTime": 213064.44999999998,
+      "lines": [
+        64,
+        65,
+        66,
+        67
+      ],
+      "endTime": 225827.384
+    },
+    {
+      "startTime": 225890.23599999998,
+      "lines": [
+        68,
+        69,
+        70,
+        71
+      ],
+      "endTime": 237730.39
+    },
+    {
+      "startTime": 237790.463,
+      "lines": [
+        72,
+        73,
+        74,
+        75
+      ],
+      "endTime": 250137.766
+    },
+    {
+      "startTime": 250147.99,
+      "lines": [
+        76,
+        77,
+        78,
+        79
+      ],
+      "endTime": 262941.207
+    },
+    {
+      "startTime": 263004.878,
+      "lines": [
+        80,
+        81,
+        82,
+        83
+      ],
+      "endTime": 274115.295
+    },
+    {
+      "startTime": 274182.061,
+      "lines": [
+        84,
+        85
+      ],
+      "endTime": 281375.365
+    }
+  ]
+}

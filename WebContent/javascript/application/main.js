@@ -4,6 +4,7 @@ var downloadableMp3Location = "./resources/downloadableMp3/";
 
 function CurrentStateStore()
 {
+	console.log("Called");
 	this.onlyWordsArray = new Array();
 	this.lineArray = new Array();
 	this.stopAtTime;
@@ -27,7 +28,10 @@ function CurrentStateStore()
 	this.highestEndTime = 0;
 	this.lastAddedWordId = "";
 	this.lyricMetaData = "";
+	this.book=new Object();
+	this.book.pages=new Array();
 }
+
 
 
 function animate() {
@@ -39,5 +43,5 @@ function draw() {
 	lyricTracker.canvas.context.clearRect(0, 0, lyricTracker.canvas.width, lyricTracker.canvas.height);
 	waveForm.draw($("#audio").prop("currentTime") * 1000, lyricTracker.canvas.context);
 	
-	drawIt1(videoContext, $("#audio").prop("currentTime") * 1000, currentStateStore.lineArray)
+	drawIt1(videoContext, $("#audio").prop("currentTime") * 1000)
 }

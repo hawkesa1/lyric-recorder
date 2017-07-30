@@ -41,25 +41,13 @@ FileUploader.prototype.readFiles = function(files) {
 					updateConsole("<p class='bad'>* The maximum file size is 15 Mb.  This file is: '+ parseFloat((file.size / 1024 / 1024)).toFixed(2) + ' Mb</p>");
 				}
 			} else if (file.name.split(".")[1].toUpperCase() == "JSON") {
-				console.log("Reading JSON file .. ");
 				var reader = new FileReader();
 				reader.onload = function(e) {
-					var trackMetaData = reader.result;
-					console.log("Yo");
-					console.log(trackMetaData);
-					var uniqueId=$.parseJSON(trackMetaData).uniqueId;
-					loadATrack2(uniqueId);
-					loadMetaData(JSON.parse(trackMetaData));
-					//resetStuff();
-					//currentStateStore.lineArray = $.parseJSON(trackMetaData.lyricRecorderSynchronisedLyrics);;
-					//$('#lyrics').html(generateLyrics(currentStateStore.lineArray));
-					//addClickToLyrics();
-					//enableLyricWordView();
-					
+					var trackMetaData = JSON.parse(reader.result);
+					processAJSONFile(trackMetaData);
 				}
 				reader.readAsText(file, "utf-8");
-			}
-			else {
+			} else {
 				updateConsole("<p class='bad'>* This is not an audio file: <i>"
 						+ file.name + "</i>.  Please try again..</p>");
 			}
@@ -110,35 +98,10 @@ FileUploader.prototype.readFiles = function(files) {
 			dataReader : ID3.FileAPIReader(file)
 		});
 		function functionToCallWhenID3TagRead(tags, formData, file) {
-			if (tags.tXxxLyricsValid && tags.tXxxWavPointsValid) {
-				updateConsole("<p class='good'>* Found valid tags</p>");
-				// var file=formData.get('file');
-				updateConsole("<p>* Loading track</p>");
-				var blob = window.URL || window.webkitURL;
-				fileURL = blob.createObjectURL(file);
-				document.getElementById('audio').src = fileURL;
-				updateConsole("<p>* Loaded track</p>");
-				updatePageDetails(tags);
-				fileUploadComplete(tags);
-			} else {
-				updateConsole('<p>* No valid tags found</p>');
-				performUpload(formData);
-			}
+			performUpload(formData);
 
 			function fileUploadComplete(tags) {
-				lyricTracker.loadWavForm(tags);
-				resetStuff();
-				currentStateStore.lineArray = JSON.parse(tags.tXxxLyricsValue);
-				console.log(tags.tXxxLyricsValue);
-				$('#lyrics').html(generateLyrics(currentStateStore.lineArray));
-				addClickToLyrics();
-				enableLyricWordView();
-				currentStateStore.currentSongId = tags.tXxxSongIdValue;
-				audio.load();
-				audio.addEventListener('loadedmetadata', function() {
-					currentStateStore.trackDuration = document
-							.getElementById('audio').duration * 100;
-				});
+				// tags no longer supported
 			}
 
 			function performUpload(formData) {
@@ -160,16 +123,7 @@ FileUploader.prototype.readFiles = function(files) {
 						updateConsole("<p class='bad'>* An error occurred during the conversion process</p>");
 					} else {
 						var json = JSON.parse(progressEvent.target.response);
-						currentStateStore.currentSongId = json.uniqueId;
-						// Only do this when runnign in eclipse!!!!
-						updateConsole('<p>* Processing  ...</p>');
-						setTimeout(
-								function() {
-									updatePageDetails(json);
-									loadATrack(json.uniqueId);
-									updateConsole("<p class='good'>* Processing complete.  Drag another audio file here to start again on a new track.</p>");
-
-								}, currentStateStore.ECLIPSE_FILE_WAIT);
+						processANewlyUploadedMusicFile(json)
 					}
 				};
 
@@ -207,4 +161,65 @@ FileUploader.prototype.readFiles = function(files) {
 			}
 		}
 	}
+}
+
+function processANewlyUploadedMusicFile(json) {
+	console.log("processANewlyUploadedMusicFile");
+	resetStuff();
+	currentStateStore.trackMetaData = json;
+	
+	console.log(currentStateStore.trackMetaData);
+	currentStateStore.currentSongId = json.uniqueId;
+	updateConsole('<p>* Processing  ...</p>');
+	setTimeout(
+			function() {
+				updatePageDetails(json);
+				loadATrack2(json.uniqueId);
+				loadMetaData(json);
+				updateConsole("<p class='good'>* Processing complete.  Drag another audio file here to start again on a new track.</p>");
+				loadDefaultParametersFromFile('resources/videoScripts/test2.json');
+			}, currentStateStore.ECLIPSE_FILE_WAIT);
+}
+
+function processAJSONFile(trackMetaData) {
+	console.log("processAJSONFile");
+	resetStuff();
+	currentStateStore.trackMetaData = trackMetaData;
+	
+	var uniqueId = trackMetaData.uniqueId;
+	loadATrack2(uniqueId);
+	loadMetaData(trackMetaData);
+	console.log(trackMetaData);
+	if (trackMetaData.videoSnapshot.snapshots[0]) {
+		loadParameterSnapshot(trackMetaData.videoSnapshot.snapshots[0]);
+	}
+	console.log(currentStateStore);
+}
+
+function loadMetaData(trackMetaData) {
+	updatePageDetails(trackMetaData);
+	currentStateStore.trackMetaData = trackMetaData;
+	currentStateStore.lineArray = trackMetaData.lyricRecorderSynchronisedLyrics;
+	$('#lyrics').html(generateLyrics(currentStateStore.lineArray));
+	addClickToLyrics();
+	enableView("enableWordView", "lyrics");
+}
+function resetStuff() {
+	console.log("Reset Stuff");
+	currentStateStore = new CurrentStateStore();
+}
+
+function loadATrack2(selectedValue) {
+	var audio = document.getElementById('audio');
+	audio.src = mp3Location + selectedValue + ".MP3";
+	loadWaveForm('./resources/wavForm/', selectedValue);
+	currentStateStore.currentSongId = selectedValue;
+	audio.load();
+	audio.addEventListener('loadedmetadata',
+			function() {
+				currentStateStore.trackDuration = document
+						.getElementById('audio').duration * 100;
+			});
+	console.log("Heeeyaz");
+	enableView("enableWordView", "lyrics");
 }

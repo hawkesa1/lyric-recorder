@@ -257,16 +257,7 @@ function wordMouseOut(wordId) {
 	$('#' + wordId).removeClass("wordHovered");
 }
 
-function resetStuff() {
-	//currentStateStore=new CurrentStateStore();
-	
-	currentStateStore.onlyWordsArray = new Array();
-	words = new Array();
-	currentStateStore.lineArray = new Array();
-}
-
 function generateLyrics(lines) {
-	resetStuff();
 	currentStateStore.lineArray = lines;
 	var html = "";
 	var words;

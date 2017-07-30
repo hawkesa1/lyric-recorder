@@ -1,6 +1,0 @@
-
-function drawVideoPanels(videoContainerId, videoControlsId) {
-
-
-	
-}

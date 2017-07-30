@@ -4,52 +4,66 @@
 	left: 0px;
 	top: 4px;
 	border: 0px solid yellow;
-	width:800px;
-	height:600px;
-	opacity:0.8;
+	width: 800px;
+	height: 600px;
+	opacity: 0.8;
 }
+
 #word1Canvas {
 	z-index: 1005;
 	position: absolute;
 	left: 0px;
 	top: 4px;
 	border: 0px solid yellow;
-	width:800px;
-	height:600px;
-	opacity:1;
+	width: 800px;
+	height: 600px;
+	opacity: 0.8;
 }
+
 #word2Canvas {
-	z-index: 1002;
+	z-index: 10025;
 	position: absolute;
 	left: 0px;
 	top: 4px;
-	border: 0px solid yellow;
-	width:800px;
-	height:600px;
-	opacity:0.8;
-	display:none;
+	border: 0px solid red;
+	width: 800px;
+	height: 600px;
+	opacity: 0.8;
 }
 
-#backgroundImageContainerContainer
-{
+#backgroundImageContainerContainer {
 	position: absolute;
 	top: 6px;
 	left: 0px;
 	width: 802px;
 	height: 600px;
 	z-index: 977;
-	overflow:hidden;
+	overflow: hidden;
 	border: 0px solid blue;
 }
 
-
 #backgroundImageContainer {
-		position: absolute;
+	position: absolute;
 	top: 4px;
 	left: 4px;
-	position:absolute;
+	position: absolute;
 	width: 800px;
 	height: 600px;
 	z-index: -987;
-	border:0px solid red;
+	border: 0px solid red;
+}
+
+#pageControl {
+	border:1px solid blue;
+	overflow-y:scroll;
+	height:200px;
+	width:200px;
+}
+.pageTitle
+{
+	text-decoration:underline;
+}
+.pageLine
+{
+	text-indent:10px;
 }
