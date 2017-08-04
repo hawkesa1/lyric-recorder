@@ -896,8 +896,21 @@ function loadDefaultParametersFromFile(theVideoScript) {
 	});
 }
 
-var parameterSnapshotId = 0;
+function loadAllParametersFromFile(theVideoScript) {
+	var ts = new Date().getTime();
+	ts = '?' + ts;
+	console.log("videoScript:" + theVideoScript);
+	$.getJSON(theVideoScript + ts, function(data) {
+		currentStateStore.trackMetaData = data;
+		currentStateStore.lineArray = data.lyricRecorderSynchronisedLyrics;
+		
+		loadParameterSnapshot(data.videoSnapshot.snapshots[0]);
+		
+	});
+}
 
+
+var parameterSnapshotId = 0;
 function loadPages(pages) {
 	currentStateStore.book.pages = pages;
 }
@@ -1083,8 +1096,6 @@ function printPages() {
 	}
 	$('#pageControl').html(html);
 }
-
-
 
 function generateNewPages() {
 	// clear the existing array

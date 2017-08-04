@@ -4,7 +4,6 @@ var downloadableMp3Location = "./resources/downloadableMp3/";
 
 function CurrentStateStore()
 {
-	console.log("Called");
 	this.onlyWordsArray = new Array();
 	this.lineArray = new Array();
 	this.stopAtTime;

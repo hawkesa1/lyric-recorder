@@ -17,16 +17,14 @@ function clearContexts(ctx3) {
 
 function drawPages(ctx3, currentAudioTime) {
 	var aPage;
-	outer_loop:
-	for (var i = 0; i < currentStateStore.book.pages.length; i++) {
-		//console.log("Drawing linezzzz:" + i);
+	outer_loop: for (var i = 0; i < currentStateStore.book.pages.length; i++) {
+		// console.log("Drawing linezzzz:" + i);
 		aPage = currentStateStore.book.pages[i];
 		if (aPage.startTime < currentAudioTime
 				&& aPage.endTime > currentAudioTime) {
 			drawPage(ctx3, currentAudioTime, aPage);
 			break outer_loop;
-		} else if (aPage.startTime>currentAudioTime)
-		{
+		} else if (aPage.startTime > currentAudioTime) {
 			break outer_loop;
 		}
 	}
@@ -34,32 +32,45 @@ function drawPages(ctx3, currentAudioTime) {
 
 function drawPage(ctx3, currentAudioTime, aPage) {
 	var aLineYPosition = parameterValues.textY - 0;
-	for (var i = 0; i < aPage.lines.length; i++) {
+	wigglePosition = Math.sin((currentAudioTime / 500)) * 5;
+	var isCurrentLine = false;
 
+	for (var i = 0; i < aPage.lines.length; i++) {
 		if (i != 0) {
 			aLineYPosition += (parameterValues.newLineSpacing - 0);
 		}
-		aLineYPosition = drawALine(ctx3, currentAudioTime, aPage.lines[i],
-				aLineYPosition);
-	}
-}
-function drawALine(ctx3, currentAudioTime, lineNumber, aLineYPosition)
 
-{
+		if (aPage.lines[i].startTime > currentAudioTime
+				&& aPage.lines[i].endTime < currentAudioTime) {
+			isCurrentLine = true;
+			console.log("blaam");
+		}
+		aLineYPosition = drawALine(ctx3, currentAudioTime, aPage.lines[i],
+				aLineYPosition, isCurrentLine);
+	}
+	drawLittleCircle(littleCircleX, littleCircleY, 10);
+}
+
+function drawALine(ctx3, currentAudioTime, lineNumber, aLineYPosition,
+		isCurrentLine) {
 	var aLine = currentStateStore.lineArray[lineNumber];
-	aLineYPosition = drawLine(ctx3, currentAudioTime, aLine, aLineYPosition);
+	aLineYPosition = drawLine(ctx3, currentAudioTime, aLine, aLineYPosition,
+			isCurrentLine);
 	return aLineYPosition;
 }
 
-function drawLine(ctx3, currentAudioTime, aLine, thisLineYPosition) {
+var wigglePosition = 0;
+
+function drawLine(ctx3, currentAudioTime, aLine, thisLineYPosition,
+		isCurrentLine) {
 	var currentLineWidth = 0;
 	var aWord;
 	var xPosition = parameterValues.textX - 0 + 10;
-
+	xPosition += wigglePosition;
 	var wordWidth = 0;
 	var wordSpace = 0;
 	var wordWidth1 = 0;
-
+	var areWeDrawing = false;
 	// for each word
 	for (var j = 0; j < aLine.words.length; j++) {
 		aWord = aLine.words[j];
@@ -73,27 +84,48 @@ function drawLine(ctx3, currentAudioTime, aLine, thisLineYPosition) {
 			currentLineWidth = ctx3.measureText(aWord.word).width
 					+ (parameterValues.characterSpacing - 0);
 			xPosition = (parameterValues.textX - 0 + 10);
+			xPosition += wigglePosition;
 			thisLineYPosition = thisLineYPosition
 					+ (parameterValues.lineHeight - 0);
 		} else {
 			currentLineWidth += (parameterValues.characterSpacing - 0);
 		}
-
 		// if this is the current word
 		if (aWord.startTime < currentAudioTime
 				&& aWord.endTime > currentAudioTime) {
 			xPosition = drawSelectedText(aWord, currentAudioTime, ctx3,
 					xPosition, thisLineYPosition);
+
+			areWeDrawing = true;
+
 		} else {
 			xPosition = drawUnselectedText(aWord, currentAudioTime, ctx3,
 					xPosition, thisLineYPosition);
 		}
 	}
+	if (isCurrentLine) {
+		console.log(aWord.words[0]);
+	}
+
 	return thisLineYPosition;
 }
 
+var littleCircleX = 0;
+var littleCircleY = 0;
+
 function drawCoveredWord(aWord, xPosition, yPosition, selectedFontSize,
 		theWordWidth, currentAudioTime) {
+
+	var percentComplete = (currentAudioTime - aWord.startTime)
+			/ (aWord.endTime - aWord.startTime);
+
+	var bx = (xPosition - 10);
+	var by = (yPosition - selectedFontSize);
+	var bw = ((theWordWidth * percentComplete) + 10);
+	var bh = (selectedFontSize + 20);
+
+	littleCircleX = bx + bw;
+	littleCircleY = by;
 
 	if (parameterValues.graduatedWordType == 'off') {
 		if (parameterValues.graduatedShadowShow) {
@@ -110,8 +142,6 @@ function drawCoveredWord(aWord, xPosition, yPosition, selectedFontSize,
 		word1Context.fillText(aWord.word, xPosition, yPosition);
 		word1Context.restore();
 	} else {
-		var percentComplete = (currentAudioTime - aWord.startTime)
-				/ (aWord.endTime - aWord.startTime);
 
 		word1Context.save();
 		word1Context.strokeStyle = 'rgba(30,144,255,0)';
@@ -127,11 +157,6 @@ function drawCoveredWord(aWord, xPosition, yPosition, selectedFontSize,
 			word1Context.rect(xPosition, graduatedYPosition, theWordWidth,
 					selectedFontSize * percentComplete);
 		} else if (parameterValues.graduatedWordType == 'vertical') {
-			var bx = (xPosition - 10);
-			var by = (yPosition - selectedFontSize);
-			var bw = ((theWordWidth * percentComplete) + 10);
-			var bh = (selectedFontSize + 20);
-
 			word1Context.rect(bx, by, bw, bh);
 
 			word2Context.rect((bx + bw) - 1, by, (theWordWidth - bw) + 20, bh);
@@ -175,6 +200,18 @@ function drawCoveredWord(aWord, xPosition, yPosition, selectedFontSize,
 		}
 	}
 
+}
+
+function drawLittleCircle(centerX, centerY, radius) {
+	videoContext.save();
+	videoContext.beginPath();
+	videoContext.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+	videoContext.fillStyle = 'blue';
+	videoContext.fill();
+	videoContext.lineWidth = 1;
+	videoContext.strokeStyle = 'red';
+	videoContext.stroke();
+	videoContext.restore();
 }
 
 function drawUnselectedText(aWord, currentAudioTime, ctx3, xPosition, yPosition) {

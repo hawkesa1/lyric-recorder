@@ -181,11 +181,11 @@ div.hiddenDiv
 	padding: 0px;
 	margin: 0px;
 	position: relative;
-	left:820px;
-	top:-603px;
+	left:-402px;
+	top:-602px;
 	border: 1px solid #1a1a1a;
 	background-color:black;
-	opacity:1;
+	opacity:0.8;
 	color:white;
 }
 .parameterGroupLabel

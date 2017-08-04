@@ -392,8 +392,8 @@
           "word": "nervous,",
           "wordIndex": 45,
           "id": "word_11_1",
-          "startTime": 58846.544,
-          "endTime": 59241.708
+          "startTime": 58836.544,
+          "endTime": 59231.708
         },
         {
           "word": "but",
@@ -2098,50 +2098,50 @@
           "word": "This",
           "wordIndex": 269,
           "id": "word_34_0",
-          "startTime": 123432.526,
-          "endTime": 123648.29000000001
+          "startTime": 123597.526,
+          "endTime": 123778.29000000001
         },
         {
           "word": "world",
           "wordIndex": 270,
           "id": "word_34_1",
-          "startTime": 123728.39199999999,
-          "endTime": 123875.59400000001
+          "startTime": 123788.39199999999,
+          "endTime": 124075.59400000001
         },
         {
           "word": "is",
           "wordIndex": 271,
           "id": "word_34_2",
-          "startTime": 123936.085,
-          "endTime": 124160.925
+          "startTime": 124086.085,
+          "endTime": 124230.925
         },
         {
           "word": "mine",
           "wordIndex": 272,
           "id": "word_34_3",
-          "startTime": 124219.36200000001,
-          "endTime": 124522.278
+          "startTime": 124244.36200000001,
+          "endTime": 124497.278
         },
         {
           "word": "for",
           "wordIndex": 273,
           "id": "word_34_4",
-          "startTime": 124585.764,
+          "startTime": 124510.764,
           "endTime": 124719.232
         },
         {
           "word": "the",
           "wordIndex": 274,
           "id": "word_34_5",
-          "startTime": 124788.41,
-          "endTime": 124878.962
+          "startTime": 124733.41,
+          "endTime": 124863.962
         },
         {
           "word": "taking",
           "wordIndex": 275,
           "id": "word_34_6",
-          "startTime": 124939.474,
-          "endTime": 125509.73700000001
+          "startTime": 124874.474,
+          "endTime": 125444.73700000001
         }
       ],
       "startTime": 123432.526,
@@ -2154,14 +2154,14 @@
           "wordIndex": 276,
           "id": "word_35_0",
           "startTime": 125580.032,
-          "endTime": 125769.965
+          "endTime": 125829.965
         },
         {
           "word": "me",
           "wordIndex": 277,
           "id": "word_35_1",
-          "startTime": 125841.513,
-          "endTime": 126050.236
+          "startTime": 125886.513,
+          "endTime": 126095.236
         },
         {
           "word": "king,",
@@ -6245,20 +6245,19 @@
       {
         "id": 0,
         "parameterValues": {
-          "numberOfFutureLines": "0",
-          "numberOfPastLines": "0",
-          "newLineSpacing": "60",
+          "linesPerPage": "2",
+          "newLineSpacing": "103",
           "graduatedWordType": "vertical",
           "graduatedWordThreshold": "0",
           "graduatedWordEasingFunction": "easeOutExpo",
           "graduatedWordOpacity": "1",
           "graduatedWordColour": "#ffffff",
           "graduatedShadowShow": "checked",
-          "graduatedShadowColour": "#000000",
+          "graduatedShadowColour": "#292929",
           "graduatedShadowOffsetX": "5",
           "graduatedShadowOffsetY": "5",
           "graduatedShadowBlur": "10",
-          "backgroundImage": "1500724664040.jpg",
+          "backgroundImage": "1501751685509.jpg",
           "backgroundRepeat": "no-repeat",
           "backgroundImageWidth": "833",
           "backgroundImageHeight": "624",
@@ -6269,14 +6268,14 @@
           "backgroundContainerPositionX": "-21",
           "backgroundContainerPositionY": "-21",
           "backgroundImageRotation": "0",
-          "fontFamily": "Ravie Regular",
+          "fontFamily": "Impact",
           "selectedEasingFunction": "easeOutExpo",
           "selectedEasingDuration": "198",
           "selectedOpacity": "1",
           "selectedFontColour": "#400040",
-          "lineHeight": "30",
+          "lineHeight": "63",
           "characterSpacing": "22",
-          "fontSize": "30",
+          "fontSize": "68",
           "fontSizeIncrease": "0",
           "selectedShadowShow": "checked",
           "selectedShadowColour": "#000000",
@@ -6290,17 +6289,17 @@
           "unselectedShadowOffsetYPast": "5",
           "unselectedShadowBlurPast": "7",
           "unselectedOpacityPast": "0.9",
-          "unselectedFontColourFuture": "#0d0100",
+          "unselectedFontColourFuture": "#ff0080",
           "unselectedShadowShowFuture": "checked",
-          "unselectedShadowColourFuture": "#c0c0c0",
+          "unselectedShadowColourFuture": "#000000",
           "unselectedShadowOffsetXFuture": "5",
           "unselectedShadowOffsetYFuture": "5",
-          "unselectedShadowBlurFuture": "10",
+          "unselectedShadowBlurFuture": "13",
           "unselectedOpacityFuture": "1",
           "backgroundColour": "#ffffff",
-          "textX": "19",
-          "textY": "50",
-          "textWidth": "440",
+          "textX": "60",
+          "textY": "93",
+          "textWidth": "620",
           "textHeight": "422",
           "backgroundShadowShow": "checked",
           "backgroundShadowColour": "#f8f8ff",
@@ -6308,11 +6307,13 @@
           "backgroundOffsetY": "5",
           "backgroundShadowBlur": "7",
           "backgroundOpacity": "0",
-          "videoFPS": "60",
+          "videoFPS": "25",
           "videoWidth": "800",
           "videoHeight": "600",
           "videoFirstFrame": "0",
-          "videoLastFrame": "10000"
+          "videoLastFrame": "100",
+          "numberOfFutureLines": "0",
+          "numberOfPastLines": "0"
         }
       }
     ]
@@ -6322,7 +6323,13 @@
       "startTime": 32504.384000000002,
       "lines": [
         0,
-        1,
+        1
+      ],
+      "endTime": 36984.95
+    },
+    {
+      "startTime": 38626.143,
+      "lines": [
         2,
         3
       ],
@@ -6332,7 +6339,13 @@
       "startTime": 43266.525,
       "lines": [
         4,
-        5,
+        5
+      ],
+      "endTime": 46681.623
+    },
+    {
+      "startTime": 48510.508,
+      "lines": [
         6,
         7
       ],
@@ -6342,7 +6355,13 @@
       "startTime": 51895.747,
       "lines": [
         8,
-        9,
+        9
+      ],
+      "endTime": 55771.143000000004
+    },
+    {
+      "startTime": 55836.356999999996,
+      "lines": [
         10,
         11
       ],
@@ -6352,7 +6371,13 @@
       "startTime": 61518.976,
       "lines": [
         12,
-        13,
+        13
+      ],
+      "endTime": 67006.86
+    },
+    {
+      "startTime": 67147.79299999999,
+      "lines": [
         14,
         15
       ],
@@ -6362,7 +6387,13 @@
       "startTime": 72669.006,
       "lines": [
         16,
-        17,
+        17
+      ],
+      "endTime": 78599.655
+    },
+    {
+      "startTime": 78666.589,
+      "lines": [
         18,
         19
       ],
@@ -6372,7 +6403,13 @@
       "startTime": 83169.761,
       "lines": [
         20,
-        21,
+        21
+      ],
+      "endTime": 88729.96399999999
+    },
+    {
+      "startTime": 88786.171,
+      "lines": [
         22,
         23
       ],
@@ -6382,7 +6419,13 @@
       "startTime": 95439.458,
       "lines": [
         24,
-        25,
+        25
+      ],
+      "endTime": 100499.452
+    },
+    {
+      "startTime": 100570.227,
+      "lines": [
         26,
         27
       ],
@@ -6392,7 +6435,13 @@
       "startTime": 106222.686,
       "lines": [
         28,
-        29,
+        29
+      ],
+      "endTime": 111722.013
+    },
+    {
+      "startTime": 111795.862,
+      "lines": [
         30,
         31
       ],
@@ -6402,7 +6451,13 @@
       "startTime": 117438.516,
       "lines": [
         32,
-        33,
+        33
+      ],
+      "endTime": 123372.16600000001
+    },
+    {
+      "startTime": 123432.526,
+      "lines": [
         34,
         35
       ],
@@ -6412,7 +6467,13 @@
       "startTime": 129001.553,
       "lines": [
         36,
-        37,
+        37
+      ],
+      "endTime": 135837.796
+    },
+    {
+      "startTime": 135895.497,
+      "lines": [
         38,
         39
       ],
@@ -6422,7 +6483,13 @@
       "startTime": 141582.01299999998,
       "lines": [
         40,
-        41,
+        41
+      ],
+      "endTime": 148339.614
+    },
+    {
+      "startTime": 148401.499,
+      "lines": [
         42,
         43
       ],
@@ -6432,7 +6499,13 @@
       "startTime": 153968.152,
       "lines": [
         44,
-        45,
+        45
+      ],
+      "endTime": 163574.235
+    },
+    {
+      "startTime": 163639.626,
+      "lines": [
         46,
         47
       ],
@@ -6442,7 +6515,13 @@
       "startTime": 167782.864,
       "lines": [
         48,
-        49,
+        49
+      ],
+      "endTime": 173307.33000000002
+    },
+    {
+      "startTime": 173379.31,
+      "lines": [
         50,
         51
       ],
@@ -6452,7 +6531,13 @@
       "startTime": 178967.491,
       "lines": [
         52,
-        53,
+        53
+      ],
+      "endTime": 184562.50499999998
+    },
+    {
+      "startTime": 184618.875,
+      "lines": [
         54,
         55
       ],
@@ -6462,7 +6547,13 @@
       "startTime": 190219.362,
       "lines": [
         56,
-        57,
+        57
+      ],
+      "endTime": 195914.046
+    },
+    {
+      "startTime": 195978.802,
+      "lines": [
         58,
         59
       ],
@@ -6472,7 +6563,13 @@
       "startTime": 201849.791,
       "lines": [
         60,
-        61,
+        61
+      ],
+      "endTime": 207349.704
+    },
+    {
+      "startTime": 207458.077,
+      "lines": [
         62,
         63
       ],
@@ -6482,7 +6579,13 @@
       "startTime": 213064.44999999998,
       "lines": [
         64,
-        65,
+        65
+      ],
+      "endTime": 219827.316
+    },
+    {
+      "startTime": 220018.827,
+      "lines": [
         66,
         67
       ],
@@ -6492,7 +6595,13 @@
       "startTime": 225890.23599999998,
       "lines": [
         68,
-        69,
+        69
+      ],
+      "endTime": 231873.89099999997
+    },
+    {
+      "startTime": 231973.176,
+      "lines": [
         70,
         71
       ],
@@ -6502,7 +6611,13 @@
       "startTime": 237790.463,
       "lines": [
         72,
-        73,
+        73
+      ],
+      "endTime": 244039.582
+    },
+    {
+      "startTime": 244100.48599999998,
+      "lines": [
         74,
         75
       ],
@@ -6512,7 +6627,13 @@
       "startTime": 250147.99,
       "lines": [
         76,
-        77,
+        77
+      ],
+      "endTime": 257311.32400000002
+    },
+    {
+      "startTime": 257374.447,
+      "lines": [
         78,
         79
       ],
@@ -6522,7 +6643,13 @@
       "startTime": 263004.878,
       "lines": [
         80,
-        81,
+        81
+      ],
+      "endTime": 268526.697
+    },
+    {
+      "startTime": 268579.529,
+      "lines": [
         82,
         83
       ],

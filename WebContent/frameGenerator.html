@@ -8,14 +8,16 @@
 <script src="./javascript/application/video/easing.js"></script>
 <script src="./javascript/application/video/animation2.js"></script>
 <script src="./javascript/application/video/parameters.js"></script>
-<script src="./javascript/application/frameGenerator/frameGeneratorInitiation.js"></script>
+<script
+	src="./javascript/application/frameGenerator/frameGeneratorInitiation.js"></script>
 <link rel="stylesheet" href="css/video/page1.css" media="screen" />
 <link rel="stylesheet" href="css/video/fonts.css" media="screen" />
-<link rel="stylesheet" href="css/video/frameGenerator.css" media="screen" />
+<link rel="stylesheet" href="css/video/frameGenerator.css"
+	media="screen" />
 </head>
 <body>
 
-	<div id='preloadedFontContainer'  style='position: absolute; top: 700px'></div>
+	<div id='preloadedFontContainer' style='position: absolute; top: 700px'></div>
 	<script>
 		var FONT_LIST = [ "Comicate", "Arial", "XXon XXoff", "C rial",
 				"Wishing Well", "80 Decibels", "Gigi",
@@ -23,9 +25,10 @@
 				"Old English Text MT", "Ravie Regular", "Script MT",
 				"Oreos Outline Regular" ]
 
-		var html="";
+		var html = "";
 		for (var i = 0; i < FONT_LIST.length; i++) {
-			html+="<span style='font-family: "+FONT_LIST[i]+"'>"+FONT_LIST[i]+" </span>";
+			html += "<span style='font-family: "+FONT_LIST[i]+"'>"
+					+ FONT_LIST[i] + " </span>";
 		}
 		document.getElementById("preloadedFontContainer").innerHTML = html;
 	</script>
@@ -33,15 +36,15 @@
 	<div id="backgroundImageContainerContainer">
 		<div id="backgroundImageContainer"></div>
 	</div>
-	
+
 	<canvas id="canvas"></canvas>
 	<canvas id="word1Canvas" width="800" height="600"></canvas>
 	<canvas id="word2Canvas" width="800" height="600"></canvas>
 
 	<div id="controls">
 		<input id="frameRange" type="range" min=0 max=10000 value=2000></input>
-		<input id="frameValue" type="text" value="0"></input>
-		<input id="displayFrame" type="button" value="Display"></input>
+		<input id="frameValue" type="text" value="0"></input> <input
+			id="displayFrame" type="button" value="Display"></input>
 	</div>
 </body>
 
@@ -66,7 +69,7 @@
 	fps = QueryString.fps;
 	pageWidth = QueryString.pageWidth;
 	pageHeight = QueryString.pageHeight;
-	videoScript=QueryString.videoScript;
+	videoScript = QueryString.videoScript;
 
 	// Display it on the page
 	$("#frameRange").val(frameNumber);
@@ -76,6 +79,8 @@
 	canvas.height = pageHeight;
 	console.log("Logging framenumber: " + QueryString.frameNumber);
 	// http://localhost:8080/LyricVideo/test1.html?frameNumber=200&fps=60&pageWidth=800&pageHeight=600
+	loadAllParametersFromFile(videoScript);
+
 	addEventsToFrameInputs();
 	initialiseParameters();
 </script>
