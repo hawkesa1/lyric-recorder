@@ -237,6 +237,10 @@ function enableView(tabItemId, viewId) {
 		
 		//drawVideoPanels('video', 'videoControls');
 		$('#videoControls').show();
+		
+		console.log("Resize for video!!");
+		cleanUpAnalyzer();
+		startVisualisation();
 	}
 }
 

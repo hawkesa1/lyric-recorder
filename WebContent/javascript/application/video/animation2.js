@@ -315,6 +315,8 @@ function setBackgroundSettings(ctx3) {
 			parameterValues.backgroundContainerPositionY,
 			parameterValues.backgroundContainerPositionX)
 
+	setBackgroundColour(parameterValues.backgroundColour);
+
 	ctx3.globalAlpha = parameterValues.backgroundOpacity;
 	ctx3.fillStyle = parameterValues.backgroundColour;
 
@@ -345,6 +347,10 @@ function setBackgroundContainerSize(width, height) {
 function setBackgroundImagePosition(x, y) {
 	$("#backgroundImageContainer").css("background-position",
 			x + "px " + y + "px");
+}
+function setBackgroundColour(backgroundColour) {
+	$("#backgroundImageContainer").css("background-color", backgroundColour);
+
 }
 
 function setBackgroundImageRepeat(backgroundRepeat) {

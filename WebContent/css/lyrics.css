@@ -160,29 +160,32 @@ div.hiddenDiv
 	opacity:0.8;
 }
 #video {
-	overflow-y: auto;
-	width: 800px;
-	height: 600px;
+	overflow: scroll;
+	width: 817px;
+	height: 617px;
 	padding: 0px;
 	margin: 0px;
 	border: 1px solid #1a1a1a;
 	background-color:none;
 	opacity:1;
+	position:relative;
+	top:-602px;
+	
 }
 
 #videoControls {
 	
 	font-family: Calibri;
-	font-size:14px;
+	font-size:16px;
 	
 	overflow-y: auto;
-	width: 400px;
+	width: 310px;
 	height: 600px;
 	padding: 0px;
 	margin: 0px;
 	position: relative;
-	left:-402px;
-	top:-602px;
+	left:-312px;
+	top:25px;
 	border: 1px solid #1a1a1a;
 	background-color:black;
 	opacity:0.8;
@@ -242,7 +245,7 @@ div.hiddenDiv
 	padding-top:5px;
 	padding-bottom:10px;
 	position:relative;
-	top:10px;
+	top:11px;
 }
 
 

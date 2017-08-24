@@ -41,7 +41,7 @@ var parameterInitialiser = {
 		"label" : "Graduated Select",
 		"id" : "graduatedSelect",
 		"parameters" : [ {
-			"label" : "Graduated Word Type",
+			"label" : "Word Type",
 			"name" : "graduatedWordType",
 			"type" : "select",
 			"options" : {
@@ -51,7 +51,7 @@ var parameterInitialiser = {
 			},
 			"action" : "input"
 		}, {
-			"label" : "Graduated Word Threshold",
+			"label" : "Word Threshold",
 			"name" : "graduatedWordThreshold",
 			"type" : "range",
 			"min" : 0,
@@ -161,8 +161,16 @@ var parameterInitialiser = {
 	{
 		"label" : "Background",
 		"id" : "background",
-		"parameters" : [ {
-			"label" : "Background Image",
+		"parameters" : [
+
+		{
+			"label" : "Colour",
+			"name" : "backgroundColour",
+			"type" : "color",
+			"defaultValue" : "#ffb366",
+			"action" : "input"
+		}, {
+			"label" : "Image",
 			"name" : "backgroundImage",
 			"type" : "file",
 			"defaultValue" : "",
@@ -179,7 +187,7 @@ var parameterInitialiser = {
 			},
 			"action" : "input"
 		}, {
-			"label" : "Background Image Width",
+			"label" : "Image Width",
 			"name" : "backgroundImageWidth",
 			"type" : "range",
 			"min" : 0,
@@ -189,7 +197,7 @@ var parameterInitialiser = {
 			"action" : "input"
 
 		}, {
-			"label" : "Background Image Height",
+			"label" : "Image Height",
 			"name" : "backgroundImageHeight",
 			"type" : "range",
 			"min" : 0,
@@ -199,7 +207,7 @@ var parameterInitialiser = {
 			"action" : "input"
 
 		}, {
-			"label" : "Background Position X",
+			"label" : "Position X",
 			"name" : "backgroundImagePositionX",
 			"type" : "range",
 			"min" : 0,
@@ -209,7 +217,7 @@ var parameterInitialiser = {
 			"action" : "input"
 
 		}, {
-			"label" : "Background Position Y",
+			"label" : "Position Y",
 			"name" : "backgroundImagePositionY",
 			"type" : "range",
 			"min" : 0,
@@ -658,7 +666,7 @@ var parameterInitialiser = {
 		}, {
 			"label" : "width",
 			"name" : "videoWidth",
-			"type" : "range",
+			"type" : "pageSizeRange",
 			"min" : 0,
 			"max" : 1920,
 			"step" : 1,
@@ -667,7 +675,7 @@ var parameterInitialiser = {
 		}, {
 			"label" : "videoHeight",
 			"name" : "videoHeight",
-			"type" : "range",
+			"type" : "pageSizeRange",
 			"min" : 0,
 			"max" : 1080,
 			"step" : 1,
@@ -730,17 +738,18 @@ function createParameterGroup(parameterGroup) {
 			+ "</p>";
 	html += "<div class='parameterGroupContent' id='" + parameterGroup.id
 			+ "_content'>";
+	html += "<table>"
 	for (var i = 0; i < parameterGroup.parameters.length; i++) {
 		parameters = parameterGroup.parameters[i];
-		html += "<div>";
+
 		html += createHtmlObject(parameters.label, parameters.name,
 				parameters.type, parameters.defaultValue, parameters.min,
 				parameters.max, parameters.step, parameters.options);
-		html += "</div>";
 
 		// Set the default value
 		parameterValues[parameters.name] = parameters.defaultValue;
 	}
+	html += "</table>"
 	html += "</div>";
 	html += "</div>";
 	return html;
@@ -773,7 +782,18 @@ function createEventListener(parameterName, action, type) {
 				action,
 				function() {
 					parameterValues[parameterName] = this.value;
-					$('#' + parameterName + "_value").html(this.value);
+					$('#' + parameterName + "_value").val(this.value);
+					console.log("Setting value");
+					drawIt1(videoContext,
+							$("#audio").prop("currentTime") * 1000,
+							currentStateStore.lineArray)
+				})
+		$('#' + parameterName+ "_value").on(
+				action,
+				function() {
+					parameterValues[parameterName] = this.value;
+					$('#' + parameterName).val(this.value);
+					console.log("Setting backward value"+this.value);
 					drawIt1(videoContext,
 							$("#audio").prop("currentTime") * 1000,
 							currentStateStore.lineArray)
@@ -823,16 +843,87 @@ function createEventListener(parameterName, action, type) {
 		$('#' + parameterName).on(
 				action,
 				function() {
-					console.log("Yoo");
 					parameterValues[parameterName] = this.value;
-					$('#' + parameterName + "_value").html(this.value);
+					$('#' + parameterName + "_value").val(this.value);
 					generateNewPages();
 					drawIt1(videoContext,
 							$("#audio").prop("currentTime") * 1000,
 							currentStateStore.lineArray)
 				})
+				$('#' + parameterName+ "_value").on(
+				action,
+				function() {
+					parameterValues[parameterName] = this.value;
+					$('#' + parameterName).val(this.value);
+					console.log("Setting backward value"+this.value);
+					generateNewPages();
+					drawIt1(videoContext,
+							$("#audio").prop("currentTime") * 1000,
+							currentStateStore.lineArray)
+				})
+	} else if (type = "pageSizeRange") {
+		$('#' + parameterName).on(
+				action,
+				function() {
+					console.log("Yoo");
+					parameterValues[parameterName] = this.value;
+					$('#' + parameterName + "_value").val(this.value);
+					adjustPageSize();
+					drawIt1(videoContext,
+							$("#audio").prop("currentTime") * 1000,
+							currentStateStore.lineArray)
+				})
+				$('#' + parameterName+ "_value").on(
+				action,
+				function() {
+					parameterValues[parameterName] = this.value;
+					$('#' + parameterName).val(this.value);
+					console.log("Setting backward value"+this.value);
+					adjustPageSize();
+					drawIt1(videoContext,
+							$("#audio").prop("currentTime") * 1000,
+							currentStateStore.lineArray)
+				})
+
 	}
 
+}
+
+function adjustPageSize() {
+	var newPageWidth = parameterValues.videoWidth;
+	var newPageHeight = parameterValues.videoHeight;
+
+	// $('#video').width(newPageWidth);
+	// $('#video').height(newPageHeight);
+
+	$('#backgroundImageContainerContainer').width(newPageWidth);
+	$('#backgroundImageContainerContainer').height(newPageHeight);
+
+	$("#backgroundImageContainer").width(newPageWidth);
+	$("#backgroundImageContainer").height(newPageHeight);
+
+	$("#videoCanvas").attr('width', newPageWidth);
+	$("#videoCanvas").attr('height', newPageHeight);
+	$('#videoCanvas').width(newPageWidth);
+	$('#videoCanvas').height(newPageHeight);
+
+	$("#word1Canvas").attr('width', newPageWidth);
+	$("#word1Canvas").attr('height', newPageHeight);
+	$('#word1Canvas').width(newPageWidth);
+	$('#word1Canvas').height(newPageHeight);
+
+	$("#word2Canvas").attr('width', newPageWidth);
+	$("#word2Canvas").attr('height', newPageHeight);
+	$('#word2Canvas').width(newPageWidth);
+	$('#word2Canvas').height(newPageHeight);
+
+	parameterValues.backgroundContainerWidth = newPageWidth;
+	parameterValues.backgroundContainerHeight = newPageHeight;
+
+	// $('#videoCanvas').width(newPageWidth);
+	// $('#videoCanvas').height(newPageHeight);
+
+	console.log(newPageWidth + " " + newPageHeight);
 }
 
 function createOtherEventListeners() {
@@ -903,12 +994,11 @@ function loadAllParametersFromFile(theVideoScript) {
 	$.getJSON(theVideoScript + ts, function(data) {
 		currentStateStore.trackMetaData = data;
 		currentStateStore.lineArray = data.lyricRecorderSynchronisedLyrics;
-		
+
 		loadParameterSnapshot(data.videoSnapshot.snapshots[0]);
-		
+
 	});
 }
-
 
 var parameterSnapshotId = 0;
 function loadPages(pages) {
@@ -1005,19 +1095,28 @@ function download(text, name, type) {
 function createHtmlObject(parameterLabel, parameterName, parameterType,
 		parameterValue, parameterMin, parameterMax, parameterStep,
 		parameterOptions) {
-	var html = "";
-	html += parameterLabel + " ";
+	var html = "<tr>";
+	html += "<td width='100px'>";
+	html += parameterLabel + "";
+	html += "</td>";
+	html += "<td width='250px'>";
 	if (parameterType == "color") {
 		html += "<input type='color' id='" + parameterName + "' name='"
 				+ parameterName + "' value='" + parameterValue + "'></input>";
-	} else if (parameterType == "range" || parameterType == "numberOfLineRange") {
+		html += "<input class='videControllerValue' type='text' id='"
+			+ parameterName + "_value' value='" + parameterValue + "'>"
+			+ "</input>"
+		
+	} else if (parameterType == "range" || parameterType == "numberOfLineRange"
+			|| parameterType == "pageSizeRange") {
 		html += "<input type='range' id='" + parameterName + "' name='"
 				+ parameterName + "' value='" + parameterValue + "' min='"
 				+ parameterMin + "' max='" + parameterMax + "' step='"
 				+ parameterStep + "'></input>";
 
-		html += "<span id='" + parameterName + "_value'>" + parameterValue
-				+ "</span>"
+		html += "<input class='videControllerValue' type='text' id='"
+				+ parameterName + "_value' value='" + parameterValue + "'>"
+				+ "</input>"
 
 	} else if (parameterType == "checkbox") {
 		html += "<input type='checkbox' id='" + parameterName + "' name='"
@@ -1050,6 +1149,8 @@ function createHtmlObject(parameterLabel, parameterName, parameterType,
 	} else if (parameterType == "pageControl") {
 		html += "<div id='pageControl'></div>"
 	}
+	html += "</td>";
+	html += "</tr>";
 	return html;
 }
 
