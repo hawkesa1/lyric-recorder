@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="shortcut icon" href="">
 <title>lyricrecorder.com</title>
 <link rel="stylesheet" href="css/page.css" media="screen" />
 <link rel="stylesheet" href="css/fileUpload.css" media="screen" />
@@ -120,7 +121,7 @@
 			<div class="buttonType1ContainerSmall">
 				<a href="#" class="buttonType1" id="skipForward5Button">+5</a>
 			</div>
-			
+
 			<div class="buttonType1ContainerSmall">
 				<a href="#" class="buttonType1" id="mute">Mute</a>
 			</div>
@@ -159,15 +160,17 @@
 			</div>
 		</div>
 
-<div class="viewContainer" id="videoControls" style="display: none"></div>
+		<div class="viewContainer" id="videoControls" style="display: none"></div>
 
 		<div id="lyricsContainer">
 			<textarea class="viewContainer" id="lyricText" style="display: none"></textarea>
 			<div class="viewContainer" id="lyrics" style="display: none"></div>
-			
+
 			<div class="viewContainer" id="videoControls" style="display: none"></div>
-			
+
 			<div class="viewContainer" id="video" style="display: none">
+				<object id="svgImage" type="image/svg+xml" data="./svg/hippo.svg"></object>
+
 				<div id="backgroundImageContainerContainer">
 					<div id="backgroundImageContainer"></div>
 				</div>
@@ -175,7 +178,7 @@
 				<canvas id="word1Canvas" width="800" height="600"></canvas>
 				<canvas id="word2Canvas" width="800" height="600"></canvas>
 			</div>
-			
+
 			<div class="viewContainer" id="fileUploadHolder">
 				<p class="holderMessage">Drag an audio file here to begin.
 					Maximum file size 15 Mb. Supported formats include: mp3, wav, wma,
@@ -201,5 +204,27 @@
 
 	</div>
 	<div id="analyzerPlaceholder"></div>
+
+
+
+	<script>
+		var ELEMENT_ID = "svg2";
+		var INITIAL_HIPPO_SCALE=0.15;
+		var HIPPO_WIDTH=512;
+		var HIPPO_HEIGHT=512;
+		var mySVG = document.getElementById("svgImage");
+		var svgDoc;
+		var circ;
+		mySVG.addEventListener("load", function() {
+			svgDoc = mySVG.contentDocument;
+			circ = svgDoc.getElementById(ELEMENT_ID);
+			circ.setAttribute("transform", "scale("+INITIAL_HIPPO_SCALE+")");
+			console.log("Loaded Hippo");
+			
+			//$('#svgImage').detach();
+			//$('#svgImage').appendTo('#video');
+
+		}, false);
+	</script>
 </body>
 </html>

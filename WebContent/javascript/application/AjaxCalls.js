@@ -16,8 +16,6 @@ function loadTutorial() {
 
 }
 
-
-
 function loadATrack(selectedValue) {
 	console.log("SelectedValue:" + selectedValue);
 	var audio = document.getElementById('audio');
@@ -55,10 +53,8 @@ function saveLyricsToBrowser(trackMetaData, songId) {
 
 function generateVideo(trackMetaData, songId) {
 	trackMetaData.lyricRecorderSynchronisedLyrics = currentStateStore.lineArray;
-	
-	
-	
-	trackMetaData.videoSnapshot =generateSingleSnapshot();
+
+	trackMetaData.videoSnapshot = generateSingleSnapshot();
 	trackMetaData.pages = currentStateStore.book.pages;
 	var trackMetaDataAsString = JSON.stringify(trackMetaData, null, 2);
 	saveLyricsToServer(trackMetaDataAsString, songId)
@@ -96,6 +92,83 @@ function loadWaveForm(location, wavFormFile) {
 	function processResponse(text) {
 		lyricTracker.generateWaveForm(text);
 	}
+}
+
+function loadWaveForm2(location, wavFormFile) {
+	$.ajax({
+		type : 'GET',
+		url : location + wavFormFile + '.TXT',
+		data : null,
+		success : function(text) {
+			processResponse(text);
+		}
+	});
+	function processResponse(text) {
+		parameterWavePoints = waveFormTextToArray1(text);
+		console.log(parameterWavePoints.length);
+		console.log("Smoothing")
+		var yHighs = new Array();
+		for ( var i in parameterWavePoints) {
+			yHighs.push(parameterWavePoints[i].yHigh * 1);
+		}
+		var yHighsSmoothed = smooth(yHighs, 0.85);
+		for ( var i in parameterWavePoints) {
+			parameterWavePoints[i].yHigh = yHighsSmoothed[i]
+		}
+
+		console.log(parameterWavePoints.length);
+	}
+}
+
+function smooth(values, alpha) {
+
+	var weighted = average(values) * alpha;
+	console.log("Weighted" + weighted);
+	var smoothed = [];
+	//for ( var i in values) {
+	//	var curr = values[i];
+	//	var prev = smoothed[i - 1] || values[values.length - 1];
+	//	var next = curr || values[0];
+	//	var improved = Number(this.average([ weighted, prev, curr, next ])
+	//			.toFixed(2));
+	//	smoothed.push(improved);
+	//}
+	return smoothed;
+}
+
+function average(data) {
+	console.log("Data:" + data[200]);
+	var sum = data.reduce(function(sum, value) {
+		console.log("sum:"+sum);
+		return sum + value;
+	}, 0);
+	
+	console.log("Final Sum"+sum);
+	var avg = sum / data.length;
+	return avg;
+}
+
+var parameterWavePoints;
+
+function waveFormTextToArray1(waveFormText) {
+	waveFormText = waveFormText.replace(/\\r\\n/g, '\n');
+	var tempLines = waveFormText.split('\n');
+	var wp = 0;
+	var wavePoints = [];
+	var time, yHigh, yLow;
+
+	for (var i = 0; i < tempLines.length; i++) {
+		time = ((tempLines[i].split(',')[0]));
+		yLow = ((tempLines[i].split(',')[1]));
+		yHigh = ((tempLines[i].split(',')[2]));
+		wavePoints[wp++] = new WavePoint1(time, yLow, yHigh);
+	}
+	return wavePoints;
+}
+function WavePoint1(time, yLow, yHigh) {
+	this.time = time;
+	this.yHigh = yHigh;
+	this.yLow = yLow;
 }
 
 function loadLyricsData(location, wavFormFile) {
@@ -148,4 +221,3 @@ function loadLyricsData(location, wavFormFile) {
 		}
 	}
 }
-

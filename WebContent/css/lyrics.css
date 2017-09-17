@@ -159,19 +159,7 @@ div.hiddenDiv
 	background-color:black;
 	opacity:0.8;
 }
-#video {
-	overflow: scroll;
-	width: 817px;
-	height: 617px;
-	padding: 0px;
-	margin: 0px;
-	border: 1px solid #1a1a1a;
-	background-color:none;
-	opacity:1;
-	position:relative;
-	top:-602px;
-	
-}
+
 
 #videoControls {
 	
@@ -180,7 +168,7 @@ div.hiddenDiv
 	
 	overflow-y: auto;
 	width: 310px;
-	height: 600px;
+	height: 617px;
 	padding: 0px;
 	margin: 0px;
 	position: relative;

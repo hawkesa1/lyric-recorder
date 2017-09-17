@@ -1,5 +1,9 @@
 var DEFAULT_CANVAS_WIDTH = 800;
 var DEFAULT_CANVAS_HEIGHT = 600;
+
+var WIDTH_4K=3840;
+var HEIGHT_4K=2160;
+
 var videoScript = "resources/videoScripts/test2.json";
 
 var BACKGROUND_IMAGE_LOCATION = "/images/";
@@ -162,7 +166,6 @@ var parameterInitialiser = {
 		"label" : "Background",
 		"id" : "background",
 		"parameters" : [
-
 		{
 			"label" : "Colour",
 			"name" : "backgroundColour",
@@ -191,7 +194,7 @@ var parameterInitialiser = {
 			"name" : "backgroundImageWidth",
 			"type" : "range",
 			"min" : 0,
-			"max" : 2000,
+			"max" : WIDTH_4K,
 			"step" : 1,
 			"defaultValue" : DEFAULT_CANVAS_WIDTH,
 			"action" : "input"
@@ -201,7 +204,7 @@ var parameterInitialiser = {
 			"name" : "backgroundImageHeight",
 			"type" : "range",
 			"min" : 0,
-			"max" : 2000,
+			"max" : HEIGHT_4K,
 			"step" : 1,
 			"defaultValue" : DEFAULT_CANVAS_HEIGHT,
 			"action" : "input"
@@ -211,7 +214,7 @@ var parameterInitialiser = {
 			"name" : "backgroundImagePositionX",
 			"type" : "range",
 			"min" : 0,
-			"max" : 2000,
+			"max" : WIDTH_4K,
 			"step" : 1,
 			"defaultValue" : DEFAULT_CANVAS_WIDTH,
 			"action" : "input"
@@ -221,7 +224,7 @@ var parameterInitialiser = {
 			"name" : "backgroundImagePositionY",
 			"type" : "range",
 			"min" : 0,
-			"max" : 2000,
+			"max" : HEIGHT_4K,
 			"step" : 1,
 			"defaultValue" : DEFAULT_CANVAS_WIDTH,
 			"action" : "input"
@@ -231,7 +234,7 @@ var parameterInitialiser = {
 			"name" : "backgroundContainerWidth",
 			"type" : "range",
 			"min" : 0,
-			"max" : 2000,
+			"max" : WIDTH_4K,
 			"step" : 1,
 			"defaultValue" : DEFAULT_CANVAS_WIDTH,
 			"action" : "input"
@@ -241,7 +244,7 @@ var parameterInitialiser = {
 			"name" : "backgroundContainerHeight",
 			"type" : "range",
 			"min" : 0,
-			"max" : 2000,
+			"max" : HEIGHT_4K,
 			"step" : 1,
 			"defaultValue" : DEFAULT_CANVAS_HEIGHT,
 			"action" : "input"
@@ -250,8 +253,8 @@ var parameterInitialiser = {
 			"label" : "Container Position X",
 			"name" : "backgroundContainerPositionX",
 			"type" : "range",
-			"min" : -2000,
-			"max" : 2000,
+			"min" : 0,
+			"max" : WIDTH_4K,
 			"step" : 1,
 			"defaultValue" : 0,
 			"action" : "input"
@@ -260,8 +263,8 @@ var parameterInitialiser = {
 			"label" : "Container Position Y",
 			"name" : "backgroundContainerPositionY",
 			"type" : "range",
-			"min" : -2000,
-			"max" : 2000,
+			"min" : 0,
+			"max" : HEIGHT_4K,
 			"step" : 1,
 			"defaultValue" : 0,
 			"action" : "input"
@@ -370,7 +373,7 @@ var parameterInitialiser = {
 			"name" : "lineHeight",
 			"type" : "range",
 			"min" : 0,
-			"max" : 100,
+			"max" : HEIGHT_4K,
 			"step" : 1,
 			"defaultValue" : 40,
 			"action" : "input"
@@ -379,7 +382,7 @@ var parameterInitialiser = {
 			"name" : "characterSpacing",
 			"type" : "range",
 			"min" : 0,
-			"max" : 100,
+			"max" : WIDTH_4K,
 			"step" : 1,
 			"defaultValue" : 30,
 			"action" : "input"
@@ -388,7 +391,7 @@ var parameterInitialiser = {
 			"name" : "fontSize",
 			"type" : "range",
 			"min" : 0,
-			"max" : 400,
+			"max" : 500,
 			"step" : 1,
 			"defaultValue" : 40,
 			"action" : "input"
@@ -397,7 +400,7 @@ var parameterInitialiser = {
 			"name" : "fontSizeIncrease",
 			"type" : "range",
 			"min" : 0,
-			"max" : 50,
+			"max" : 500,
 			"step" : 1,
 			"defaultValue" : 10,
 			"action" : "input"
@@ -562,7 +565,7 @@ var parameterInitialiser = {
 		"id" : "textPosition",
 		"parameters" : [ {
 			"label" : "Background Colour",
-			"name" : "backgroundColour",
+			"name" : "textBackgroundColour",
 			"type" : "color",
 			"defaultValue" : "#ffffff",
 			"action" : "change"
@@ -571,7 +574,7 @@ var parameterInitialiser = {
 			"name" : "textX",
 			"type" : "range",
 			"min" : 0,
-			"max" : DEFAULT_CANVAS_WIDTH,
+			"max" : WIDTH_4K,
 			"step" : 1,
 			"defaultValue" : 20,
 			"action" : "input"
@@ -580,7 +583,7 @@ var parameterInitialiser = {
 			"name" : "textY",
 			"type" : "range",
 			"min" : 0,
-			"max" : DEFAULT_CANVAS_HEIGHT,
+			"max" : HEIGHT_4K,
 			"step" : 1,
 			"defaultValue" : 60,
 			"action" : "input"
@@ -589,7 +592,7 @@ var parameterInitialiser = {
 			"name" : "textWidth",
 			"type" : "range",
 			"min" : 0,
-			"max" : DEFAULT_CANVAS_WIDTH,
+			"max" : WIDTH_4K,
 			"step" : 1,
 			"defaultValue" : 300,
 			"action" : "input"
@@ -598,7 +601,7 @@ var parameterInitialiser = {
 			"name" : "textHeight",
 			"type" : "range",
 			"min" : 0,
-			"max" : DEFAULT_CANVAS_HEIGHT,
+			"max" : HEIGHT_4K,
 			"step" : 1,
 			"defaultValue" : 300,
 			"action" : "input"
@@ -668,7 +671,7 @@ var parameterInitialiser = {
 			"name" : "videoWidth",
 			"type" : "pageSizeRange",
 			"min" : 0,
-			"max" : 1920,
+			"max" : WIDTH_4K,
 			"step" : 1,
 			"defaultValue" : 800,
 			"action" : "input"
@@ -677,10 +680,16 @@ var parameterInitialiser = {
 			"name" : "videoHeight",
 			"type" : "pageSizeRange",
 			"min" : 0,
-			"max" : 1080,
+			"max" : HEIGHT_4K,
 			"step" : 1,
 			"defaultValue" : 600,
 			"action" : "input"
+		}, {
+			"label" : "Windowed",
+			"name" : "showWindowed",
+			"type" : "checkbox",
+			"defaultValue" : "checked",
+			"action" : "click"
 		}, {
 			"label" : "first frame",
 			"name" : "videoFirstFrame",
@@ -783,17 +792,15 @@ function createEventListener(parameterName, action, type) {
 				function() {
 					parameterValues[parameterName] = this.value;
 					$('#' + parameterName + "_value").val(this.value);
-					console.log("Setting value");
 					drawIt1(videoContext,
 							$("#audio").prop("currentTime") * 1000,
 							currentStateStore.lineArray)
 				})
-		$('#' + parameterName+ "_value").on(
+		$('#' + parameterName + "_value").on(
 				action,
 				function() {
 					parameterValues[parameterName] = this.value;
 					$('#' + parameterName).val(this.value);
-					console.log("Setting backward value"+this.value);
 					drawIt1(videoContext,
 							$("#audio").prop("currentTime") * 1000,
 							currentStateStore.lineArray)
@@ -850,12 +857,11 @@ function createEventListener(parameterName, action, type) {
 							$("#audio").prop("currentTime") * 1000,
 							currentStateStore.lineArray)
 				})
-				$('#' + parameterName+ "_value").on(
+		$('#' + parameterName + "_value").on(
 				action,
 				function() {
 					parameterValues[parameterName] = this.value;
 					$('#' + parameterName).val(this.value);
-					console.log("Setting backward value"+this.value);
 					generateNewPages();
 					drawIt1(videoContext,
 							$("#audio").prop("currentTime") * 1000,
@@ -865,7 +871,6 @@ function createEventListener(parameterName, action, type) {
 		$('#' + parameterName).on(
 				action,
 				function() {
-					console.log("Yoo");
 					parameterValues[parameterName] = this.value;
 					$('#' + parameterName + "_value").val(this.value);
 					adjustPageSize();
@@ -873,12 +878,11 @@ function createEventListener(parameterName, action, type) {
 							$("#audio").prop("currentTime") * 1000,
 							currentStateStore.lineArray)
 				})
-				$('#' + parameterName+ "_value").on(
+		$('#' + parameterName + "_value").on(
 				action,
 				function() {
 					parameterValues[parameterName] = this.value;
 					$('#' + parameterName).val(this.value);
-					console.log("Setting backward value"+this.value);
 					adjustPageSize();
 					drawIt1(videoContext,
 							$("#audio").prop("currentTime") * 1000,
@@ -902,6 +906,19 @@ function adjustPageSize() {
 	$("#backgroundImageContainer").width(newPageWidth);
 	$("#backgroundImageContainer").height(newPageHeight);
 
+	// if show windowed
+	if (parameterValues.showWindowed)
+	{
+		$("#video").width("800px");
+		$("#video").height("600px");
+	}
+	else
+	{
+		$("#video").width(newPageWidth);
+		$("#video").height(newPageHeight);
+	}	
+	
+
 	$("#videoCanvas").attr('width', newPageWidth);
 	$("#videoCanvas").attr('height', newPageHeight);
 	$('#videoCanvas').width(newPageWidth);
@@ -922,8 +939,6 @@ function adjustPageSize() {
 
 	// $('#videoCanvas').width(newPageWidth);
 	// $('#videoCanvas').height(newPageHeight);
-
-	console.log(newPageWidth + " " + newPageHeight);
 }
 
 function createOtherEventListeners() {
@@ -960,17 +975,19 @@ function createOtherEventListeners() {
 	$('#' + 'loadParameters').on('click', function() {
 		loadParametersFromFile();
 	})
+	$('#' + 'showWindowed').on('click', function() {
+		adjustPageSize();
+	})
 }
 
 function loadParametersFromFile() {
 	var ts = new Date().getTime();
 	ts = '?' + ts;
-	console.log("videoScript:" + videoScript);
 	$.getJSON(videoScript + ts, function(data) {
+		console.log(data);
 		loadParameterSnapshot(data.videoSnapshot.snapshots[0]);
 		currentStateStore.lineArray = data.lyricRecorderSynchronisedLyrics;
 		if (data.pages) {
-			console.log(data.pages);
 			loadPages(data.pages);
 		} else {
 			generateNewPages()
@@ -981,8 +998,8 @@ function loadParametersFromFile() {
 function loadDefaultParametersFromFile(theVideoScript) {
 	var ts = new Date().getTime();
 	ts = '?' + ts;
-	console.log("videoScript:" + theVideoScript);
 	$.getJSON(theVideoScript + ts, function(data) {
+		console.log(data);
 		loadParameterSnapshot(data.videoSnapshot.snapshots[0]);
 	});
 }
@@ -990,14 +1007,13 @@ function loadDefaultParametersFromFile(theVideoScript) {
 function loadAllParametersFromFile(theVideoScript) {
 	var ts = new Date().getTime();
 	ts = '?' + ts;
-	console.log("videoScript:" + theVideoScript);
 	$.getJSON(theVideoScript + ts, function(data) {
+		console.log(data);
 		currentStateStore.trackMetaData = data;
 		currentStateStore.lineArray = data.lyricRecorderSynchronisedLyrics;
-
 		loadParameterSnapshot(data.videoSnapshot.snapshots[0]);
-
 	});
+
 }
 
 var parameterSnapshotId = 0;
@@ -1006,7 +1022,6 @@ function loadPages(pages) {
 }
 
 function loadParameterSnapshot(parameterSnapshot) {
-	console.log(parameterSnapshot);
 	for ( var key in parameterSnapshot.parameterValues) {
 		if (key == "backgroundImage") {
 			BACKROUND_IMAGE_STORE = parameterSnapshot.parameterValues[key];
@@ -1023,11 +1038,15 @@ function loadParameterSnapshot(parameterSnapshot) {
 	}
 
 	if (parameterSnapshot.pages) {
-		console.log(parameterSnapshot.pages);
 		loadPages(parameterSnapshot.pages);
 	} else {
 		generateNewPages()
 	}
+	adjustPageSize();
+	
+	console.log(parameterSnapshot);
+	console.log("CurrentSongId="+currentStateStore.currentSongId);
+	loadWaveForm2('./resources/wavForm/', currentStateStore.currentSongId);
 }
 
 // When called from the file upload
@@ -1104,9 +1123,9 @@ function createHtmlObject(parameterLabel, parameterName, parameterType,
 		html += "<input type='color' id='" + parameterName + "' name='"
 				+ parameterName + "' value='" + parameterValue + "'></input>";
 		html += "<input class='videControllerValue' type='text' id='"
-			+ parameterName + "_value' value='" + parameterValue + "'>"
-			+ "</input>"
-		
+				+ parameterName + "_value' value='" + parameterValue + "'>"
+				+ "</input>"
+
 	} else if (parameterType == "range" || parameterType == "numberOfLineRange"
 			|| parameterType == "pageSizeRange") {
 		html += "<input type='range' id='" + parameterName + "' name='"
@@ -1161,7 +1180,6 @@ function uploadFile() {
 		if (progressEvent.target.response == "ERROR") {
 
 		} else {
-			console.log(progressEvent.target.response);
 			parameterValues['backgroundImage'] = progressEvent.target.response;
 		}
 	};
@@ -1171,7 +1189,6 @@ function uploadFile() {
 	xhr.upload.onprogress = function(event) {
 		if (event.lengthComputable) {
 			var complete = (event.loaded / event.total * 100 | 0);
-			console.log(complete);
 		}
 	}
 	xhr.send(new FormData($('form')[0]));
@@ -1192,7 +1209,6 @@ function printPages() {
 			}
 			html += "<a href=''>Move Down</a>";
 			html += "<BR>"
-			console.log("Line: " + j)
 		}
 	}
 	$('#pageControl').html(html);
@@ -1204,7 +1220,6 @@ function generateNewPages() {
 	var linesPerPage = parameterValues.linesPerPage;
 	var aLine;
 	var currentPage = -1;
-	console.log(currentStateStore.lineArray);
 	for (var i = 0; i < currentStateStore.lineArray.length; i++) {
 		aLine = currentStateStore.lineArray[i];
 		if (i % linesPerPage === 0) {
@@ -1221,6 +1236,5 @@ function generateNewPages() {
 			currentStateStore.book.pages[currentPage].endTime = aLine.endTime;
 		}
 	}
-	console.log(currentStateStore.book.pages);
 	printPages();
 }

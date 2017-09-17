@@ -1,0 +1,1065 @@
+{
+  "title": "Bugsy Malone",
+  "artist": "Paul Williams",
+  "album": "",
+  "uniqueId": "d96adff7b6646aa5eac89539fff8f43f",
+  "unsynchronisedLyrics": "",
+  "lyricRecorderSynchronisedLyrics": [
+    {
+      "words": [
+        {
+          "word": "He\u0027s",
+          "wordIndex": 0,
+          "id": "word_0_0",
+          "startTime": 7674.438999999999,
+          "endTime": 8029.6269999999995
+        },
+        {
+          "word": "a",
+          "wordIndex": 1,
+          "id": "word_0_1",
+          "startTime": 8077.6050000000005,
+          "endTime": 8223.278
+        },
+        {
+          "word": "sinner",
+          "wordIndex": 2,
+          "id": "word_0_2",
+          "startTime": 8285.766000000001,
+          "endTime": 9199.48
+        }
+      ],
+      "startTime": 7674.438999999999,
+      "endTime": 9199.48
+    },
+    {
+      "words": [
+        {
+          "word": "Candy-coated",
+          "wordIndex": 3,
+          "id": "word_1_0",
+          "startTime": 10173.695,
+          "endTime": 12386.775
+        }
+      ],
+      "startTime": 10173.695,
+      "endTime": 12386.775
+    },
+    {
+      "words": [
+        {
+          "word": "For",
+          "wordIndex": 4,
+          "id": "word_2_0",
+          "startTime": 13252.034,
+          "endTime": 13379.072
+        },
+        {
+          "word": "all",
+          "wordIndex": 5,
+          "id": "word_2_1",
+          "startTime": 13428.260999999999,
+          "endTime": 13636.307999999999
+        },
+        {
+          "word": "his",
+          "wordIndex": 6,
+          "id": "word_2_2",
+          "startTime": 13704.511,
+          "endTime": 13849.276
+        },
+        {
+          "word": "friends",
+          "wordIndex": 7,
+          "id": "word_2_3",
+          "startTime": 13911.757,
+          "endTime": 14464.605000000001
+        }
+      ],
+      "startTime": 13252.034,
+      "endTime": 14464.605000000001
+    },
+    {
+      "words": [
+        {
+          "word": "He",
+          "wordIndex": 8,
+          "id": "word_3_0",
+          "startTime": 14529.196,
+          "endTime": 14656.404
+        },
+        {
+          "word": "always",
+          "wordIndex": 9,
+          "id": "word_3_1",
+          "startTime": 14736.247000000001,
+          "endTime": 15388.342
+        },
+        {
+          "word": "seems",
+          "wordIndex": 10,
+          "id": "word_3_2",
+          "startTime": 15482.245,
+          "endTime": 15911.067
+        },
+        {
+          "word": "to",
+          "wordIndex": 11,
+          "id": "word_3_3",
+          "startTime": 16023.268000000002,
+          "endTime": 16280.716000000002
+        },
+        {
+          "word": "be",
+          "wordIndex": 12,
+          "id": "word_3_4",
+          "startTime": 16343.53,
+          "endTime": 16654.602
+        },
+        {
+          "word": "alone",
+          "wordIndex": 13,
+          "id": "word_3_5",
+          "startTime": 16733.810999999998,
+          "endTime": 17826.004999999997
+        }
+      ],
+      "startTime": 14529.196,
+      "endTime": 17826.004999999997
+    },
+    {
+      "words": [
+        {
+          "word": "But",
+          "wordIndex": 14,
+          "id": "word_4_0",
+          "startTime": 19266.97,
+          "endTime": 19461.457
+        },
+        {
+          "word": "they",
+          "wordIndex": 15,
+          "id": "word_4_1",
+          "startTime": 19509.14,
+          "endTime": 19701.179
+        },
+        {
+          "word": "love",
+          "wordIndex": 16,
+          "id": "word_4_2",
+          "startTime": 19764.559999999998,
+          "endTime": 20188.724000000002
+        },
+        {
+          "word": "him",
+          "wordIndex": 17,
+          "id": "word_4_3",
+          "startTime": 20232.246,
+          "endTime": 20902.916999999998
+        }
+      ],
+      "startTime": 19266.97,
+      "endTime": 20902.916999999998
+    },
+    {
+      "words": [
+        {
+          "word": "Bugsy",
+          "wordIndex": 18,
+          "id": "word_5_0",
+          "startTime": 22375.938000000002,
+          "endTime": 23049.214
+        },
+        {
+          "word": "Malone",
+          "wordIndex": 19,
+          "id": "word_5_1",
+          "startTime": 23118.867000000002,
+          "endTime": 24783.386
+        }
+      ],
+      "startTime": 22375.938000000002,
+      "endTime": 24783.386
+    },
+    {
+      "words": [
+        {
+          "word": "A",
+          "wordIndex": 20,
+          "id": "word_6_0",
+          "startTime": 29592.714,
+          "endTime": 29863.093
+        },
+        {
+          "word": "city",
+          "wordIndex": 21,
+          "id": "word_6_1",
+          "startTime": 29914.121000000003,
+          "endTime": 30364.934
+        },
+        {
+          "word": "slicker",
+          "wordIndex": 22,
+          "id": "word_6_2",
+          "startTime": 30432.813,
+          "endTime": 31361.650999999998
+        }
+      ],
+      "startTime": 29592.714,
+      "endTime": 31361.650999999998
+    },
+    {
+      "words": [
+        {
+          "word": "He",
+          "wordIndex": 23,
+          "id": "word_7_0",
+          "startTime": 32484.783,
+          "endTime": 32851.598000000005
+        },
+        {
+          "word": "can",
+          "wordIndex": 24,
+          "id": "word_7_1",
+          "startTime": 32920.471,
+          "endTime": 33128.621
+        },
+        {
+          "word": "charm",
+          "wordIndex": 25,
+          "id": "word_7_2",
+          "startTime": 33191.749,
+          "endTime": 33610.320999999996
+        },
+        {
+          "word": "you",
+          "wordIndex": 26,
+          "id": "word_7_3",
+          "startTime": 33691.611000000004,
+          "endTime": 34328.684
+        }
+      ],
+      "startTime": 32484.783,
+      "endTime": 34328.684
+    },
+    {
+      "words": [
+        {
+          "word": "With",
+          "wordIndex": 27,
+          "id": "word_8_0",
+          "startTime": 34391.561,
+          "endTime": 34505.947
+        },
+        {
+          "word": "a",
+          "wordIndex": 28,
+          "id": "word_8_1",
+          "startTime": 34550.352,
+          "endTime": 34635.149
+        },
+        {
+          "word": "smile",
+          "wordIndex": 29,
+          "id": "word_8_2",
+          "startTime": 34696.115,
+          "endTime": 35514.456000000006
+        },
+        {
+          "word": "and",
+          "wordIndex": 30,
+          "id": "word_8_3",
+          "startTime": 35864.947,
+          "endTime": 36024.855
+        },
+        {
+          "word": "a",
+          "wordIndex": 31,
+          "id": "word_8_4",
+          "startTime": 36073.033,
+          "endTime": 36156.05699999999
+        },
+        {
+          "word": "style",
+          "wordIndex": 32,
+          "id": "word_8_5",
+          "startTime": 36218.832,
+          "endTime": 37069.032
+        },
+        {
+          "word": "all",
+          "wordIndex": 33,
+          "id": "word_8_6",
+          "startTime": 37194.702999999994,
+          "endTime": 37390.422
+        },
+        {
+          "word": "his",
+          "wordIndex": 34,
+          "id": "word_8_7",
+          "startTime": 37469.775,
+          "endTime": 37661.873
+        },
+        {
+          "word": "own",
+          "wordIndex": 35,
+          "id": "word_8_8",
+          "startTime": 37731.923,
+          "endTime": 39054.825000000004
+        }
+      ],
+      "startTime": 34391.561,
+      "endTime": 39054.825000000004
+    },
+    {
+      "words": [
+        {
+          "word": "Everybody",
+          "wordIndex": 36,
+          "id": "word_9_0",
+          "startTime": 40321.267,
+          "endTime": 41580.257000000005
+        },
+        {
+          "word": "loves",
+          "wordIndex": 37,
+          "id": "word_9_1",
+          "startTime": 41691.296,
+          "endTime": 42296.623
+        },
+        {
+          "word": "that",
+          "wordIndex": 38,
+          "id": "word_9_2",
+          "startTime": 42372.246,
+          "endTime": 42714.149999999994
+        },
+        {
+          "word": "man",
+          "wordIndex": 39,
+          "id": "word_9_3",
+          "startTime": 42795.316999999995,
+          "endTime": 43797.549
+        }
+      ],
+      "startTime": 40321.267,
+      "endTime": 43797.549
+    },
+    {
+      "words": [
+        {
+          "word": "Bugsy",
+          "wordIndex": 40,
+          "id": "word_10_0",
+          "startTime": 44292.847,
+          "endTime": 44929.185
+        },
+        {
+          "word": "Malone",
+          "wordIndex": 41,
+          "id": "word_10_1",
+          "startTime": 45007.659,
+          "endTime": 45930.962
+        }
+      ],
+      "startTime": 44292.847,
+      "endTime": 45930.962
+    },
+    {
+      "words": [
+        {
+          "word": "Hot-headed",
+          "wordIndex": 42,
+          "id": "word_11_0",
+          "startTime": 54477.477,
+          "endTime": 55188.130000000005
+        },
+        {
+          "word": "Bugsy",
+          "wordIndex": 43,
+          "id": "word_11_1",
+          "startTime": 55312.791,
+          "endTime": 55987.689000000006
+        },
+        {
+          "word": "makes",
+          "wordIndex": 44,
+          "id": "word_11_2",
+          "startTime": 56146.296,
+          "endTime": 56378.264
+        },
+        {
+          "word": "his",
+          "wordIndex": 45,
+          "id": "word_11_3",
+          "startTime": 56473.594,
+          "endTime": 56702.467
+        },
+        {
+          "word": "mind",
+          "wordIndex": 46,
+          "id": "word_11_4",
+          "startTime": 56793.388,
+          "endTime": 57706.859000000004
+        },
+        {
+          "word": "up",
+          "wordIndex": 47,
+          "id": "word_11_5",
+          "startTime": 57830.961,
+          "endTime": 58411.017
+        }
+      ],
+      "startTime": 54477.477,
+      "endTime": 58411.017
+    },
+    {
+      "words": [
+        {
+          "word": "Don\u0027t",
+          "wordIndex": 48,
+          "id": "word_12_0",
+          "startTime": 59753.217,
+          "endTime": 59956.048
+        },
+        {
+          "word": "mess",
+          "wordIndex": 49,
+          "id": "word_12_1",
+          "startTime": 60046.560999999994,
+          "endTime": 60309.924
+        },
+        {
+          "word": "with",
+          "wordIndex": 50,
+          "id": "word_12_2",
+          "startTime": 60397.475,
+          "endTime": 60528.114
+        },
+        {
+          "word": "Bugsy",
+          "wordIndex": 51,
+          "id": "word_12_3",
+          "startTime": 60596.850000000006,
+          "endTime": 61273.167
+        },
+        {
+          "word": "or",
+          "wordIndex": 52,
+          "id": "word_12_4",
+          "startTime": 61398.167,
+          "endTime": 61603.234000000004
+        },
+        {
+          "word": "you\u0027ll",
+          "wordIndex": 53,
+          "id": "word_12_5",
+          "startTime": 61689.342000000004,
+          "endTime": 61955.261
+        },
+        {
+          "word": "wind",
+          "wordIndex": 54,
+          "id": "word_12_6",
+          "startTime": 62046.039,
+          "endTime": 62919.161
+        },
+        {
+          "word": "up",
+          "wordIndex": 55,
+          "id": "word_12_7",
+          "startTime": 63055.718,
+          "endTime": 63497.648
+        }
+      ],
+      "startTime": 59753.217,
+      "endTime": 63497.648
+    },
+    {
+      "words": [
+        {
+          "word": "Wishing",
+          "wordIndex": 56,
+          "id": "word_13_0",
+          "startTime": 65001.543999999994,
+          "endTime": 65136.351
+        },
+        {
+          "word": "you\u0027d",
+          "wordIndex": 57,
+          "id": "word_13_1",
+          "startTime": 65230.041,
+          "endTime": 65521.078
+        },
+        {
+          "word": "left",
+          "wordIndex": 58,
+          "id": "word_13_2",
+          "startTime": 65620.16900000001,
+          "endTime": 65848.921
+        },
+        {
+          "word": "well",
+          "wordIndex": 59,
+          "id": "word_13_3",
+          "startTime": 65937.439,
+          "endTime": 66266.765
+        },
+        {
+          "word": "enough",
+          "wordIndex": 60,
+          "id": "word_13_4",
+          "startTime": 66363.367,
+          "endTime": 66905.732
+        },
+        {
+          "word": "alone",
+          "wordIndex": 61,
+          "id": "word_13_5",
+          "startTime": 67008.43999999999,
+          "endTime": 68399.147
+        }
+      ],
+      "startTime": 65001.543999999994,
+      "endTime": 68399.147
+    },
+    {
+      "words": [
+        {
+          "word": "He\u0027s",
+          "wordIndex": 62,
+          "id": "word_14_0",
+          "startTime": 70183.317,
+          "endTime": 70312.516
+        },
+        {
+          "word": "a",
+          "wordIndex": 63,
+          "id": "word_14_1",
+          "startTime": 70407.281,
+          "endTime": 70526.269
+        },
+        {
+          "word": "man,",
+          "wordIndex": 64,
+          "id": "word_14_2",
+          "startTime": 70616.26,
+          "endTime": 70830.711
+        },
+        {
+          "word": "a",
+          "wordIndex": 65,
+          "id": "word_14_3",
+          "startTime": 70921.25,
+          "endTime": 71185.237
+        },
+        {
+          "word": "mountain",
+          "wordIndex": 66,
+          "id": "word_14_4",
+          "startTime": 71278.02900000001,
+          "endTime": 71537.17199999999
+        }
+      ],
+      "startTime": 70183.317,
+      "endTime": 71537.17199999999
+    },
+    {
+      "words": [
+        {
+          "word": "He\u0027s",
+          "wordIndex": 67,
+          "id": "word_15_0",
+          "startTime": 71635.32100000001,
+          "endTime": 71727.396
+        },
+        {
+          "word": "a",
+          "wordIndex": 68,
+          "id": "word_15_1",
+          "startTime": 71827.444,
+          "endTime": 71920.485
+        },
+        {
+          "word": "rolling",
+          "wordIndex": 69,
+          "id": "word_15_2",
+          "startTime": 71999.883,
+          "endTime": 72327.34700000001
+        },
+        {
+          "word": "stone",
+          "wordIndex": 70,
+          "id": "word_15_3",
+          "startTime": 72452.32400000001,
+          "endTime": 73198.91200000001
+        }
+      ],
+      "startTime": 71635.32100000001,
+      "endTime": 73198.91200000001
+    },
+    {
+      "words": [
+        {
+          "word": "And",
+          "wordIndex": 71,
+          "id": "word_16_0",
+          "startTime": 75670.54299999999,
+          "endTime": 75825.018
+        },
+        {
+          "word": "when",
+          "wordIndex": 72,
+          "id": "word_16_1",
+          "startTime": 75924.072,
+          "endTime": 76115.064
+        },
+        {
+          "word": "he\u0027",
+          "wordIndex": 73,
+          "id": "word_16_2",
+          "startTime": 76178.072,
+          "endTime": 76410.663
+        },
+        {
+          "word": "II",
+          "wordIndex": 74,
+          "id": "word_16_3",
+          "startTime": 76469.135,
+          "endTime": 76840.197
+        },
+        {
+          "word": "leave",
+          "wordIndex": 75,
+          "id": "word_16_4",
+          "startTime": 76938.29100000001,
+          "endTime": 77480.57400000001
+        },
+        {
+          "word": "you",
+          "wordIndex": 76,
+          "id": "word_16_5",
+          "startTime": 77547.417,
+          "endTime": 77970.57100000001
+        }
+      ],
+      "startTime": 75670.54299999999,
+      "endTime": 77970.57100000001
+    },
+    {
+      "words": [
+        {
+          "word": "Sad",
+          "wordIndex": 77,
+          "id": "word_17_0",
+          "startTime": 78484.301,
+          "endTime": 78863.477
+        },
+        {
+          "word": "and",
+          "wordIndex": 78,
+          "id": "word_17_1",
+          "startTime": 78987.866,
+          "endTime": 79153.9
+        },
+        {
+          "word": "lonely,",
+          "wordIndex": 79,
+          "id": "word_17_2",
+          "startTime": 79251.954,
+          "endTime": 80322.742
+        },
+        {
+          "word": "crying",
+          "wordIndex": 80,
+          "id": "word_17_3",
+          "startTime": 80447.772,
+          "endTime": 80713.175
+        }
+      ],
+      "startTime": 78484.301,
+      "endTime": 80713.175
+    },
+    {
+      "words": [
+        {
+          "word": "I",
+          "wordIndex": 81,
+          "id": "word_18_0",
+          "startTime": 80838.61899999999,
+          "endTime": 81805.929
+        },
+        {
+          "word": "couldn\u0027t",
+          "wordIndex": 82,
+          "id": "word_18_1",
+          "startTime": 81943.268,
+          "endTime": 82072.106
+        },
+        {
+          "word": "say,",
+          "wordIndex": 83,
+          "id": "word_18_2",
+          "startTime": 82161.60800000001,
+          "endTime": 83075.468
+        },
+        {
+          "word": "but",
+          "wordIndex": 84,
+          "id": "word_18_3",
+          "startTime": 83236.306,
+          "endTime": 83392.92899999999
+        },
+        {
+          "word": "it\u0027s",
+          "wordIndex": 85,
+          "id": "word_18_4",
+          "startTime": 83492.03199999999,
+          "endTime": 83658.282
+        },
+        {
+          "word": "known",
+          "wordIndex": 86,
+          "id": "word_18_5",
+          "startTime": 83785.35399999999,
+          "endTime": 85935.98400000001
+        }
+      ],
+      "startTime": 80838.61899999999,
+      "endTime": 85935.98400000001
+    },
+    {
+      "words": [
+        {
+          "word": "That",
+          "wordIndex": 87,
+          "id": "word_19_0",
+          "startTime": 86305.298,
+          "endTime": 86472.701
+        },
+        {
+          "word": "everybody",
+          "wordIndex": 88,
+          "id": "word_19_1",
+          "startTime": 86551.048,
+          "endTime": 87492.42099999999
+        },
+        {
+          "word": "wants",
+          "wordIndex": 89,
+          "id": "word_19_2",
+          "startTime": 87680.22899999999,
+          "endTime": 88096.12
+        },
+        {
+          "word": "that",
+          "wordIndex": 90,
+          "id": "word_19_3",
+          "startTime": 88258.237,
+          "endTime": 88710.682
+        },
+        {
+          "word": "man",
+          "wordIndex": 91,
+          "id": "word_19_4",
+          "startTime": 88867.14499999999,
+          "endTime": 90141.30099999999
+        }
+      ],
+      "startTime": 86305.298,
+      "endTime": 90141.30099999999
+    },
+    {
+      "words": [
+        {
+          "word": "Bugsy",
+          "wordIndex": 92,
+          "id": "word_20_0",
+          "startTime": 90527.371,
+          "endTime": 91096.26
+        },
+        {
+          "word": "Malone",
+          "wordIndex": 93,
+          "id": "word_20_1",
+          "startTime": 91256.799,
+          "endTime": 92495.068
+        }
+      ],
+      "startTime": 90527.371,
+      "endTime": 92495.068
+    }
+  ],
+  "md5Hash": "d96adff7b6646aa5eac89539fff8f43f",
+  "originalFileName": "Bugsy Malone - Bugsy Malone.mp3",
+  "allTags": {
+    "ACOUSTIC": "",
+    "TRACK": "1",
+    "ARTISTS": "",
+    "ORIGINAL_YEAR": "",
+    "TRACK_TOTAL": "",
+    "RECORD_LABEL": "",
+    "MUSICBRAINZ_RELEASEID": "",
+    "GENRE": "",
+    "MOOD_VALENCE": "",
+    "FBPM": "",
+    "MUSICBRAINZ_ARTISTID": "",
+    "ACOUSTID_FINGERPRINT": "",
+    "ALBUM_ARTIST_SORT": "",
+    "TIMBRE": "",
+    "URL_DISCOGS_RELEASE_SITE": "",
+    "MEDIA": "",
+    "BARCODE": "",
+    "MUSICBRAINZ_RELEASE_TYPE": "",
+    "AMAZON_ID": "",
+    "MUSICBRAINZ_RELEASE_TRACK_ID": "",
+    "CONDUCTOR": "",
+    "MUSICBRAINZ_TRACK_ID": "",
+    "URL_LYRICS_SITE": "",
+    "ALBUM_SORT": "",
+    "URL_WIKIPEDIA_RELEASE_SITE": "",
+    "ARTIST": "Paul Williams",
+    "ORCHESTRA": "",
+    "ISRC": "",
+    "ARTIST_SORT": "",
+    "COMMENT": "",
+    "WORK": "",
+    "MUSICBRAINZ_RELEASE_GROUP_ID": "",
+    "PERFORMER": "",
+    "ORIGINAL_ALBUM": "",
+    "RATING": "",
+    "MOOD_AROUSAL": "",
+    "MUSICBRAINZ_DISC_ID": "",
+    "SCRIPT": "",
+    "MUSICBRAINZ_ORIGINAL_RELEASE_ID": "",
+    "TONALITY": "",
+    "PRODUCER": "",
+    "GROUPING": "",
+    "IS_COMPILATION": "",
+    "KEY": "",
+    "MUSICIP_ID": "",
+    "MOOD_DANCEABILITY": "",
+    "URL_OFFICIAL_RELEASE_SITE": "",
+    "MUSICBRAINZ_WORK_ID": "",
+    "LYRICIST": "",
+    "URL_WIKIPEDIA_ARTIST_SITE": "",
+    "LANGUAGE": "",
+    "CATALOG_NO": "",
+    "COUNTRY": "",
+    "LYRICRECORDER.COM": "",
+    "ORIGINAL_ARTIST": "",
+    "TEMPO": "",
+    "MOOD_RELAXED": "",
+    "MUSICBRAINZ_RELEASE_STATUS": "",
+    "DISC_SUBTITLE": "",
+    "DJMIXER": "",
+    "DISC_NO": "",
+    "YEAR": "",
+    "PART": "",
+    "MUSICBRAINZ_RELEASE_COUNTRY": "",
+    "COMPOSER": "",
+    "MOOD_HAPPY": "",
+    "MUSICBRAINZ_RELEASEARTISTID": "",
+    "TITLE_SORT": "",
+    "URL_DISCOGS_ARTIST_SITE": "",
+    "MIXER": "",
+    "COMPOSER_SORT": "",
+    "QUALITY": "",
+    "ENGINEER": "",
+    "ALBUM": "",
+    "LYRICS": "",
+    "MOOD_PARTY": "",
+    "ALBUM_ARTIST": "",
+    "ACOUSTID_ID": "",
+    "ARRANGER": "",
+    "BPM": "",
+    "MOOD_AGGRESSIVE": "",
+    "ELECTRONIC": "",
+    "COVER_ART": "",
+    "SUBTITLE": "",
+    "TAGS": "",
+    "DISC_TOTAL": "",
+    "MOOD_SAD": "",
+    "MOOD": "",
+    "ENCODER": "",
+    "REMIXER": "",
+    "ORIGINAL_LYRICIST": "",
+    "OCCASION": "",
+    "CUSTOM1": "",
+    "CUSTOM2": "",
+    "CUSTOM3": "",
+    "CUSTOM4": "",
+    "CUSTOM5": "",
+    "INSTRUMENTAL": "",
+    "URL_OFFICIAL_ARTIST_SITE": "",
+    "TITLE": "Bugsy Malone"
+  },
+  "videoSnapshot": {
+    "snapshots": [
+      {
+        "id": 0,
+        "parameterValues": {
+          "linesPerPage": "2",
+          "newLineSpacing": "302",
+          "graduatedWordType": "vertical",
+          "graduatedWordThreshold": "0",
+          "graduatedWordEasingFunction": "easeOutExpo",
+          "graduatedWordOpacity": "1",
+          "graduatedWordColour": "#ffffff",
+          "graduatedShadowShow": "checked",
+          "graduatedShadowColour": "#292929",
+          "graduatedShadowOffsetX": "5",
+          "graduatedShadowOffsetY": "5",
+          "graduatedShadowBlur": "10",
+          "backgroundColour": "#56e970",
+          "backgroundImage": "1503820922625.jpg",
+          "backgroundRepeat": "no-repeat",
+          "backgroundImageWidth": "1920",
+          "backgroundImageHeight": "1080",
+          "backgroundImagePositionX": "0",
+          "backgroundImagePositionY": "0",
+          "backgroundContainerWidth": "1920",
+          "backgroundContainerHeight": "1080",
+          "backgroundContainerPositionX": "0",
+          "backgroundContainerPositionY": "0",
+          "backgroundImageRotation": "0",
+          "fontFamily": "Impact",
+          "selectedEasingFunction": "easeOutExpo",
+          "selectedEasingDuration": "198",
+          "selectedOpacity": "1",
+          "selectedFontColour": "#400040",
+          "lineHeight": "165",
+          "characterSpacing": "21",
+          "fontSize": "162",
+          "fontSizeIncrease": "0",
+          "selectedShadowShow": "checked",
+          "selectedShadowColour": "#000000",
+          "selectedShadowOffsetX": "5",
+          "selectedShadowOffsetY": "5",
+          "selectedShadowBlur": "10",
+          "unselectedFontColourPast": "#ffffff",
+          "unselectedShadowShowPast": "checked",
+          "unselectedShadowColourPast": "#000000",
+          "unselectedShadowOffsetXPast": "5",
+          "unselectedShadowOffsetYPast": "5",
+          "unselectedShadowBlurPast": "7",
+          "unselectedOpacityPast": "0.1",
+          "unselectedFontColourFuture": "#5eef56",
+          "unselectedShadowShowFuture": "checked",
+          "unselectedShadowColourFuture": "#000000",
+          "unselectedShadowOffsetXFuture": "5",
+          "unselectedShadowOffsetYFuture": "5",
+          "unselectedShadowBlurFuture": "13",
+          "unselectedOpacityFuture": "1",
+          "textBackgroundColour": "#eb3fb7",
+          "textX": "244",
+          "textY": "339",
+          "textWidth": "1546",
+          "textHeight": "1080",
+          "backgroundShadowShow": false,
+          "backgroundShadowColour": "#f8f8ff",
+          "backgroundShadowOffsetX": "5",
+          "backgroundOffsetY": "5",
+          "backgroundShadowBlur": "7",
+          "backgroundOpacity": "0",
+          "videoFPS": "60",
+          "videoWidth": "1920",
+          "videoHeight": "1080",
+          "showWindowed": false,
+          "videoFirstFrame": "4950",
+          "videoLastFrame": "5000",
+          "numberOfFutureLines": "0",
+          "numberOfPastLines": "0"
+        }
+      }
+    ]
+  },
+  "pages": [
+    {
+      "startTime": 7674.438999999999,
+      "lines": [
+        0,
+        1
+      ],
+      "endTime": 12386.775
+    },
+    {
+      "startTime": 13252.034,
+      "lines": [
+        2,
+        3
+      ],
+      "endTime": 17826.004999999997
+    },
+    {
+      "startTime": 19266.97,
+      "lines": [
+        4,
+        5
+      ],
+      "endTime": 24783.386
+    },
+    {
+      "startTime": 29592.714,
+      "lines": [
+        6,
+        7
+      ],
+      "endTime": 34328.684
+    },
+    {
+      "startTime": 34391.561,
+      "lines": [
+        8,
+        9
+      ],
+      "endTime": 43797.549
+    },
+    {
+      "startTime": 44292.847,
+      "lines": [
+        10,
+        11
+      ],
+      "endTime": 58411.017
+    },
+    {
+      "startTime": 59753.217,
+      "lines": [
+        12,
+        13
+      ],
+      "endTime": 68399.147
+    },
+    {
+      "startTime": 70183.317,
+      "lines": [
+        14,
+        15
+      ],
+      "endTime": 73198.91200000001
+    },
+    {
+      "startTime": 75670.54299999999,
+      "lines": [
+        16,
+        17
+      ],
+      "endTime": 80713.175
+    },
+    {
+      "startTime": 80838.61899999999,
+      "lines": [
+        18,
+        19
+      ],
+      "endTime": 90141.30099999999
+    },
+    {
+      "startTime": 90527.371,
+      "lines": [
+        20
+      ]
+    }
+  ]
+}

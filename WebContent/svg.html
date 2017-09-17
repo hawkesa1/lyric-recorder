@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+	<object id="svgImage" width="200" height="200" type="image/svg+xml"
+		data="./svg/hippo.svg"></object>
+
+	<script>
+		var ELEMENT_ID="svg2";
+		var mySVG = document.getElementById("svgImage");
+		var svgDoc;
+		mySVG.addEventListener("load", function() {
+			svgDoc = mySVG.contentDocument;
+			var circ=svgDoc.getElementById(ELEMENT_ID);
+			circ.setAttribute("transform", "scale(0.2)");
+		}, false);
+	</script>
+
+</body>
+</html>

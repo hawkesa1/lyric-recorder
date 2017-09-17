@@ -1,3 +1,5 @@
+
+
 var FileUploader = function(container) {
 	this.bindEvents(container, this);
 };
@@ -164,11 +166,8 @@ FileUploader.prototype.readFiles = function(files) {
 }
 
 function processANewlyUploadedMusicFile(json) {
-	console.log("processANewlyUploadedMusicFile");
 	resetStuff();
 	currentStateStore.trackMetaData = json;
-	
-	console.log(currentStateStore.trackMetaData);
 	currentStateStore.currentSongId = json.uniqueId;
 	updateConsole('<p>* Processing  ...</p>');
 	setTimeout(
@@ -182,18 +181,15 @@ function processANewlyUploadedMusicFile(json) {
 }
 
 function processAJSONFile(trackMetaData) {
-	console.log("processAJSONFile");
 	resetStuff();
 	currentStateStore.trackMetaData = trackMetaData;
-	
 	var uniqueId = trackMetaData.uniqueId;
+	currentStateStore.currentSongId=uniqueId;
 	loadATrack2(uniqueId);
 	loadMetaData(trackMetaData);
-	console.log(trackMetaData);
 	if (trackMetaData.videoSnapshot.snapshots[0]) {
 		loadParameterSnapshot(trackMetaData.videoSnapshot.snapshots[0]);
 	}
-	console.log(currentStateStore);
 }
 
 function loadMetaData(trackMetaData) {
@@ -205,7 +201,6 @@ function loadMetaData(trackMetaData) {
 	enableView("enableWordView", "lyrics");
 }
 function resetStuff() {
-	console.log("Reset Stuff");
 	currentStateStore = new CurrentStateStore();
 }
 

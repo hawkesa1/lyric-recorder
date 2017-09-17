@@ -84,11 +84,10 @@ body {
 }
 
 #controls {
-	position: absolute;
-	top: 10px;
-	left: 850px;
+	
 	overflow-y: scroll;
 	border: 1px solid black;
 	width: 600px;
-	height: 600px;
+	position:absolute;
+	top:2000px;
 }

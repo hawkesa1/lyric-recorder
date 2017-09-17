@@ -1,10 +1,27 @@
+var time0l;
+var time02;
+var timesTotal = 0;
+var timesCounter = 0;
+
 function drawIt1(ctx3, currentAudioTime) {
+	time01 = performance.now();
+
 	clearContexts(ctx3);
-	ctx3.save();
+
 	setBackgroundSettings(ctx3);
-	ctx3.restore();
+
 	drawPages(ctx3, currentAudioTime);
-	return ctx3;
+
+	time02 = performance.now();
+
+	timesCounter++;
+	timesTotal += (time02 - time01);
+	if (timesCounter % 100 == 0) {
+
+		console.log(1 / (timesTotal / 100) + "FPS");
+		timesTotal = 0;
+		timesCounter = 0;
+	}
 }
 
 function clearContexts(ctx3) {
@@ -14,8 +31,47 @@ function clearContexts(ctx3) {
 	word2Context.clearRect(0, 0, word1Context.canvas.clientWidth,
 			word1Context.canvas.clientHeight);
 }
+var circleTransformRatio = 0;
+var previousCircleTransformRatio = 0;
+var smoothHippo = 0;
+var smoothHippoCount = 0;
+var currentWholeUnitTime = 0;
+var currentYHigh = 0;
 
 function drawPages(ctx3, currentAudioTime) {
+
+	ctx3.save();
+	ctx3.globalAlpha = parameterValues.backgroundOpacity;
+	ctx3.fillStyle = parameterValues.textBackgroundColour;
+
+	if (parameterValues.backgroundShadowShow) {
+		ctx3.shadowColor = parameterValues.backgroundShadowColour;
+		ctx3.shadowOffsetX = parameterValues.backgroundShadowOffsetX;
+		ctx3.shadowOffsetY = parameterValues.backgroundShadowOffsetY;
+		ctx3.shadowBlur = parameterValues.backgroundShadowBlur;
+	}
+	ctx3.fillRect(parameterValues.textX, parameterValues.textY - 40,
+			parameterValues.textWidth, parameterValues.textHeight);
+	ctx3.restore();
+
+	currentWholeUnitTime = parseInt(Math.ceil(currentAudioTime / 10));
+
+	if (circ && parameterWavePoints) {
+		currentYHigh = (parameterWavePoints[parseInt(currentWholeUnitTime)].yHigh) / 100;
+		circleTransformRatio = INITIAL_HIPPO_SCALE
+				+ (currentYHigh * 0.075);
+
+		console.log(currentYHigh);
+
+		circ.setAttribute("transform", "scale(" + circleTransformRatio + ")");
+		var hippoPosX = 200 - ((circleTransformRatio * HIPPO_WIDTH) / 2);
+		var hippoPosY = 200 - ((circleTransformRatio * HIPPO_HEIGHT) / 2);
+		mySVG.style.left = hippoPosX + "px";
+		mySVG.style.top = hippoPosY + "px";
+
+		previousCircleTransformRatio = circleTransformRatio;
+	}
+
 	var aPage;
 	outer_loop: for (var i = 0; i < currentStateStore.book.pages.length; i++) {
 		// console.log("Drawing linezzzz:" + i);
@@ -34,12 +90,10 @@ function drawPage(ctx3, currentAudioTime, aPage) {
 	var aLineYPosition = parameterValues.textY - 0;
 	wigglePosition = Math.sin((currentAudioTime / 500)) * 5;
 	var isCurrentLine = false;
-
 	for (var i = 0; i < aPage.lines.length; i++) {
 		if (i != 0) {
 			aLineYPosition += (parameterValues.newLineSpacing - 0);
 		}
-
 		if (aPage.lines[i].startTime > currentAudioTime
 				&& aPage.lines[i].endTime < currentAudioTime) {
 			isCurrentLine = true;
@@ -48,7 +102,7 @@ function drawPage(ctx3, currentAudioTime, aPage) {
 		aLineYPosition = drawALine(ctx3, currentAudioTime, aPage.lines[i],
 				aLineYPosition, isCurrentLine);
 	}
-	drawLittleCircle(littleCircleX, littleCircleY, 10);
+	drawLittleCircle(ctx3, littleCircleX, littleCircleY, 10, currentAudioTime);
 }
 
 function drawALine(ctx3, currentAudioTime, lineNumber, aLineYPosition,
@@ -158,17 +212,13 @@ function drawCoveredWord(aWord, xPosition, yPosition, selectedFontSize,
 					selectedFontSize * percentComplete);
 		} else if (parameterValues.graduatedWordType == 'vertical') {
 			word1Context.rect(bx, by, bw, bh);
-
 			word2Context.rect((bx + bw) - 1, by, (theWordWidth - bw) + 20, bh);
-
 			word1Context.stroke();
 			word1Context.clip();
 			word1Context.closePath();
-
 			word2Context.stroke();
 			word2Context.clip();
 			word2Context.closePath();
-
 			if (parameterValues.graduatedShadowShow) {
 				word1Context.shadowColor = parameterValues.graduatedShadowColour;
 				word1Context.shadowOffsetX = parameterValues.graduatedShadowOffsetX;
@@ -182,7 +232,6 @@ function drawCoveredWord(aWord, xPosition, yPosition, selectedFontSize,
 					+ parameterValues.fontFamily;
 			word1Context.fillText(aWord.word, xPosition, yPosition);
 			word1Context.restore();
-
 			if (parameterValues.unselectedShadowShowFuture) {
 				word2Context.shadowColor = parameterValues.unselectedShadowColourFuture;
 				word2Context.shadowOffsetX = parameterValues.unselectedShadowOffsetXFuture;
@@ -202,16 +251,25 @@ function drawCoveredWord(aWord, xPosition, yPosition, selectedFontSize,
 
 }
 
-function drawLittleCircle(centerX, centerY, radius) {
-	videoContext.save();
-	videoContext.beginPath();
-	videoContext.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-	videoContext.fillStyle = 'blue';
-	videoContext.fill();
-	videoContext.lineWidth = 1;
-	videoContext.strokeStyle = 'red';
-	videoContext.stroke();
-	videoContext.restore();
+function drawLittleCircle(theContext, centerX, centerY, radius,
+		currentAudioTime) {
+	// theContext.save();
+	// theContext.beginPath();
+	// theContext.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+	// theContext.fillStyle = 'blue';
+	// theContext.fill();
+	// theContext.lineWidth = 1;
+	// theContext.strokeStyle = 'red';
+	// theContext.stroke();
+	// theContext.restore();
+
+	var hippoX = (centerX * 1) - 40;
+	var hippoY = (centerY * 1) - 60;
+	mySVG.style.left = hippoX + "px";
+	mySVG.style.top = hippoY + "px";
+
+	// circ.setAttribute("transform", "scale("+wigglePosition/10+")");
+
 }
 
 function drawUnselectedText(aWord, currentAudioTime, ctx3, xPosition, yPosition) {
@@ -300,34 +358,52 @@ function drawSelectedText(aWord, currentAudioTime, ctx3, xPosition, yPosition) {
 
 var temporaryBackgroundValues = {}
 
-function setBackgroundSettings(ctx3) {
-	if (temporaryBackgroundValues.backgroundImageRotation != parameterValues.backgroundImageRotation) {
+function hasValueChanged(valueName) {
+	if (temporaryBackgroundValues[valueName] != parameterValues[valueName]) {
+		console.log(valueName + " has changed"
+				+ temporaryBackgroundValues[valueName] + ":"
+				+ parameterValues[valueName]);
+		temporaryBackgroundValues[valueName] = parameterValues[valueName];
+
+		return true;
+	} else {
+		// console.log(valueName + " has not changed");
+		return false;
+	}
+}
+
+function setBackgroundSettings() {
+	if (hasValueChanged("backgroundImageRotation")) {
 		setBackgroundImageRotation(parameterValues.backgroundImageRotation);
 	}
-	setBackgroundImageRepeat(parameterValues.backgroundRepeat);
-	setBackgroundContainerSize(parameterValues.backgroundContainerWidth,
-			parameterValues.backgroundContainerHeight);
-	setBackgroundImageSize(parameterValues.backgroundImageHeight,
-			parameterValues.backgroundImageWidth);
-	setBackgroundImagePosition(parameterValues.backgroundImagePositionX,
-			parameterValues.backgroundImagePositionY);
-	setBackgroundContainerPosition(
-			parameterValues.backgroundContainerPositionY,
-			parameterValues.backgroundContainerPositionX)
 
-	setBackgroundColour(parameterValues.backgroundColour);
-
-	ctx3.globalAlpha = parameterValues.backgroundOpacity;
-	ctx3.fillStyle = parameterValues.backgroundColour;
-
-	if (parameterValues.backgroundShadowShow) {
-		ctx3.shadowColor = parameterValues.backgroundShadowColour;
-		ctx3.shadowOffsetX = parameterValues.backgroundShadowOffsetX;
-		ctx3.shadowOffsetY = parameterValues.backgroundShadowOffsetY;
-		ctx3.shadowBlur = parameterValues.backgroundShadowBlur;
+	if (hasValueChanged("backgroundRepeat")) {
+		setBackgroundImageRepeat(parameterValues.backgroundRepeat);
 	}
-	ctx3.fillRect(parameterValues.textX, parameterValues.textY - 40,
-			parameterValues.textWidth, parameterValues.textHeight);
+	if (hasValueChanged("backgroundContainerWidth")
+			|| hasValueChanged("backgroundContainerHeight")) {
+		setBackgroundContainerSize(parameterValues.backgroundContainerWidth,
+				parameterValues.backgroundContainerHeight);
+	}
+	if (hasValueChanged("backgroundImageWidth")
+			|| hasValueChanged("backgroundImageHeight")) {
+		setBackgroundImageSize(parameterValues.backgroundImageHeight,
+				parameterValues.backgroundImageWidth);
+	}
+	if (hasValueChanged("backgroundImagePositionX")
+			|| hasValueChanged("backgroundImagePositionY")) {
+		setBackgroundImagePosition(parameterValues.backgroundImagePositionX,
+				parameterValues.backgroundImagePositionY);
+	}
+	if (hasValueChanged("backgroundContainerPositionX")
+			|| hasValueChanged("backgroundImagePositionY")) {
+		setBackgroundContainerPosition(
+				parameterValues.backgroundContainerPositionY,
+				parameterValues.backgroundContainerPositionX)
+	}
+	if (hasValueChanged("backgroundColour")) {
+		setBackgroundColour(parameterValues.backgroundColour);
+	}
 }
 
 function setBackgroundImageSize(width, height) {

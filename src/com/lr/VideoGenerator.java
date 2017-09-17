@@ -29,7 +29,7 @@ public class VideoGenerator {
 	private static String GENERATED_FRAMES = "H:\\VideoRecorder\\frames\\render1\\";
 	private static String FFMPEG_BINARY = VIDEO_ROOT + "\\ffmpeg\\ffmpeg\\bin\\ffmpeg";
 	private static String VIDEO_SILENT = "H:\\VideoRecorder\\silentVideo";
-	private static String MP3 = VIDEO_ROOT + "\\videoGenerator\\mp3\\6fa4185a68511c928713a54a45df00bc.MP3";
+	private static String MP3 = "C:\\Users\\Hawkes\\2016WorkSpace\\lyricrecorder\\WebContent\\resources\\convertedMp3\\";
 	private static String VIDEO = "H:\\VideoRecorder\\video";
 	private static String FIRST_FRAME;
 	private static String LAST_FRAME;
@@ -39,25 +39,28 @@ public class VideoGenerator {
 
 	private void readAttributesFromJSON(String JSONFormattedLyricData) {
 		JsonObject jobj = new Gson().fromJson(JSONFormattedLyricData, JsonObject.class);
-		JsonElement el=jobj.get("videoSnapshot");
+		JsonElement el = jobj.get("videoSnapshot");
 		JsonElement idElement = el.getAsJsonObject().get("snapshots");
 		JsonArray idArray = idElement.getAsJsonArray();
-		JsonElement parameterValues=idArray.get(0);
-		JsonElement parameterValues1=parameterValues.getAsJsonObject().get("parameterValues");
-		WIDTH=parameterValues1.getAsJsonObject().get("videoWidth").getAsString();
-		HEIGHT=parameterValues1.getAsJsonObject().get("videoHeight").getAsString();
-		FPS=parameterValues1.getAsJsonObject().get("videoFPS").getAsString();
-		FIRST_FRAME=parameterValues1.getAsJsonObject().get("videoFirstFrame").getAsString();
-		LAST_FRAME=parameterValues1.getAsJsonObject().get("videoLastFrame").getAsString();
+		JsonElement parameterValues = idArray.get(0);
+		JsonElement parameterValues1 = parameterValues.getAsJsonObject().get("parameterValues");
+
+		WIDTH = parameterValues1.getAsJsonObject().get("videoWidth").getAsString();
+		HEIGHT = parameterValues1.getAsJsonObject().get("videoHeight").getAsString();
+		FPS = parameterValues1.getAsJsonObject().get("videoFPS").getAsString();
+		FIRST_FRAME = parameterValues1.getAsJsonObject().get("videoFirstFrame").getAsString();
+		LAST_FRAME = parameterValues1.getAsJsonObject().get("videoLastFrame").getAsString();
 	}
 
 	public void generateVideo(String songId, String pathToVideoScript, String jSONFormattedLyricData)
 			throws IOException {
+		String mp3File=MP3 + songId + ".MP3";
+		System.out.println(mp3File);
 		readAttributesFromJSON(jSONFormattedLyricData);
 		songId += System.currentTimeMillis();
 		generateVideo1(COMMAND_STUB, PHANTOM_BINARY, PHANTOM_SCRIPT, GENERATED_FRAMES, FFMPEG_BINARY,
-				VIDEO_SILENT + "\\" + songId + "_silent.MP4", MP3, VIDEO + "\\" + songId + ".MP4", FIRST_FRAME,
-				LAST_FRAME, WIDTH, HEIGHT, FPS, pathToVideoScript);
+				VIDEO_SILENT + "\\" + songId + "_silent.MP4", mp3File, VIDEO + "\\" + songId + ".MP4",
+				FIRST_FRAME, LAST_FRAME, WIDTH, HEIGHT, FPS, pathToVideoScript);
 	}
 
 	private void generateVideo1(String commandStub, String phantomBinary, String phantomScript, String generatedFrames,

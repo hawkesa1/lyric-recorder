@@ -1,0 +1,1024 @@
+{
+  "title": "",
+  "artist": "The Best Christmas Album in the World Ever",
+  "album": "The Best Christmas Album in the World Ever",
+  "uniqueId": "6817d5c8f66b68d711ecb7b02058254c",
+  "unsynchronisedLyrics": "",
+  "lyricRecorderSynchronisedLyrics": [
+    {
+      "words": [
+        {
+          "word": "In",
+          "wordIndex": 0,
+          "id": "word_0_0",
+          "startTime": 14797.484,
+          "endTime": 15736.151
+        },
+        {
+          "word": "the",
+          "wordIndex": 1,
+          "id": "word_0_1",
+          "startTime": 15747.130000000001,
+          "endTime": 15850.602
+        },
+        {
+          "word": "bleak",
+          "wordIndex": 2,
+          "id": "word_0_2",
+          "startTime": 15864.631999999998,
+          "endTime": 16522.452
+        },
+        {
+          "word": "midwinter,",
+          "wordIndex": 3,
+          "id": "word_0_3",
+          "startTime": 16538.756999999998,
+          "endTime": 19393.583
+        }
+      ],
+      "startTime": 14797.484,
+      "endTime": 19328.583
+    },
+    {
+      "words": [
+        {
+          "word": "Long",
+          "wordIndex": 4,
+          "id": "word_1_0",
+          "startTime": 20412.014000000003,
+          "endTime": 20914.035
+        },
+        {
+          "word": "long",
+          "wordIndex": 5,
+          "id": "word_1_1",
+          "startTime": 20926.517,
+          "endTime": 21728.37
+        },
+        {
+          "word": "ago,",
+          "wordIndex": 6,
+          "id": "word_1_2",
+          "startTime": 21741.095,
+          "endTime": 24434.853
+        }
+      ],
+      "startTime": 20077.014000000003,
+      "endTime": 23864.853
+    },
+    {
+      "words": [
+        {
+          "word": "Earth",
+          "wordIndex": 7,
+          "id": "word_2_0",
+          "startTime": 24512.194,
+          "endTime": 25323.684999999998
+        },
+        {
+          "word": "stood",
+          "wordIndex": 8,
+          "id": "word_2_1",
+          "startTime": 25335.604,
+          "endTime": 25644.638000000003
+        },
+        {
+          "word": "hard",
+          "wordIndex": 9,
+          "id": "word_2_2",
+          "startTime": 25658.653,
+          "endTime": 26394.869
+        },
+        {
+          "word": "as",
+          "wordIndex": 10,
+          "id": "word_2_3",
+          "startTime": 26407.468,
+          "endTime": 26588.413
+        },
+        {
+          "word": "iron,",
+          "wordIndex": 11,
+          "id": "word_2_4",
+          "startTime": 26601.605,
+          "endTime": 28919.868
+        }
+      ],
+      "startTime": 24667.194,
+      "endTime": 28909.868
+    },
+    {
+      "words": [
+        {
+          "word": "Water",
+          "wordIndex": 12,
+          "id": "word_3_0",
+          "startTime": 29338.028,
+          "endTime": 30415.972
+        },
+        {
+          "word": "like",
+          "wordIndex": 13,
+          "id": "word_3_1",
+          "startTime": 30430.623,
+          "endTime": 31328.339999999997
+        },
+        {
+          "word": "a",
+          "wordIndex": 14,
+          "id": "word_3_2",
+          "startTime": 31341.613,
+          "endTime": 31502.433
+        },
+        {
+          "word": "stone.",
+          "wordIndex": 15,
+          "id": "word_3_3",
+          "startTime": 31513.522,
+          "endTime": 33227.302
+        }
+      ],
+      "startTime": 29423.028,
+      "endTime": 33307.302
+    },
+    {
+      "words": [
+        {
+          "word": "Snow",
+          "wordIndex": 16,
+          "id": "word_4_0",
+          "startTime": 34182.895,
+          "endTime": 35081.275
+        },
+        {
+          "word": "had",
+          "wordIndex": 17,
+          "id": "word_4_1",
+          "startTime": 35094.816999999995,
+          "endTime": 35345.575
+        },
+        {
+          "word": "fallen,",
+          "wordIndex": 18,
+          "id": "word_4_2",
+          "startTime": 35358.386,
+          "endTime": 36542.657
+        }
+      ],
+      "startTime": 34357.895,
+      "endTime": 36757.657
+    },
+    {
+      "words": [
+        {
+          "word": "Snow",
+          "wordIndex": 19,
+          "id": "word_5_0",
+          "startTime": 36553.091,
+          "endTime": 37233.8
+        },
+        {
+          "word": "on",
+          "wordIndex": 20,
+          "id": "word_5_1",
+          "startTime": 37248.45,
+          "endTime": 38023.685
+        },
+        {
+          "word": "snow,",
+          "wordIndex": 21,
+          "id": "word_5_2",
+          "startTime": 38034.285,
+          "endTime": 38984.492
+        },
+        {
+          "word": "snow",
+          "wordIndex": 22,
+          "id": "word_5_3",
+          "startTime": 38996.295,
+          "endTime": 40194.299
+        },
+        {
+          "word": "on",
+          "wordIndex": 23,
+          "id": "word_5_4",
+          "startTime": 40206.612,
+          "endTime": 41330.507000000005
+        },
+        {
+          "word": "snow,",
+          "wordIndex": 24,
+          "id": "word_5_5",
+          "startTime": 41342.721,
+          "endTime": 43317.975
+        }
+      ],
+      "startTime": 36878.091,
+      "endTime": 43247.975
+    },
+    {
+      "words": [
+        {
+          "word": "In",
+          "wordIndex": 25,
+          "id": "word_6_0",
+          "startTime": 43888.978,
+          "endTime": 44759.764
+        },
+        {
+          "word": "the",
+          "wordIndex": 26,
+          "id": "word_6_1",
+          "startTime": 44773.131,
+          "endTime": 44919.153000000006
+        },
+        {
+          "word": "bleak",
+          "wordIndex": 27,
+          "id": "word_6_2",
+          "startTime": 44933.494999999995,
+          "endTime": 45700.009
+        },
+        {
+          "word": "midwinter,",
+          "wordIndex": 28,
+          "id": "word_6_3",
+          "startTime": 45719.036,
+          "endTime": 48271.649
+        }
+      ],
+      "startTime": 43888.978,
+      "endTime": 48371.649
+    },
+    {
+      "words": [
+        {
+          "word": "A",
+          "wordIndex": 29,
+          "id": "word_7_0",
+          "startTime": 48421.418,
+          "endTime": 48579.86
+        },
+        {
+          "word": "long",
+          "wordIndex": 30,
+          "id": "word_7_1",
+          "startTime": 48592.646,
+          "endTime": 49469.046
+        },
+        {
+          "word": "long",
+          "wordIndex": 31,
+          "id": "word_7_2",
+          "startTime": 49483.767,
+          "endTime": 50336.207
+        },
+        {
+          "word": "time",
+          "wordIndex": 32,
+          "id": "word_7_3",
+          "startTime": 50349.445,
+          "endTime": 50933.44
+        },
+        {
+          "word": "ago.",
+          "wordIndex": 33,
+          "id": "word_7_4",
+          "startTime": 51418.385,
+          "endTime": 52950.928
+        }
+      ],
+      "startTime": 48691.418,
+      "endTime": 52575.928
+    },
+    {
+      "words": [
+        {
+          "word": "What",
+          "wordIndex": 34,
+          "id": "word_8_0",
+          "startTime": 72709.182,
+          "endTime": 73867.77799999999
+        },
+        {
+          "word": "can",
+          "wordIndex": 35,
+          "id": "word_8_1",
+          "startTime": 73881.71800000001,
+          "endTime": 74547.465
+        },
+        {
+          "word": "I",
+          "wordIndex": 36,
+          "id": "word_8_2",
+          "startTime": 74558.03,
+          "endTime": 75083.504
+        },
+        {
+          "word": "give",
+          "wordIndex": 37,
+          "id": "word_8_3",
+          "startTime": 75094.91100000001,
+          "endTime": 76380.222
+        },
+        {
+          "word": "Him,",
+          "wordIndex": 38,
+          "id": "word_8_4",
+          "startTime": 76394.361,
+          "endTime": 77297.52500000001
+        }
+      ],
+      "startTime": 72889.182,
+      "endTime": 77282.52500000001
+    },
+    {
+      "words": [
+        {
+          "word": "Poor",
+          "wordIndex": 39,
+          "id": "word_9_0",
+          "startTime": 78097.129,
+          "endTime": 78794.435
+        },
+        {
+          "word": "as",
+          "wordIndex": 40,
+          "id": "word_9_1",
+          "startTime": 78806.705,
+          "endTime": 79365.968
+        },
+        {
+          "word": "I",
+          "wordIndex": 41,
+          "id": "word_9_2",
+          "startTime": 79378.53,
+          "endTime": 79827.278
+        },
+        {
+          "word": "am?",
+          "wordIndex": 42,
+          "id": "word_9_3",
+          "startTime": 80259.64,
+          "endTime": 82253.521
+        }
+      ],
+      "startTime": 78097.129,
+      "endTime": 81328.521
+    },
+    {
+      "words": [
+        {
+          "word": "If",
+          "wordIndex": 43,
+          "id": "word_10_0",
+          "startTime": 82413.939,
+          "endTime": 83317.686
+        },
+        {
+          "word": "I",
+          "wordIndex": 44,
+          "id": "word_10_1",
+          "startTime": 83329.953,
+          "endTime": 83591.91200000001
+        },
+        {
+          "word": "were",
+          "wordIndex": 45,
+          "id": "word_10_2",
+          "startTime": 83603.202,
+          "endTime": 84190.542
+        },
+        {
+          "word": "a",
+          "wordIndex": 46,
+          "id": "word_10_3",
+          "startTime": 84202.007,
+          "endTime": 84442.485
+        },
+        {
+          "word": "shephard,",
+          "wordIndex": 47,
+          "id": "word_10_4",
+          "startTime": 84456.327,
+          "endTime": 86925.869
+        }
+      ],
+      "startTime": 82583.939,
+      "endTime": 86975.869
+    },
+    {
+      "words": [
+        {
+          "word": "I",
+          "wordIndex": 48,
+          "id": "word_11_0",
+          "startTime": 87556.496,
+          "endTime": 88057.27500000001
+        },
+        {
+          "word": "would",
+          "wordIndex": 49,
+          "id": "word_11_1",
+          "startTime": 88067.81700000001,
+          "endTime": 88455.975
+        },
+        {
+          "word": "give",
+          "wordIndex": 50,
+          "id": "word_11_2",
+          "startTime": 88468.29999999999,
+          "endTime": 89358.61600000001
+        },
+        {
+          "word": "a",
+          "wordIndex": 51,
+          "id": "word_11_3",
+          "startTime": 89371.06999999999,
+          "endTime": 89455.243
+        },
+        {
+          "word": "lamb,",
+          "wordIndex": 52,
+          "id": "word_11_4",
+          "startTime": 89469.638,
+          "endTime": 91359.58
+        }
+      ],
+      "startTime": 87326.496,
+      "endTime": 90944.58
+    },
+    {
+      "words": [
+        {
+          "word": "And",
+          "wordIndex": 53,
+          "id": "word_12_0",
+          "startTime": 91769.818,
+          "endTime": 92120.68100000001
+        },
+        {
+          "word": "if",
+          "wordIndex": 54,
+          "id": "word_12_1",
+          "startTime": 92133.59800000001,
+          "endTime": 93046.41100000001
+        },
+        {
+          "word": "I",
+          "wordIndex": 55,
+          "id": "word_12_2",
+          "startTime": 93057.75899999999,
+          "endTime": 93321.10399999999
+        },
+        {
+          "word": "were",
+          "wordIndex": 56,
+          "id": "word_12_3",
+          "startTime": 93332.394,
+          "endTime": 94013.54
+        },
+        {
+          "word": "a",
+          "wordIndex": 57,
+          "id": "word_12_4",
+          "startTime": 94026.20199999999,
+          "endTime": 94566.95499999999
+        },
+        {
+          "word": "wise",
+          "wordIndex": 58,
+          "id": "word_12_5",
+          "startTime": 94578.372,
+          "endTime": 95883.537
+        },
+        {
+          "word": "man,",
+          "wordIndex": 59,
+          "id": "word_12_6",
+          "startTime": 95895.423,
+          "endTime": 96650.117
+        }
+      ],
+      "startTime": 91729.818,
+      "endTime": 96835.117
+    },
+    {
+      "words": [
+        {
+          "word": "I\u0027d",
+          "wordIndex": 60,
+          "id": "word_13_0",
+          "startTime": 96662.501,
+          "endTime": 96962.557
+        },
+        {
+          "word": "duly",
+          "wordIndex": 61,
+          "id": "word_13_1",
+          "startTime": 96975.249,
+          "endTime": 98131.03
+        },
+        {
+          "word": "play",
+          "wordIndex": 62,
+          "id": "word_13_2",
+          "startTime": 98145.727,
+          "endTime": 98827.212
+        },
+        {
+          "word": "my",
+          "wordIndex": 63,
+          "id": "word_13_3",
+          "startTime": 98837.96,
+          "endTime": 99530.48300000001
+        },
+        {
+          "word": "part.",
+          "wordIndex": 64,
+          "id": "word_13_4",
+          "startTime": 99543.607,
+          "endTime": 101581.003
+        }
+      ],
+      "startTime": 97087.501,
+      "endTime": 101341.003
+    },
+    {
+      "words": [
+        {
+          "word": "What",
+          "wordIndex": 65,
+          "id": "word_14_0",
+          "startTime": 101822.008,
+          "endTime": 103010.34
+        },
+        {
+          "word": "can",
+          "wordIndex": 66,
+          "id": "word_14_1",
+          "startTime": 103024.246,
+          "endTime": 103769.4
+        },
+        {
+          "word": "I",
+          "wordIndex": 67,
+          "id": "word_14_2",
+          "startTime": 103781.486,
+          "endTime": 104283.54800000001
+        },
+        {
+          "word": "give",
+          "wordIndex": 68,
+          "id": "word_14_3",
+          "startTime": 104295.185,
+          "endTime": 105513.96100000001
+        },
+        {
+          "word": "him?",
+          "wordIndex": 69,
+          "id": "word_14_4",
+          "startTime": 105527.72,
+          "endTime": 106496.468
+        }
+      ],
+      "startTime": 101972.008,
+      "endTime": 106496.468
+    },
+    {
+      "words": [
+        {
+          "word": "I",
+          "wordIndex": 70,
+          "id": "word_15_0",
+          "startTime": 107363.477,
+          "endTime": 107477.171
+        },
+        {
+          "word": "will",
+          "wordIndex": 71,
+          "id": "word_15_1",
+          "startTime": 107488.03300000001,
+          "endTime": 107671.962
+        },
+        {
+          "word": "give",
+          "wordIndex": 72,
+          "id": "word_15_2",
+          "startTime": 107683.78,
+          "endTime": 108497.48700000001
+        },
+        {
+          "word": "my",
+          "wordIndex": 73,
+          "id": "word_15_3",
+          "startTime": 108508.19,
+          "endTime": 109064.06
+        },
+        {
+          "word": "heart.",
+          "wordIndex": 74,
+          "id": "word_15_4",
+          "startTime": 109075.55099999999,
+          "endTime": 112983.902
+        }
+      ],
+      "startTime": 107363.477,
+      "endTime": 111148.902
+    },
+    {
+      "words": [
+        {
+          "word": "Earth",
+          "wordIndex": 75,
+          "id": "word_16_0",
+          "startTime": 114059.64499999999,
+          "endTime": 114882.096
+        },
+        {
+          "word": "stood",
+          "wordIndex": 76,
+          "id": "word_16_1",
+          "startTime": 114893.097,
+          "endTime": 115247.766
+        },
+        {
+          "word": "hard",
+          "wordIndex": 77,
+          "id": "word_16_2",
+          "startTime": 115259.435,
+          "endTime": 115860.22200000001
+        },
+        {
+          "word": "as",
+          "wordIndex": 78,
+          "id": "word_16_3",
+          "startTime": 115872.506,
+          "endTime": 116441.574
+        },
+        {
+          "word": "iron,",
+          "wordIndex": 79,
+          "id": "word_16_4",
+          "startTime": 116453.702,
+          "endTime": 118793.141
+        }
+      ],
+      "startTime": 114959.64499999999,
+      "endTime": 118653.141
+    },
+    {
+      "words": [
+        {
+          "word": "Frosty",
+          "wordIndex": 80,
+          "id": "word_17_0",
+          "startTime": 118805.738,
+          "endTime": 119931.045
+        },
+        {
+          "word": "winds",
+          "wordIndex": 81,
+          "id": "word_17_1",
+          "startTime": 119943.54199999999,
+          "endTime": 120588.958
+        },
+        {
+          "word": "did",
+          "wordIndex": 82,
+          "id": "word_17_2",
+          "startTime": 120602.614,
+          "endTime": 121011.398
+        },
+        {
+          "word": "blow,",
+          "wordIndex": 83,
+          "id": "word_17_3",
+          "startTime": 121023.656,
+          "endTime": 123526.6
+        }
+      ],
+      "startTime": 119075.738,
+      "endTime": 123231.6
+    },
+    {
+      "words": [
+        {
+          "word": "In",
+          "wordIndex": 84,
+          "id": "word_18_0",
+          "startTime": 123628.096,
+          "endTime": 124522.898
+        },
+        {
+          "word": "the",
+          "wordIndex": 85,
+          "id": "word_18_1",
+          "startTime": 124537.73599999999,
+          "endTime": 124668.358
+        },
+        {
+          "word": "bleak",
+          "wordIndex": 86,
+          "id": "word_18_2",
+          "startTime": 124678.81999999999,
+          "endTime": 125523.804
+        },
+        {
+          "word": "midwinter",
+          "wordIndex": 87,
+          "id": "word_18_3",
+          "startTime": 125620.76299999999,
+          "endTime": 128194.48500000002
+        }
+      ],
+      "startTime": 123808.096,
+      "endTime": 128164.48500000002
+    },
+    {
+      "words": [
+        {
+          "word": "A",
+          "wordIndex": 88,
+          "id": "word_19_0",
+          "startTime": 128207.30200000001,
+          "endTime": 128412.84900000002
+        },
+        {
+          "word": "long",
+          "wordIndex": 89,
+          "id": "word_19_1",
+          "startTime": 128423.42400000001,
+          "endTime": 129139.12499999999
+        },
+        {
+          "word": "long",
+          "wordIndex": 90,
+          "id": "word_19_2",
+          "startTime": 129150.85,
+          "endTime": 129787.745
+        },
+        {
+          "word": "time",
+          "wordIndex": 91,
+          "id": "word_19_3",
+          "startTime": 129799.09199999999,
+          "endTime": 130696.83600000001
+        },
+        {
+          "word": "ago.",
+          "wordIndex": 92,
+          "id": "word_19_4",
+          "startTime": 130707.87400000001,
+          "endTime": 138728.105
+        }
+      ],
+      "startTime": 128382.30200000001,
+      "endTime": 134693.105
+    }
+  ],
+  "md5Hash": "6817d5c8f66b68d711ecb7b02058254c",
+  "originalFileName": "22 - In the bleak midwinter - Bert Jansch.mp3",
+  "allTags": {
+    "ACOUSTIC": "",
+    "TRACK": "",
+    "ARTISTS": "",
+    "ORIGINAL_YEAR": "",
+    "TRACK_TOTAL": "",
+    "RECORD_LABEL": "",
+    "MUSICBRAINZ_RELEASEID": "",
+    "GENRE": "",
+    "MOOD_VALENCE": "",
+    "FBPM": "",
+    "MUSICBRAINZ_ARTISTID": "",
+    "ACOUSTID_FINGERPRINT": "",
+    "ALBUM_ARTIST_SORT": "",
+    "TIMBRE": "",
+    "URL_DISCOGS_RELEASE_SITE": "",
+    "MEDIA": "",
+    "BARCODE": "",
+    "MUSICBRAINZ_RELEASE_TYPE": "",
+    "AMAZON_ID": "",
+    "MUSICBRAINZ_RELEASE_TRACK_ID": "",
+    "CONDUCTOR": "",
+    "MUSICBRAINZ_TRACK_ID": "",
+    "URL_LYRICS_SITE": "",
+    "ALBUM_SORT": "",
+    "URL_WIKIPEDIA_RELEASE_SITE": "",
+    "ARTIST": "The Best Christmas Album in the World Ever",
+    "ORCHESTRA": "",
+    "ISRC": "",
+    "ARTIST_SORT": "",
+    "COMMENT": "",
+    "WORK": "",
+    "MUSICBRAINZ_RELEASE_GROUP_ID": "",
+    "PERFORMER": "",
+    "ORIGINAL_ALBUM": "",
+    "RATING": "",
+    "MOOD_AROUSAL": "",
+    "MUSICBRAINZ_DISC_ID": "",
+    "SCRIPT": "",
+    "MUSICBRAINZ_ORIGINAL_RELEASE_ID": "",
+    "TONALITY": "",
+    "PRODUCER": "",
+    "GROUPING": "",
+    "IS_COMPILATION": "",
+    "KEY": "",
+    "MUSICIP_ID": "",
+    "MOOD_DANCEABILITY": "",
+    "URL_OFFICIAL_RELEASE_SITE": "",
+    "MUSICBRAINZ_WORK_ID": "",
+    "LYRICIST": "",
+    "URL_WIKIPEDIA_ARTIST_SITE": "",
+    "LANGUAGE": "",
+    "CATALOG_NO": "",
+    "COUNTRY": "",
+    "LYRICRECORDER.COM": "",
+    "ORIGINAL_ARTIST": "",
+    "TEMPO": "",
+    "MOOD_RELAXED": "",
+    "MUSICBRAINZ_RELEASE_STATUS": "",
+    "DISC_SUBTITLE": "",
+    "DJMIXER": "",
+    "DISC_NO": "",
+    "YEAR": "",
+    "PART": "",
+    "MUSICBRAINZ_RELEASE_COUNTRY": "",
+    "COMPOSER": "",
+    "MOOD_HAPPY": "",
+    "MUSICBRAINZ_RELEASEARTISTID": "",
+    "TITLE_SORT": "",
+    "URL_DISCOGS_ARTIST_SITE": "",
+    "MIXER": "",
+    "COMPOSER_SORT": "",
+    "QUALITY": "",
+    "ENGINEER": "",
+    "ALBUM": "The Best Christmas Album in the World Ever",
+    "LYRICS": "",
+    "MOOD_PARTY": "",
+    "ALBUM_ARTIST": "",
+    "ACOUSTID_ID": "",
+    "ARRANGER": "",
+    "BPM": "",
+    "MOOD_AGGRESSIVE": "",
+    "ELECTRONIC": "",
+    "COVER_ART": "",
+    "SUBTITLE": "",
+    "TAGS": "",
+    "DISC_TOTAL": "",
+    "MOOD_SAD": "",
+    "MOOD": "",
+    "ENCODER": "",
+    "REMIXER": "",
+    "ORIGINAL_LYRICIST": "",
+    "OCCASION": "",
+    "CUSTOM1": "",
+    "CUSTOM2": "",
+    "CUSTOM3": "",
+    "CUSTOM4": "",
+    "CUSTOM5": "",
+    "INSTRUMENTAL": "",
+    "URL_OFFICIAL_ARTIST_SITE": "",
+    "TITLE": ""
+  },
+  "videoSnapshot": {
+    "snapshots": [
+      {
+        "id": 0,
+        "parameterValues": {
+          "linesPerPage": "3",
+          "newLineSpacing": 100,
+          "graduatedWordThreshold": 200,
+          "graduatedWordEasingFunction": "easeOutExpo",
+          "graduatedWordOpacity": 0.9,
+          "graduatedWordColour": "#000000",
+          "graduatedShadowShow": "checked",
+          "graduatedShadowColour": "#000000",
+          "graduatedShadowOffsetX": 5,
+          "graduatedShadowOffsetY": 5,
+          "graduatedShadowBlur": 7,
+          "backgroundColour": "#ffb366",
+          "backgroundImage": "",
+          "backgroundImageWidth": 800,
+          "backgroundImageHeight": 600,
+          "backgroundImagePositionX": 800,
+          "backgroundImagePositionY": 800,
+          "backgroundContainerWidth": 800,
+          "backgroundContainerHeight": 600,
+          "backgroundContainerPositionX": 0,
+          "backgroundContainerPositionY": 0,
+          "backgroundImageRotation": 0,
+          "fontFamily": "Comicate",
+          "selectedEasingFunction": "easeOutExpo",
+          "selectedEasingDuration": 500,
+          "selectedOpacity": 0.9,
+          "selectedFontColour": "#000000",
+          "lineHeight": 40,
+          "characterSpacing": 30,
+          "fontSize": 40,
+          "fontSizeIncrease": 10,
+          "selectedShadowShow": "checked",
+          "selectedShadowColour": "#000000",
+          "selectedShadowOffsetX": 5,
+          "selectedShadowOffsetY": 5,
+          "selectedShadowBlur": 7,
+          "unselectedFontColourPast": "#ffffff",
+          "unselectedShadowShowPast": "checked",
+          "unselectedShadowColourPast": "#000000",
+          "unselectedShadowOffsetXPast": 5,
+          "unselectedShadowOffsetYPast": 5,
+          "unselectedShadowBlurPast": 7,
+          "unselectedOpacityPast": 0.9,
+          "unselectedFontColourFuture": "#ffffff",
+          "unselectedShadowShowFuture": "checked",
+          "unselectedShadowColourFuture": "#000000",
+          "unselectedShadowOffsetXFuture": 5,
+          "unselectedShadowOffsetYFuture": 5,
+          "unselectedShadowBlurFuture": 7,
+          "unselectedOpacityFuture": 0.9,
+          "textBackgroundColour": "#ffffff",
+          "textX": 20,
+          "textY": 60,
+          "textWidth": 300,
+          "textHeight": 300,
+          "backgroundShadowShow": "checked",
+          "backgroundShadowColour": "#F8F8FF",
+          "backgroundShadowOffsetX": 5,
+          "backgroundOffsetY": 5,
+          "backgroundShadowBlur": 7,
+          "backgroundOpacity": 0.3,
+          "videoFPS": 25,
+          "videoWidth": 800,
+          "videoHeight": 600,
+          "showWindowed": "checked",
+          "videoFirstFrame": 0,
+          "videoLastFrame": 100
+        }
+      }
+    ]
+  },
+  "pages": [
+    {
+      "startTime": 14797.484,
+      "lines": [
+        0,
+        1,
+        2
+      ],
+      "endTime": 28909.868
+    },
+    {
+      "startTime": 29423.028,
+      "lines": [
+        3,
+        4,
+        5
+      ],
+      "endTime": 43247.975
+    },
+    {
+      "startTime": 43888.978,
+      "lines": [
+        6,
+        7,
+        8
+      ],
+      "endTime": 77282.52500000001
+    },
+    {
+      "startTime": 78097.129,
+      "lines": [
+        9,
+        10,
+        11
+      ],
+      "endTime": 90944.58
+    },
+    {
+      "startTime": 91729.818,
+      "lines": [
+        12,
+        13,
+        14
+      ],
+      "endTime": 106496.468
+    },
+    {
+      "startTime": 107363.477,
+      "lines": [
+        15,
+        16,
+        17
+      ],
+      "endTime": 123231.6
+    },
+    {
+      "startTime": 123808.096,
+      "lines": [
+        18,
+        19
+      ],
+      "endTime": 134693.105
+    }
+  ]
+}
