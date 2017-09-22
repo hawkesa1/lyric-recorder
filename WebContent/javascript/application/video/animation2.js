@@ -17,7 +17,6 @@ function drawIt1(ctx3, currentAudioTime) {
 	timesCounter++;
 	timesTotal += (time02 - time01);
 	if (timesCounter % 100 == 0) {
-
 		console.log(1 / (timesTotal / 100) + "FPS");
 		timesTotal = 0;
 		timesCounter = 0;
@@ -31,12 +30,16 @@ function clearContexts(ctx3) {
 	word2Context.clearRect(0, 0, word1Context.canvas.clientWidth,
 			word1Context.canvas.clientHeight);
 }
-var circleTransformRatio = 0;
+var hippoSize = 0;
 var previousCircleTransformRatio = 0;
 var smoothHippo = 0;
 var smoothHippoCount = 0;
 var currentWholeUnitTime = 0;
 var currentYHigh = 0;
+
+var INITIAL_HIPPO_SIZE = 100;
+var INITIAL_HIPPO_LEFT = 200;
+var INITIAL_HIPPO_TOP = 200;
 
 function drawPages(ctx3, currentAudioTime) {
 
@@ -58,18 +61,23 @@ function drawPages(ctx3, currentAudioTime) {
 
 	if (circ && parameterWavePoints) {
 		currentYHigh = (parameterWavePoints[parseInt(currentWholeUnitTime)].yHigh) / 100;
-		circleTransformRatio = INITIAL_HIPPO_SCALE
-				+ (currentYHigh * 0.075);
 
-		console.log(currentYHigh);
+		hippoSize = INITIAL_HIPPO_SIZE + (currentYHigh * 100);
 
-		circ.setAttribute("transform", "scale(" + circleTransformRatio + ")");
-		var hippoPosX = 200 - ((circleTransformRatio * HIPPO_WIDTH) / 2);
-		var hippoPosY = 200 - ((circleTransformRatio * HIPPO_HEIGHT) / 2);
-		mySVG.style.left = hippoPosX + "px";
-		mySVG.style.top = hippoPosY + "px";
+		circ.css({
+			'width' : hippoSize + 'px'
+		});
 
-		previousCircleTransformRatio = circleTransformRatio;
+		var hippoPosX = INITIAL_HIPPO_LEFT
+				- (((hippoSize-INITIAL_HIPPO_SIZE)) / 2);
+		var hippoPosY = INITIAL_HIPPO_TOP
+				- ((hippoSize-INITIAL_HIPPO_SIZE) / 2);
+		
+		console.log(hippoPosX+" "+hippoPosY);
+		circ.css({
+			'top' : hippoPosY + 'px',
+			'left' : hippoPosX + 'px'
+		});
 	}
 
 	var aPage;

@@ -1,24 +1,21 @@
-#svgImage
-{
-	z-index: 10000;
-	position:absolute;
-	
-	width:512px;
-	height:512px;
-	opacity:0.9;
-	
-	 -webkit-filter: drop-shadow( -5px -5px 5px #000 );
-            filter: drop-shadow( -5px -5px 5px #000 ); /* Same syntax as box-shadow, except 
+#svgImage {
+	z-index: 100000;
+	position: absolute;
+	width: 512px;
+	height: 512px;
+	opacity: 0.9;
+	-webkit-filter: drop-shadow(-5px -5px 5px #000);
+	filter: drop-shadow(-5px -5px 5px #000);
+	/* Same syntax as box-shadow, except 
                                                        for the spread property */
-	
 }
+
+
 
 body:after {
-  content: url('../../svg/hippo.svg');
-  display: none;
+	content: url('../../svg/hippo.svg');
+	display: none;
 }
-
-
 
 #video {
 	overflow: scroll;
@@ -27,23 +24,20 @@ body:after {
 	padding: 0px;
 	margin: 0px;
 	border: 1px solid #1a1a1a;
-	background-color:none;
-	opacity:1;
-	position:relative;
-	top:-619px;
-	
+	background-color: none;
+	opacity: 1;
+	position: relative;
+	top: -619px;
 }
 
-.videControllerValue
-{
-	margin-left:5px;
-	width:40px;
-	color:white;
-	background-color:black;
-	border:0px solid white;
-	position:relative;
-	top:-7px;
-	
+.videControllerValue {
+	margin-left: 5px;
+	width: 40px;
+	color: white;
+	background-color: black;
+	border: 0px solid white;
+	position: relative;
+	top: -7px;
 }
 
 #backgroundImageContainerContainer {
@@ -100,19 +94,17 @@ body:after {
 	opacity: 0.8;
 }
 
-
-
 #pageControl {
-	border:1px solid white;
-	overflow-y:scroll;
-	height:170px;
-	width:180px;
+	border: 1px solid white;
+	overflow-y: scroll;
+	height: 170px;
+	width: 180px;
 }
-.pageTitle
-{
-	text-decoration:underline;
+
+.pageTitle {
+	text-decoration: underline;
 }
-.pageLine
-{
-	text-indent:10px;
+
+.pageLine {
+	text-indent: 10px;
 }

@@ -1,8 +1,8 @@
 var DEFAULT_CANVAS_WIDTH = 800;
 var DEFAULT_CANVAS_HEIGHT = 600;
 
-var WIDTH_4K=3840;
-var HEIGHT_4K=2160;
+var WIDTH_4K = 3840;
+var HEIGHT_4K = 2160;
 
 var videoScript = "resources/videoScripts/test2.json";
 
@@ -165,8 +165,7 @@ var parameterInitialiser = {
 	{
 		"label" : "Background",
 		"id" : "background",
-		"parameters" : [
-		{
+		"parameters" : [ {
 			"label" : "Colour",
 			"name" : "backgroundColour",
 			"type" : "color",
@@ -907,17 +906,13 @@ function adjustPageSize() {
 	$("#backgroundImageContainer").height(newPageHeight);
 
 	// if show windowed
-	if (parameterValues.showWindowed)
-	{
+	if (parameterValues.showWindowed) {
 		$("#video").width("800px");
 		$("#video").height("600px");
-	}
-	else
-	{
+	} else {
 		$("#video").width(newPageWidth);
 		$("#video").height(newPageHeight);
-	}	
-	
+	}
 
 	$("#videoCanvas").attr('width', newPageWidth);
 	$("#videoCanvas").attr('height', newPageHeight);
@@ -1010,6 +1005,7 @@ function loadAllParametersFromFile(theVideoScript) {
 	$.getJSON(theVideoScript + ts, function(data) {
 		console.log(data);
 		currentStateStore.trackMetaData = data;
+		currentStateStore.currentSongId = data.uniqueId;
 		currentStateStore.lineArray = data.lyricRecorderSynchronisedLyrics;
 		loadParameterSnapshot(data.videoSnapshot.snapshots[0]);
 	});
@@ -1043,9 +1039,9 @@ function loadParameterSnapshot(parameterSnapshot) {
 		generateNewPages()
 	}
 	adjustPageSize();
-	
+
 	console.log(parameterSnapshot);
-	console.log("CurrentSongId="+currentStateStore.currentSongId);
+	console.log("CurrentSongId=" + currentStateStore.currentSongId);
 	loadWaveForm2('./resources/wavForm/', currentStateStore.currentSongId);
 }
 
@@ -1237,4 +1233,7 @@ function generateNewPages() {
 		}
 	}
 	printPages();
+}
+
+function initialiseSVG() {
 }

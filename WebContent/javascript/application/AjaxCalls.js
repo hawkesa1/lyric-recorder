@@ -105,48 +105,10 @@ function loadWaveForm2(location, wavFormFile) {
 	});
 	function processResponse(text) {
 		parameterWavePoints = waveFormTextToArray1(text);
-		console.log(parameterWavePoints.length);
-		console.log("Smoothing")
-		var yHighs = new Array();
-		for ( var i in parameterWavePoints) {
-			yHighs.push(parameterWavePoints[i].yHigh * 1);
-		}
-		var yHighsSmoothed = smooth(yHighs, 0.85);
-		for ( var i in parameterWavePoints) {
-			parameterWavePoints[i].yHigh = yHighsSmoothed[i]
-		}
-
-		console.log(parameterWavePoints.length);
+		console.log(parameterWavePoints.length);		
 	}
 }
 
-function smooth(values, alpha) {
-
-	var weighted = average(values) * alpha;
-	console.log("Weighted" + weighted);
-	var smoothed = [];
-	//for ( var i in values) {
-	//	var curr = values[i];
-	//	var prev = smoothed[i - 1] || values[values.length - 1];
-	//	var next = curr || values[0];
-	//	var improved = Number(this.average([ weighted, prev, curr, next ])
-	//			.toFixed(2));
-	//	smoothed.push(improved);
-	//}
-	return smoothed;
-}
-
-function average(data) {
-	console.log("Data:" + data[200]);
-	var sum = data.reduce(function(sum, value) {
-		console.log("sum:"+sum);
-		return sum + value;
-	}, 0);
-	
-	console.log("Final Sum"+sum);
-	var avg = sum / data.length;
-	return avg;
-}
 
 var parameterWavePoints;
 

@@ -8,13 +8,34 @@
 <script src="./javascript/application/video/easing.js"></script>
 <script src="./javascript/application/video/animation2.js"></script>
 <script src="./javascript/application/video/parameters.js"></script>
+<script src="./javascript/application/AjaxCalls.js"></script>
 <script
 	src="./javascript/application/frameGenerator/frameGeneratorInitiation.js"></script>
 <link rel="stylesheet" href="css/video/page1.css" media="screen" />
 <link rel="stylesheet" href="css/video/fonts.css" media="screen" />
 <link rel="stylesheet" href="css/video/frameGenerator.css"
 	media="screen" />
+
+<style>
+#videoConsole {
+	border: 10px solid blue;
+	width: 400px;
+	height: 400px;
+	position: absolute;
+	top: 0px;
+	left: 200px;
+	z-index: 9000009;
+	color: white;
+	display:none;
+}
+</style>
+
+
 </head>
+
+
+
+
 <body>
 
 	<div id='preloadedFontContainer' style='position: absolute; top: 700px'></div>
@@ -34,7 +55,11 @@
 	</script>
 
 	<div id="backgroundImageContainerContainer">
-		<div id="backgroundImageContainer"></div>
+		<div id="backgroundImageContainer">
+			<!--  <object id="svgImage" type="image/svg+xml" data="./svg/Smiley.svg"></object>-->
+			<img id="svgImage" src="./svg/Smiley.svg" width="1px">
+		</div>
+
 	</div>
 
 	<canvas id="videoCanvas"></canvas>
@@ -46,7 +71,16 @@
 		<input id="frameValue" type="text" value="0"></input> <input
 			id="displayFrame" type="button" value="Display"></input>
 	</div>
+
+	<div id="videoConsole">Video Console</div>
+
+
+
 </body>
+
+
+
+
 
 <script>
 	// initialise canvases
@@ -70,6 +104,18 @@
 	pageWidth = QueryString.pageWidth;
 	pageHeight = QueryString.pageHeight;
 	videoScript = QueryString.videoScript;
+	
+	var mySVG = document.getElementById("svgImage");
+	var svgDoc;
+	mySVG.addEventListener("load", function() {
+		circ = $('#svgImage');
+		circ.css({
+			'position' : 'absolute',
+			'width' : '100px',
+			'left' : '100px',
+			'top' : '100px'
+		});
+	}, false);
 
 	// Display it on the page
 	$("#frameRange").val(frameNumber);
@@ -84,4 +130,11 @@
 	addEventsToFrameInputs();
 	initialiseParameters();
 </script>
+
+
+
+<script>
+	
+</script>
+
 </html>

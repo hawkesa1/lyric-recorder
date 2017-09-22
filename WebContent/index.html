@@ -169,7 +169,7 @@
 			<div class="viewContainer" id="videoControls" style="display: none"></div>
 
 			<div class="viewContainer" id="video" style="display: none">
-				<object id="svgImage" type="image/svg+xml" data="./svg/hippo.svg"></object>
+				<object id="svgImage" type="image/svg+xml" data="./svg/Smiley.svg"></object>
 
 				<div id="backgroundImageContainerContainer">
 					<div id="backgroundImageContainer"></div>
@@ -208,21 +208,21 @@
 
 
 	<script>
-		var ELEMENT_ID = "svg2";
-		var INITIAL_HIPPO_SCALE=0.15;
-		var HIPPO_WIDTH=512;
-		var HIPPO_HEIGHT=512;
+		var ELEMENT_ID = "Test File";
+		var INITIAL_HIPPO_SCALE = 0.15;
+		var HIPPO_WIDTH = 512;
+		var HIPPO_HEIGHT = 512;
 		var mySVG = document.getElementById("svgImage");
 		var svgDoc;
 		var circ;
 		mySVG.addEventListener("load", function() {
-			svgDoc = mySVG.contentDocument;
-			circ = svgDoc.getElementById(ELEMENT_ID);
-			circ.setAttribute("transform", "scale("+INITIAL_HIPPO_SCALE+")");
-			console.log("Loaded Hippo");
-			
-			//$('#svgImage').detach();
-			//$('#svgImage').appendTo('#video');
+			circ = $('#svgImage');
+			circ.css({
+				'position' : 'absolute',
+				'width' : '100px',
+				'left' : '100px',
+				'top' : '100px'
+			})
 
 		}, false);
 	</script>
