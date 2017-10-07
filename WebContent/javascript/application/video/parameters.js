@@ -708,11 +708,84 @@ var parameterInitialiser = {
 			"defaultValue" : 100,
 			"action" : "input"
 		} ]
+	}, {
+		"label" : "Marker",
+		"id" : "markerOptions",
+		"parameters" : [ {
+			"label" : "Marker Size",
+			"name" : "markerSize",
+			"type" : "range",
+			"min" : 0,
+			"max" : 500,
+			"step" : 1,
+			"defaultValue" : 25,
+			"action" : "input"
+		}, {
+			"label" : "Marker Left",
+			"name" : "markerLeft",
+			"type" : "range",
+			"min" : -500,
+			"max" : 500,
+			"step" : 1,
+			"defaultValue" : 25,
+			"action" : "input"
+		}, {
+			"label" : "Marker Top",
+			"name" : "markerTop",
+			"type" : "range",
+			"min" : -500,
+			"max" : 500,
+			"step" : 1,
+			"defaultValue" : 25,
+			"action" : "input"
+		},{
+			"label" : "Marker Increase",
+			"name" : "markerIncrease",
+			"type" : "range",
+			"min" : 0,
+			"max" : 500,
+			"step" : 1,
+			"defaultValue" : 25,
+			"action" : "input"
+		},{
+			"label" : "Marker Text Left",
+			"name" : "markerTextLeft",
+			"type" : "range",
+			"min" : -500,
+			"max" : 500,
+			"step" : 1,
+			"defaultValue" : 25,
+			"action" : "input"
+		}, {
+			"label" : "Marker Text Top",
+			"name" : "markerTextTop",
+			"type" : "range",
+			"min" : -500,
+			"max" : 500,
+			"step" : 1,
+			"defaultValue" : 25,
+			"action" : "input"
+		},{
+			"label" : "Marker Opacity",
+			"name" : "markerOpacity",
+			"type" : "range",
+			"min" : 0,
+			"max" : 1,
+			"step" : 0.1,
+			"defaultValue" : 1,
+			"action" : "input"
+		}, {
+			"label" : "Show Marker",
+			"name" : "showMarker",
+			"type" : "checkbox",
+			"defaultValue" : "checked",
+			"action" : "click"
+		} ]
 	} ]
 };
 
 function initialiseParameters() {
-	// initiate all the controls form the json
+	// initiate all the controls from the json
 	var groups = parameterInitialiser.groups;
 	var html = "";
 
@@ -1040,8 +1113,8 @@ function loadParameterSnapshot(parameterSnapshot) {
 	}
 	adjustPageSize();
 
-	console.log(parameterSnapshot);
-	console.log("CurrentSongId=" + currentStateStore.currentSongId);
+	// console.log(parameterSnapshot);
+	// console.log("CurrentSongId=" + currentStateStore.currentSongId);
 	loadWaveForm2('./resources/wavForm/', currentStateStore.currentSongId);
 }
 

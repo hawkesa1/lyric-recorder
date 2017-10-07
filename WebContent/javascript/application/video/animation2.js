@@ -5,19 +5,14 @@ var timesCounter = 0;
 
 function drawIt1(ctx3, currentAudioTime) {
 	time01 = performance.now();
-
 	clearContexts(ctx3);
-
 	setBackgroundSettings(ctx3);
-
 	drawPages(ctx3, currentAudioTime);
-
 	time02 = performance.now();
-
 	timesCounter++;
 	timesTotal += (time02 - time01);
 	if (timesCounter % 100 == 0) {
-		console.log(1 / (timesTotal / 100) + "FPS");
+		// console.log(1 / (timesTotal / 100) + "FPS");
 		timesTotal = 0;
 		timesCounter = 0;
 	}
@@ -29,21 +24,18 @@ function clearContexts(ctx3) {
 			word1Context.canvas.clientHeight);
 	word2Context.clearRect(0, 0, word1Context.canvas.clientWidth,
 			word1Context.canvas.clientHeight);
+
 }
-var hippoSize = 0;
-var previousCircleTransformRatio = 0;
-var smoothHippo = 0;
-var smoothHippoCount = 0;
+var markerSize = 0;
 var currentWholeUnitTime = 0;
 var currentYHigh = 0;
 
-var INITIAL_HIPPO_SIZE = 100;
-var INITIAL_HIPPO_LEFT = 200;
-var INITIAL_HIPPO_TOP = 200;
-
 function drawPages(ctx3, currentAudioTime) {
 
+	//ctx3.setTransform(1, 0.2, 0, 1, 0, 0);
+	
 	ctx3.save();
+
 	ctx3.globalAlpha = parameterValues.backgroundOpacity;
 	ctx3.fillStyle = parameterValues.textBackgroundColour;
 
@@ -57,39 +49,25 @@ function drawPages(ctx3, currentAudioTime) {
 			parameterValues.textWidth, parameterValues.textHeight);
 	ctx3.restore();
 
-	currentWholeUnitTime = parseInt(Math.ceil(currentAudioTime / 10));
-
-	if (circ && parameterWavePoints) {
-		currentYHigh = (parameterWavePoints[parseInt(currentWholeUnitTime)].yHigh) / 100;
-
-		hippoSize = INITIAL_HIPPO_SIZE + (currentYHigh * 100);
-
-		circ.css({
-			'width' : hippoSize + 'px'
-		});
-
-		var hippoPosX = INITIAL_HIPPO_LEFT
-				- (((hippoSize-INITIAL_HIPPO_SIZE)) / 2);
-		var hippoPosY = INITIAL_HIPPO_TOP
-				- ((hippoSize-INITIAL_HIPPO_SIZE) / 2);
-		
-		console.log(hippoPosX+" "+hippoPosY);
-		circ.css({
-			'top' : hippoPosY + 'px',
-			'left' : hippoPosX + 'px'
-		});
-	}
-
 	var aPage;
+	var drawingAPage = false;
 	outer_loop: for (var i = 0; i < currentStateStore.book.pages.length; i++) {
 		// console.log("Drawing linezzzz:" + i);
 		aPage = currentStateStore.book.pages[i];
 		if (aPage.startTime < currentAudioTime
 				&& aPage.endTime > currentAudioTime) {
+			drawingAPage = true;
 			drawPage(ctx3, currentAudioTime, aPage);
 			break outer_loop;
 		} else if (aPage.startTime > currentAudioTime) {
 			break outer_loop;
+		}
+	}
+	if (!drawingAPage) {
+		if (circ) {
+			circ.css({
+				'display' : 'none',
+			});
 		}
 	}
 }
@@ -110,7 +88,16 @@ function drawPage(ctx3, currentAudioTime, aPage) {
 		aLineYPosition = drawALine(ctx3, currentAudioTime, aPage.lines[i],
 				aLineYPosition, isCurrentLine);
 	}
-	drawLittleCircle(ctx3, littleCircleX, littleCircleY, 10, currentAudioTime);
+	if (parameterValues.showMarker) {
+		drawLittleCircle(ctx3, littleCircleX, littleCircleY, 10,
+				currentAudioTime);
+	} else {
+		if (circ) {
+			circ.css({
+				'display' : 'none',
+			});
+		}
+	}
 }
 
 function drawALine(ctx3, currentAudioTime, lineNumber, aLineYPosition,
@@ -184,7 +171,7 @@ function drawCoveredWord(aWord, xPosition, yPosition, selectedFontSize,
 	var bx = (xPosition - 10);
 	var by = (yPosition - selectedFontSize);
 	var bw = ((theWordWidth * percentComplete) + 10);
-	var bh = (selectedFontSize + 20);
+	var bh = (selectedFontSize + 200);
 
 	littleCircleX = bx + bw;
 	littleCircleY = by;
@@ -271,8 +258,28 @@ function drawLittleCircle(theContext, centerX, centerY, radius,
 	// theContext.stroke();
 	// theContext.restore();
 
-	var hippoX = (centerX * 1) - 40;
-	var hippoY = (centerY * 1) - 60;
+	currentWholeUnitTime = parseInt(Math.ceil(currentAudioTime / 10));
+	if (circ && parameterWavePoints) {
+		currentYHigh = (parameterWavePoints[parseInt(currentWholeUnitTime)].yHigh) / 100;
+		markerSize = parseInt(parameterValues.markerSize)
+				+ (currentYHigh * parseInt(parameterValues.markerIncrease));
+		circ.css({
+			'width' : markerSize + 'px',
+			'height' : markerSize + 'px'
+		});
+
+		var markerPosX = parseInt(parameterValues.markerLeft)
+				- (((markerSize - parseInt(parameterValues.markerSize))) / 2);
+		circ.css({
+			'display' : 'block',
+			'top' : parameterValues.markerTop + 'px',
+			'left' : markerPosX + 'px',
+			'opacity' : parameterValues.markerOpacity
+		});
+	}
+
+	var hippoX = parseInt(centerX) + parseInt(parameterValues.markerTextLeft);
+	var hippoY = parseInt(centerY) + parseInt(parameterValues.markerTextTop);
 	mySVG.style.left = hippoX + "px";
 	mySVG.style.top = hippoY + "px";
 
@@ -368,10 +375,10 @@ var temporaryBackgroundValues = {}
 
 function hasValueChanged(valueName) {
 	if (temporaryBackgroundValues[valueName] != parameterValues[valueName]) {
-		console.log(valueName + " has changed"
-				+ temporaryBackgroundValues[valueName] + ":"
-				+ parameterValues[valueName]);
-		temporaryBackgroundValues[valueName] = parameterValues[valueName];
+		// console.log(valueName + " has changed"
+		// + temporaryBackgroundValues[valueName] + ":"
+		// + parameterValues[valueName]);
+		// temporaryBackgroundValues[valueName] = parameterValues[valueName];
 
 		return true;
 	} else {

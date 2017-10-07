@@ -311,26 +311,19 @@ function loadIntoMemoryAndPlay(offline) {
 		return true;
 	};
 	r.readAsArrayBuffer(f);
-
 	return true;
 }
 
 function startVisualisation() {
 	console.log("Starting here");
 	sourceAudio = document.getElementById("audio");
-
 	if (!source) {
 		source = audioContext.createMediaElementSource(sourceAudio);
 		sourceAudio.load();
-		
 	}
-
 	graphicEqualizer.changeAudioContext(audioContext);
 	source.connect(graphicEqualizer.filter.convolver, 0, 0);
 	updateConnections();
-
-	
-	// sourceAudio.play();
 	$("btnStop").disabled = "";
 	return true;
 }

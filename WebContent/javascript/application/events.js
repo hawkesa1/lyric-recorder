@@ -1,9 +1,9 @@
 var fileUploader;
 var lyricTracker;
 var currentStateStore;
+
 var videoCanvas;
 var videoContext;
-
 var word1Canvas;
 var word1Context;
 var word2Canvas;
@@ -21,15 +21,16 @@ $(document).ready(
 			
 			enableView("enableUploadView", "fileUploadHolder");
 			
-			//loadTutorial();
 			main();
 			startVisualisation();
+		
 			videoCanvas = document.getElementById('videoCanvas');
 			videoContext = videoCanvas.getContext('2d');
 			word1Canvas = document.getElementById('word1Canvas');
 			word1Context = word1Canvas.getContext('2d');
 			word2Canvas = document.getElementById('word2Canvas');
 			word2Context = word2Canvas.getContext('2d');
+			
 			initialiseParameters();
 		});
 $(function() {

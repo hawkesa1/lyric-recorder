@@ -69,7 +69,7 @@ body:after {
 	border: 0px solid orange;
 	width: 800px;
 	height: 600px;
-	opacity: 0.8;
+	opacity: 1;
 }
 
 #word1Canvas {
@@ -80,7 +80,7 @@ body:after {
 	border: 0px solid gray;
 	width: 800px;
 	height: 600px;
-	opacity: 0.8;
+	opacity: 1;
 }
 
 #word2Canvas {
@@ -91,7 +91,7 @@ body:after {
 	border: 0px solid red;
 	width: 800px;
 	height: 600px;
-	opacity: 0.8;
+	opacity: 1;
 }
 
 #pageControl {

@@ -1,0 +1,1565 @@
+{
+  "title": "Don\u0027t Let The Man Get You Down",
+  "artist": "Fatboy Slim",
+  "album": "The Greatest Hits: Why Try Harder",
+  "uniqueId": "5673666bc77573650df88e16029b6905",
+  "unsynchronisedLyrics": "",
+  "lyricRecorderSynchronisedLyrics": [
+    {
+      "words": [
+        {
+          "word": "And",
+          "wordIndex": 0,
+          "id": "word_0_0",
+          "startTime": 10985.521,
+          "endTime": 11189.429999999998
+        },
+        {
+          "word": "the",
+          "wordIndex": 1,
+          "id": "word_0_1",
+          "startTime": 11199.728,
+          "endTime": 11310.998
+        },
+        {
+          "word": "sign",
+          "wordIndex": 2,
+          "id": "word_0_2",
+          "startTime": 11323.534,
+          "endTime": 11845.226999999999
+        },
+        {
+          "word": "said",
+          "wordIndex": 3,
+          "id": "word_0_3",
+          "startTime": 12035.723,
+          "endTime": 12736.001
+        },
+        {
+          "word": "long",
+          "wordIndex": 4,
+          "id": "word_0_4",
+          "startTime": 12748.16,
+          "endTime": 13126.125
+        },
+        {
+          "word": "haired,",
+          "wordIndex": 5,
+          "id": "word_0_5",
+          "startTime": 13140.937,
+          "endTime": 13487.792
+        },
+        {
+          "word": "freaky",
+          "wordIndex": 6,
+          "id": "word_0_6",
+          "startTime": 13499.324,
+          "endTime": 13793.526
+        },
+        {
+          "word": "people",
+          "wordIndex": 7,
+          "id": "word_0_7",
+          "startTime": 13803.978000000001,
+          "endTime": 14337.967999999999
+        },
+        {
+          "word": "need",
+          "wordIndex": 8,
+          "id": "word_0_8",
+          "startTime": 14473.891,
+          "endTime": 14877.948999999999
+        },
+        {
+          "word": "not",
+          "wordIndex": 9,
+          "id": "word_0_9",
+          "startTime": 14892.628999999999,
+          "endTime": 15278.975
+        },
+        {
+          "word": "apply",
+          "wordIndex": 10,
+          "id": "word_0_10",
+          "startTime": 15290.445,
+          "endTime": 16284.478
+        }
+      ],
+      "startTime": 11015.521,
+      "endTime": 16149.478
+    },
+    {
+      "words": [
+        {
+          "word": "And",
+          "wordIndex": 11,
+          "id": "word_1_0",
+          "startTime": 16662.235,
+          "endTime": 16829.995
+        },
+        {
+          "word": "the",
+          "wordIndex": 12,
+          "id": "word_1_1",
+          "startTime": 16933.226000000002,
+          "endTime": 17035.355
+        },
+        {
+          "word": "sign",
+          "wordIndex": 13,
+          "id": "word_1_2",
+          "startTime": 17132.409,
+          "endTime": 17584.762000000002
+        },
+        {
+          "word": "said",
+          "wordIndex": 14,
+          "id": "word_1_3",
+          "startTime": 17703.869000000002,
+          "endTime": 18249.55
+        },
+        {
+          "word": "long",
+          "wordIndex": 15,
+          "id": "word_1_4",
+          "startTime": 18428.294,
+          "endTime": 18679.472
+        },
+        {
+          "word": "haired,",
+          "wordIndex": 16,
+          "id": "word_1_5",
+          "startTime": 18804.654,
+          "endTime": 19025.269
+        },
+        {
+          "word": "freaky",
+          "wordIndex": 17,
+          "id": "word_1_6",
+          "startTime": 19141.954999999998,
+          "endTime": 19328.565000000002
+        },
+        {
+          "word": "people",
+          "wordIndex": 18,
+          "id": "word_1_7",
+          "startTime": 19440.231,
+          "endTime": 19946.142
+        },
+        {
+          "word": "need",
+          "wordIndex": 19,
+          "id": "word_1_8",
+          "startTime": 20221.702,
+          "endTime": 20503.523
+        },
+        {
+          "word": "not",
+          "wordIndex": 20,
+          "id": "word_1_9",
+          "startTime": 20619.32,
+          "endTime": 20933.167
+        },
+        {
+          "word": "apply",
+          "wordIndex": 21,
+          "id": "word_1_10",
+          "startTime": 21083.935,
+          "endTime": 21906.974
+        }
+      ],
+      "startTime": 16662.235,
+      "endTime": 21886.974
+    },
+    {
+      "words": [
+        {
+          "word": "And",
+          "wordIndex": 22,
+          "id": "word_2_0",
+          "startTime": 22318.154,
+          "endTime": 22497.6
+        },
+        {
+          "word": "the",
+          "wordIndex": 23,
+          "id": "word_2_1",
+          "startTime": 22587.608,
+          "endTime": 22715.482
+        },
+        {
+          "word": "sign",
+          "wordIndex": 24,
+          "id": "word_2_2",
+          "startTime": 22799.374,
+          "endTime": 23258.081000000002
+        },
+        {
+          "word": "said",
+          "wordIndex": 25,
+          "id": "word_2_3",
+          "startTime": 23371.352000000003,
+          "endTime": 23859.802
+        },
+        {
+          "word": "long",
+          "wordIndex": 26,
+          "id": "word_2_4",
+          "startTime": 24052.398,
+          "endTime": 24299.987
+        },
+        {
+          "word": "haired,",
+          "wordIndex": 27,
+          "id": "word_2_5",
+          "startTime": 24429.984,
+          "endTime": 24666.306
+        },
+        {
+          "word": "freaky",
+          "wordIndex": 28,
+          "id": "word_2_6",
+          "startTime": 24799.981,
+          "endTime": 25028.182
+        },
+        {
+          "word": "people",
+          "wordIndex": 29,
+          "id": "word_2_7",
+          "startTime": 25157.827999999998,
+          "endTime": 25672.737
+        },
+        {
+          "word": "need",
+          "wordIndex": 30,
+          "id": "word_2_8",
+          "startTime": 25905.916999999998,
+          "endTime": 26138.637
+        },
+        {
+          "word": "not",
+          "wordIndex": 31,
+          "id": "word_2_9",
+          "startTime": 26245.774999999998,
+          "endTime": 26610.068
+        },
+        {
+          "word": "apply",
+          "wordIndex": 32,
+          "id": "word_2_10",
+          "startTime": 26741.94,
+          "endTime": 27615.162
+        }
+      ],
+      "startTime": 22318.154,
+      "endTime": 27615.162
+    },
+    {
+      "words": [
+        {
+          "word": "And",
+          "wordIndex": 33,
+          "id": "word_3_0",
+          "startTime": 28040.26,
+          "endTime": 28148.592
+        },
+        {
+          "word": "the",
+          "wordIndex": 34,
+          "id": "word_3_1",
+          "startTime": 28273.921000000002,
+          "endTime": 28379.211000000003
+        },
+        {
+          "word": "sign",
+          "wordIndex": 35,
+          "id": "word_3_2",
+          "startTime": 28479.077,
+          "endTime": 28839.184
+        },
+        {
+          "word": "said",
+          "wordIndex": 36,
+          "id": "word_3_3",
+          "startTime": 28987.199,
+          "endTime": 29500.952
+        },
+        {
+          "word": "long",
+          "wordIndex": 37,
+          "id": "word_3_4",
+          "startTime": 29677.762000000002,
+          "endTime": 29948.664
+        },
+        {
+          "word": "haired,",
+          "wordIndex": 38,
+          "id": "word_3_5",
+          "startTime": 30090.074,
+          "endTime": 30316.14
+        },
+        {
+          "word": "freaky",
+          "wordIndex": 39,
+          "id": "word_3_6",
+          "startTime": 30429.751,
+          "endTime": 30631.350000000002
+        },
+        {
+          "word": "people",
+          "wordIndex": 40,
+          "id": "word_3_7",
+          "startTime": 30767.123000000003,
+          "endTime": 31246.832000000002
+        },
+        {
+          "word": "need",
+          "wordIndex": 41,
+          "id": "word_3_8",
+          "startTime": 31496.052,
+          "endTime": 31748.385
+        },
+        {
+          "word": "not",
+          "wordIndex": 42,
+          "id": "word_3_9",
+          "startTime": 31874.028,
+          "endTime": 32177.754
+        },
+        {
+          "word": "apply",
+          "wordIndex": 43,
+          "id": "word_3_10",
+          "startTime": 32327.581000000002,
+          "endTime": 33239.365
+        }
+      ],
+      "startTime": 28040.26,
+      "endTime": 33239.365
+    },
+    {
+      "words": [
+        {
+          "word": "And",
+          "wordIndex": 44,
+          "id": "word_4_0",
+          "startTime": 33606.142,
+          "endTime": 33797.407
+        },
+        {
+          "word": "the",
+          "wordIndex": 45,
+          "id": "word_4_1",
+          "startTime": 33892.496,
+          "endTime": 34000.622
+        },
+        {
+          "word": "sign",
+          "wordIndex": 46,
+          "id": "word_4_2",
+          "startTime": 34101.132,
+          "endTime": 34470.023
+        },
+        {
+          "word": "said",
+          "wordIndex": 47,
+          "id": "word_4_3",
+          "startTime": 34633.825000000004,
+          "endTime": 35163.165
+        },
+        {
+          "word": "long",
+          "wordIndex": 48,
+          "id": "word_4_4",
+          "startTime": 35343.195999999996,
+          "endTime": 35588.858
+        },
+        {
+          "word": "haired,",
+          "wordIndex": 49,
+          "id": "word_4_5",
+          "startTime": 35718.521,
+          "endTime": 35910.109
+        },
+        {
+          "word": "freaky",
+          "wordIndex": 50,
+          "id": "word_4_6",
+          "startTime": 36054.965000000004,
+          "endTime": 36282.611000000004
+        },
+        {
+          "word": "people",
+          "wordIndex": 51,
+          "id": "word_4_7",
+          "startTime": 36405.325,
+          "endTime": 36918.335
+        },
+        {
+          "word": "need",
+          "wordIndex": 52,
+          "id": "word_4_8",
+          "startTime": 37140.317,
+          "endTime": 37402.182
+        },
+        {
+          "word": "not",
+          "wordIndex": 53,
+          "id": "word_4_9",
+          "startTime": 37519.763,
+          "endTime": 37899.396
+        },
+        {
+          "word": "apply",
+          "wordIndex": 54,
+          "id": "word_4_10",
+          "startTime": 38030.833,
+          "endTime": 38759.815
+        }
+      ],
+      "startTime": 33606.142,
+      "endTime": 38759.815
+    },
+    {
+      "words": [
+        {
+          "word": "And",
+          "wordIndex": 55,
+          "id": "word_5_0",
+          "startTime": 39239.156,
+          "endTime": 39381.458
+        },
+        {
+          "word": "the",
+          "wordIndex": 56,
+          "id": "word_5_1",
+          "startTime": 39502.055,
+          "endTime": 39616.137
+        },
+        {
+          "word": "sign",
+          "wordIndex": 57,
+          "id": "word_5_2",
+          "startTime": 39709.068,
+          "endTime": 40107.676
+        },
+        {
+          "word": "said",
+          "wordIndex": 58,
+          "id": "word_5_3",
+          "startTime": 40280.962,
+          "endTime": 40810.714
+        },
+        {
+          "word": "long",
+          "wordIndex": 59,
+          "id": "word_5_4",
+          "startTime": 40972.606,
+          "endTime": 41250.248999999996
+        },
+        {
+          "word": "haired,",
+          "wordIndex": 60,
+          "id": "word_5_5",
+          "startTime": 41389.569,
+          "endTime": 41651.748
+        },
+        {
+          "word": "freaky",
+          "wordIndex": 61,
+          "id": "word_5_6",
+          "startTime": 41772.770000000004,
+          "endTime": 41970.61
+        },
+        {
+          "word": "people",
+          "wordIndex": 62,
+          "id": "word_5_7",
+          "startTime": 42099.143,
+          "endTime": 42541.221999999994
+        },
+        {
+          "word": "need",
+          "wordIndex": 63,
+          "id": "word_5_8",
+          "startTime": 42827.376000000004,
+          "endTime": 43086.6
+        },
+        {
+          "word": "not",
+          "wordIndex": 64,
+          "id": "word_5_9",
+          "startTime": 43200.888,
+          "endTime": 43567.04
+        },
+        {
+          "word": "apply",
+          "wordIndex": 65,
+          "id": "word_5_10",
+          "startTime": 43720.162000000004,
+          "endTime": 44444.702
+        }
+      ],
+      "startTime": 39239.156,
+      "endTime": 44444.702
+    },
+    {
+      "words": [
+        {
+          "word": "And",
+          "wordIndex": 66,
+          "id": "word_6_0",
+          "startTime": 44890.439,
+          "endTime": 45012.241
+        },
+        {
+          "word": "the",
+          "wordIndex": 67,
+          "id": "word_6_1",
+          "startTime": 45123.336,
+          "endTime": 45226.861
+        },
+        {
+          "word": "sign",
+          "wordIndex": 68,
+          "id": "word_6_2",
+          "startTime": 45322.206,
+          "endTime": 45802.045999999995
+        },
+        {
+          "word": "said",
+          "wordIndex": 69,
+          "id": "word_6_3",
+          "startTime": 45972.284,
+          "endTime": 46455.035
+        },
+        {
+          "word": "long",
+          "wordIndex": 70,
+          "id": "word_6_4",
+          "startTime": 46641.686,
+          "endTime": 46898.435999999994
+        },
+        {
+          "word": "haired,",
+          "wordIndex": 71,
+          "id": "word_6_5",
+          "startTime": 47037.512,
+          "endTime": 47272.276
+        },
+        {
+          "word": "freaky",
+          "wordIndex": 72,
+          "id": "word_6_6",
+          "startTime": 47393.962999999996,
+          "endTime": 47609.526000000005
+        },
+        {
+          "word": "people",
+          "wordIndex": 73,
+          "id": "word_6_7",
+          "startTime": 47732.689999999995,
+          "endTime": 48148.141
+        },
+        {
+          "word": "need",
+          "wordIndex": 74,
+          "id": "word_6_8",
+          "startTime": 48474.477,
+          "endTime": 48744.745
+        },
+        {
+          "word": "not",
+          "wordIndex": 75,
+          "id": "word_6_9",
+          "startTime": 48858.246,
+          "endTime": 49129.49
+        },
+        {
+          "word": "apply",
+          "wordIndex": 76,
+          "id": "word_6_10",
+          "startTime": 49249.524,
+          "endTime": 50100.472
+        }
+      ],
+      "startTime": 44890.439,
+      "endTime": 50100.472
+    },
+    {
+      "words": [
+        {
+          "word": "And",
+          "wordIndex": 77,
+          "id": "word_7_0",
+          "startTime": 50508.879,
+          "endTime": 50639.211
+        },
+        {
+          "word": "the",
+          "wordIndex": 78,
+          "id": "word_7_1",
+          "startTime": 50749.128,
+          "endTime": 50858.21
+        },
+        {
+          "word": "sign",
+          "wordIndex": 79,
+          "id": "word_7_2",
+          "startTime": 50952.849,
+          "endTime": 51398.611000000004
+        },
+        {
+          "word": "said",
+          "wordIndex": 80,
+          "id": "word_7_3",
+          "startTime": 51583.244999999995,
+          "endTime": 52051.780999999995
+        },
+        {
+          "word": "long",
+          "wordIndex": 81,
+          "id": "word_7_4",
+          "startTime": 52247.069,
+          "endTime": 52545.187
+        },
+        {
+          "word": "haired,",
+          "wordIndex": 82,
+          "id": "word_7_5",
+          "startTime": 52682.195,
+          "endTime": 52895.27
+        },
+        {
+          "word": "freaky",
+          "wordIndex": 83,
+          "id": "word_7_6",
+          "startTime": 53026.173,
+          "endTime": 53257.076
+        },
+        {
+          "word": "people",
+          "wordIndex": 84,
+          "id": "word_7_7",
+          "startTime": 53363.950000000004,
+          "endTime": 53813.435
+        },
+        {
+          "word": "need",
+          "wordIndex": 85,
+          "id": "word_7_8",
+          "startTime": 54130.695,
+          "endTime": 54365.983
+        },
+        {
+          "word": "not",
+          "wordIndex": 86,
+          "id": "word_7_9",
+          "startTime": 54470.79,
+          "endTime": 54799.093
+        },
+        {
+          "word": "apply",
+          "wordIndex": 87,
+          "id": "word_7_10",
+          "startTime": 54920.015999999996,
+          "endTime": 55677.087999999996
+        }
+      ],
+      "startTime": 50508.879,
+      "endTime": 55677.087999999996
+    },
+    {
+      "words": [
+        {
+          "word": "And",
+          "wordIndex": 88,
+          "id": "word_8_0"
+        },
+        {
+          "word": "the",
+          "wordIndex": 89,
+          "id": "word_8_1"
+        },
+        {
+          "word": "sign",
+          "wordIndex": 90,
+          "id": "word_8_2"
+        },
+        {
+          "word": "said",
+          "wordIndex": 91,
+          "id": "word_8_3"
+        },
+        {
+          "word": "long",
+          "wordIndex": 92,
+          "id": "word_8_4"
+        },
+        {
+          "word": "haired,",
+          "wordIndex": 93,
+          "id": "word_8_5"
+        },
+        {
+          "word": "freaky",
+          "wordIndex": 94,
+          "id": "word_8_6"
+        },
+        {
+          "word": "people",
+          "wordIndex": 95,
+          "id": "word_8_7"
+        },
+        {
+          "word": "need",
+          "wordIndex": 96,
+          "id": "word_8_8"
+        },
+        {
+          "word": "not",
+          "wordIndex": 97,
+          "id": "word_8_9"
+        },
+        {
+          "word": "apply",
+          "wordIndex": 98,
+          "id": "word_8_10"
+        }
+      ],
+      "startTime": 56208.929
+    },
+    {
+      "words": [
+        {
+          "word": "And",
+          "wordIndex": 99,
+          "id": "word_9_0"
+        },
+        {
+          "word": "the",
+          "wordIndex": 100,
+          "id": "word_9_1"
+        },
+        {
+          "word": "sign",
+          "wordIndex": 101,
+          "id": "word_9_2"
+        },
+        {
+          "word": "said",
+          "wordIndex": 102,
+          "id": "word_9_3"
+        },
+        {
+          "word": "long",
+          "wordIndex": 103,
+          "id": "word_9_4"
+        },
+        {
+          "word": "haired,",
+          "wordIndex": 104,
+          "id": "word_9_5"
+        },
+        {
+          "word": "freaky",
+          "wordIndex": 105,
+          "id": "word_9_6"
+        },
+        {
+          "word": "people",
+          "wordIndex": 106,
+          "id": "word_9_7"
+        },
+        {
+          "word": "need",
+          "wordIndex": 107,
+          "id": "word_9_8"
+        },
+        {
+          "word": "not",
+          "wordIndex": 108,
+          "id": "word_9_9"
+        },
+        {
+          "word": "apply",
+          "wordIndex": 109,
+          "id": "word_9_10"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "And",
+          "wordIndex": 110,
+          "id": "word_10_0"
+        },
+        {
+          "word": "the",
+          "wordIndex": 111,
+          "id": "word_10_1"
+        },
+        {
+          "word": "sign",
+          "wordIndex": 112,
+          "id": "word_10_2"
+        },
+        {
+          "word": "said",
+          "wordIndex": 113,
+          "id": "word_10_3"
+        },
+        {
+          "word": "long",
+          "wordIndex": 114,
+          "id": "word_10_4"
+        },
+        {
+          "word": "haired,",
+          "wordIndex": 115,
+          "id": "word_10_5"
+        },
+        {
+          "word": "freaky",
+          "wordIndex": 116,
+          "id": "word_10_6"
+        },
+        {
+          "word": "people",
+          "wordIndex": 117,
+          "id": "word_10_7"
+        },
+        {
+          "word": "need",
+          "wordIndex": 118,
+          "id": "word_10_8"
+        },
+        {
+          "word": "not",
+          "wordIndex": 119,
+          "id": "word_10_9"
+        },
+        {
+          "word": "apply",
+          "wordIndex": 120,
+          "id": "word_10_10"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "And",
+          "wordIndex": 121,
+          "id": "word_11_0"
+        },
+        {
+          "word": "the",
+          "wordIndex": 122,
+          "id": "word_11_1"
+        },
+        {
+          "word": "sign",
+          "wordIndex": 123,
+          "id": "word_11_2"
+        },
+        {
+          "word": "said",
+          "wordIndex": 124,
+          "id": "word_11_3"
+        },
+        {
+          "word": "long",
+          "wordIndex": 125,
+          "id": "word_11_4"
+        },
+        {
+          "word": "haired,",
+          "wordIndex": 126,
+          "id": "word_11_5"
+        },
+        {
+          "word": "freaky",
+          "wordIndex": 127,
+          "id": "word_11_6"
+        },
+        {
+          "word": "people",
+          "wordIndex": 128,
+          "id": "word_11_7"
+        },
+        {
+          "word": "need",
+          "wordIndex": 129,
+          "id": "word_11_8"
+        },
+        {
+          "word": "not",
+          "wordIndex": 130,
+          "id": "word_11_9"
+        },
+        {
+          "word": "apply",
+          "wordIndex": 131,
+          "id": "word_11_10"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "And",
+          "wordIndex": 132,
+          "id": "word_12_0"
+        },
+        {
+          "word": "the",
+          "wordIndex": 133,
+          "id": "word_12_1"
+        },
+        {
+          "word": "sign",
+          "wordIndex": 134,
+          "id": "word_12_2"
+        },
+        {
+          "word": "said",
+          "wordIndex": 135,
+          "id": "word_12_3"
+        },
+        {
+          "word": "long",
+          "wordIndex": 136,
+          "id": "word_12_4"
+        },
+        {
+          "word": "haired,",
+          "wordIndex": 137,
+          "id": "word_12_5"
+        },
+        {
+          "word": "freaky",
+          "wordIndex": 138,
+          "id": "word_12_6"
+        },
+        {
+          "word": "people",
+          "wordIndex": 139,
+          "id": "word_12_7"
+        },
+        {
+          "word": "need",
+          "wordIndex": 140,
+          "id": "word_12_8"
+        },
+        {
+          "word": "not",
+          "wordIndex": 141,
+          "id": "word_12_9"
+        },
+        {
+          "word": "apply",
+          "wordIndex": 142,
+          "id": "word_12_10"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "And",
+          "wordIndex": 143,
+          "id": "word_13_0"
+        },
+        {
+          "word": "the",
+          "wordIndex": 144,
+          "id": "word_13_1"
+        },
+        {
+          "word": "sign",
+          "wordIndex": 145,
+          "id": "word_13_2"
+        },
+        {
+          "word": "said",
+          "wordIndex": 146,
+          "id": "word_13_3"
+        },
+        {
+          "word": "long",
+          "wordIndex": 147,
+          "id": "word_13_4"
+        },
+        {
+          "word": "haired,",
+          "wordIndex": 148,
+          "id": "word_13_5"
+        },
+        {
+          "word": "freaky",
+          "wordIndex": 149,
+          "id": "word_13_6"
+        },
+        {
+          "word": "people",
+          "wordIndex": 150,
+          "id": "word_13_7"
+        },
+        {
+          "word": "need",
+          "wordIndex": 151,
+          "id": "word_13_8"
+        },
+        {
+          "word": "not",
+          "wordIndex": 152,
+          "id": "word_13_9"
+        },
+        {
+          "word": "apply",
+          "wordIndex": 153,
+          "id": "word_13_10"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "And",
+          "wordIndex": 154,
+          "id": "word_14_0"
+        },
+        {
+          "word": "the",
+          "wordIndex": 155,
+          "id": "word_14_1"
+        },
+        {
+          "word": "sign",
+          "wordIndex": 156,
+          "id": "word_14_2"
+        },
+        {
+          "word": "said",
+          "wordIndex": 157,
+          "id": "word_14_3"
+        },
+        {
+          "word": "long",
+          "wordIndex": 158,
+          "id": "word_14_4"
+        },
+        {
+          "word": "haired,",
+          "wordIndex": 159,
+          "id": "word_14_5"
+        },
+        {
+          "word": "freaky",
+          "wordIndex": 160,
+          "id": "word_14_6"
+        },
+        {
+          "word": "people",
+          "wordIndex": 161,
+          "id": "word_14_7"
+        },
+        {
+          "word": "need",
+          "wordIndex": 162,
+          "id": "word_14_8"
+        },
+        {
+          "word": "not",
+          "wordIndex": 163,
+          "id": "word_14_9"
+        },
+        {
+          "word": "apply",
+          "wordIndex": 164,
+          "id": "word_14_10"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "And",
+          "wordIndex": 165,
+          "id": "word_15_0"
+        },
+        {
+          "word": "the",
+          "wordIndex": 166,
+          "id": "word_15_1"
+        },
+        {
+          "word": "sign",
+          "wordIndex": 167,
+          "id": "word_15_2"
+        },
+        {
+          "word": "said",
+          "wordIndex": 168,
+          "id": "word_15_3"
+        },
+        {
+          "word": "long",
+          "wordIndex": 169,
+          "id": "word_15_4"
+        },
+        {
+          "word": "haired,",
+          "wordIndex": 170,
+          "id": "word_15_5"
+        },
+        {
+          "word": "freaky",
+          "wordIndex": 171,
+          "id": "word_15_6"
+        },
+        {
+          "word": "people",
+          "wordIndex": 172,
+          "id": "word_15_7"
+        },
+        {
+          "word": "need",
+          "wordIndex": 173,
+          "id": "word_15_8"
+        },
+        {
+          "word": "not",
+          "wordIndex": 174,
+          "id": "word_15_9"
+        },
+        {
+          "word": "apply",
+          "wordIndex": 175,
+          "id": "word_15_10"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "And",
+          "wordIndex": 176,
+          "id": "word_16_0"
+        },
+        {
+          "word": "the",
+          "wordIndex": 177,
+          "id": "word_16_1"
+        },
+        {
+          "word": "sign",
+          "wordIndex": 178,
+          "id": "word_16_2"
+        },
+        {
+          "word": "said",
+          "wordIndex": 179,
+          "id": "word_16_3"
+        },
+        {
+          "word": "long",
+          "wordIndex": 180,
+          "id": "word_16_4"
+        },
+        {
+          "word": "haired,",
+          "wordIndex": 181,
+          "id": "word_16_5"
+        },
+        {
+          "word": "freaky",
+          "wordIndex": 182,
+          "id": "word_16_6"
+        },
+        {
+          "word": "people",
+          "wordIndex": 183,
+          "id": "word_16_7"
+        },
+        {
+          "word": "need",
+          "wordIndex": 184,
+          "id": "word_16_8"
+        },
+        {
+          "word": "not",
+          "wordIndex": 185,
+          "id": "word_16_9"
+        },
+        {
+          "word": "apply",
+          "wordIndex": 186,
+          "id": "word_16_10"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "word": "And",
+          "wordIndex": 187,
+          "id": "word_17_0"
+        },
+        {
+          "word": "the",
+          "wordIndex": 188,
+          "id": "word_17_1"
+        },
+        {
+          "word": "sign",
+          "wordIndex": 189,
+          "id": "word_17_2"
+        },
+        {
+          "word": "said",
+          "wordIndex": 190,
+          "id": "word_17_3"
+        },
+        {
+          "word": "long",
+          "wordIndex": 191,
+          "id": "word_17_4"
+        },
+        {
+          "word": "haired,",
+          "wordIndex": 192,
+          "id": "word_17_5"
+        },
+        {
+          "word": "freaky",
+          "wordIndex": 193,
+          "id": "word_17_6"
+        },
+        {
+          "word": "people",
+          "wordIndex": 194,
+          "id": "word_17_7"
+        },
+        {
+          "word": "need",
+          "wordIndex": 195,
+          "id": "word_17_8"
+        },
+        {
+          "word": "not",
+          "wordIndex": 196,
+          "id": "word_17_9"
+        },
+        {
+          "word": "apply",
+          "wordIndex": 197,
+          "id": "word_17_10"
+        }
+      ]
+    }
+  ],
+  "md5Hash": "5673666bc77573650df88e16029b6905",
+  "originalFileName": "12 - Don\u0027t Let The Man Get You Down.mp3",
+  "allTags": {
+    "ACOUSTIC": "",
+    "TRACK": "12",
+    "ARTISTS": "",
+    "ORIGINAL_YEAR": "",
+    "TRACK_TOTAL": "18",
+    "RECORD_LABEL": "",
+    "MUSICBRAINZ_RELEASEID": "",
+    "GENRE": "Beat",
+    "MOOD_VALENCE": "",
+    "FBPM": "",
+    "MUSICBRAINZ_ARTISTID": "",
+    "ACOUSTID_FINGERPRINT": "",
+    "ALBUM_ARTIST_SORT": "",
+    "TIMBRE": "",
+    "URL_DISCOGS_RELEASE_SITE": "",
+    "MEDIA": "",
+    "BARCODE": "",
+    "MUSICBRAINZ_RELEASE_TYPE": "",
+    "AMAZON_ID": "",
+    "MUSICBRAINZ_RELEASE_TRACK_ID": "",
+    "CONDUCTOR": "",
+    "MUSICBRAINZ_TRACK_ID": "",
+    "URL_LYRICS_SITE": "",
+    "ALBUM_SORT": "",
+    "URL_WIKIPEDIA_RELEASE_SITE": "",
+    "ARTIST": "Fatboy Slim",
+    "ORCHESTRA": "",
+    "ISRC": "",
+    "ARTIST_SORT": "",
+    "COMMENT": "www.legalsounds.com",
+    "WORK": "",
+    "MUSICBRAINZ_RELEASE_GROUP_ID": "",
+    "PERFORMER": "",
+    "ORIGINAL_ALBUM": "",
+    "RATING": "",
+    "MOOD_AROUSAL": "",
+    "MUSICBRAINZ_DISC_ID": "",
+    "SCRIPT": "",
+    "MUSICBRAINZ_ORIGINAL_RELEASE_ID": "",
+    "TONALITY": "",
+    "PRODUCER": "",
+    "GROUPING": "",
+    "IS_COMPILATION": "",
+    "KEY": "",
+    "MUSICIP_ID": "",
+    "MOOD_DANCEABILITY": "",
+    "URL_OFFICIAL_RELEASE_SITE": "",
+    "MUSICBRAINZ_WORK_ID": "",
+    "LYRICIST": "",
+    "URL_WIKIPEDIA_ARTIST_SITE": "",
+    "LANGUAGE": "eng",
+    "CATALOG_NO": "",
+    "COUNTRY": "",
+    "LYRICRECORDER.COM": "",
+    "ORIGINAL_ARTIST": "",
+    "TEMPO": "",
+    "MOOD_RELAXED": "",
+    "MUSICBRAINZ_RELEASE_STATUS": "",
+    "DISC_SUBTITLE": "",
+    "DJMIXER": "",
+    "DISC_NO": "",
+    "YEAR": "2006",
+    "PART": "",
+    "MUSICBRAINZ_RELEASE_COUNTRY": "",
+    "COMPOSER": "",
+    "MOOD_HAPPY": "",
+    "MUSICBRAINZ_RELEASEARTISTID": "",
+    "TITLE_SORT": "",
+    "URL_DISCOGS_ARTIST_SITE": "",
+    "MIXER": "",
+    "COMPOSER_SORT": "",
+    "QUALITY": "",
+    "ENGINEER": "",
+    "ALBUM": "The Greatest Hits: Why Try Harder",
+    "LYRICS": "",
+    "MOOD_PARTY": "",
+    "ALBUM_ARTIST": "",
+    "ACOUSTID_ID": "",
+    "ARRANGER": "",
+    "BPM": "",
+    "MOOD_AGGRESSIVE": "",
+    "ELECTRONIC": "",
+    "COVER_ART": "",
+    "SUBTITLE": "",
+    "TAGS": "",
+    "DISC_TOTAL": "",
+    "MOOD_SAD": "",
+    "MOOD": "",
+    "ENCODER": "",
+    "REMIXER": "",
+    "ORIGINAL_LYRICIST": "",
+    "OCCASION": "",
+    "CUSTOM1": "",
+    "CUSTOM2": "",
+    "CUSTOM3": "",
+    "CUSTOM4": "",
+    "CUSTOM5": "",
+    "INSTRUMENTAL": "",
+    "URL_OFFICIAL_ARTIST_SITE": "",
+    "TITLE": "Don\u0027t Let The Man Get You Down"
+  },
+  "videoSnapshot": {
+    "snapshots": [
+      {
+        "id": 0,
+        "parameterValues": {
+          "linesPerPage": "1",
+          "newLineSpacing": "190",
+          "graduatedWordType": "vertical",
+          "graduatedWordThreshold": "0",
+          "graduatedWordEasingFunction": "easeOutExpo",
+          "graduatedWordOpacity": "1",
+          "graduatedWordColour": "#ff8000",
+          "graduatedShadowShow": true,
+          "graduatedShadowColour": "#000000",
+          "graduatedShadowOffsetX": "5",
+          "graduatedShadowOffsetY": "5",
+          "graduatedShadowBlur": "10",
+          "backgroundColour": "#ffffff",
+          "backgroundImage": "1506157225689.jpg",
+          "backgroundRepeat": "no-repeat",
+          "backgroundImageWidth": "1920",
+          "backgroundImageHeight": "1080",
+          "backgroundImagePositionX": "0",
+          "backgroundImagePositionY": "0",
+          "backgroundContainerWidth": "1920",
+          "backgroundContainerHeight": "1080",
+          "backgroundContainerPositionX": "0",
+          "backgroundContainerPositionY": "0",
+          "backgroundImageRotation": "0",
+          "fontFamily": "Ravie Regular",
+          "selectedEasingFunction": "easeOutExpo",
+          "selectedEasingDuration": "198",
+          "selectedOpacity": "1",
+          "selectedFontColour": "#400040",
+          "lineHeight": "156",
+          "characterSpacing": "49",
+          "fontSize": "112",
+          "fontSizeIncrease": "0",
+          "selectedShadowShow": "checked",
+          "selectedShadowColour": "#000000",
+          "selectedShadowOffsetX": "5",
+          "selectedShadowOffsetY": "5",
+          "selectedShadowBlur": "10",
+          "unselectedFontColourPast": "#ff8000",
+          "unselectedShadowShowPast": "checked",
+          "unselectedShadowColourPast": "#000000",
+          "unselectedShadowOffsetXPast": "5",
+          "unselectedShadowOffsetYPast": "5",
+          "unselectedShadowBlurPast": "10",
+          "unselectedOpacityPast": "1",
+          "unselectedFontColourFuture": "#ffffff",
+          "unselectedShadowShowFuture": "checked",
+          "unselectedShadowColourFuture": "#000000",
+          "unselectedShadowOffsetXFuture": "5",
+          "unselectedShadowOffsetYFuture": "5",
+          "unselectedShadowBlurFuture": "10",
+          "unselectedOpacityFuture": "1",
+          "textBackgroundColour": "#ffffff",
+          "textX": "391",
+          "textY": "275",
+          "textWidth": "1367",
+          "textHeight": "1080",
+          "backgroundShadowShow": "checked",
+          "backgroundShadowColour": "#f8f8ff",
+          "backgroundShadowOffsetX": "5",
+          "backgroundOffsetY": "5",
+          "backgroundShadowBlur": "7",
+          "backgroundOpacity": "0",
+          "videoFPS": "60",
+          "videoWidth": "1920",
+          "videoHeight": "1080",
+          "showWindowed": false,
+          "videoFirstFrame": "0",
+          "videoLastFrame": "2058",
+          "markerSize": "48",
+          "markerLeft": "-186",
+          "markerTop": "-176",
+          "markerIncrease": "0",
+          "markerTextLeft": "-30",
+          "markerTextTop": "-17",
+          "markerOpacity": "1",
+          "showMarker": false,
+          "numberOfFutureLines": "0",
+          "numberOfPastLines": "0"
+        }
+      }
+    ]
+  },
+  "pages": [
+    {
+      "startTime": 11015.521,
+      "lines": [
+        0
+      ],
+      "endTime": 16149.478
+    },
+    {
+      "startTime": 16662.235,
+      "lines": [
+        1
+      ],
+      "endTime": 21886.974
+    },
+    {
+      "startTime": 22318.154,
+      "lines": [
+        2
+      ],
+      "endTime": 27615.162
+    },
+    {
+      "startTime": 28040.26,
+      "lines": [
+        3
+      ],
+      "endTime": 33239.365
+    },
+    {
+      "startTime": 33606.142,
+      "lines": [
+        4
+      ],
+      "endTime": 38759.815
+    },
+    {
+      "startTime": 39239.156,
+      "lines": [
+        5
+      ],
+      "endTime": 44444.702
+    },
+    {
+      "startTime": 44890.439,
+      "lines": [
+        6
+      ],
+      "endTime": 50100.472
+    },
+    {
+      "startTime": 50508.879,
+      "lines": [
+        7
+      ],
+      "endTime": 55677.087999999996
+    },
+    {
+      "startTime": 56208.929,
+      "lines": [
+        8
+      ]
+    },
+    {
+      "lines": [
+        9
+      ]
+    },
+    {
+      "lines": [
+        10
+      ]
+    },
+    {
+      "lines": [
+        11
+      ]
+    },
+    {
+      "lines": [
+        12
+      ]
+    },
+    {
+      "lines": [
+        13
+      ]
+    },
+    {
+      "lines": [
+        14
+      ]
+    },
+    {
+      "lines": [
+        15
+      ]
+    },
+    {
+      "lines": [
+        16
+      ]
+    },
+    {
+      "lines": [
+        17
+      ]
+    }
+  ]
+}

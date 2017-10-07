@@ -83,11 +83,3 @@ body {
 	text-decoration: underline;
 }
 
-#controls {
-	
-	overflow-y: scroll;
-	border: 1px solid black;
-	width: 600px;
-	position:absolute;
-	top:1000px;
-}
