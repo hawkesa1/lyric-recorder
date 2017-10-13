@@ -1,20 +1,26 @@
-var time0l;
-var time02;
-var timesTotal = 0;
-var timesCounter = 0;
+var time0l = 0;
+var time02 = 0;
+var frameCounter = 0;
+var fps = 0;
 
 function drawIt1(ctx3, currentAudioTime) {
-	time01 = performance.now();
+	if (needToReCalculatePages) {
+		generateNewPages();
+		needToReCalculatePages = false;
+	}
+
 	clearContexts(ctx3);
 	setBackgroundSettings(ctx3);
 	drawPages(ctx3, currentAudioTime);
-	time02 = performance.now();
-	timesCounter++;
-	timesTotal += (time02 - time01);
-	if (timesCounter % 100 == 0) {
-		// console.log(1 / (timesTotal / 100) + "FPS");
-		timesTotal = 0;
-		timesCounter = 0;
+
+	frameCounter++;
+
+	if (frameCounter % 100 == 0) {
+		time02 = performance.now();
+		fps = Math.round((100 / (time02 - time0l)) * 1000);
+		console.log(fps + " FPS");
+		frameCounter = 0;
+		time0l = performance.now();
 	}
 }
 
@@ -31,14 +37,9 @@ var currentWholeUnitTime = 0;
 var currentYHigh = 0;
 
 function drawPages(ctx3, currentAudioTime) {
-
-	//ctx3.setTransform(1, 0.2, 0, 1, 0, 0);
-	
 	ctx3.save();
-
 	ctx3.globalAlpha = parameterValues.backgroundOpacity;
 	ctx3.fillStyle = parameterValues.textBackgroundColour;
-
 	if (parameterValues.backgroundShadowShow) {
 		ctx3.shadowColor = parameterValues.backgroundShadowColour;
 		ctx3.shadowOffsetX = parameterValues.backgroundShadowOffsetX;
@@ -57,7 +58,7 @@ function drawPages(ctx3, currentAudioTime) {
 		if (aPage.startTime < currentAudioTime
 				&& aPage.endTime > currentAudioTime) {
 			drawingAPage = true;
-			drawPage(ctx3, currentAudioTime, aPage);
+			drawPage(ctx3, currentAudioTime, aPage, 0);
 			break outer_loop;
 		} else if (aPage.startTime > currentAudioTime) {
 			break outer_loop;
@@ -69,13 +70,54 @@ function drawPages(ctx3, currentAudioTime) {
 				'display' : 'none',
 			});
 		}
+		var nextPage = 0;
+		var timeTilNextPage = 0;
+		var loopCount = 0;
+		outer_loop: for (var i = 0; i < currentStateStore.book.pages.length; i++) {
+			console.log(loopCount++);
+			console.log();
+			aPage = currentStateStore.book.pages[i];
+			if (i == 0 && aPage.startTime > currentAudioTime) {
+				// Before First Page
+				timeTilNextPage = aPage.startTime - currentAudioTime;
+				nextPage = i;
+				break outer_loop;
+			} else if (aPage.startTime < currentAudioTime
+					&& currentStateStore.book.pages[i + 1].startTime > currentAudioTime) {
+				// Before a page
+				nextPage = i + 1;
+				timeTilNextPage = currentStateStore.book.pages[i + 1].startTime
+						- currentAudioTime;
+				break outer_loop;
+			} else if (i + 1 == currentStateStore.book.pages.length
+					&& aPage.endTime < currentAudioTime) {
+				// After last page
+				break outer_loop;
+			}
+		}
+		if (timeTilNextPage <= 1000) {
+			drawPage(ctx3, currentAudioTime,
+					currentStateStore.book.pages[nextPage], timeTilNextPage);
+		}
+
 	}
 }
 
-function drawPage(ctx3, currentAudioTime, aPage) {
+function drawPage(ctx3, currentAudioTime, aPage, timeTilNextPage) {
+	if (timeTilNextPage > 0) {
+		flyInPosition = $.easing['easeInElastic'](0, timeTilNextPage, 0, 1000,
+				1000);
+
+		// flyInPosition = timeTilNextPage;
+	} else {
+		flyInPosition = 0;
+	}
 	var aLineYPosition = parameterValues.textY - 0;
 	wigglePosition = Math.sin((currentAudioTime / 500)) * 5;
 	var isCurrentLine = false;
+	if (!aPage) {
+		return false;
+	}
 	for (var i = 0; i < aPage.lines.length; i++) {
 		if (i != 0) {
 			aLineYPosition += (parameterValues.newLineSpacing - 0);
@@ -83,7 +125,6 @@ function drawPage(ctx3, currentAudioTime, aPage) {
 		if (aPage.lines[i].startTime > currentAudioTime
 				&& aPage.lines[i].endTime < currentAudioTime) {
 			isCurrentLine = true;
-			console.log("blaam");
 		}
 		aLineYPosition = drawALine(ctx3, currentAudioTime, aPage.lines[i],
 				aLineYPosition, isCurrentLine);
@@ -109,13 +150,17 @@ function drawALine(ctx3, currentAudioTime, lineNumber, aLineYPosition,
 }
 
 var wigglePosition = 0;
+var flyInPosition = 0;
 
 function drawLine(ctx3, currentAudioTime, aLine, thisLineYPosition,
 		isCurrentLine) {
 	var currentLineWidth = 0;
 	var aWord;
 	var xPosition = parameterValues.textX - 0 + 10;
+	var yPosition = thisLineYPosition;
+	yPosition += flyInPosition;
 	xPosition += wigglePosition;
+
 	var wordWidth = 0;
 	var wordSpace = 0;
 	var wordWidth1 = 0;
@@ -123,8 +168,17 @@ function drawLine(ctx3, currentAudioTime, aLine, thisLineYPosition,
 	// for each word
 	for (var j = 0; j < aLine.words.length; j++) {
 		aWord = aLine.words[j];
-		ctx3.font = parameterValues.fontSize + "px "
-				+ parameterValues.fontFamily;
+
+		var fontString = parameterValues.fontStyle + " "
+				+ parameterValues.fontVariant + " "
+				+ parameterValues.fontWeight + " " + parameterValues.fontSize
+				+ "px " + parameterValues.fontFamily;
+		console.log("Font String" + fontString);
+
+		ctx3.font = parameterValues.fontStyle + " "
+				+ parameterValues.fontVariant + " "
+				+ parameterValues.fontWeight + " " + parameterValues.fontSize
+				+ "px " + parameterValues.fontFamily;
 		// add this word to the current line and measure the width
 		currentLineWidth += ctx3.measureText(aWord.word).width;
 
@@ -134,8 +188,8 @@ function drawLine(ctx3, currentAudioTime, aLine, thisLineYPosition,
 					+ (parameterValues.characterSpacing - 0);
 			xPosition = (parameterValues.textX - 0 + 10);
 			xPosition += wigglePosition;
-			thisLineYPosition = thisLineYPosition
-					+ (parameterValues.lineHeight - 0);
+			// yPosition += flyInPosition;
+			yPosition = yPosition + (parameterValues.lineHeight - 0);
 		} else {
 			currentLineWidth += (parameterValues.characterSpacing - 0);
 		}
@@ -143,19 +197,16 @@ function drawLine(ctx3, currentAudioTime, aLine, thisLineYPosition,
 		if (aWord.startTime < currentAudioTime
 				&& aWord.endTime > currentAudioTime) {
 			xPosition = drawSelectedText(aWord, currentAudioTime, ctx3,
-					xPosition, thisLineYPosition);
-
+					xPosition, yPosition);
 			areWeDrawing = true;
-
 		} else {
 			xPosition = drawUnselectedText(aWord, currentAudioTime, ctx3,
-					xPosition, thisLineYPosition);
+					xPosition, yPosition);
 		}
 	}
 	if (isCurrentLine) {
-		console.log(aWord.words[0]);
-	}
 
+	}
 	return thisLineYPosition;
 }
 
@@ -186,8 +237,11 @@ function drawCoveredWord(aWord, xPosition, yPosition, selectedFontSize,
 		word1Context.textBaseline = 'alphabetic';
 		word1Context.fillStyle = parameterValues.selectedFontColour;
 		word1Context.globalAlpha = parameterValues.selectedWordOpacity;
-		word1Context.font = selectedFontSize + "px "
+		word1Context.font = parameterValues.fontStyle + " "
+				+ parameterValues.fontVariant + " "
+				+ parameterValues.fontWeight + " " + selectedFontSize + "px "
 				+ parameterValues.fontFamily;
+		;
 		word1Context.fillText(aWord.word, xPosition, yPosition);
 		word1Context.restore();
 	} else {
@@ -223,8 +277,10 @@ function drawCoveredWord(aWord, xPosition, yPosition, selectedFontSize,
 			word1Context.textBaseline = 'alphabetic';
 			word1Context.fillStyle = parameterValues.graduatedWordColour;
 			word1Context.globalAlpha = parameterValues.graduatedWordOpacity;
-			word1Context.font = selectedFontSize + "px "
-					+ parameterValues.fontFamily;
+			word1Context.font = parameterValues.fontStyle + " "
+					+ parameterValues.fontVariant + " "
+					+ parameterValues.fontWeight + " " + selectedFontSize
+					+ "px " + parameterValues.fontFamily;
 			word1Context.fillText(aWord.word, xPosition, yPosition);
 			word1Context.restore();
 			if (parameterValues.unselectedShadowShowFuture) {
@@ -236,8 +292,10 @@ function drawCoveredWord(aWord, xPosition, yPosition, selectedFontSize,
 			word2Context.textBaseline = 'alphabetic';
 			word2Context.globalAlpha = parameterValues.unselectedOpacityFuture;
 			word2Context.fillStyle = parameterValues.unselectedFontColourFuture;
-			word2Context.font = selectedFontSize + "px "
-					+ parameterValues.fontFamily;
+			word2Context.font = parameterValues.fontStyle + " "
+					+ parameterValues.fontVariant + " "
+					+ parameterValues.fontWeight + " " + selectedFontSize
+					+ "px " + parameterValues.fontFamily;
 			word2Context.fillText(aWord.word, xPosition, yPosition);
 			word2Context.restore();
 
@@ -248,16 +306,6 @@ function drawCoveredWord(aWord, xPosition, yPosition, selectedFontSize,
 
 function drawLittleCircle(theContext, centerX, centerY, radius,
 		currentAudioTime) {
-	// theContext.save();
-	// theContext.beginPath();
-	// theContext.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-	// theContext.fillStyle = 'blue';
-	// theContext.fill();
-	// theContext.lineWidth = 1;
-	// theContext.strokeStyle = 'red';
-	// theContext.stroke();
-	// theContext.restore();
-
 	currentWholeUnitTime = parseInt(Math.ceil(currentAudioTime / 10));
 	if (circ && parameterWavePoints) {
 		currentYHigh = (parameterWavePoints[parseInt(currentWholeUnitTime)].yHigh) / 100;
@@ -267,7 +315,6 @@ function drawLittleCircle(theContext, centerX, centerY, radius,
 			'width' : markerSize + 'px',
 			'height' : markerSize + 'px'
 		});
-
 		var markerPosX = parseInt(parameterValues.markerLeft)
 				- (((markerSize - parseInt(parameterValues.markerSize))) / 2);
 		circ.css({
@@ -282,14 +329,10 @@ function drawLittleCircle(theContext, centerX, centerY, radius,
 	var hippoY = parseInt(centerY) + parseInt(parameterValues.markerTextTop);
 	mySVG.style.left = hippoX + "px";
 	mySVG.style.top = hippoY + "px";
-
-	// circ.setAttribute("transform", "scale("+wigglePosition/10+")");
-
 }
 
 function drawUnselectedText(aWord, currentAudioTime, ctx3, xPosition, yPosition) {
 	ctx3.save();
-
 	if (aWord.startTime < currentAudioTime) {
 		if (parameterValues.unselectedShadowShowPast) {
 			ctx3.shadowColor = parameterValues.unselectedShadowColourPast;
@@ -297,8 +340,10 @@ function drawUnselectedText(aWord, currentAudioTime, ctx3, xPosition, yPosition)
 			ctx3.shadowOffsetY = parameterValues.unselectedShadowOffsetYPast;
 			ctx3.shadowBlur = parameterValues.unselectedShadowBlurPast;
 		}
-		ctx3.font = parameterValues.fontSize + "px "
-				+ parameterValues.fontFamily;
+		ctx3.font = parameterValues.fontStyle + " "
+				+ parameterValues.fontVariant + " "
+				+ parameterValues.fontWeight + " " + parameterValues.fontSize
+				+ "px " + parameterValues.fontFamily;
 		ctx3.textBaseline = 'alphabetic';
 		ctx3.globalAlpha = parameterValues.unselectedOpacityPast;
 		ctx3.fillStyle = parameterValues.unselectedFontColourPast;
@@ -311,15 +356,16 @@ function drawUnselectedText(aWord, currentAudioTime, ctx3, xPosition, yPosition)
 			ctx3.shadowOffsetY = parameterValues.unselectedShadowOffsetYFuture;
 			ctx3.shadowBlur = parameterValues.unselectedShadowBlurFuture;
 		}
-		ctx3.font = parameterValues.fontSize + "px "
-				+ parameterValues.fontFamily;
+		ctx3.font = parameterValues.fontStyle + " "
+				+ parameterValues.fontVariant + " "
+				+ parameterValues.fontWeight + " " + parameterValues.fontSize
+				+ "px " + parameterValues.fontFamily;
 		ctx3.textBaseline = 'alphabetic';
 		ctx3.globalAlpha = parameterValues.unselectedOpacityFuture;
 		ctx3.fillStyle = parameterValues.unselectedFontColourFuture;
 		ctx3.fillText(aWord.word, xPosition, yPosition);
 		ctx3.restore();
 	}
-
 	xPosition = xPosition + ctx3.measureText(aWord.word).width
 			+ (parameterValues.characterSpacing - 0);
 	ctx3.restore();
@@ -336,7 +382,9 @@ function drawSelectedText(aWord, currentAudioTime, ctx3, xPosition, yPosition) {
 		ctx3.shadowOffsetY = parameterValues.selectedShadowOffsetY;
 		ctx3.shadowBlur = parameterValues.selectedShadowBlur;
 	}
-	ctx3.font = parameterValues.fontSize + "px " + parameterValues.fontFamily;
+	ctx3.font = parameterValues.fontStyle + " " + parameterValues.fontVariant
+			+ " " + parameterValues.fontWeight + " " + parameterValues.fontSize
+			+ "px " + parameterValues.fontFamily;
 	ctx3.textBaseline = 'alphabetic';
 	ctx3.globalAlpha = parameterValues.selectedOpacity;
 	ctx3.fillStyle = parameterValues.selectedFontColour;
@@ -357,7 +405,9 @@ function drawSelectedText(aWord, currentAudioTime, ctx3, xPosition, yPosition) {
 	easingAmount = easingAmount || 0;
 
 	selectedFontSize = selectedFontSize + easingAmount;
-	ctx3.font = selectedFontSize + "px " + parameterValues.fontFamily;
+	ctx3.font = parameterValues.fontStyle + " " + parameterValues.fontVariant
+			+ " " + parameterValues.fontWeight + " " + selectedFontSize + "px "
+			+ parameterValues.fontFamily;
 	wordSpace = ctx3.measureText(aWord.word).width - wordWidth;
 
 	drawCoveredWord(aWord, (xPosition - (easingAmount / 4)),

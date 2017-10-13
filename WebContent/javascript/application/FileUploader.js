@@ -122,7 +122,7 @@ function processANewlyUploadedMusicFile(json) {
 				loadATrack2(json.uniqueId);
 				loadMetaData(json);
 				updateConsole("<p class='good'>* Processing complete.  Drag another audio file here to start again on a new track.</p>");
-				loadDefaultParametersFromFile('resources/videoScripts/test2.json');
+				loadDefaultParametersFromFile(videoScript);
 				enableView("enableTextView", "lyricText");
 			}, currentStateStore.ECLIPSE_FILE_WAIT);
 	

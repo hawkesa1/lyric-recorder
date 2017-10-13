@@ -7,7 +7,6 @@ var middleOfWordMouseDownX = 0;
 var trackingMouseDownX = 0;
 var LyricTracker = function(container) {
 
-	
 	var WAV_FILE_TIME_GAP = 10;
 	var DRAW_TIME_BY_PAGE_WIDTH = 0;
 	var POINT_SPACING = 2;
@@ -584,22 +583,30 @@ var LyricTracker = function(container) {
 														+ ((clickX - startOfWordMouseDownX) * 5) > (currentStateStore.currentSelectedWordPreviousWord.endTime + 10)) {
 											currentStateStore.currentSelectedWord.startTime = currentStateStore.currentSelectedWord.startTime
 													+ ((clickX - startOfWordMouseDownX) * 5);
-										
-											//word_0_0
-											//if this is the first word in the line
-											//Set the line startTime to this word's start time
-											if(parseInt(currentStateStore.currentSelectedWord.id.split('_')[2])===0)
-											{
-												currentStateStore.lineArray[parseInt(currentStateStore.currentSelectedWord.id.split('_')[1])].startTime=currentStateStore.currentSelectedWord.startTime;
-											}	
+
+											// word_0_0
+											// if this is the first word in the
+											// line
+											// Set the line startTime to this
+											// word's start time
+											if (parseInt(currentStateStore.currentSelectedWord.id
+													.split('_')[2]) === 0) {
+												currentStateStore.lineArray[parseInt(currentStateStore.currentSelectedWord.id
+														.split('_')[1])].startTime = currentStateStore.currentSelectedWord.startTime;
+											}
 										} else if (currentStateStore.currentSelectedWordPreviousWord == null
 												&& currentStateStore.currentSelectedWord.startTime
 														+ ((clickX - startOfWordMouseDownX) * 5) > 0) {
 											currentStateStore.currentSelectedWord.startTime = currentStateStore.currentSelectedWord.startTime
 													+ ((clickX - startOfWordMouseDownX) * 5);
-											console.log(currentStateStore.currentSelectedWord);
-											//Set the line startTime to this word's start time
-											currentStateStore.lineArray[parseInt(currentStateStore.currentSelectedWord.id.split('_')[1])].startTime=currentStateStore.currentSelectedWord.startTime;
+											console
+													.log(currentStateStore.currentSelectedWord);
+											// Set the line startTime to this
+											// word's start time
+											currentStateStore.lineArray[parseInt(currentStateStore.currentSelectedWord.id
+													.split('_')[1])].startTime = currentStateStore.currentSelectedWord.startTime;
+											//need to recalculatepages pages
+											needToReCalculatePages=true;
 										}
 									}
 									startOfWordMouseDownX = clickX;
@@ -618,6 +625,26 @@ var LyricTracker = function(container) {
 										currentStateStore.highestEndTime = currentStateStore.currentSelectedWord.endTime;
 									}
 
+									// If this is the last word on the line
+
+									var currentLineWordIndex = parseInt(currentStateStore.currentSelectedWord.id
+											.split('_')[2]);
+									var currentLineIndex = parseInt(currentStateStore.currentSelectedWord.id
+											.split('_')[1]);
+
+									var currentLinezz = currentStateStore.lineArray[currentLineIndex];
+
+									console.log(currentLineWordIndex + " "
+											+ currentLineIndex + " "
+											+ currentLinezz.words.length)
+									if ((currentLineWordIndex + 1) >= currentLinezz.words.length) {
+										currentLinezz.endTime = currentStateStore.currentSelectedWord.endTime;
+										//need to recalculatepages pages
+										needToReCalculatePages=true;
+									}
+
+									
+									
 									endOfWordMouseDownX = clickX;
 									changeCurrentSelectedWord();
 								} else if (middleOfWordMouseDownX > 0) {

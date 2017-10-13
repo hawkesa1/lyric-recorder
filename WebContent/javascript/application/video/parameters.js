@@ -4,7 +4,7 @@ var DEFAULT_CANVAS_HEIGHT = 600;
 var WIDTH_4K = 3840;
 var HEIGHT_4K = 2160;
 
-var videoScript = "resources/videoScripts/test2.json";
+var videoScript = "resources/videoScripts/test3.json";
 
 var BACKGROUND_IMAGE_LOCATION = "/images/";
 var BACKROUND_IMAGE_STORE;
@@ -12,6 +12,7 @@ var parameterValues = {};
 var parameterSnapshots = {
 	"snapshots" : []
 };
+var needToReCalculatePages=false;
 
 var parameterInitialiser = {
 	"groups" : [ {
@@ -304,7 +305,53 @@ var parameterInitialiser = {
 				"Oreos Outline Regular" : "Oreos",
 				"Impact" : "Impact"
 			},
-		}, {
+		},{
+			"label" : "Font Style",
+			"name" : "fontStyle",
+			"type" : "select",
+			"options" : {
+				"normal" : "normal",
+				"italic" : "italic",
+				"oblique" : "oblique"
+				
+			},
+			"action" : "input"
+		},{
+			"label" : "Font Variant",
+			"name" : "fontVariant",
+			"type" : "select",
+			"options" : {
+				"normal" : "normal",
+				"small-caps" : "small-caps"
+				
+			},
+			"action" : "input"
+		},{
+			"label" : "Font Weight",
+			"name" : "fontWeight",
+			"type" : "select",
+			"options" : {
+				"normal" : "normal",
+				"bold" : "bold",
+				"bolder" : "bolder",
+				"lighter" : "lighter",
+				"100" : "100",
+				"200" : "200",
+				"300" : "300",
+				"400" : "400",
+				"500" : "500",
+				"600" : "600",
+				"700" : "700",
+				"800" : "800",
+				"900" : "900"
+			},
+			"action" : "input"
+		}
+		
+		
+		
+		
+		, {
 			"label" : "Easing Function",
 			"name" : "selectedEasingFunction",
 			"type" : "select",
@@ -1165,7 +1212,7 @@ function createParameterSnapshot() {
 		id : parameterSnapshotId,
 		parameterValues : newSnapshot
 	});
-	download(JSON.stringify(parameterSnapshots), 'test.json',
+	download(JSON.stringify(parameterSnapshots), 'test3.json',
 			'application/json');
 	parameterSnapshotId++;
 }
