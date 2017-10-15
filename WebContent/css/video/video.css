@@ -77,7 +77,7 @@ body:after {
 	position: absolute;
 	left: -1px;
 	top: -2px;
-	border: 0px solid gray;
+	border: 0px solid blue;
 	width: 800px;
 	height: 600px;
 	opacity: 1;

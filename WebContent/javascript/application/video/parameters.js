@@ -12,7 +12,7 @@ var parameterValues = {};
 var parameterSnapshots = {
 	"snapshots" : []
 };
-var needToReCalculatePages=false;
+var needToReCalculatePages = false;
 
 var parameterInitialiser = {
 	"groups" : [ {
@@ -40,6 +40,63 @@ var parameterInitialiser = {
 			"label" : "Page Control",
 			"name" : "pageControl",
 			"type" : "pageControl",
+			"action" : "input"
+		}, {
+			"label" : "Page Easing Function",
+			"name" : "pageEasingFunction",
+			"type" : "select",
+			"defaultValue" : "easeOutExpo",
+			"options" : {
+				"easeOutQuad" : "easeOutQuad",
+				"easeInQuad" : "easeInQuad",
+				"easeOutQuad" : "easeOutQuad",
+				"easeInOutQuad" : "easeInOutQuad",
+				"easeInCubic" : "easeInCubic",
+				"easeOutCubic" : "easeOutCubic",
+				"easeInOutCubic" : "easeInOutCubic",
+				"easeInQuart" : "easeInQuart",
+				"easeOutQuart" : "easeOutQuart",
+				"easeInOutQuart" : "easeInOutQuart",
+				"easeInQuint" : "easeInQuint",
+				"easeOutQuint" : "easeOutQuint",
+				"easeInOutQuint" : "easeInOutQuint",
+				"easeInSine" : "easeInSine",
+				"easeOutSine" : "easeOutSine",
+				"easeInOutSine" : "easeInOutSine",
+				"easeInExpo" : "easeInExpo",
+				"easeOutExpo" : "easeOutExpo",
+				"easeInOutExpo" : "easeInOutExpo",
+				"easeInCirc" : "easeInCirc",
+				"easeOutCirc" : "easeOutCirc",
+				"easeInOutCirc" : "easeInOutCirc",
+				"easeInElastic" : "easeInElastic",
+				"easeOutElastic" : "easeOutElastic",
+				"easeInOutElastic" : "easeInOutElastic",
+				"easeInBack" : "easeInBack",
+				"easeOutBack" : "easeOutBack",
+				"easeInOutBack" : "easeInOutBack",
+				"easeInBounce" : "easeInBounce",
+				"easeOutBounce" : "easeOutBounce",
+				"easeInOutBounce" : "easeInOutBounce"
+			},
+			"action" : "input"
+		},  {
+			"label" : "pageFlyInStartValue",
+			"name" : "pageFlyInStartValue",
+			"type" : "range",
+			"min" : 0,
+			"max" : 2000,
+			"step" : 1,
+			"defaultValue" : 500,
+			"action" : "input"
+		}, {
+			"label" : "pageFlyInDuration",
+			"name" : "pageFlyInDuration",
+			"type" : "range",
+			"min" : 0,
+			"max" : 5000,
+			"step" : 1,
+			"defaultValue" : 1000,
 			"action" : "input"
 		} ]
 	}, {
@@ -305,7 +362,7 @@ var parameterInitialiser = {
 				"Oreos Outline Regular" : "Oreos",
 				"Impact" : "Impact"
 			},
-		},{
+		}, {
 			"label" : "Font Style",
 			"name" : "fontStyle",
 			"type" : "select",
@@ -313,20 +370,20 @@ var parameterInitialiser = {
 				"normal" : "normal",
 				"italic" : "italic",
 				"oblique" : "oblique"
-				
+
 			},
 			"action" : "input"
-		},{
+		}, {
 			"label" : "Font Variant",
 			"name" : "fontVariant",
 			"type" : "select",
 			"options" : {
 				"normal" : "normal",
 				"small-caps" : "small-caps"
-				
+
 			},
 			"action" : "input"
-		},{
+		}, {
 			"label" : "Font Weight",
 			"name" : "fontWeight",
 			"type" : "select",
@@ -347,10 +404,7 @@ var parameterInitialiser = {
 			},
 			"action" : "input"
 		}
-		
-		
-		
-		
+
 		, {
 			"label" : "Easing Function",
 			"name" : "selectedEasingFunction",
@@ -785,7 +839,7 @@ var parameterInitialiser = {
 			"step" : 1,
 			"defaultValue" : 25,
 			"action" : "input"
-		},{
+		}, {
 			"label" : "Marker Increase",
 			"name" : "markerIncrease",
 			"type" : "range",
@@ -794,7 +848,7 @@ var parameterInitialiser = {
 			"step" : 1,
 			"defaultValue" : 25,
 			"action" : "input"
-		},{
+		}, {
 			"label" : "Marker Text Left",
 			"name" : "markerTextLeft",
 			"type" : "range",
@@ -812,7 +866,7 @@ var parameterInitialiser = {
 			"step" : 1,
 			"defaultValue" : 25,
 			"action" : "input"
-		},{
+		}, {
 			"label" : "Marker Opacity",
 			"name" : "markerOpacity",
 			"type" : "range",

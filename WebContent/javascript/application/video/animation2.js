@@ -74,8 +74,6 @@ function drawPages(ctx3, currentAudioTime) {
 		var timeTilNextPage = 0;
 		var loopCount = 0;
 		outer_loop: for (var i = 0; i < currentStateStore.book.pages.length; i++) {
-			console.log(loopCount++);
-			console.log();
 			aPage = currentStateStore.book.pages[i];
 			if (i == 0 && aPage.startTime > currentAudioTime) {
 				// Before First Page
@@ -95,7 +93,7 @@ function drawPages(ctx3, currentAudioTime) {
 				break outer_loop;
 			}
 		}
-		if (timeTilNextPage <= 1000) {
+		if (timeTilNextPage <= parseInt(parameterValues.pageFlyInDuration)) {
 			drawPage(ctx3, currentAudioTime,
 					currentStateStore.book.pages[nextPage], timeTilNextPage);
 		}
@@ -105,8 +103,8 @@ function drawPages(ctx3, currentAudioTime) {
 
 function drawPage(ctx3, currentAudioTime, aPage, timeTilNextPage) {
 	if (timeTilNextPage > 0) {
-		flyInPosition = $.easing['easeInElastic'](0, timeTilNextPage, 0, 1000,
-				1000);
+		flyInPosition = $.easing[parameterValues.pageEasingFunction](0, timeTilNextPage, 0, parseInt(parameterValues.pageFlyInStartValue),
+				parseInt(parameterValues.pageFlyInDuration));
 
 		// flyInPosition = timeTilNextPage;
 	} else {
@@ -173,8 +171,6 @@ function drawLine(ctx3, currentAudioTime, aLine, thisLineYPosition,
 				+ parameterValues.fontVariant + " "
 				+ parameterValues.fontWeight + " " + parameterValues.fontSize
 				+ "px " + parameterValues.fontFamily;
-		console.log("Font String" + fontString);
-
 		ctx3.font = parameterValues.fontStyle + " "
 				+ parameterValues.fontVariant + " "
 				+ parameterValues.fontWeight + " " + parameterValues.fontSize
@@ -261,7 +257,7 @@ function drawCoveredWord(aWord, xPosition, yPosition, selectedFontSize,
 					selectedFontSize * percentComplete);
 		} else if (parameterValues.graduatedWordType == 'vertical') {
 			word1Context.rect(bx, by, bw, bh);
-			word2Context.rect((bx + bw) - 1, by, (theWordWidth - bw) + 20, bh);
+			word2Context.rect((bx + bw) +0, by, (theWordWidth - bw) + 100, bh);
 			word1Context.stroke();
 			word1Context.clip();
 			word1Context.closePath();
